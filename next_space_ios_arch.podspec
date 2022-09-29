@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/Wenjinfu/next_space_ios_arch'
+  s.homepage         = 'https://codeup.aliyun.com/62ab111798b10058fdb78c54/byte_flow/next_space_ios_arch.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Wenjinfu' => 'wenjinfu321@163.com' }
-  s.source           = { :git => 'https://github.com/Wenjinfu/next_space_ios_arch.git', :tag => s.version.to_s }
+  s.author           = { 'xxf' => 'xuanyouwu@163.com' }
+  s.source           = { :git => 'https://codeup.aliyun.com/62ab111798b10058fdb78c54/byte_flow/next_space_ios_arch.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
@@ -39,4 +39,6 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+ s.public_header_files = 'Pod/Classes/**/*'
+ s.dependency 'JLRoutes'
 end
