@@ -22,7 +22,7 @@ pod 'next_space_ios_arch'
 
 ## Author
 
-Wenjinfu, wenjinfu321@163.com
+xxf, xuanyouwu@163.com
 
 ## License
 
