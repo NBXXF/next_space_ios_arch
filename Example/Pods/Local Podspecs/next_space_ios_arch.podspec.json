@@ -1,0 +1,22 @@
+{
+  "name": "next_space_ios_arch",
+  "version": "0.1.0",
+  "summary": "A short description of next_space_ios_arch.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Wenjinfu/next_space_ios_arch",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Wenjinfu": "wenjinfu321@163.com"
+  },
+  "source": {
+    "git": "https://github.com/Wenjinfu/next_space_ios_arch.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "next_space_ios_arch/Classes/**/*"
+}

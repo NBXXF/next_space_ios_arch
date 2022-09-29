@@ -1,0 +1,6 @@
+framework module next_space_ios_arch {
+  umbrella header "next_space_ios_arch-umbrella.h"
+
+  export *
+  module * { export * }
+}

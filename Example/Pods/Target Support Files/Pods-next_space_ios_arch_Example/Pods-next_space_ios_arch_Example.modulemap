@@ -1,0 +1,6 @@
+framework module Pods_next_space_ios_arch_Example {
+  umbrella header "Pods-next_space_ios_arch_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

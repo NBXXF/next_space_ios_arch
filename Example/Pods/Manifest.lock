@@ -1,0 +1,16 @@
+PODS:
+  - next_space_ios_arch (0.1.0)
+
+DEPENDENCIES:
+  - next_space_ios_arch (from `../`)
+
+EXTERNAL SOURCES:
+  next_space_ios_arch:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  next_space_ios_arch: 8c48428463fe3d3183ab98473155beff432b23b3
+
+PODFILE CHECKSUM: b8b8e8bb8ba17c3513c9b16510ee9baf85f3eb93
+
+COCOAPODS: 1.11.3
