@@ -10,6 +10,13 @@
 #endif
 #endif
 
+#import "NXRouter+NewInstance.h"
+#import "NXRouter.h"
+#import "NXRouterHandlerBlock.h"
+#import "NXRouterInstanceFactory.h"
+#import "NXRouterOpenType.h"
+#import "NXRouterResultCallback.h"
+#import "NXVCRouterConst.h"
 
 FOUNDATION_EXPORT double next_space_ios_archVersionNumber;
 FOUNDATION_EXPORT const unsigned char next_space_ios_archVersionString[];

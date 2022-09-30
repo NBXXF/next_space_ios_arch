@@ -176,9 +176,11 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/next_space_ios_arch/next_space_ios_arch.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/next_space_ios_arch/next_space_ios_arch.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

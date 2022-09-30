@@ -7,6 +7,7 @@
 //
 
 #import "NXViewController.h"
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 @interface NXViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [NXRouter openURL:@"test"];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

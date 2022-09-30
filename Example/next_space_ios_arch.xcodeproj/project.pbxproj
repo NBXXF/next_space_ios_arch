@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1A14CAB59B7BB320DBD3BB4C /* Pods-next_space_ios_arch_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Tests.debug.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Tests/Pods-next_space_ios_arch_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		21DA380E0023CAB74626F44B /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = next_space_ios_arch.podspec; path = ../next_space_ios_arch.podspec; sourceTree = "<group>"; };
+		21DA380E0023CAB74626F44B /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = next_space_ios_arch.podspec; path = ../next_space_ios_arch.podspec; sourceTree = "<group>"; };
 		5EA92CA8F249B4FC3EDA07A0 /* Pods-next_space_ios_arch_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Example.debug.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Example/Pods-next_space_ios_arch_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* next_space_ios_arch_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = next_space_ios_arch_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,12 +60,12 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		67D0634AAB302802B91E1AA3 /* Pods-next_space_ios_arch_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Example.release.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Example/Pods-next_space_ios_arch_Example.release.xcconfig"; sourceTree = "<group>"; };
-		680A172176E9D52618D23413 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		680A172176E9D52618D23413 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6C789331131B52AF5BBCB2A0 /* Pods_next_space_ios_arch_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_next_space_ios_arch_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846026C6DFD5C918A4FC3D12 /* Pods-next_space_ios_arch_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Tests.release.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Tests/Pods-next_space_ios_arch_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E0395E2C846DECFAF4A3929B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E0395E2C846DECFAF4A3929B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F282FDE47CFCD0D0AC8C31A7 /* Pods_next_space_ios_arch_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_next_space_ios_arch_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,7 +103,6 @@
 				1A14CAB59B7BB320DBD3BB4C /* Pods-next_space_ios_arch_Tests.debug.xcconfig */,
 				846026C6DFD5C918A4FC3D12 /* Pods-next_space_ios_arch_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -248,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Wenjinfu;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = Q84F4Y4BND;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +260,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -324,10 +327,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-next_space_ios_arch_Example/Pods-next_space_ios_arch_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
 				"${BUILT_PRODUCTS_DIR}/next_space_ios_arch/next_space_ios_arch.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/next_space_ios_arch.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +499,7 @@
 			baseConfigurationReference = 5EA92CA8F249B4FC3EDA07A0 /* Pods-next_space_ios_arch_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q84F4Y4BND;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "next_space_ios_arch/next_space_ios_arch-Prefix.pch";
 				INFOPLIST_FILE = "next_space_ios_arch/next_space_ios_arch-Info.plist";
@@ -510,6 +516,7 @@
 			baseConfigurationReference = 67D0634AAB302802B91E1AA3 /* Pods-next_space_ios_arch_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q84F4Y4BND;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "next_space_ios_arch/next_space_ios_arch-Prefix.pch";
 				INFOPLIST_FILE = "next_space_ios_arch/next_space_ios_arch-Info.plist";

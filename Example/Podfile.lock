@@ -1,16 +1,23 @@
 PODS:
-  - next_space_ios_arch (0.1.0)
+  - JLRoutes (2.1)
+  - next_space_ios_arch (0.1.0):
+    - JLRoutes
 
 DEPENDENCIES:
   - next_space_ios_arch (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - JLRoutes
 
 EXTERNAL SOURCES:
   next_space_ios_arch:
     :path: "../"
 
 SPEC CHECKSUMS:
-  next_space_ios_arch: 8c48428463fe3d3183ab98473155beff432b23b3
+  JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
+  next_space_ios_arch: 3fcb11018e42ec08201e222feed1c48fe4670f02
 
-PODFILE CHECKSUM: b8b8e8bb8ba17c3513c9b16510ee9baf85f3eb93
+PODFILE CHECKSUM: ba40ea80d8f6172c80aee4e33cc2ac34f8820a1b
 
 COCOAPODS: 1.11.3
