@@ -8,11 +8,13 @@
 #import <JLRoutes/JLRoutes.h>
 #import <JLRoutes/JLRRouteDefinition.h>
 #import "NXVCRouterConst.h"
+#import "NXRouterServiceDefinition.h"
 
 NSString *const NXRouterResultCallbackKey = @"kRouterResultCallback";
 NSString *const NXRouterClassNameKey = @"kRouterClassName";
 
 static NSMutableDictionary<NSString *,NSDictionary<NSNumber *,NSDictionary *> *> *globalStaticConfig;
+static NSMutableDictionary<NSString *,NXRouterServiceDefinition *> *spiRegisterTable;
 static NXRouterHandlerBlock globalHandlerBlock;
 static NXRouterInstanceFactory globalInstanceFactory;
 /**
@@ -21,6 +23,7 @@ static NXRouterInstanceFactory globalInstanceFactory;
 @implementation NXRouter
 + (void)initialize{
     globalStaticConfig=[NSMutableDictionary dictionary];
+    spiRegisterTable=[NSMutableDictionary dictionary];
 }
 
 + (void)initRouter:(NXRouterHandlerBlock)handler andInstanceFactory:(NXRouterInstanceFactory)instanceFactory{
@@ -79,7 +82,7 @@ static NXRouterInstanceFactory globalInstanceFactory;
     if(!config){
         config=[NSDictionary dictionary];
     }
-   
+    
     
     //获取url 对应的config
     NSMutableDictionary *staticConfigByUrl= ([globalStaticConfig objectForKey:url]?:[NSDictionary dictionary]).mutableCopy;
@@ -108,6 +111,43 @@ static NXRouterInstanceFactory globalInstanceFactory;
     }];
 }
 
+
++ (void)registerService:(Protocol *)provider targetClass:(Class)target{
+    NSString *providerProtocolName= NSStringFromProtocol(provider);
+    NSString *targetClassName= NSStringFromClass(target);
+    if(![target conformsToProtocol:provider]){
+        NSString *reason=[NSString stringWithFormat:@"%@ not conformsToProtocol %@",targetClassName,providerProtocolName];
+        NSException *e = [NSException
+                          exceptionWithName: @"ServiceRegisterException"
+                          reason: reason
+                          userInfo: nil];
+        @throw e;
+    }
+    NXRouterServiceDefinition *definition=[[NXRouterServiceDefinition alloc] init];
+    definition.providerProtocolName=providerProtocolName;
+    definition.targetClassName=targetClassName;
+    [spiRegisterTable setObject:definition forKey:providerProtocolName];
+}
+
+
++ (id)getService:(Protocol *)provider{
+    NSString *providerProtocolName= NSStringFromProtocol(provider);
+    NXRouterServiceDefinition *definition=[spiRegisterTable objectForKey:providerProtocolName];
+    if(!definition){
+        NSString *reason=[NSString stringWithFormat:@"%@ not register",providerProtocolName];
+        NSException *e = [NSException
+                                 exceptionWithName: @"ServiceRegisterException"
+                          reason: reason
+                                 userInfo: nil];
+        @throw e;
+    }
+    if(!definition.target){
+        NSString *targetClassName=definition.targetClassName;
+        definition.target=[[NSClassFromString(targetClassName) alloc] init];
+        [spiRegisterTable setObject:definition forKey:providerProtocolName];
+    }
+    return definition.target;
+}
 
 
 + (NXRouterHandlerBlock)getGlobalRouterHandlerBlock{

@@ -65,6 +65,21 @@ extern NSString *const NXRouterClassNameKey;
 
 
 /**
+ 获取SPI实例
+ @param provider 定义的暴露服务
+ */
++(id)getService:(Protocol *)provider;
+
+
+/**
+ 注册SPI 建议在类的load 方法中注册
+ @param provider 定义的暴露服务
+ @param target 目标类
+ */
++(void)registerService:(Protocol *)provider targetClass:(Class)target;
+
+
+/**
  获取全局的路由处理器,方便业务包装
  */
 +(NXRouterHandlerBlock)getGlobalRouterHandlerBlock;
