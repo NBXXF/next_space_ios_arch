@@ -123,11 +123,7 @@ static NXRouterInstanceFactory globalInstanceFactory;
 
 
 + (void)registerService:(Protocol *)api targetClass:(Class)target{
-    [NXServiceLoader registerService:api targetClass:target priority:@(0)];
-}
-
-+ (void)registerService:(Protocol *)api targetClass:(Class)target priority:(NSNumber *)priority{
-    [NXServiceLoader registerService:api targetClass:target priority:priority];
+    [NXServiceLoader registerService:api targetClass:target];
 }
 
 + (id)getService:(Protocol *)api{

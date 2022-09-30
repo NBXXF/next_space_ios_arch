@@ -19,12 +19,6 @@ static NSMutableDictionary<NSString *,NSMutableArray<NXRouterServiceDefinition *
 
 
 + (void)registerService:(Protocol *)api targetClass:(Class)target{
-    [self registerService:api targetClass:target priority:@(0)];
-}
-
-
-
-+ (void)registerService:(Protocol *)api targetClass:(Class)target priority:(NSNumber *)priority{
     NSString *apiProtocolName= NSStringFromProtocol(api);
     NSString *targetClassName= NSStringFromClass(target);
     if(![target conformsToProtocol:api]){
@@ -46,6 +40,7 @@ static NSMutableDictionary<NSString *,NSMutableArray<NXRouterServiceDefinition *
     
     [spiRegisterTable setObject:apiServiceArray forKey:apiProtocolName];
 }
+
 
 
 + (id)getService:(Protocol *)api{
