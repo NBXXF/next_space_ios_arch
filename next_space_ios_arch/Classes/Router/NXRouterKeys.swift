@@ -28,7 +28,7 @@ import Foundation
     ///限制窗体内容大小  类型是:NXPresentStyle
     @objc public static let NXRouterContentStyleKey = "kRouterContentStyle";
     
-    ///业务自定义的标记 类型是:int
+    ///业务自定义的标记 类型是:NXRouterFlags  可以多位进行或 ,必须是按二进制移位
     @objc public static let NXRouterFlagsKey = "kRouterFlags";
     
 }

@@ -29,8 +29,39 @@
     
    // [NXRouter openURL:@"test"];
     
+
+    int flag_default=1<<0;
+    int flag_test=1<<1;
+    int flag_test2=1<<2;
+    NSLog(@"============>flag_default:%d",flag_default);
+    NSLog(@"============>flag_test:%d",flag_test);
+    NSLog(@"============>flag_test2:%d",flag_test2);
+    
+    int flags=flag_test|flag_test2|flag_default;
+    
+    
+    [self printContains:flags fl:flag_default];
+    [self printContains:flags fl:flag_test];
+    [self printContains:flags fl:flag_test2];
+    
+    [self printContains:flags fl:1<<4];
+    [self printContains:flags fl:1<<5];
+    
+    
+    
+    
+    for(int i=0;i<1000;i++){
+       //[self printContains:flag fl:i];
+    }
+    
     
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)printContains:(int)flags fl:(int)currentFlag{
+    if((currentFlag & flags)!=0){
+        NSLog(@"============>包含:%d",currentFlag);
+    }
 }
 
 - (void)didReceiveMemoryWarning

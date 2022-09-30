@@ -13,6 +13,7 @@
 #import "NXInitializer.h"
 #import "NXRouter+NewInstance.h"
 #import "NXRouter.h"
+#import "NXRouterFlags.h"
 #import "NXRouterHandlerBlock.h"
 #import "NXRouterInstanceFactory.h"
 #import "NXRouterOpenType.h"

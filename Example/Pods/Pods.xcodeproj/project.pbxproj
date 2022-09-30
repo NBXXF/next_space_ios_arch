@@ -7,143 +7,145 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006B22706E0E191817C27D83BD616DA8 /* NXVCRouterConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A4EEB94CA147DE83A24AF19767C507 /* NXVCRouterConst.m */; };
 		0090196F72CCCF46B8BF5516EBADF1D0 /* Pods-next_space_ios_arch_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC8746D56A8873E1D108E0E37363609 /* Pods-next_space_ios_arch_Example-dummy.m */; };
-		0C462F63340C782D7A66F47C7482EFA7 /* NXServiceLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6764DCAB1F896A9EE3EF7926129A9507 /* NXServiceLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0CBD47E13D7852AFA08B5C6452767012 /* NXRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B885CB4F1A6FEE9A7A026D92770543 /* NXRouter.m */; };
-		106139175D48A9433083D4AA5B50AE5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		09BB78636A3DA5C5CAA43AC7E2AB0C4A /* NXInitializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E56D6813ADC3271E227238D1264B37 /* NXInitializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E2E4002D35E1875199EB8A7DD27DD3E /* next_space_ios_arch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C712A3F46E24575C9971C28E150331A2 /* next_space_ios_arch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19E6C70F591B3DE7CA46263396957FC4 /* JLRRouteHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CEE749F77EC2D16F538BAF7463F93C /* JLRRouteHandler.m */; };
-		1EC88327E8C0B8B430D5ABA896BD1FEA /* NXRouterServiceDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = C59F736A6860378471B7A438BA3D8835 /* NXRouterServiceDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		232A44A8A609335FFD7D9B1942B77ABC /* next_space_ios_arch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89523D560D5437B1C27648B7760AC31A /* next_space_ios_arch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		290E5A0A7461A1F9D233EC27270626F6 /* NXRouterInstanceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F8505DA6DCA6A4DB0533EC7C530974B /* NXRouterInstanceFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		291FA8876FC004B71632A2771568D30F /* JLRRouteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A0FCFE2D26E0CDC364BECD433F185FD9 /* JLRRouteRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E49069DA971601B26A5D72B7A7F59A1 /* NXInitializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 53B27E5BA497A56C97CE0AD539BD0596 /* NXInitializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AE74B98DB31F5ADCEEDC634A62AEBA8 /* NXRouter+NewInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = B86A6D1DE3754E157B7288A43653B3DF /* NXRouter+NewInstance.m */; };
+		34E078CFB9915471D1C1474EC829C5AB /* NXRouterOpenType.h in Headers */ = {isa = PBXBuildFile; fileRef = D1CA0EE1A9CD8865AA1434CE0D06DF83 /* NXRouterOpenType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42B141EB6B1E50F3EAADA548E6F55EB9 /* JLRRouteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FC60DA3073FE5922F8D57958031FFC7B /* JLRRouteResponse.m */; };
-		4D4C3E043FB188D310585BD9B5C9AD20 /* NXRouterServiceDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4615D1F0FDEC1B19F3822E2555533D54 /* NXRouterServiceDefinition.m */; };
-		4DAF1E6780791ACA84A37DCFC23A88EA /* NXVCRouterConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 1933DB1E80264C04707DFC51FDD876AE /* NXVCRouterConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		494E41E8128E9FCAB469D4322954FDCA /* NXRouterResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 5061C79BD89445745AC9BC18F7061177 /* NXRouterResultCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DFA5D1EA8F8F03454E2CD313A8DA3B2 /* JLRRouteResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 54EE06E0EE6FB05C870414BA21B0433C /* JLRRouteResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E24051B9C14210ABF06803F41DEE8E4 /* NXRouter+NewInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C347602313255867E09DB4A5CE9447E /* NXRouter+NewInstance.m */; };
+		4F51106AEF1D483DCB7A59DF07CF0B95 /* NXRouterFlags.h in Headers */ = {isa = PBXBuildFile; fileRef = E0374FEA2D0D0D149A83DE7349C0EA9A /* NXRouterFlags.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5458B92358B85719DA2C501FC8A9BAFE /* NXRouterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ADE8AEFED1B3E48A63A4ECE367A124 /* NXRouterKeys.swift */; };
+		5642D50A9D6D03ED6B7345325DE297CE /* NXRouterServiceDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 419741C8D01D626883BD6AE828345519 /* NXRouterServiceDefinition.m */; };
 		5EAA83C0127233DA976D0D5379864457 /* JLRRouteDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C2C9E6A20A48BC97DDCEE14C5F711 /* JLRRouteDefinition.m */; };
+		67EBF4BA8494D17CE9504D0F7229AB7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		6B7E84D9EABF96F7868DF0BB3573FFF7 /* JLRoutes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA01BC45E19FD7F167A4BADB07C1E81F /* JLRoutes-dummy.m */; };
-		7502AF2B4F71EB9ADED5DFA1D90C030A /* NXRouterResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = DE20E2C36DB4E080205003B2958CAA04 /* NXRouterResultCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75C45409904B12854E49D5BB1C55AD5E /* JLRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = D151A10DF4B1BF62A7CBA9ED5D4DE787 /* JLRoutes.m */; };
-		7CBE0E8E1FFF0BE37EAA224ADD477022 /* NXRouterHandlerBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0D8A7B08FB4624AE44CD4C25D4D3D7 /* NXRouterHandlerBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76F98F697419DCA273962053B44E792A /* NXRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 67284982EAD55AB3C476A90C7626798D /* NXRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81E50CC4480D8D250BBEC5CBC3259121 /* NXRouterInstanceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7432B17A5A0325596D42C241327CD5EB /* NXRouterInstanceFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B7DD3B16523D2EA66B6A54A439E8EB8 /* JLRRouteHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 583C0FA68AD85CDAFBA544A21572FEFA /* JLRRouteHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8BC5E73C642D43DE0FB50E62AC7C6391 /* JLRParsingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AB0C49A87CB2972236BA4D47D22216 /* JLRParsingUtilities.m */; };
-		8C514EC42793DC61DC72FC8313F391EF /* NXVCRouterConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AC173008E39B782E8E0C2A5386D0C8E7 /* NXVCRouterConst.m */; };
-		900ED392C5B226026F1AD076293B6254 /* NXRouterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC98EFF5DA438335A1D7E8FC1B2B7A /* NXRouterKeys.swift */; };
 		9876C6A7D98B11476F12801B9B964F3E /* JLRRouteDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = 79F1208409DF41D10F91C00AD2125896 /* JLRRouteDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99B849D9A1AA603259F18208B295CD2D /* NXRouterServiceDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5A30AE5AFA3D2F2AF2AEC390903414 /* NXRouterServiceDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DCDEC7BFA708F173120444F48D31AA2 /* Pods-next_space_ios_arch_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CCACE0983BF6975B7A162A02BBF9D9 /* Pods-next_space_ios_arch_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A79867AFFA2893AE4F943EA1EDE92BDD /* Pods-next_space_ios_arch_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9147BA7009A5FAD24FA3F155FE6723 /* Pods-next_space_ios_arch_Tests-dummy.m */; };
 		AD3F9902B295A806C101F4641D167314 /* JLRoutes.h in Headers */ = {isa = PBXBuildFile; fileRef = F5C40AEA7BE1553A835A74DF9A83451A /* JLRoutes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AE6D892D06C227B72140D310480A2999 /* next_space_ios_arch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E02CBA765CDF90811DA9DAEA724D0B /* next_space_ios_arch-dummy.m */; };
+		AE6FB8630CB1D2D1D5104557A2FF5552 /* NXRouter+NewInstance.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EA3283FADC9E10D9CE27AE227D300E /* NXRouter+NewInstance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF574B1418A10F8298332048A26C352C /* NXServiceLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F269DC2C1BEEAB4A78D59BAD63C405A /* NXServiceLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B14763FF57FF56FD5AF6F056FF530653 /* next_space_ios_arch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E09A44139613C4FC8CD0727219D68A01 /* next_space_ios_arch-dummy.m */; };
 		B6DB24DD2D06BB7F6A84A8794068B2A3 /* JLRRouteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6D22109C7E51B9D10EEE4396B69D11 /* JLRRouteRequest.m */; };
 		BAD6149697CD230080FEE4811B039D72 /* Pods-next_space_ios_arch_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 809B0EE878677A74527110C0A986D3B5 /* Pods-next_space_ios_arch_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C47BD191028130F1152579E4929690FB /* NXRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98705FA31552950FEE5FB318CB539C44 /* NXRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C49F93776CA65E5873A0CF81B4E3B75C /* NXRouterOpenType.h in Headers */ = {isa = PBXBuildFile; fileRef = BD9BF0AFCF32128E5B329431C0C3F607 /* NXRouterOpenType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C85DA1A46354A468969EACD179FE386F /* JLRParsingUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE9F5FD712707AD92D2645D03E8FE42 /* JLRParsingUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC50D47BC31F1BE75322F4B74E0504F9 /* NXServiceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 947F11DFE6DF710265E98BF8C672CBB1 /* NXServiceLoader.m */; };
+		CF9D2A2E35D33E7996B67E3438105B8C /* NXServiceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B33B00C261B0CD96D2048D84D0F65A4 /* NXServiceLoader.m */; };
 		D30690EB5FB5D419C194A18D46A45302 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		DAB4F54F442A4A9CBDFEE8F057F139EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		DC0A239813750758DE5AE72593924663 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		DC81CE0449F2875DDC3FBB914096F7FA /* NXRouter+NewInstance.h in Headers */ = {isa = PBXBuildFile; fileRef = C1EA4795B15CAF0BD48AE3F9A30F4A75 /* NXRouter+NewInstance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1245D2F46461E59626FC61A62386DBF /* JLRoutes-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99E0D8323A34140574A770940F8CCE1F /* JLRoutes-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F57CFE0393D22501B7FBC59CFA38D1D7 /* NXVCRouterConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 64FDDD1CB825A09EF1BE71F25280A01F /* NXVCRouterConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5E93FC2F237506273460709E652ECFA /* NXRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7666FE29CB042ACA71B26BDD78D883E /* NXRouter.m */; };
+		FBE124DCA935AAB4CF55DCD2DF5C48BA /* NXRouterHandlerBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = F483F9C8D74A130DBC1865E513F70472 /* NXRouterHandlerBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		070EDA39333E4A7154C650886386C9C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 94C1BAA17BCEBC27586488A205D2E0CB;
-			remoteInfo = JLRoutes;
-		};
-		2ACECCAE2165B434D69D410F8BC3A3F4 /* PBXContainerItemProxy */ = {
+		0A0E8FA5FE33E4EAB79FEF93D6AB3D69 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AA88C7AFB85B636AF1289CD77B24CD67;
 			remoteInfo = next_space_ios_arch;
 		};
-		6D2BD1FBFE07257972CF3ADCCA5BA2DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 94C1BAA17BCEBC27586488A205D2E0CB;
-			remoteInfo = JLRoutes;
-		};
-		EC18BA66B4689E7B2C640EEEABD50086 /* PBXContainerItemProxy */ = {
+		418610BA157956B4F873F341C8050612 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 84CFC19268DBED8CE99C11F08A68D062;
 			remoteInfo = "Pods-next_space_ios_arch_Example";
 		};
+		66A8F116C7F8629F9C2E0C409418FC5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94C1BAA17BCEBC27586488A205D2E0CB;
+			remoteInfo = JLRoutes;
+		};
+		DF3C3D12670F89D6286D48BE65C810D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94C1BAA17BCEBC27586488A205D2E0CB;
+			remoteInfo = JLRoutes;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		008DC096F8D9A416738F6C08B2E5651C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		09CEE749F77EC2D16F538BAF7463F93C /* JLRRouteHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRRouteHandler.m; path = JLRoutes/Classes/JLRRouteHandler.m; sourceTree = "<group>"; };
 		14112E1350CEE15D4B593980940B02DB /* Pods-next_space_ios_arch_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-next_space_ios_arch_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		15B885CB4F1A6FEE9A7A026D92770543 /* NXRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXRouter.m; path = next_space_ios_arch/Classes/Router/NXRouter.m; sourceTree = "<group>"; };
-		1933DB1E80264C04707DFC51FDD876AE /* NXVCRouterConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXVCRouterConst.h; path = next_space_ios_arch/Classes/Router/NXVCRouterConst.h; sourceTree = "<group>"; };
 		1A6F7342C0AEBEC7D16D446F5DF21C93 /* JLRoutes-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JLRoutes-prefix.pch"; sourceTree = "<group>"; };
-		1C347602313255867E09DB4A5CE9447E /* NXRouter+NewInstance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NXRouter+NewInstance.m"; path = "next_space_ios_arch/Classes/Router/NXRouter+NewInstance.m"; sourceTree = "<group>"; };
 		1E04DFAD51C4769B181641AEBD792183 /* Pods-next_space_ios_arch_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-next_space_ios_arch_Tests-Info.plist"; sourceTree = "<group>"; };
 		296E36CF79FC66A886C7780E4D51F043 /* Pods-next_space_ios_arch_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-next_space_ios_arch_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		2AE3FAEEFE32393F9141E3B0EF8AE58F /* next_space_ios_arch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = next_space_ios_arch.release.xcconfig; sourceTree = "<group>"; };
 		2C6C2C9E6A20A48BC97DDCEE14C5F711 /* JLRRouteDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRRouteDefinition.m; path = JLRoutes/Classes/JLRRouteDefinition.m; sourceTree = "<group>"; };
+		31109C851F8B8061DB0E2E676A5D5461 /* next_space_ios_arch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = next_space_ios_arch.debug.xcconfig; sourceTree = "<group>"; };
 		351E07E59D1D0A4DBC4518085901877C /* Pods-next_space_ios_arch_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-next_space_ios_arch_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		35279532BCC06FA03979C629482AB3FE /* Pods-next_space_ios_arch_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-next_space_ios_arch_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3AEC37F457782CC99E1184A1D4EB5587 /* next_space_ios_arch-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "next_space_ios_arch-prefix.pch"; sourceTree = "<group>"; };
+		3B33B00C261B0CD96D2048D84D0F65A4 /* NXServiceLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXServiceLoader.m; path = next_space_ios_arch/Classes/Router/NXServiceLoader.m; sourceTree = "<group>"; };
 		3E6D22109C7E51B9D10EEE4396B69D11 /* JLRRouteRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRRouteRequest.m; path = JLRoutes/Classes/JLRRouteRequest.m; sourceTree = "<group>"; };
 		40AB0C49A87CB2972236BA4D47D22216 /* JLRParsingUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRParsingUtilities.m; path = JLRoutes/Classes/JLRParsingUtilities.m; sourceTree = "<group>"; };
-		4615D1F0FDEC1B19F3822E2555533D54 /* NXRouterServiceDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXRouterServiceDefinition.m; path = next_space_ios_arch/Classes/Router/NXRouterServiceDefinition.m; sourceTree = "<group>"; };
+		419741C8D01D626883BD6AE828345519 /* NXRouterServiceDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXRouterServiceDefinition.m; path = next_space_ios_arch/Classes/Router/NXRouterServiceDefinition.m; sourceTree = "<group>"; };
+		46E06E9118DA77AE197F170E41883913 /* next_space_ios_arch-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "next_space_ios_arch-prefix.pch"; sourceTree = "<group>"; };
 		48490817025D927E23ACFD43C44AC433 /* Pods-next_space_ios_arch_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-next_space_ios_arch_Example-frameworks.sh"; sourceTree = "<group>"; };
 		4F2C8B8C0A7B3505A4A9BCCB316FB379 /* JLRoutes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JLRoutes.release.xcconfig; sourceTree = "<group>"; };
+		5061C79BD89445745AC9BC18F7061177 /* NXRouterResultCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterResultCallback.h; path = next_space_ios_arch/Classes/Router/NXRouterResultCallback.h; sourceTree = "<group>"; };
 		50FFBAE87DAAA5D19C6D04413ED5E6D3 /* JLRoutes */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JLRoutes; path = JLRoutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5308737225AB10D0B467271DF931F854 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		53B27E5BA497A56C97CE0AD539BD0596 /* NXInitializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXInitializer.h; path = next_space_ios_arch/Classes/Router/NXInitializer.h; sourceTree = "<group>"; };
 		54EE06E0EE6FB05C870414BA21B0433C /* JLRRouteResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRRouteResponse.h; path = JLRoutes/Classes/JLRRouteResponse.h; sourceTree = "<group>"; };
 		583C0FA68AD85CDAFBA544A21572FEFA /* JLRRouteHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRRouteHandler.h; path = JLRoutes/Classes/JLRRouteHandler.h; sourceTree = "<group>"; };
 		5DA1667589E6750B53A401D0F593C118 /* Pods-next_space_ios_arch_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-next_space_ios_arch_Tests"; path = Pods_next_space_ios_arch_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DA5E948D6A56F98B0FB8B4651C83B33 /* next_space_ios_arch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "next_space_ios_arch-Info.plist"; sourceTree = "<group>"; };
+		64FDDD1CB825A09EF1BE71F25280A01F /* NXVCRouterConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXVCRouterConst.h; path = next_space_ios_arch/Classes/Router/NXVCRouterConst.h; sourceTree = "<group>"; };
 		66FBD7F7216CFD8F2FAD47007BD87C60 /* Pods-next_space_ios_arch_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-next_space_ios_arch_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		6764DCAB1F896A9EE3EF7926129A9507 /* NXServiceLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXServiceLoader.h; path = next_space_ios_arch/Classes/Router/NXServiceLoader.h; sourceTree = "<group>"; };
-		6D665711658632638F32FD035DD4B78F /* next_space_ios_arch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = next_space_ios_arch.release.xcconfig; sourceTree = "<group>"; };
+		67284982EAD55AB3C476A90C7626798D /* NXRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouter.h; path = next_space_ios_arch/Classes/Router/NXRouter.h; sourceTree = "<group>"; };
 		6D9147BA7009A5FAD24FA3F155FE6723 /* Pods-next_space_ios_arch_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-next_space_ios_arch_Tests-dummy.m"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7432B17A5A0325596D42C241327CD5EB /* NXRouterInstanceFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterInstanceFactory.h; path = next_space_ios_arch/Classes/Router/NXRouterInstanceFactory.h; sourceTree = "<group>"; };
+		74E56D6813ADC3271E227238D1264B37 /* NXInitializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXInitializer.h; path = next_space_ios_arch/Classes/Router/NXInitializer.h; sourceTree = "<group>"; };
 		77D5F4F049AB92B7C5A2293303010346 /* JLRoutes.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JLRoutes.modulemap; sourceTree = "<group>"; };
 		7866BBEDEF6070D102E605BD7254E2BE /* Pods-next_space_ios_arch_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-next_space_ios_arch_Example.modulemap"; sourceTree = "<group>"; };
 		79F1208409DF41D10F91C00AD2125896 /* JLRRouteDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRRouteDefinition.h; path = JLRoutes/Classes/JLRRouteDefinition.h; sourceTree = "<group>"; };
-		7B0D8A7B08FB4624AE44CD4C25D4D3D7 /* NXRouterHandlerBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterHandlerBlock.h; path = next_space_ios_arch/Classes/Router/NXRouterHandlerBlock.h; sourceTree = "<group>"; };
 		809B0EE878677A74527110C0A986D3B5 /* Pods-next_space_ios_arch_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-next_space_ios_arch_Example-umbrella.h"; sourceTree = "<group>"; };
 		83EA03C23AEA3C88B81840D591B41CEA /* Pods-next_space_ios_arch_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-next_space_ios_arch_Example-Info.plist"; sourceTree = "<group>"; };
-		89523D560D5437B1C27648B7760AC31A /* next_space_ios_arch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "next_space_ios_arch-umbrella.h"; sourceTree = "<group>"; };
-		8E6CA17FDBAFCB4AF29E4477B998C4FC /* next_space_ios_arch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = next_space_ios_arch.modulemap; sourceTree = "<group>"; };
-		947F11DFE6DF710265E98BF8C672CBB1 /* NXServiceLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXServiceLoader.m; path = next_space_ios_arch/Classes/Router/NXServiceLoader.m; sourceTree = "<group>"; };
-		98705FA31552950FEE5FB318CB539C44 /* NXRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouter.h; path = next_space_ios_arch/Classes/Router/NXRouter.h; sourceTree = "<group>"; };
+		90EA3283FADC9E10D9CE27AE227D300E /* NXRouter+NewInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NXRouter+NewInstance.h"; path = "next_space_ios_arch/Classes/Router/NXRouter+NewInstance.h"; sourceTree = "<group>"; };
 		99E0D8323A34140574A770940F8CCE1F /* JLRoutes-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JLRoutes-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F8505DA6DCA6A4DB0533EC7C530974B /* NXRouterInstanceFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterInstanceFactory.h; path = next_space_ios_arch/Classes/Router/NXRouterInstanceFactory.h; sourceTree = "<group>"; };
+		9F269DC2C1BEEAB4A78D59BAD63C405A /* NXServiceLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXServiceLoader.h; path = next_space_ios_arch/Classes/Router/NXServiceLoader.h; sourceTree = "<group>"; };
 		A00B573FCC9CB81FB2C8131E3FDC226B /* JLRoutes-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JLRoutes-Info.plist"; sourceTree = "<group>"; };
-		A035C3D1BE1B10665834133B75FC1568 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		A0FCFE2D26E0CDC364BECD433F185FD9 /* JLRRouteRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRRouteRequest.h; path = JLRoutes/Classes/JLRRouteRequest.h; sourceTree = "<group>"; };
 		A6DF1F00C2FD0265B2DC6B86B49D919B /* Pods-next_space_ios_arch_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-next_space_ios_arch_Example"; path = Pods_next_space_ios_arch_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE9F5FD712707AD92D2645D03E8FE42 /* JLRParsingUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRParsingUtilities.h; path = JLRoutes/Classes/JLRParsingUtilities.h; sourceTree = "<group>"; };
-		AC173008E39B782E8E0C2A5386D0C8E7 /* NXVCRouterConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXVCRouterConst.m; path = next_space_ios_arch/Classes/Router/NXVCRouterConst.m; sourceTree = "<group>"; };
-		BD9BF0AFCF32128E5B329431C0C3F607 /* NXRouterOpenType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterOpenType.h; path = next_space_ios_arch/Classes/Router/NXRouterOpenType.h; sourceTree = "<group>"; };
-		C1EA4795B15CAF0BD48AE3F9A30F4A75 /* NXRouter+NewInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NXRouter+NewInstance.h"; path = "next_space_ios_arch/Classes/Router/NXRouter+NewInstance.h"; sourceTree = "<group>"; };
-		C59F736A6860378471B7A438BA3D8835 /* NXRouterServiceDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterServiceDefinition.h; path = next_space_ios_arch/Classes/Router/NXRouterServiceDefinition.h; sourceTree = "<group>"; };
+		B86A6D1DE3754E157B7288A43653B3DF /* NXRouter+NewInstance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NXRouter+NewInstance.m"; path = "next_space_ios_arch/Classes/Router/NXRouter+NewInstance.m"; sourceTree = "<group>"; };
+		BA5A30AE5AFA3D2F2AF2AEC390903414 /* NXRouterServiceDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterServiceDefinition.h; path = next_space_ios_arch/Classes/Router/NXRouterServiceDefinition.h; sourceTree = "<group>"; };
 		C6E6E7748A60798E09088903521CE90E /* Pods-next_space_ios_arch_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-next_space_ios_arch_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C712A3F46E24575C9971C28E150331A2 /* next_space_ios_arch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "next_space_ios_arch-umbrella.h"; sourceTree = "<group>"; };
 		C7ADB059EE90A665277FD9049564D489 /* Pods-next_space_ios_arch_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-next_space_ios_arch_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		CE1A0D76C26F6B7301DA9D547CEE49D3 /* next_space_ios_arch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = next_space_ios_arch.debug.xcconfig; sourceTree = "<group>"; };
+		CBE6E8D994B749634AC817BF75F931DC /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = next_space_ios_arch.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D0A4EEB94CA147DE83A24AF19767C507 /* NXVCRouterConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXVCRouterConst.m; path = next_space_ios_arch/Classes/Router/NXVCRouterConst.m; sourceTree = "<group>"; };
 		D151A10DF4B1BF62A7CBA9ED5D4DE787 /* JLRoutes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRoutes.m; path = JLRoutes/JLRoutes.m; sourceTree = "<group>"; };
+		D1CA0EE1A9CD8865AA1434CE0D06DF83 /* NXRouterOpenType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterOpenType.h; path = next_space_ios_arch/Classes/Router/NXRouterOpenType.h; sourceTree = "<group>"; };
 		D3522A0296A5B0F1E78BB7039A49126A /* Pods-next_space_ios_arch_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-next_space_ios_arch_Tests.modulemap"; sourceTree = "<group>"; };
 		D3690465C05C76A795210E2594DAF733 /* Pods-next_space_ios_arch_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-next_space_ios_arch_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D6CCACE0983BF6975B7A162A02BBF9D9 /* Pods-next_space_ios_arch_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-next_space_ios_arch_Tests-umbrella.h"; sourceTree = "<group>"; };
-		DE20E2C36DB4E080205003B2958CAA04 /* NXRouterResultCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterResultCallback.h; path = next_space_ios_arch/Classes/Router/NXRouterResultCallback.h; sourceTree = "<group>"; };
-		E0E02CBA765CDF90811DA9DAEA724D0B /* next_space_ios_arch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "next_space_ios_arch-dummy.m"; sourceTree = "<group>"; };
+		D7666FE29CB042ACA71B26BDD78D883E /* NXRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NXRouter.m; path = next_space_ios_arch/Classes/Router/NXRouter.m; sourceTree = "<group>"; };
+		DC475533D03BA381528BB331FEE0D325 /* next_space_ios_arch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "next_space_ios_arch-Info.plist"; sourceTree = "<group>"; };
+		DF290BCCAA3FE2D686BAF122190A0CC6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E0374FEA2D0D0D149A83DE7349C0EA9A /* NXRouterFlags.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterFlags.h; path = next_space_ios_arch/Classes/Router/NXRouterFlags.h; sourceTree = "<group>"; };
+		E09A44139613C4FC8CD0727219D68A01 /* next_space_ios_arch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "next_space_ios_arch-dummy.m"; sourceTree = "<group>"; };
+		E986FE33A437D0E760404E12601FD4D9 /* next_space_ios_arch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = next_space_ios_arch.modulemap; sourceTree = "<group>"; };
 		EAC8746D56A8873E1D108E0E37363609 /* Pods-next_space_ios_arch_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-next_space_ios_arch_Example-dummy.m"; sourceTree = "<group>"; };
-		F2AC98EFF5DA438335A1D7E8FC1B2B7A /* NXRouterKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NXRouterKeys.swift; path = next_space_ios_arch/Classes/Router/NXRouterKeys.swift; sourceTree = "<group>"; };
-		F46AA8F92806BA6D0D0BDE09E20BDF75 /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = next_space_ios_arch.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F0ADE8AEFED1B3E48A63A4ECE367A124 /* NXRouterKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NXRouterKeys.swift; path = next_space_ios_arch/Classes/Router/NXRouterKeys.swift; sourceTree = "<group>"; };
+		F483F9C8D74A130DBC1865E513F70472 /* NXRouterHandlerBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NXRouterHandlerBlock.h; path = next_space_ios_arch/Classes/Router/NXRouterHandlerBlock.h; sourceTree = "<group>"; };
 		F5C40AEA7BE1553A835A74DF9A83451A /* JLRoutes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRoutes.h; path = JLRoutes/JLRoutes.h; sourceTree = "<group>"; };
 		F6A3ED69B91CD0C9EDBE7DE946F313F5 /* JLRoutes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JLRoutes.debug.xcconfig; sourceTree = "<group>"; };
 		FA01BC45E19FD7F167A4BADB07C1E81F /* JLRoutes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JLRoutes-dummy.m"; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB4F54F442A4A9CBDFEE8F057F139EC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB05C705DA4546114563C26FDA3F319 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67EBF4BA8494D17CE9504D0F7229AB7B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,41 +186,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E878AAA8DE0E9C4A5B4DC42B22660127 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				106139175D48A9433083D4AA5B50AE5D /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A006E3052E5F563EF2FCB0B17053018 /* next_space_ios_arch */ = {
+		1EC38112A36F637813462904DDF2F08D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				53B27E5BA497A56C97CE0AD539BD0596 /* NXInitializer.h */,
-				98705FA31552950FEE5FB318CB539C44 /* NXRouter.h */,
-				15B885CB4F1A6FEE9A7A026D92770543 /* NXRouter.m */,
-				C1EA4795B15CAF0BD48AE3F9A30F4A75 /* NXRouter+NewInstance.h */,
-				1C347602313255867E09DB4A5CE9447E /* NXRouter+NewInstance.m */,
-				7B0D8A7B08FB4624AE44CD4C25D4D3D7 /* NXRouterHandlerBlock.h */,
-				9F8505DA6DCA6A4DB0533EC7C530974B /* NXRouterInstanceFactory.h */,
-				F2AC98EFF5DA438335A1D7E8FC1B2B7A /* NXRouterKeys.swift */,
-				BD9BF0AFCF32128E5B329431C0C3F607 /* NXRouterOpenType.h */,
-				DE20E2C36DB4E080205003B2958CAA04 /* NXRouterResultCallback.h */,
-				C59F736A6860378471B7A438BA3D8835 /* NXRouterServiceDefinition.h */,
-				4615D1F0FDEC1B19F3822E2555533D54 /* NXRouterServiceDefinition.m */,
-				6764DCAB1F896A9EE3EF7926129A9507 /* NXServiceLoader.h */,
-				947F11DFE6DF710265E98BF8C672CBB1 /* NXServiceLoader.m */,
-				1933DB1E80264C04707DFC51FDD876AE /* NXVCRouterConst.h */,
-				AC173008E39B782E8E0C2A5386D0C8E7 /* NXVCRouterConst.m */,
-				EB72309E8E7645E315243A0C8026F4C6 /* Pod */,
-				ABA46479C09DF5FD6E96DB9AC3EBA3E5 /* Support Files */,
+				E986FE33A437D0E760404E12601FD4D9 /* next_space_ios_arch.modulemap */,
+				E09A44139613C4FC8CD0727219D68A01 /* next_space_ios_arch-dummy.m */,
+				DC475533D03BA381528BB331FEE0D325 /* next_space_ios_arch-Info.plist */,
+				46E06E9118DA77AE197F170E41883913 /* next_space_ios_arch-prefix.pch */,
+				C712A3F46E24575C9971C28E150331A2 /* next_space_ios_arch-umbrella.h */,
+				31109C851F8B8061DB0E2E676A5D5461 /* next_space_ios_arch.debug.xcconfig */,
+				2AE3FAEEFE32393F9141E3B0EF8AE58F /* next_space_ios_arch.release.xcconfig */,
 			);
-			name = next_space_ios_arch;
-			path = ../..;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/next_space_ios_arch";
+			sourceTree = "<group>";
+		};
+		325EAFC16FB5AD99FBC1F8D569EA920B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				008DC096F8D9A416738F6C08B2E5651C /* LICENSE */,
+				CBE6E8D994B749634AC817BF75F931DC /* next_space_ios_arch.podspec */,
+				DF290BCCAA3FE2D686BAF122190A0CC6 /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		48DE05140112148A5E8893CD67BE55FF /* Pods */ = {
@@ -244,6 +245,33 @@
 			path = "../Target Support Files/JLRoutes";
 			sourceTree = "<group>";
 		};
+		690ACDA928B33C80B5A1376FB8306456 /* next_space_ios_arch */ = {
+			isa = PBXGroup;
+			children = (
+				74E56D6813ADC3271E227238D1264B37 /* NXInitializer.h */,
+				67284982EAD55AB3C476A90C7626798D /* NXRouter.h */,
+				D7666FE29CB042ACA71B26BDD78D883E /* NXRouter.m */,
+				90EA3283FADC9E10D9CE27AE227D300E /* NXRouter+NewInstance.h */,
+				B86A6D1DE3754E157B7288A43653B3DF /* NXRouter+NewInstance.m */,
+				E0374FEA2D0D0D149A83DE7349C0EA9A /* NXRouterFlags.h */,
+				F483F9C8D74A130DBC1865E513F70472 /* NXRouterHandlerBlock.h */,
+				7432B17A5A0325596D42C241327CD5EB /* NXRouterInstanceFactory.h */,
+				F0ADE8AEFED1B3E48A63A4ECE367A124 /* NXRouterKeys.swift */,
+				D1CA0EE1A9CD8865AA1434CE0D06DF83 /* NXRouterOpenType.h */,
+				5061C79BD89445745AC9BC18F7061177 /* NXRouterResultCallback.h */,
+				BA5A30AE5AFA3D2F2AF2AEC390903414 /* NXRouterServiceDefinition.h */,
+				419741C8D01D626883BD6AE828345519 /* NXRouterServiceDefinition.m */,
+				9F269DC2C1BEEAB4A78D59BAD63C405A /* NXServiceLoader.h */,
+				3B33B00C261B0CD96D2048D84D0F65A4 /* NXServiceLoader.m */,
+				64FDDD1CB825A09EF1BE71F25280A01F /* NXVCRouterConst.h */,
+				D0A4EEB94CA147DE83A24AF19767C507 /* NXVCRouterConst.m */,
+				325EAFC16FB5AD99FBC1F8D569EA920B /* Pod */,
+				1EC38112A36F637813462904DDF2F08D /* Support Files */,
+			);
+			name = next_space_ios_arch;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		6BF63051D4AC1B51DF2D80ADDDB7F1A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,29 +283,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ABA46479C09DF5FD6E96DB9AC3EBA3E5 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8E6CA17FDBAFCB4AF29E4477B998C4FC /* next_space_ios_arch.modulemap */,
-				E0E02CBA765CDF90811DA9DAEA724D0B /* next_space_ios_arch-dummy.m */,
-				5DA5E948D6A56F98B0FB8B4651C83B33 /* next_space_ios_arch-Info.plist */,
-				3AEC37F457782CC99E1184A1D4EB5587 /* next_space_ios_arch-prefix.pch */,
-				89523D560D5437B1C27648B7760AC31A /* next_space_ios_arch-umbrella.h */,
-				CE1A0D76C26F6B7301DA9D547CEE49D3 /* next_space_ios_arch.debug.xcconfig */,
-				6D665711658632638F32FD035DD4B78F /* next_space_ios_arch.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/next_space_ios_arch";
-			sourceTree = "<group>";
-		};
-		B6A63EBB6326C7CC67F0BC87E4F16E71 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1A006E3052E5F563EF2FCB0B17053018 /* next_space_ios_arch */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		B6AB0EAF020C1AED3C4F19A07A420C62 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +290,14 @@
 				F623DD20FAE4B742C119351AB92492CF /* Pods-next_space_ios_arch_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BF7BD79F054FCD98A4E6CD93D6EB963C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				690ACDA928B33C80B5A1376FB8306456 /* next_space_ios_arch */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		C91B7A5E07C1A7E5709389B03E318E70 /* JLRoutes */ = {
@@ -312,7 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				B6A63EBB6326C7CC67F0BC87E4F16E71 /* Development Pods */,
+				BF7BD79F054FCD98A4E6CD93D6EB963C /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				48DE05140112148A5E8893CD67BE55FF /* Pods */,
 				6BF63051D4AC1B51DF2D80ADDDB7F1A8 /* Products */,
@@ -343,16 +356,6 @@
 			);
 			name = "Pods-next_space_ios_arch_Example";
 			path = "Target Support Files/Pods-next_space_ios_arch_Example";
-			sourceTree = "<group>";
-		};
-		EB72309E8E7645E315243A0C8026F4C6 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				5308737225AB10D0B467271DF931F854 /* LICENSE */,
-				F46AA8F92806BA6D0D0BDE09E20BDF75 /* next_space_ios_arch.podspec */,
-				A035C3D1BE1B10665834133B75FC1568 /* README.md */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		F623DD20FAE4B742C119351AB92492CF /* Pods-next_space_ios_arch_Tests */ = {
@@ -404,21 +407,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F75BB4A1119F0C2AF2E08EC44E5D510B /* Headers */ = {
+		C36629BA84530505F9D34FD4AC44ED1B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				232A44A8A609335FFD7D9B1942B77ABC /* next_space_ios_arch-umbrella.h in Headers */,
-				2E49069DA971601B26A5D72B7A7F59A1 /* NXInitializer.h in Headers */,
-				C47BD191028130F1152579E4929690FB /* NXRouter.h in Headers */,
-				DC81CE0449F2875DDC3FBB914096F7FA /* NXRouter+NewInstance.h in Headers */,
-				7CBE0E8E1FFF0BE37EAA224ADD477022 /* NXRouterHandlerBlock.h in Headers */,
-				290E5A0A7461A1F9D233EC27270626F6 /* NXRouterInstanceFactory.h in Headers */,
-				C49F93776CA65E5873A0CF81B4E3B75C /* NXRouterOpenType.h in Headers */,
-				7502AF2B4F71EB9ADED5DFA1D90C030A /* NXRouterResultCallback.h in Headers */,
-				1EC88327E8C0B8B430D5ABA896BD1FEA /* NXRouterServiceDefinition.h in Headers */,
-				0C462F63340C782D7A66F47C7482EFA7 /* NXServiceLoader.h in Headers */,
-				4DAF1E6780791ACA84A37DCFC23A88EA /* NXVCRouterConst.h in Headers */,
+				0E2E4002D35E1875199EB8A7DD27DD3E /* next_space_ios_arch-umbrella.h in Headers */,
+				09BB78636A3DA5C5CAA43AC7E2AB0C4A /* NXInitializer.h in Headers */,
+				76F98F697419DCA273962053B44E792A /* NXRouter.h in Headers */,
+				AE6FB8630CB1D2D1D5104557A2FF5552 /* NXRouter+NewInstance.h in Headers */,
+				4F51106AEF1D483DCB7A59DF07CF0B95 /* NXRouterFlags.h in Headers */,
+				FBE124DCA935AAB4CF55DCD2DF5C48BA /* NXRouterHandlerBlock.h in Headers */,
+				81E50CC4480D8D250BBEC5CBC3259121 /* NXRouterInstanceFactory.h in Headers */,
+				34E078CFB9915471D1C1474EC829C5AB /* NXRouterOpenType.h in Headers */,
+				494E41E8128E9FCAB469D4322954FDCA /* NXRouterResultCallback.h in Headers */,
+				99B849D9A1AA603259F18208B295CD2D /* NXRouterServiceDefinition.h in Headers */,
+				AF574B1418A10F8298332048A26C352C /* NXServiceLoader.h in Headers */,
+				F57CFE0393D22501B7FBC59CFA38D1D7 /* NXVCRouterConst.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +441,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F51044A17ECDC9DA8BFFCF01053AEF4B /* PBXTargetDependency */,
+				EE0349EF498E8CF10DD75768D2507C19 /* PBXTargetDependency */,
 			);
 			name = "Pods-next_space_ios_arch_Tests";
 			productName = Pods_next_space_ios_arch_Tests;
@@ -456,8 +460,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				1012CBDF3BC389B143A7534842DA4759 /* PBXTargetDependency */,
-				1320250025D753DBAC2F5FF653D1E35B /* PBXTargetDependency */,
+				759CFAB99AEC79617FC0B52381CBA3C3 /* PBXTargetDependency */,
+				36958BEA35D92785AC4E9D61C20BCAA2 /* PBXTargetDependency */,
 			);
 			name = "Pods-next_space_ios_arch_Example";
 			productName = Pods_next_space_ios_arch_Example;
@@ -484,17 +488,17 @@
 		};
 		AA88C7AFB85B636AF1289CD77B24CD67 /* next_space_ios_arch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FDF70EDF3753B7BF98D9B27ECEF351C /* Build configuration list for PBXNativeTarget "next_space_ios_arch" */;
+			buildConfigurationList = 0E899B530BFD386485F5EA1B152C0622 /* Build configuration list for PBXNativeTarget "next_space_ios_arch" */;
 			buildPhases = (
-				F75BB4A1119F0C2AF2E08EC44E5D510B /* Headers */,
-				10095C0877C5AFECCCB3D60E67FFCC3C /* Sources */,
-				E878AAA8DE0E9C4A5B4DC42B22660127 /* Frameworks */,
-				76A650745DFEDE063995475329A4B18C /* Resources */,
+				C36629BA84530505F9D34FD4AC44ED1B /* Headers */,
+				ED74BB2F8D788E780469851EEAABCC36 /* Sources */,
+				2BB05C705DA4546114563C26FDA3F319 /* Frameworks */,
+				3A0BFA5841AB233B008DA25700984F3B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3B5174965C4A0C61F3A72AC41CE890D5 /* PBXTargetDependency */,
+				B29012ED8BD2B6CDAB07F42DE47DC781 /* PBXTargetDependency */,
 			);
 			name = next_space_ios_arch;
 			productName = next_space_ios_arch;
@@ -532,14 +536,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		66A3A47440CEBCD6E83E05B6EDAC3BEF /* Resources */ = {
+		3A0BFA5841AB233B008DA25700984F3B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76A650745DFEDE063995475329A4B18C /* Resources */ = {
+		66A3A47440CEBCD6E83E05B6EDAC3BEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -563,20 +567,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		10095C0877C5AFECCCB3D60E67FFCC3C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE6D892D06C227B72140D310480A2999 /* next_space_ios_arch-dummy.m in Sources */,
-				0CBD47E13D7852AFA08B5C6452767012 /* NXRouter.m in Sources */,
-				5E24051B9C14210ABF06803F41DEE8E4 /* NXRouter+NewInstance.m in Sources */,
-				900ED392C5B226026F1AD076293B6254 /* NXRouterKeys.swift in Sources */,
-				4D4C3E043FB188D310585BD9B5C9AD20 /* NXRouterServiceDefinition.m in Sources */,
-				CC50D47BC31F1BE75322F4B74E0504F9 /* NXServiceLoader.m in Sources */,
-				8C514EC42793DC61DC72FC8313F391EF /* NXVCRouterConst.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		39922555DA03B20B82D5F440370EFD59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -607,32 +597,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED74BB2F8D788E780469851EEAABCC36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B14763FF57FF56FD5AF6F056FF530653 /* next_space_ios_arch-dummy.m in Sources */,
+				F5E93FC2F237506273460709E652ECFA /* NXRouter.m in Sources */,
+				2AE74B98DB31F5ADCEEDC634A62AEBA8 /* NXRouter+NewInstance.m in Sources */,
+				5458B92358B85719DA2C501FC8A9BAFE /* NXRouterKeys.swift in Sources */,
+				5642D50A9D6D03ED6B7345325DE297CE /* NXRouterServiceDefinition.m in Sources */,
+				CF9D2A2E35D33E7996B67E3438105B8C /* NXServiceLoader.m in Sources */,
+				006B22706E0E191817C27D83BD616DA8 /* NXVCRouterConst.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1012CBDF3BC389B143A7534842DA4759 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JLRoutes;
-			target = 94C1BAA17BCEBC27586488A205D2E0CB /* JLRoutes */;
-			targetProxy = 6D2BD1FBFE07257972CF3ADCCA5BA2DC /* PBXContainerItemProxy */;
-		};
-		1320250025D753DBAC2F5FF653D1E35B /* PBXTargetDependency */ = {
+		36958BEA35D92785AC4E9D61C20BCAA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = next_space_ios_arch;
 			target = AA88C7AFB85B636AF1289CD77B24CD67 /* next_space_ios_arch */;
-			targetProxy = 2ACECCAE2165B434D69D410F8BC3A3F4 /* PBXContainerItemProxy */;
+			targetProxy = 0A0E8FA5FE33E4EAB79FEF93D6AB3D69 /* PBXContainerItemProxy */;
 		};
-		3B5174965C4A0C61F3A72AC41CE890D5 /* PBXTargetDependency */ = {
+		759CFAB99AEC79617FC0B52381CBA3C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JLRoutes;
 			target = 94C1BAA17BCEBC27586488A205D2E0CB /* JLRoutes */;
-			targetProxy = 070EDA39333E4A7154C650886386C9C1 /* PBXContainerItemProxy */;
+			targetProxy = 66A8F116C7F8629F9C2E0C409418FC5C /* PBXContainerItemProxy */;
 		};
-		F51044A17ECDC9DA8BFFCF01053AEF4B /* PBXTargetDependency */ = {
+		B29012ED8BD2B6CDAB07F42DE47DC781 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JLRoutes;
+			target = 94C1BAA17BCEBC27586488A205D2E0CB /* JLRoutes */;
+			targetProxy = DF3C3D12670F89D6286D48BE65C810D5 /* PBXContainerItemProxy */;
+		};
+		EE0349EF498E8CF10DD75768D2507C19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-next_space_ios_arch_Example";
 			target = 84CFC19268DBED8CE99C11F08A68D062 /* Pods-next_space_ios_arch_Example */;
-			targetProxy = EC18BA66B4689E7B2C640EEEABD50086 /* PBXContainerItemProxy */;
+			targetProxy = 418610BA157956B4F873F341C8050612 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -733,40 +737,9 @@
 			};
 			name = Release;
 		};
-		8062CF605D728D462C1F1E9BBBA7E071 /* Debug */ = {
+		97A13E7064304ACEE117252A71E532E6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE1A0D76C26F6B7301DA9D547CEE49D3 /* next_space_ios_arch.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/next_space_ios_arch/next_space_ios_arch-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/next_space_ios_arch/next_space_ios_arch-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/next_space_ios_arch/next_space_ios_arch.modulemap";
-				PRODUCT_MODULE_NAME = next_space_ios_arch;
-				PRODUCT_NAME = next_space_ios_arch;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		97F5BB048CA08286FAD95AB1387AE493 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D665711658632638F32FD035DD4B78F /* next_space_ios_arch.release.xcconfig */;
+			baseConfigurationReference = 2AE3FAEEFE32393F9141E3B0EF8AE58F /* next_space_ios_arch.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -826,6 +799,37 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		B1B88147DB74BE20E8B4C5F588B35C8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31109C851F8B8061DB0E2E676A5D5461 /* next_space_ios_arch.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/next_space_ios_arch/next_space_ios_arch-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/next_space_ios_arch/next_space_ios_arch-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/next_space_ios_arch/next_space_ios_arch.modulemap";
+				PRODUCT_MODULE_NAME = next_space_ios_arch;
+				PRODUCT_NAME = next_space_ios_arch;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1026,11 +1030,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3FDF70EDF3753B7BF98D9B27ECEF351C /* Build configuration list for PBXNativeTarget "next_space_ios_arch" */ = {
+		0E899B530BFD386485F5EA1B152C0622 /* Build configuration list for PBXNativeTarget "next_space_ios_arch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8062CF605D728D462C1F1E9BBBA7E071 /* Debug */,
-				97F5BB048CA08286FAD95AB1387AE493 /* Release */,
+				B1B88147DB74BE20E8B4C5F588B35C8B /* Debug */,
+				97A13E7064304ACEE117252A71E532E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
