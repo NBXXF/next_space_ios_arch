@@ -1,7 +1,7 @@
 //
 //  NXInitializer.h
 //  Pods
-//
+//  常用去启动初始化,多模块初始化,分离业务场景
 //  Created by XXF on 2022/9/30.
 //
 
