@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  目标类实现的协议名
  */
-@property (copy, nonatomic) NSString *providerProtocolName;
+@property (copy, nonatomic) NSString *apiProtocolName;
 
 /**
  目标类名

@@ -19,7 +19,17 @@
 {
     [super viewDidLoad];
     
-    [NXRouter openURL:@"test"];
+    NSArray<NSNumber *> *array = [NSArray arrayWithObjects:@(1),@(4),@(123),@(789),@(3),nil];
+        NSArray *sortedArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber * obj2) {
+       //这里的代码可以参照上面compare:默认的排序方法，也可以把自定义的方法写在这里，给对象排序
+            NSComparisonResult result = [obj2 compare:obj1];
+            return result;
+        }];
+        NSLog(@"排序后:%@",sortedArray.firstObject);
+    
+   // [NXRouter openURL:@"test"];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

@@ -8,13 +8,14 @@
 #import <JLRoutes/JLRoutes.h>
 #import <JLRoutes/JLRRouteDefinition.h>
 #import "NXVCRouterConst.h"
-#import "NXRouterServiceDefinition.h"
+#import "NXServiceLoader.h"
+#import "NXInitializer.h"
 
 NSString *const NXRouterResultCallbackKey = @"kRouterResultCallback";
 NSString *const NXRouterClassNameKey = @"kRouterClassName";
 
 static NSMutableDictionary<NSString *,NSDictionary<NSNumber *,NSDictionary *> *> *globalStaticConfig;
-static NSMutableDictionary<NSString *,NXRouterServiceDefinition *> *spiRegisterTable;
+
 static NXRouterHandlerBlock globalHandlerBlock;
 static NXRouterInstanceFactory globalInstanceFactory;
 /**
@@ -23,13 +24,22 @@ static NXRouterInstanceFactory globalInstanceFactory;
 @implementation NXRouter
 + (void)initialize{
     globalStaticConfig=[NSMutableDictionary dictionary];
-    spiRegisterTable=[NSMutableDictionary dictionary];
 }
 
-+ (void)initRouter:(NXRouterHandlerBlock)handler andInstanceFactory:(NXRouterInstanceFactory)instanceFactory{
++ (void)initRouter:(UIApplication *)application routerHandler:(NXRouterHandlerBlock)handler andInstanceFactory:(NXRouterInstanceFactory)instanceFactory
+{
     globalHandlerBlock=handler;
     globalInstanceFactory=instanceFactory;
+    
+    NSArray<id<NXInitializer>> *initializerArray= [NXServiceLoader getServices:@protocol(NXInitializer)];
+    [initializerArray sortedArrayUsingComparator:^NSComparisonResult(id<NXInitializer> _Nonnull obj1, id<NXInitializer>  _Nonnull obj2) {
+        return [obj2.priority compare:obj1.priority];
+    }];
+    [initializerArray enumerateObjectsUsingBlock:^(id<NXInitializer>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj application:application];
+    }];
 }
+
 
 + (BOOL)openURL:(NSString *)url{
     return [self openURL:url parameters:[NSDictionary dictionary]];
@@ -112,41 +122,20 @@ static NXRouterInstanceFactory globalInstanceFactory;
 }
 
 
-+ (void)registerService:(Protocol *)provider targetClass:(Class)target{
-    NSString *providerProtocolName= NSStringFromProtocol(provider);
-    NSString *targetClassName= NSStringFromClass(target);
-    if(![target conformsToProtocol:provider]){
-        NSString *reason=[NSString stringWithFormat:@"%@ not conformsToProtocol %@",targetClassName,providerProtocolName];
-        NSException *e = [NSException
-                          exceptionWithName: @"ServiceRegisterException"
-                          reason: reason
-                          userInfo: nil];
-        @throw e;
-    }
-    NXRouterServiceDefinition *definition=[[NXRouterServiceDefinition alloc] init];
-    definition.providerProtocolName=providerProtocolName;
-    definition.targetClassName=targetClassName;
-    [spiRegisterTable setObject:definition forKey:providerProtocolName];
++ (void)registerService:(Protocol *)api targetClass:(Class)target{
+    [NXServiceLoader registerService:api targetClass:target priority:@(0)];
 }
 
++ (void)registerService:(Protocol *)api targetClass:(Class)target priority:(NSNumber *)priority{
+    [NXServiceLoader registerService:api targetClass:target priority:priority];
+}
 
-+ (id)getService:(Protocol *)provider{
-    NSString *providerProtocolName= NSStringFromProtocol(provider);
-    NXRouterServiceDefinition *definition=[spiRegisterTable objectForKey:providerProtocolName];
-    if(!definition){
-        NSString *reason=[NSString stringWithFormat:@"%@ not register",providerProtocolName];
-        NSException *e = [NSException
-                                 exceptionWithName: @"ServiceRegisterException"
-                          reason: reason
-                                 userInfo: nil];
-        @throw e;
-    }
-    if(!definition.target){
-        NSString *targetClassName=definition.targetClassName;
-        definition.target=[[NSClassFromString(targetClassName) alloc] init];
-        [spiRegisterTable setObject:definition forKey:providerProtocolName];
-    }
-    return definition.target;
++ (id)getService:(Protocol *)api{
+    return [NXServiceLoader getService:api];
+}
+
++ (NSArray<id> *)getServices:(Protocol *)api{
+    return [NXServiceLoader getServices:api];
 }
 
 
