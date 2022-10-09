@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'next_space_ios_arch'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A short description of next_space_ios_arch.'
 
 # This description is used to generate tags and improve search results.
@@ -41,4 +41,5 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
  s.public_header_files = 'Pod/Classes/**/*'
  s.dependency 'JLRoutes'
+ s.dependency 'ReactiveObjC', '~> 3.1.1'
 end

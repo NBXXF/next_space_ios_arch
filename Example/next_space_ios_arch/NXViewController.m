@@ -53,9 +53,7 @@
     for(int i=0;i<1000;i++){
        //[self printContains:flag fl:i];
     }
-    
-    
-	// Do any additional setup after loading the view, typically from a nib.
+
 }
 
 -(void)printContains:(int)flags fl:(int)currentFlag{
@@ -68,6 +66,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+@end
+
+
+@interface User : NSObject
+-(void)test;
+@end
+
+@implementation User
+
+- (void)test{
+   
 }
 
 @end

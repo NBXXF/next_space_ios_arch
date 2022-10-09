@@ -2,6 +2,8 @@ PODS:
   - JLRoutes (2.1)
   - next_space_ios_arch (0.1.0):
     - JLRoutes
+    - ReactiveObjC (~> 3.1.1)
+  - ReactiveObjC (3.1.1)
 
 DEPENDENCIES:
   - next_space_ios_arch (from `../`)
@@ -9,6 +11,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - JLRoutes
+    - ReactiveObjC
 
 EXTERNAL SOURCES:
   next_space_ios_arch:
@@ -16,7 +19,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
-  next_space_ios_arch: 3fcb11018e42ec08201e222feed1c48fe4670f02
+  next_space_ios_arch: a9340152ef3e499b4b524ddb1745c9229c407c0e
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
 
 PODFILE CHECKSUM: ba40ea80d8f6172c80aee4e33cc2ac34f8820a1b
 

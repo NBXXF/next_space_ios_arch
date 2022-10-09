@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "NXBus.h"
+#import "RACDisposable+AppArch.h"
+#import "RACSignal+AppArch.h"
 #import "NXInitializer.h"
 #import "NXRouter+NewInstance.h"
 #import "NXRouter.h"

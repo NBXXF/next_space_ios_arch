@@ -23,6 +23,9 @@
   "dependencies": {
     "JLRoutes": [
 
+    ],
+    "ReactiveObjC": [
+      "~> 3.1.1"
     ]
   }
 }
