@@ -84,11 +84,11 @@ static NXRouterInstanceFactory globalInstanceFactory;
 
 
 + (void)registerURL:(NSString *)url targetClass:(Class)target{
-    [self registerURL:url targetClass:target deviceType:UIUserInterfaceIdiomPhone config:[NSDictionary dictionary] handler:nil];
+    [self registerURL:url targetClass:target deviceType:UIUserInterfaceIdiomPhone config:[NSDictionary dictionary]];
 }
 
 
-+ (void)registerURL:(NSString *)url targetClass:(Class)target deviceType:(UIUserInterfaceIdiom)device config:(NSDictionary *)config handler:(NXRouterHandlerBlock)handler{
++ (void)registerURL:(NSString *)url targetClass:(Class)target deviceType:(UIUserInterfaceIdiom)device config:(NSDictionary *)config{
     if(!config){
         config=[NSDictionary dictionary];
     }
@@ -112,15 +112,16 @@ static NXRouterInstanceFactory globalInstanceFactory;
     [globalStaticConfig setObject:staticConfigByUrl forKey:url];
     
     [JLRoutes.globalRoutes addRoute:url handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
-        if(handler){
-            return handler(parameters);
-        }else if(globalHandlerBlock){
+        if(globalHandlerBlock){
             return globalHandlerBlock(parameters);
         }
         return NO;
     }];
 }
 
++ (void)addInterceptor:(NSString *)url priority:(NSUInteger)priority interceptor:(NXRouterHandlerBlock)interceptor{
+    [JLRoutes.globalRoutes addRoute:url priority:priority handler:interceptor];
+}
 
 + (void)registerService:(Protocol *)api targetClass:(Class)target{
     [NXServiceLoader registerService:api targetClass:target];

@@ -7,6 +7,7 @@
 //
 
 #import "NXViewController.h"
+#import <JLRoutes/JLRoutes.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 @interface NXViewController ()
@@ -54,8 +55,17 @@
        //[self printContains:flag fl:i];
     }
     
+    NSString *url=@"/xxxxx";
     NSString *urlStr=@"/xxxxx?name=jack";
-    [NXRouter registerURL:@"/xxxxx" targetClass:NXViewController.class deviceType:UIUserInterfaceIdiomPhone config:@{} handler:^BOOL(NSDictionary<NSString *,id> *parameters) {
+
+        
+    [NXRouter addInterceptor:url priority:99 interceptor:^BOOL(NSDictionary<NSString *,id> *parameters) {
+        NSLog(@"=============>yes99");
+        return NO;
+    }];
+    
+    [NXRouter addInterceptor:url priority:100 interceptor:^BOOL(NSDictionary<NSString *,id> *parameters) {
+        NSLog(@"=============>yes100");
         return NO;
     }];
     [NXRouter openURL:urlStr];

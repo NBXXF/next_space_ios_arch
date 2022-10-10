@@ -9,7 +9,7 @@
 #import "NXRouterResultCallback.h"
 #import "NXRouterHandlerBlock.h"
 #import "NXRouterInstanceFactory.h"
-#import <JLRoutes/JLRoutes.h>
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -59,10 +59,15 @@ extern NSString *const NXRouterClassNameKey;
  @param target 目的地的class  和url 一一映射
  @param device  区分不同设备形态,默认手机  
  @param config  静态注册的参数配置,框架 会和openURL 携带的参数进行合并,携带的参数key 优先级最高,等价【getAdjustURLConfig】
- @param handler  注册路由处理跳转,一般情况下传递空,否则自己处理
  */
-+ (void)registerURL:(NSString* )url targetClass:(Class)target deviceType:(UIUserInterfaceIdiom)device config:(NSDictionary * __nullable)config handler:(NXRouterHandlerBlock __nullable) handler;
++ (void)registerURL:(NSString* )url targetClass:(Class)target deviceType:(UIUserInterfaceIdiom)device config:(NSDictionary * __nullable)config;
 
+
+/**
+  为路由添加拦截器 优先级 越大越先执行
+   请不要在拦截器里面在用路由跳转 否则就是循环
+ */
++(void)addInterceptor:(NSString* )url priority:(NSUInteger)priority interceptor:(NXRouterHandlerBlock __nullable) interceptor;
 
 /**
  注册SPI 建议在类的load 方法中注册
