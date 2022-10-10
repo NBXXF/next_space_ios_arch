@@ -53,6 +53,12 @@
     for(int i=0;i<1000;i++){
        //[self printContains:flag fl:i];
     }
+    
+    NSString *urlStr=@"/xxxxx?name=jack";
+    [NXRouter registerURL:@"/xxxxx" targetClass:NXViewController.class deviceType:UIUserInterfaceIdiomPhone config:@{} handler:^BOOL(NSDictionary<NSString *,id> *parameters) {
+        return NO;
+    }];
+    [NXRouter openURL:urlStr];
 
 }
 
