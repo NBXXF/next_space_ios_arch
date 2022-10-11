@@ -7,7 +7,6 @@
 #import "NXRouter.h"
 #import <JLRoutes/JLRoutes.h>
 #import <JLRoutes/JLRRouteDefinition.h>
-#import "NXVCRouterConst.h"
 #import "NXServiceLoader.h"
 #import "NXInitializer.h"
 

@@ -13,6 +13,4 @@ typedef NS_ENUM(NSUInteger, NXRouterOpenType) {
     NXRouterOpenTypeByPush=0,
     ///Modal
     NXRouterOpenTypeByModal,
-    ///从rootVC 直接弹出的modal模式
-    NXRouterOpenTypeByRootModal
 };
