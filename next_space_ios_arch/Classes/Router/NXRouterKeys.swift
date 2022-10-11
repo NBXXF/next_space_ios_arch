@@ -13,9 +13,6 @@ import Foundation
     ///是否执行动画  类型是:BOOL
     @objc public static let NXRouterAnimatedKey = "kRouterAnimated";
     
-    ///处理同级导航栏返回层级 Index  类型是:int
-    @objc public static let NXRouterBackIndexKey = "kRouterBackIndex";
-
     ///限制页面是否需要登录后才能访问 类型是:BOOL
     @objc public static let NXRouterNeedLoginKey = "kRouterNeedLogin";
     
