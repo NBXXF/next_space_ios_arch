@@ -15,10 +15,7 @@ import Foundation
     
     ///处理同级导航栏返回层级 Index  类型是:int
     @objc public static let NXRouterBackIndexKey = "kRouterBackIndex";
-    
-    ///指定返回到的页面并进行偏移 类型是:int
-    @objc public static let NXRouterBackPageOffsetKey = "kRouterBackPageOffset";
-    
+
     ///限制页面是否需要登录后才能访问 类型是:BOOL
     @objc public static let NXRouterNeedLoginKey = "kRouterNeedLogin";
     

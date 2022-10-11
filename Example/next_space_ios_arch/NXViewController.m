@@ -33,7 +33,7 @@
 
     int flag_default=1<<0;
     int flag_test=1<<1;
-    int flag_test2=1<<2;
+    int flag_test2=1<<20;
     NSLog(@"============>flag_default:%d",flag_default);
     NSLog(@"============>flag_test:%d",flag_test);
     NSLog(@"============>flag_test2:%d",flag_test2);
