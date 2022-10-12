@@ -122,6 +122,31 @@ static NXRouterInstanceFactory globalInstanceFactory;
     [JLRoutes.globalRoutes addRoute:url priority:priority handler:interceptor];
 }
 
++ (void)removeInterceptor:(NSString *)url priority:(NSUInteger)priority{
+    if(priority<=0){
+        //0 本身是默认注册的路由处理
+        @throw [NSException exceptionWithName:@"priority 错误" reason:@"priority 必须大于0" userInfo:nil];
+    }
+    //这里设计不好,JLRoute 是一个数组,需要遍历
+    for(JLRRouteDefinition *def in JLRoutes.globalRoutes.routes.copy){
+        if([def.pattern isEqualToString:url]&&def.priority==priority){
+            [JLRoutes.globalRoutes removeRoute:def];
+            break;
+        }
+    }
+}
+
++ (void)removeInterceptor:(NXRouterHandlerBlock)interceptor{
+    //这里设计不好,JLRoute 是一个数组,需要遍历
+    for(JLRRouteDefinition *def in JLRoutes.globalRoutes.routes.copy){
+        //0 本身是默认注册的路由处理
+        if(def.handlerBlock==interceptor&&def.priority>0){
+            [JLRoutes.globalRoutes removeRoute:def];
+            break;
+        }
+    }
+}
+
 + (void)registerService:(Protocol *)api targetClass:(Class)target{
     [NXServiceLoader registerService:api targetClass:target];
 }

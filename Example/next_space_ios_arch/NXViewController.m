@@ -68,6 +68,7 @@
         NSLog(@"=============>yes100");
         return NO;
     }];
+    [NXRouter removeInterceptor:url priority:100];
     [NXRouter openURL:urlStr];
 
 }

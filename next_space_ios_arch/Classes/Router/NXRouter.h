@@ -70,6 +70,17 @@ extern NSString *const NXRouterClassNameKey;
 +(void)addInterceptor:(NSString* )url priority:(NSUInteger)priority interceptor:(NXRouterHandlerBlock __nullable) interceptor;
 
 /**
+  移除拦截器
+ */
++(void)removeInterceptor:(NSString* )url priority:(NSUInteger)priority;
+
+/**
+ 移除拦截器
+ */
++(void)removeInterceptor:(NXRouterHandlerBlock __nullable) interceptor;
+
+
+/**
  注册SPI 建议在类的load 方法中注册
  @param api 定义的暴露服务
  @param target 目标类
