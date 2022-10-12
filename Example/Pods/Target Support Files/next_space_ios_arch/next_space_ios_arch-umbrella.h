@@ -23,6 +23,7 @@
 #import "NXRouterResultCallback.h"
 #import "NXRouterServiceDefinition.h"
 #import "NXServiceLoader.h"
+#import "UIViewController+Lifecycle.h"
 
 FOUNDATION_EXPORT double next_space_ios_archVersionNumber;
 FOUNDATION_EXPORT const unsigned char next_space_ios_archVersionString[];

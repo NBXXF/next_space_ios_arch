@@ -16,10 +16,36 @@
 
 @implementation NXViewController
 
+
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
+    [[self observeViewDidLoad] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"==============>observeViewDidLoad");
+    }];
+    [[self observeViewWillAppear] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"==============>observeViewWillAppear");
+    }];
     
+    [[self observeViewDidAppear] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"==============>observeViewDidAppear");
+    }];
+    
+    [[self observeViewWillDisappear] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"==============>observeViewWillDisappear");
+    }];
+    
+//    [[self rac_signalForSelector:@selector(viewDidAppear:)] subscribeNext:^(id x) {
+//        NSLog(@"=============>收到1:%@",x);
+//     }];
+    
+//    [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
+//        NSLog(@"=============>收到1:%@",x);
+//     }];
+//    [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
+//        NSLog(@"=============>收到1dd:%@",x);
+//     }];
     NSArray<NSNumber *> *array = [NSArray arrayWithObjects:@(1),@(4),@(123),@(789),@(3),nil];
         NSArray *sortedArray = [array sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber * obj2) {
        //这里的代码可以参照上面compare:默认的排序方法，也可以把自定义的方法写在这里，给对象排序
@@ -73,18 +99,12 @@
 
 }
 
+
 -(void)printContains:(int)flags fl:(int)currentFlag{
     if((currentFlag & flags)!=0){
         NSLog(@"============>包含:%d",currentFlag);
     }
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end
 
 
