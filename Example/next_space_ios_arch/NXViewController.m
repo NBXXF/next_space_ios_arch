@@ -21,6 +21,20 @@
 {
 
     [super viewDidLoad];
+    NSInteger age=1;
+    switch (age) {
+        case 1:
+            NSLog(@"========>YY:1");
+            break;
+        case 10:
+        case 20:
+            NSLog(@"========>YY:10或者20");
+            break;
+        default:
+            NSLog(@"========>YY:nil");
+            break;
+    }
+    
     [[self observeViewDidLoad] subscribeNext:^(id  _Nullable x) {
         NSLog(@"==============>observeViewDidLoad");
     }];
@@ -97,14 +111,40 @@
     [NXRouter removeInterceptor:url priority:100];
     [NXRouter openURL:urlStr];
 
+    [self testArraySpeed:0];
+    [self testArraySpeed:10];
+    [self testArraySpeed:100];
+    [self testArraySpeed:1000];
+    [self testArraySpeed:10000];
+    [self testArraySpeed:100000];
+    [self testArraySpeed:1000000];
 }
 
+-(void)testArraySpeed:(NSInteger)size{
+    NSLog(@"===========>test speed:size %ld ",(long)size);
+    NSMutableArray *array=[NSMutableArray array];
+    for (int i = 0; i < size; i++) {
+        [array addObject:@(i)];
+    }
+    NSTimeInterval startDate = NSDate.date.timeIntervalSince1970 * 1000;
+    [array removeAllObjects];
+    NSTimeInterval end= NSDate.date.timeIntervalSince1970 * 1000;
+    NSLog(@"===========>t:remveAll :%lld ",(long long)(end - startDate));
+    
+    startDate = NSDate.date.timeIntervalSince1970 * 1000;
+    array=[NSMutableArray array];
+    end= NSDate.date.timeIntervalSince1970 * 1000;
+    NSLog(@"===========>t:renew :%lld ",(long long)(end - startDate));
+}
 
 -(void)printContains:(int)flags fl:(int)currentFlag{
     if((currentFlag & flags)!=0){
         NSLog(@"============>包含:%d",currentFlag);
     }
 }
+
+
+
 @end
 
 

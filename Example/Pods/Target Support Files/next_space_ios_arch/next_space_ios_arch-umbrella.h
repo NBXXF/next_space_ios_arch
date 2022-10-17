@@ -11,6 +11,7 @@
 #endif
 
 #import "NXBus.h"
+#import "NXThreadSafeMutableDictionary.h"
 #import "RACDisposable+AppArch.h"
 #import "RACSignal+AppArch.h"
 #import "NXInitializer.h"
