@@ -19,6 +19,9 @@
         }
     }
 }
+- (void)popOrDismissViewControllerAnimated:(BOOL)anim completion:(void (^)(void))completion{
+    [self backViewControllerAnimated:anim completion:completion];
+}
 
 - (void)finishNavigationControllerAnimated:(BOOL)anim completion:(void (^)(void))completion{
     UIViewController *navigationController= self.navigationController;
