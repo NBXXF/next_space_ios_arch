@@ -20,6 +20,10 @@
 - (void)viewDidLoad
 {
 
+    NSNumber *first=@1;
+    NSNumber *second=nil;
+    BOOL res=[first isEqual:second];
+    NSLog(@"============>是否相等:%d",res);
     [super viewDidLoad];
     NSInteger age=1;
     switch (age) {
