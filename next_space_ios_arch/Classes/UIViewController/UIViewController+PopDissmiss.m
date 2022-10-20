@@ -11,9 +11,9 @@
 - (void)backViewControllerAnimated:(BOOL)anim completion:(void (^)(void))completion{
     if (self.navigationController==nil || [self.navigationController.viewControllers.firstObject isEqual:self]){
         //当前页面尚未被Push过
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:anim completion:completion];
     }else{
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:anim];
         if(completion){
             completion();
         }
