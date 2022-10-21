@@ -52,7 +52,7 @@
  默认响应的事件分发
  */
 +(SEL)getDefaulActionSelector{
-    return NSSelectorFromString(@"onDispatchKeyCommand:");
+    return NSSelectorFromString(UIKeyCommandDefaultMethod);
 }
 
 @end

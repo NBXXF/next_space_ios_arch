@@ -7,8 +7,73 @@
 
 #import "UIResponder+DispatchKeyCommand.h"
 #import "UIKeyCommandConstant.h"
+#import "NSObject+ExchangeMethod.h"
 
 @implementation UIResponder(DispatchKeyCommand)
++ (void)load{
+    //拦截系统本身的快捷键,系统本身的快捷键不会走正常流程
+    
+    /**
+     -(BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+         if (action == @selector(nx_undo) || action == @selector(nx_redo)) {
+             return YES;
+         }
+         return [super canPerformAction:action withSender:sender];
+     }
+
+     -(void)validateCommand:(UICommand *)command {
+         if (command.action == @selector(nx_undo)) {
+             [self nx_undo];
+         } else if (command.action == @selector(nx_redo)) {
+             [self nx_redo];
+         }
+     }
+     */
+    //只执行一次这个方法
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [NSObject exchangeInstanceMethodWithSelfClass:UIResponder.class
+                                     originalSelector:@selector(canPerformAction:withSender:)                     swizzledSelector:@selector(_dispatchCanPerformAction:withSender:)];
+        
+        [NSObject exchangeInstanceMethodWithSelfClass:UIResponder.class
+                                     originalSelector:@selector(validateCommand:)                     swizzledSelector:@selector(_dispatchValidateCommand:)];
+        
+    });
+}
+/**
+ 替换自己的方法
+ */
+-(BOOL)_dispatchCanPerformAction:(SEL)action withSender:(id)sender{
+    if(action==@selector(onDispatchKeyCommand:)){
+        return YES;
+    }else{
+        return [self _dispatchCanPerformAction:action withSender:sender];
+    }
+}
+
+-(void)_dispatchValidateCommand:(UICommand *)command  API_AVAILABLE(ios(13.0)){
+    if(command.action==@selector(onDispatchKeyCommand:)){
+        if([command isKindOfClass:UIKeyCommand.class]){
+            [self onDispatchKeyCommand:(UIKeyCommand *)command];
+            return;
+        }
+        //系统包装了一层 用kvc 取一遍
+        UIKeyCommand *uiKeyCommand=nil;
+        @try {
+            id realCommand= [command valueForKey:@"command"];
+            if([realCommand isKindOfClass:UIKeyCommand.class]){
+                uiKeyCommand=(UIKeyCommand *)realCommand;
+            }
+        } @catch (NSException *exception) {
+        }
+        if(uiKeyCommand){
+            [self onDispatchKeyCommand:uiKeyCommand];
+            return;
+        }
+    }
+    [self _dispatchValidateCommand:command];
+}
+
 
 -(void)onDispatchKeyCommand:(UIKeyCommand *)command{
     NSString *commandEvent=nil;

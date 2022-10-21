@@ -7,6 +7,7 @@
 
 #import "UIKeyCommandConstant.h"
 
+NSString *const  UIKeyCommandDefaultMethod=@"onDispatchKeyCommand:";
 
 NSString *const UIKeyCommandKeyCommandEvent = @"commandEvent";
 
