@@ -11,14 +11,17 @@
 @implementation UIResponder(DispatchKeyCommand)
 
 -(void)onDispatchKeyCommand:(UIKeyCommand *)command{
-    NSInteger commandEvent=-1;
+    NSString *commandEvent=nil;
     if (@available(iOS 13.0, *)) {
         if([command.propertyList isKindOfClass:NSDictionary.class]){
             NSDictionary *dic=(NSDictionary *)command.propertyList;
-            commandEvent=[dic[UIKeyCommandKeyCommandEvent] integerValue];
+            id forEvent=dic[UIKeyCommandKeyCommandEvent];
+            if([forEvent isKindOfClass:NSString.class]){
+                commandEvent=(NSString *)forEvent;
+            }
         }
     } else {
-        commandEvent=-1;
+        commandEvent=nil;
     }
     
     //递归式分发 直到响应为止
@@ -26,7 +29,7 @@
     while (nextResponder) {
         SEL method=NSSelectorFromString(@"onKeyCommand:commandEvent:");
         if([nextResponder respondsToSelector:method]){
-            if([nextResponder performSelector:method withObject:command withObject:@(commandEvent)]){
+            if([nextResponder performSelector:method withObject:command withObject:commandEvent]){
                 break;
             }
         }

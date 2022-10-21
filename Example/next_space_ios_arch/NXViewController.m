@@ -18,7 +18,7 @@
 @implementation NXViewController
 
 
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSNumber *)event{
+-(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
     NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
     return YES;
 }
@@ -27,7 +27,7 @@
 - (NSArray<UIKeyCommand *> *)keyCommands{
     NSLog(@"===============>快捷键注册了");
 //    return @[ [UIKeyCommand commandWithTitle:@"全选" image:nil action:@selector(onKeyCommands) input:@"a" modifierFlags:UIKeyModifierCommand propertyList:Nil]];
-    UIKeyCommand *command= [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"a" modifierFlags:0 commandEvent:100];
+    UIKeyCommand *command= [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"a" modifierFlags:UIKeyModifierCommand commandEvent:@"100"];
     return @[command];
 }
 

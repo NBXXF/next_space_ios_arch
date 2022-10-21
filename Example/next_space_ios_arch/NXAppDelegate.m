@@ -10,7 +10,7 @@
 
 @implementation NXAppDelegate
 
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSInteger)event{
+-(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
     NSLog(@"===========>执行key %@ by %@",command.input,self);
     return YES;
 }

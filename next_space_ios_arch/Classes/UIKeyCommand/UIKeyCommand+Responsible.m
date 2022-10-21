@@ -9,17 +9,17 @@
 
 @implementation UIKeyCommand(Responsible)
 
-+ (instancetype)dispatchCommandWithTitle:(NSString *)title image:(UIImage *)image input:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags  commandEvent:(NSInteger) event{
-    return [UIKeyCommand commandWithTitle:title image:image action: [self getDefaulActionSelector] input:input modifierFlags:modifierFlags propertyList:[NSDictionary dictionaryWithObject:@(event) forKey:UIKeyCommandKeyCommandEvent]];
++ (instancetype)dispatchCommandWithTitle:(NSString *)title image:(UIImage *)image input:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags  commandEvent:(NSString *) event{
+    return [UIKeyCommand commandWithTitle:title image:image action: [self getDefaulActionSelector] input:input modifierFlags:modifierFlags propertyList:[NSDictionary dictionaryWithObject:event forKey:UIKeyCommandKeyCommandEvent]];
 }
 
 
-+ (instancetype)dispatchCommandWithTitle:(NSString *)title image:(UIImage *)image input:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags alternates:(NSArray<UICommandAlternate *> *)alternates     commandEvent:(NSInteger) event API_AVAILABLE(ios(13.0)){
-    return [UIKeyCommand commandWithTitle:title image:image action: [self getDefaulActionSelector] input:input modifierFlags:modifierFlags propertyList:[NSDictionary dictionaryWithObject:@(event) forKey:UIKeyCommandKeyCommandEvent] alternates:alternates];
++ (instancetype)dispatchCommandWithTitle:(NSString *)title image:(UIImage *)image input:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags alternates:(NSArray<UICommandAlternate *> *)alternates     commandEvent:(NSString *) event API_AVAILABLE(ios(13.0)){
+    return [UIKeyCommand commandWithTitle:title image:image action: [self getDefaulActionSelector] input:input modifierFlags:modifierFlags propertyList:[NSDictionary dictionaryWithObject:event forKey:UIKeyCommandKeyCommandEvent] alternates:alternates];
 }
 
-+ (instancetype)dispatchKeyCommandWithInput:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags commandEvent:(NSInteger) event{
-    return [UIKeyCommand commandWithTitle:@"" image:nil action: [self getDefaulActionSelector] input:input modifierFlags:modifierFlags propertyList:[NSDictionary dictionaryWithObject:@(event) forKey:UIKeyCommandKeyCommandEvent]];
++ (instancetype)dispatchKeyCommandWithInput:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags commandEvent:(NSString *) event{
+    return [UIKeyCommand commandWithTitle:@"" image:nil action: [self getDefaulActionSelector] input:input modifierFlags:modifierFlags propertyList:[NSDictionary dictionaryWithObject:event forKey:UIKeyCommandKeyCommandEvent]];
 }
 
 /**
