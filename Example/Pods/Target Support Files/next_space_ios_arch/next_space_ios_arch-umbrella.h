@@ -24,7 +24,12 @@
 #import "NXRouterResultCallback.h"
 #import "NXRouterServiceDefinition.h"
 #import "NXServiceLoader.h"
+#import "UIKeyCommand+Responsible.h"
+#import "UIKeyCommandConstant.h"
+#import "UIResponder+DispatchKeyCommand.h"
+#import "UIView+ForViewController.h"
 #import "UIViewController+Lifecycle.h"
+#import "UIViewController+PopDissmiss.h"
 
 FOUNDATION_EXPORT double next_space_ios_archVersionNumber;
 FOUNDATION_EXPORT const unsigned char next_space_ios_archVersionString[];

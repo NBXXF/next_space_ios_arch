@@ -8,7 +8,8 @@
 
 #import "NXViewController.h"
 #import <JLRoutes/JLRoutes.h>
-#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
+//#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
+#import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 
 @interface NXViewController ()
 
@@ -17,9 +18,39 @@
 @implementation NXViewController
 
 
+-(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSNumber *)event{
+    NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
+    return YES;
+}
+
+
+- (NSArray<UIKeyCommand *> *)keyCommands{
+    NSLog(@"===============>快捷键注册了");
+//    return @[ [UIKeyCommand commandWithTitle:@"全选" image:nil action:@selector(onKeyCommands) input:@"a" modifierFlags:UIKeyModifierCommand propertyList:Nil]];
+    UIKeyCommand *command= [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"a" modifierFlags:0 commandEvent:100];
+    return @[command];
+}
+
+- (BOOL)isFirstResponder{
+    return NO;
+}
+- (BOOL)canBecomeFirstResponder{
+    return NO;
+}
+
 - (void)viewDidLoad
 {
+    
 
+    UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 800, 500)];
+    text.placeholder=@"请输入";
+    [self.view addSubview:text];
+
+    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 500, 800, 500)];
+    text2.placeholder=@"请输入2";
+    [self.view addSubview:text2];
+    
+    
     NSNumber *first=@1;
     NSNumber *second=nil;
     BOOL res=[first isEqual:second];
@@ -38,21 +69,21 @@
             NSLog(@"========>YY:nil");
             break;
     }
-    
-    [[self observeViewDidLoad] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"==============>observeViewDidLoad");
-    }];
-    [[self observeViewWillAppear] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"==============>observeViewWillAppear");
-    }];
-    
-    [[self observeViewDidAppear] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"==============>observeViewDidAppear");
-    }];
-    
-    [[self observeViewWillDisappear] subscribeNext:^(id  _Nullable x) {
-        NSLog(@"==============>observeViewWillDisappear");
-    }];
+//
+//    [[self observeViewDidLoad] subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"==============>observeViewDidLoad");
+//    }];
+//    [[self observeViewWillAppear] subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"==============>observeViewWillAppear");
+//    }];
+//
+//    [[self observeViewDidAppear] subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"==============>observeViewDidAppear");
+//    }];
+//
+//    [[self observeViewWillDisappear] subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"==============>observeViewWillDisappear");
+//    }];
     
 //    [[self rac_signalForSelector:@selector(viewDidAppear:)] subscribeNext:^(id x) {
 //        NSLog(@"=============>收到1:%@",x);
@@ -102,18 +133,18 @@
     NSString *url=@"/xxxxx";
     NSString *urlStr=@"/xxxxx?name=jack";
 
-        
-    [NXRouter addInterceptor:url priority:99 interceptor:^BOOL(NSDictionary<NSString *,id> *parameters) {
-        NSLog(@"=============>yes99");
-        return NO;
-    }];
-    
-    [NXRouter addInterceptor:url priority:100 interceptor:^BOOL(NSDictionary<NSString *,id> *parameters) {
-        NSLog(@"=============>yes100");
-        return NO;
-    }];
-    [NXRouter removeInterceptor:url priority:100];
-    [NXRouter openURL:urlStr];
+//
+//    [NXRouter addInterceptor:url priority:99 interceptor:^BOOL(NSDictionary<NSString *,id> *parameters) {
+//        NSLog(@"=============>yes99");
+//        return NO;
+//    }];
+//
+//    [NXRouter addInterceptor:url priority:100 interceptor:^BOOL(NSDictionary<NSString *,id> *parameters) {
+//        NSLog(@"=============>yes100");
+//        return NO;
+//    }];
+//    [NXRouter removeInterceptor:url priority:100];
+//    [NXRouter openURL:urlStr];
 
     [self testArraySpeed:0];
     [self testArraySpeed:10];

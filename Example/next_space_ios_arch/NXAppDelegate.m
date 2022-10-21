@@ -10,6 +10,10 @@
 
 @implementation NXAppDelegate
 
+-(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSInteger)event{
+    NSLog(@"===========>执行key %@ by %@",command.input,self);
+    return YES;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
