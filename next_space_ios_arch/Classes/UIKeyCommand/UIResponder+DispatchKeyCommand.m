@@ -70,7 +70,7 @@
         }
         if(uiKeyCommand){
             //YYTextView 等存在多次分发的情况
-            [self throttle:@selector(onDispatchKeyCommand:) withObject:(UIKeyCommand *)command duration:0.5];
+            [self throttle:@selector(onDispatchKeyCommand:) withObject:uiKeyCommand duration:0.5];
             return;
         }
     }
