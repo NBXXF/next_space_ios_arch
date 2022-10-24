@@ -56,7 +56,7 @@
     if(command.action==@selector(onDispatchKeyCommand:)){
         if([command isKindOfClass:UIKeyCommand.class]){
             //YYTextView 等存在多次分发的情况
-            [self throttle:@selector(onDispatchKeyCommand:) withObject:(UIKeyCommand *)command duration:0.5];
+            [self throttle:@selector(onDispatchKeyCommand:) withObject:(UIKeyCommand *)command duration:1.0];
             return;
         }
         //系统包装了一层 用kvc 取一遍
@@ -70,7 +70,7 @@
         }
         if(uiKeyCommand){
             //YYTextView 等存在多次分发的情况
-            [self throttle:@selector(onDispatchKeyCommand:) withObject:uiKeyCommand duration:0.5];
+            [self throttle:@selector(onDispatchKeyCommand:) withObject:uiKeyCommand duration:1.0];
             return;
         }
     }
