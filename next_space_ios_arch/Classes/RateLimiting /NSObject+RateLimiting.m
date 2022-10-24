@@ -23,7 +23,7 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
     return throttleData;
 }
 
-- (void)throttle:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration {
+- (void)throttleWithSelector:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration {
     NSMutableDictionary *throttleData = [self getThrottleData];
 
     NSDate *lastCalled = [throttleData objectForKey:NSStringFromSelector(action)];
@@ -34,8 +34,19 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
         [weakSelf performSelector:action withObject:object];
     }
 }
+- (void)throttleWithSelector:(SEL)action withObject:(id)object1 withObject:(id)object2 duration:(NSTimeInterval)duration{
+    NSMutableDictionary *throttleData = [self getThrottleData];
 
-- (void)debounce:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration {
+    NSDate *lastCalled = [throttleData objectForKey:NSStringFromSelector(action)];
+    
+    if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
+        [throttleData setObject:[NSDate date] forKey:NSStringFromSelector(action)];
+        __weak typeof(self) weakSelf = self;
+        [weakSelf performSelector:action withObject:object1 withObject:object2];
+    }
+}
+
+- (void)debounceWithSelector:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration {
     __weak typeof(self) weakSelf = self;
     [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf selector:action object:object];
     [weakSelf performSelector:action withObject:object afterDelay:duration];

@@ -10,8 +10,18 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject(RateLimiting)
-- (void)throttle:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration;
-- (void)debounce:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration;
+
+- (void)throttleWithSelector:(nonnull SEL)action
+                  withObject:(nullable id)object
+                    duration:(NSTimeInterval)duration;
+
+- (void)throttleWithSelector:(nonnull SEL)action
+                  withObject:(nullable id)object1
+                  withObject:(nullable id)object2
+                    duration:(NSTimeInterval)duration;
+
+- (void)debounceWithSelector:(nonnull SEL)action
+                  withObject:(nullable id)object duration:(NSTimeInterval)duration;
 
 @end
 

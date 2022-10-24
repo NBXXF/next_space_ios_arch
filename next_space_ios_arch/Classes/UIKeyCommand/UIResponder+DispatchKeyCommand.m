@@ -55,8 +55,7 @@
 -(void)_dispatchValidateCommand:(UICommand *)command  API_AVAILABLE(ios(13.0)){
     if(command.action==@selector(onDispatchKeyCommand:)){
         if([command isKindOfClass:UIKeyCommand.class]){
-            //YYTextView 等存在多次分发的情况
-            [self throttle:@selector(onDispatchKeyCommand:) withObject:(UIKeyCommand *)command duration:1.0];
+            [self onDispatchKeyCommand:(UIKeyCommand *)command];
             return;
         }
         //系统包装了一层 用kvc 取一遍
@@ -69,8 +68,7 @@
         } @catch (NSException *exception) {
         }
         if(uiKeyCommand){
-            //YYTextView 等存在多次分发的情况
-            [self throttle:@selector(onDispatchKeyCommand:) withObject:uiKeyCommand duration:1.0];
+            [self onDispatchKeyCommand:uiKeyCommand];
             return;
         }
     }
@@ -95,6 +93,11 @@
         commandEvent=nil;
     }
     
+    //增加阻塞 防暴力, //YYTextView 等存在多次分发的情况
+    [self throttleWithSelector:@selector(dispatchUIResponder:commandEvent:) withObject:command withObject:commandEvent duration:0.5];
+
+}
+-(void)dispatchUIResponder:(UIKeyCommand *)command commandEvent:(NSString *)commandEvent{
     //递归式分发 直到响应为止
     UIResponder *nextResponder = self;
     while (nextResponder) {
