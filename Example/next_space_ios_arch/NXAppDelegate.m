@@ -7,6 +7,7 @@
 //
 
 #import "NXAppDelegate.h"
+#import "NXViewController.h"
 
 @implementation NXAppDelegate
 
@@ -14,8 +15,21 @@
     NSLog(@"===========>执行key %@ by %@",command.input,self);
     return YES;
 }
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    NSArray *windows = [[UIApplication sharedApplication] windows];
+    for(UIWindow *window in windows) {
+        if(window.rootViewController == nil){
+            UIViewController *vc = [[UINavigationController alloc] initWithRootViewController:[NXViewController new]];
+            window.rootViewController = vc;
+        }
+    }
+    self.window.backgroundColor = [UIColor whiteColor];
+      [self.window makeKeyAndVisible];
+   // self.window.rootViewController=[NXViewController new];
     // Override point for customization after application launch.
     return YES;
 }

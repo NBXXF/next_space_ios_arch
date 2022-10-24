@@ -24,6 +24,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D09A75826B97565461D625DB /* Pods_next_space_ios_arch_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F282FDE47CFCD0D0AC8C31A7 /* Pods_next_space_ios_arch_Example.framework */; };
+		E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */; };
 		E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B6CFD32901912100529B70 /* UITextField+KeyEvent.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		846026C6DFD5C918A4FC3D12 /* Pods-next_space_ios_arch_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Tests.release.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Tests/Pods-next_space_ios_arch_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0395E2C846DECFAF4A3929B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E1A007A629068AE400B2789B /* YYTextField_KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTextField_KeyEvent.h; sourceTree = "<group>"; };
+		E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTextField_KeyEvent.m; sourceTree = "<group>"; };
 		E1B6CFD22901912100529B70 /* UITextField+KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+KeyEvent.h"; sourceTree = "<group>"; };
 		E1B6CFD32901912100529B70 /* UITextField+KeyEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+KeyEvent.m"; sourceTree = "<group>"; };
 		F282FDE47CFCD0D0AC8C31A7 /* Pods_next_space_ios_arch_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_next_space_ios_arch_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +159,8 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				E1B6CFD22901912100529B70 /* UITextField+KeyEvent.h */,
 				E1B6CFD32901912100529B70 /* UITextField+KeyEvent.m */,
+				E1A007A629068AE400B2789B /* YYTextField_KeyEvent.h */,
+				E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */,
 			);
 			name = "Example for next_space_ios_arch";
 			path = next_space_ios_arch;
@@ -334,12 +339,14 @@
 				"${PODS_ROOT}/Target Support Files/Pods-next_space_ios_arch_Example/Pods-next_space_ios_arch_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 				"${BUILT_PRODUCTS_DIR}/next_space_ios_arch/next_space_ios_arch.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/next_space_ios_arch.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +386,7 @@
 				6003F59E195388D20070C39A /* NXAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* NXViewController.m in Sources */,
 				E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */,
+				E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

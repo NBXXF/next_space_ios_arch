@@ -4,14 +4,19 @@ PODS:
     - JLRoutes
     - ReactiveObjC (~> 3.1.1)
   - ReactiveObjC (3.1.1)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - next_space_ios_arch (from `../`)
+  - YYKit
 
 SPEC REPOS:
   trunk:
     - JLRoutes
     - ReactiveObjC
+    - YYKit
 
 EXTERNAL SOURCES:
   next_space_ios_arch:
@@ -21,7 +26,8 @@ SPEC CHECKSUMS:
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   next_space_ios_arch: 8a80d42ac6c5be054202ee99c0388ee28acc0f2d
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: ba40ea80d8f6172c80aee4e33cc2ac34f8820a1b
+PODFILE CHECKSUM: a8063767a74d19b7513f5946d0197cfa810a717f
 
 COCOAPODS: 1.11.3

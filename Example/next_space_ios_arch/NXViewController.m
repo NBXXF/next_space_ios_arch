@@ -8,6 +8,7 @@
 
 #import "NXViewController.h"
 #import <JLRoutes/JLRoutes.h>
+#import  <YYKit/YYTextView.h>
 //#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 
@@ -42,14 +43,18 @@
 {
     
 
-    UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 800, 500)];
+    UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 800, 100)];
     text.placeholder=@"请输入";
     [self.view addSubview:text];
 
-    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 500, 800, 500)];
+    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 100, 800, 100)];
     text2.placeholder=@"请输入2";
     [self.view addSubview:text2];
     
+    YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 200, 800, 100)];
+    text3.placeholderText=@"请输入3";
+    [text3 becomeFirstResponder];
+    [self.view addSubview:text3];
     
     NSNumber *first=@1;
     NSNumber *second=nil;

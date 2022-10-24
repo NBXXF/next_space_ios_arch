@@ -13,6 +13,7 @@
 #import "NXBus.h"
 #import "NXThreadSafeMutableDictionary.h"
 #import "NSObject+ExchangeMethod.h"
+#import "NSObject+RateLimiting.h"
 #import "RACDisposable+AppArch.h"
 #import "RACSignal+AppArch.h"
 #import "NXInitializer.h"

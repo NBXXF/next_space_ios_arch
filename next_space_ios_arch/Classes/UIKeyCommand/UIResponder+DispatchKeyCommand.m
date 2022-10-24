@@ -8,6 +8,7 @@
 #import "UIResponder+DispatchKeyCommand.h"
 #import "UIKeyCommandConstant.h"
 #import "NSObject+ExchangeMethod.h"
+#import "NSObject+RateLimiting.h"
 
 @implementation UIResponder(DispatchKeyCommand)
 + (void)load{
@@ -54,7 +55,8 @@
 -(void)_dispatchValidateCommand:(UICommand *)command  API_AVAILABLE(ios(13.0)){
     if(command.action==@selector(onDispatchKeyCommand:)){
         if([command isKindOfClass:UIKeyCommand.class]){
-            [self onDispatchKeyCommand:(UIKeyCommand *)command];
+            //YYTextView 等存在多次分发的情况
+            [self throttle:@selector(onDispatchKeyCommand:) withObject:(UIKeyCommand *)command duration:0.5];
             return;
         }
         //系统包装了一层 用kvc 取一遍
@@ -67,7 +69,8 @@
         } @catch (NSException *exception) {
         }
         if(uiKeyCommand){
-            [self onDispatchKeyCommand:uiKeyCommand];
+            //YYTextView 等存在多次分发的情况
+            [self throttle:@selector(onDispatchKeyCommand:) withObject:(UIKeyCommand *)command duration:0.5];
             return;
         }
     }
@@ -76,6 +79,9 @@
 
 
 -(void)onDispatchKeyCommand:(UIKeyCommand *)command{
+    if(![command isKindOfClass:UIKeyCommand.class]){
+        return;
+    }
     NSString *commandEvent=nil;
     if (@available(iOS 13.0, *)) {
         if([command.propertyList isKindOfClass:NSDictionary.class]){

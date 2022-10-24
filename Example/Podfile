@@ -6,11 +6,29 @@ target 'next_space_ios_arch_Example' do
   pod 'next_space_ios_arch', :path => '../'
   
   pod 'next_space_ios_arch', :path => '../'
+  pod 'YYKit'
   
   target 'next_space_ios_arch_Tests' do
     inherit! :search_paths
+  
 
     
   end
 
+end
+# 忽略引入库版本警告
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      config.build_settings['OTHER_CFLAGS'] = ['-Wno-ambiguous-macro']
+      config.build_settings['CODE_SIGN_IDENTITY'] = ''
+    end
+  end
+end
+
+pre_install do |installer|
+  # workaround for https://github.com/CocoaPods/CocoaPods/issues/3289
+  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
 end
