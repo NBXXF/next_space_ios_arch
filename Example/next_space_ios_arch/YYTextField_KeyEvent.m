@@ -16,7 +16,15 @@
 }
 
 - (NSArray<UIKeyCommand *> *)keyCommands{
+    //ReturnOrEnter
+//    return @[
+//             [UIKeyCommand dispatchCommandWithTitle:@"换行" image:nil input:@"\r" modifierFlags:UIKeyModifierShift commandEvent:@"101"]];
+//
     return @[
-             [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"d" modifierFlags:UIKeyModifierCommand commandEvent:@"101"]];
+             [UIKeyCommand dispatchCommandWithTitle:@"换行" image:nil input:@"\r" modifierFlags:0 commandEvent:@"102"],
+             [UIKeyCommand dispatchCommandWithTitle:@"cmd+回车" image:nil input:@"\r" modifierFlags:UIKeyModifierCommand commandEvent:@"103"],
+             [UIKeyCommand dispatchCommandWithTitle:@"cmd+0" image:nil input:@"o" modifierFlags:UIKeyModifierCommand commandEvent:@"104"],];
+
+//    return @[];
 }
 @end
