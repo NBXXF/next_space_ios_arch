@@ -15,13 +15,17 @@
     return YES;
 }
 
+-(void)test{
+    NSLog(@"===========>执行key %@ ",self);
+}
+
 - (NSArray<UIKeyCommand *> *)keyCommands{
     //ReturnOrEnter
 //    return @[
 //             [UIKeyCommand dispatchCommandWithTitle:@"换行" image:nil input:@"\r" modifierFlags:UIKeyModifierShift commandEvent:@"101"]];
 //
     return @[
-             [UIKeyCommand dispatchCommandWithTitle:@"换行" image:nil input:@"\r" modifierFlags:0 commandEvent:@"102"],
+        [UIKeyCommand keyCommandWithInput:@"i" modifierFlags:UIKeyModifierCommand action:@selector(test)],
              [UIKeyCommand dispatchCommandWithTitle:@"cmd+回车" image:nil input:@"\r" modifierFlags:UIKeyModifierCommand commandEvent:@"103"],
              [UIKeyCommand dispatchCommandWithTitle:@"cmd+0" image:nil input:@"o" modifierFlags:UIKeyModifierCommand commandEvent:@"104"],];
 

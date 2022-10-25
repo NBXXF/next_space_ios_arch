@@ -92,9 +92,17 @@
     } else {
         commandEvent=nil;
     }
-    
+    UIResponder *originatingResponder=self;
+    @try {
+        //YYText 传递的是originatingResponder
+        id responder= [command valueForKey:@"originatingResponder"];
+        if([responder isKindOfClass:UIResponder.class]){
+            originatingResponder=(UIResponder *)responder;
+        }
+    } @catch (NSException *exception) {
+    }
     //增加阻塞 防暴力, //YYTextView 等存在多次分发的情况
-    [self throttleWithSelector:@selector(dispatchUIResponder:commandEvent:) withObject:command withObject:commandEvent duration:0.5];
+    [originatingResponder throttleWithSelector:@selector(dispatchUIResponder:commandEvent:) withObject:command withObject:commandEvent duration:0.5];
 
 }
 -(void)dispatchUIResponder:(UIKeyCommand *)command commandEvent:(NSString *)commandEvent{

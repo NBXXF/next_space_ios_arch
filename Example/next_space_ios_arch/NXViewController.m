@@ -56,6 +56,10 @@
     [text3 becomeFirstResponder];
     [self.view addSubview:text3];
     
+    
+    UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];
+    [self.view addSubview:text4];
+    
     NSNumber *first=@1;
     NSNumber *second=nil;
     BOOL res=[first isEqual:second];

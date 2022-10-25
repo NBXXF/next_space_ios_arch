@@ -1,18 +1,17 @@
 //
-//  NXUITextField+KeyEvent.m
+//  UITextView+Commands.m
 //  next_space_ios_arch_Example
 //
-//  Created by XXF on 2022/10/20.
+//  Created by XXF on 2022/10/25.
 //  Copyright © 2022 Wenjinfu. All rights reserved.
 //
 
-#import "UITextField+KeyEvent.h"
+#import "UITextView+Commands.h"
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 
-@implementation UITextField(KeyEvent)
-
+@implementation UITextView(Commands)
 -(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
-    NSLog(@"===========>执行key %@ by %@  %@  event:%@",command.input,self,self.placeholder,event);
+    NSLog(@"===========>执行key %@ by %@   event:%@",command.input,self,event);
     return YES;
 }
 -(void)test{
