@@ -38,51 +38,83 @@
     return nil;
 }
 
-
-- (UIView<UIKeyInput> *)findFocusedTextInput{
-    return [self findCurrentTextInputInView:self];
+- (UIView *)findYoungerBrotherView{
+    NSArray<__kindof UIView *> *subViews=  self.superview.subviews;
+    NSInteger newLocation=[subViews indexOfObject:self]+1;
+    if(subViews.count>newLocation){
+        return [subViews objectAtIndex:newLocation];
+    }
+    return nil;
 }
 
 
-- (UIView <UIKeyInput> *)findCurrentTextInputInView:(UIView *)view {
-    if ([view conformsToProtocol:@protocol(UIKeyInput)] && view.isFirstResponder) {
-        // Quick fix for web view issue
-        if ([view isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [view isKindOfClass:NSClassFromString(@"WKContentView")]) {
-            return nil;
-        }
-        return (UIView <UIKeyInput> *) view;
+- (UIView *)findOlderBrotherView{
+    NSArray<__kindof UIView *> *subViews=  self.superview.subviews;
+    NSInteger newLocation=[subViews indexOfObject:self]-1;
+    if(newLocation>=0){
+        return [subViews objectAtIndex:newLocation];
     }
+    return nil;
+}
 
-    for (UIView *subview in view.subviews) {
-        UIView <UIKeyInput> *inputInView = [self findCurrentTextInputInView:subview];
-        if (inputInView) {
-            return inputInView;
+
+- (UIView *)findFirstChildViewWithBlock:(BOOL (^)(UIView * _Nonnull))block deepQuery:(BOOL)deepQuery{
+    NSArray<__kindof UIView *> *subViews=  self.subviews;
+    if(deepQuery){
+        for(UIView *child in subViews){
+            UIView *find= [self findDeepFirstChildViewWithBlock:block parent:child];
+            if(find){
+                return find;
+            }
+        }
+    }else{
+        for(UIView *child in subViews){
+            if(block(child)){
+                return child;
+            }
         }
     }
     return nil;
 }
 
-- (UIView<UIKeyInput> *)findTextInput{
-    return [self findTextInputInView:self];
-}
-
-
-- (UIView<UIKeyInput> *)findTextInputInView:(UIView *)view{
-    if ([view conformsToProtocol:@protocol(UIKeyInput)]) {
-        // Quick fix for web view issue
-        if ([view isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [view isKindOfClass:NSClassFromString(@"WKContentView")]) {
-            return nil;
-        }
-        return (UIView <UIKeyInput> *) view;
+- (UIView *)findDeepFirstChildViewWithBlock:(BOOL (^)(UIView * _Nonnull))block parent:(UIView *)parent{
+    if(block(parent)){
+        return parent;
     }
-
-    for (UIView *subview in view.subviews) {
-        UIView <UIKeyInput> *inputInView = [self findTextInputInView:subview];
-        if (inputInView) {
-            return inputInView;
+    NSArray<__kindof UIView *> *subViews=  parent.subviews;
+    for(UIView *child in subViews){
+        UIView *find= [self findDeepFirstChildViewWithBlock:block parent:child];
+        if(find){
+            return find;
         }
     }
     return nil;
+}
+
+- (UIView<UIKeyInput> *)findFirstFocusedTextInput{
+    return (UIView<UIKeyInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+        if ([childView conformsToProtocol:@protocol(UIKeyInput)]&& childView.isFirstResponder) {
+            // Quick fix for web view issue
+            if ([childView isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [childView isKindOfClass:NSClassFromString(@"WKContentView")]) {
+                return NO;
+            }
+            return YES;
+        }
+        return NO;
+    } deepQuery:YES];
+}
+
+- (UIView<UIKeyInput> *)findFirstTextInput{
+    return (UIView<UIKeyInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+        if ([childView conformsToProtocol:@protocol(UIKeyInput)]) {
+            // Quick fix for web view issue
+            if ([childView isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [childView isKindOfClass:NSClassFromString(@"WKContentView")]) {
+                return NO;
+            }
+            return YES;
+        }
+        return NO;
+    } deepQuery:YES];
 }
 
 

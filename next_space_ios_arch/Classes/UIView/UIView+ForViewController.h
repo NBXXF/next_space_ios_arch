@@ -19,22 +19,40 @@ NS_ASSUME_NONNULL_BEGIN
 /**
   向上查找对应的view
  */
-- (UIView *)findSuperViewWithClass:(Class)superClazz;
+- (UIView * __nullable)findSuperViewWithClass:(Class)superClazz;
 
 /**
   向上查找对应的view
  */
-- (UIView *)findSuperViewWithBlock:(BOOL (^)(UIView *superView))block;
+- (UIView * __nullable)findSuperViewWithBlock:(BOOL (^)(UIView *superView))block;
 
 /**
- 查找当前有焦点的组件
+ 找到view弟弟
  */
-- (UIView <UIKeyInput> *)findFocusedTextInput;
+- (UIView * __nullable)findYoungerBrotherView;
 
 /**
- 查找第一个能获取焦点的组件
+ 找到哥哥View
  */
-- (UIView <UIKeyInput> *)findTextInput;
+- (UIView * __nullable)findOlderBrotherView;
+
+/**
+ 查询满足条件的第一个子view
+ */
+-(UIView * __nullable)findFirstChildViewWithBlock:(BOOL (^)(UIView *childView))block deepQuery:(BOOL)deepQuery;
+
+
+/**
+ 查找当前子集第一个有焦点的组件
+ */
+- (UIView <UIKeyInput> * __nullable)findFirstFocusedTextInput;
+
+/**
+ 查找当前自己第一个能获取焦点的组件
+ */
+- (UIView <UIKeyInput> * __nullable)findFirstTextInput;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
