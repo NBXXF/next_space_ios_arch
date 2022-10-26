@@ -140,7 +140,7 @@
 
 - (BOOL)isTextInputView{
     UIView *childView=self;
-    if ([childView conformsToProtocol:@protocol(UIKeyInput)]&& childView.isFirstResponder) {
+    if ([childView conformsToProtocol:@protocol(UIKeyInput)]) {
         // Quick fix for web view issue
         if ([childView isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [childView isKindOfClass:NSClassFromString(@"WKContentView")]) {
             return NO;

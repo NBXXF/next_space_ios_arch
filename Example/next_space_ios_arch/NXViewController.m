@@ -11,6 +11,7 @@
 #import  <YYKit/YYTextView.h>
 //#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 @interface NXViewController ()
 
@@ -47,14 +48,26 @@
     text.placeholder=@"请输入";
     [self.view addSubview:text];
 
-    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 100, 800, 100)];
-    text2.placeholder=@"请输入2";
-    [self.view addSubview:text2];
+//    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 100, 800, 100)];
+//    text2.placeholder=@"请输入2";
+//    [self.view addSubview:text2];
     
     YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 200, 800, 100)];
     text3.placeholderText=@"请输入3";
     [text3 becomeFirstResponder];
     [self.view addSubview:text3];
+    
+    
+   UIView *findNext= [text.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+        return [childView isTextInputView]&&[childView isDownForView:text];
+   } deepQuery:YES];
+    if(findNext){
+        NSLog(@"==========>findYes");
+    }else{
+        NSLog(@"==========>findNO");
+    }
+    
+    
     
     
     UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];
