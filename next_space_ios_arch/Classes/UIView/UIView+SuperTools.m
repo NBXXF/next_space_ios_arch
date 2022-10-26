@@ -42,12 +42,24 @@
 - (NSArray<UIView *> *)findSortedSubviews{
     //不考虑重复叠层的情况
     return [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView *  _Nonnull obj1, UIView *  _Nonnull obj2) {
-       // [obj1.superview convertPoint:obj1.frame.origin toView:obj1.window];
-       
-        CGPoint obj1Point1=[obj1 convertPointToWindow];
-        CGPoint obj1Point2=[obj2 convertPointToWindow];
+    
+        CGPoint obj1Point=[obj1 convertPointToWindow];
+        CGPoint obj2Point=[obj2 convertPointToWindow];
         
-        return obj1Point1.x<obj1Point2.x||obj1Point1.y<obj1Point2.y;
+         if (obj1Point.x<obj2Point.x){
+             if(obj1Point.y<obj2Point.y){
+                 return NSOrderedAscending;
+             }else{
+                 return NSOrderedDescending;
+             }
+         }else{
+             if(obj1Point.y<obj2Point.y){
+                 return NSOrderedAscending;
+             }else{
+                 return NSOrderedDescending;
+             }
+         }
+         return NSOrderedAscending;
     }];
 }
 
