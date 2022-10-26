@@ -69,10 +69,21 @@
     return selfPoint;
 }
 
+- (CGRect)convertRectToWindow{
+    CGRect selfRect=[self convertRect:self.frame toView:self.window];
+    return selfRect;
+}
+
 - (BOOL)isLeftForView:(UIView *)target{
     CGPoint selfPoint=[self convertPointToWindow];
     CGPoint targetPoint=[target convertPointToWindow];
     return selfPoint.x<targetPoint.x;
+}
+
+- (BOOL)isLeftStrictForView:(UIView *)target{
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return (selfRect.origin.x+selfRect.size.width)<= targetRect.origin.x;
 }
 
 
@@ -82,6 +93,12 @@
     return selfPoint.x>targetPoint.x;
 }
 
+- (BOOL)isRightStrictForView:(UIView *)target{
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return selfRect.origin.x>=(targetRect.origin.x+targetRect.size.width);
+}
+
 
 - (BOOL)isUpForView:(UIView *)target{
     CGPoint selfPoint=[self convertPointToWindow];
@@ -89,11 +106,23 @@
     return selfPoint.y<targetPoint.y;
 }
 
+- (BOOL)isUpStrictForView:(UIView *)target{
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return (selfRect.origin.y+selfRect.size.height)<=targetRect.origin.y;
+}
+
 
 - (BOOL)isDownForView:(UIView *)target{
     CGPoint selfPoint=[self convertPointToWindow];
     CGPoint targetPoint=[target convertPointToWindow];
     return selfPoint.y>targetPoint.y;
+}
+
+- (BOOL)isDownStrictForView:(UIView *)target{
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return selfRect.origin.y>=(targetRect.origin.y+targetRect.size.height);
 }
 
 

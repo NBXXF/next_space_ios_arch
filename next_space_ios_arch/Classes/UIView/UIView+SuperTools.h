@@ -39,15 +39,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ 转换成window的像素点
+ */
+-(CGRect)convertRectToWindow;
+
+/**
  是否是target的左边
  */
 -(BOOL)isLeftForView:(UIView *)target;
 
 
 /**
- 是否是target的左边
+ 是否是target的左边 抛弃重叠
+ */
+-(BOOL)isLeftStrictForView:(UIView *)target;
+
+
+
+/**
+ 是否是target的右边
  */
 -(BOOL)isRightForView:(UIView *)target;
+
+
+
+/**
+ 是否是target的右边 抛弃重叠
+ */
+-(BOOL)isRightStrictForView:(UIView *)target;
 
 
 /**
@@ -56,10 +75,24 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)isUpForView:(UIView *)target;
 
 
+
+/**
+ 是否是target的上边 抛弃重叠
+ */
+-(BOOL)isUpStrictForView:(UIView *)target;
+
 /**
  是否是target的下边
  */
 -(BOOL)isDownForView:(UIView *)target;
+
+
+
+/**
+ 是否是target的下边 抛弃重叠
+ */
+-(BOOL)isDownStrictForView:(UIView *)target;
+
 
 /**
  找到view弟弟 从左
