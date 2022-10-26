@@ -138,29 +138,28 @@
     return nil;
 }
 
+- (BOOL)isTextInputView{
+    UIView *childView=self;
+    if ([childView conformsToProtocol:@protocol(UIKeyInput)]&& childView.isFirstResponder) {
+        // Quick fix for web view issue
+        if ([childView isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [childView isKindOfClass:NSClassFromString(@"WKContentView")]) {
+            return NO;
+        }
+        return YES;
+    }
+    return NO;
+}
+
+
 - (UIView<UIKeyInput> *)findFirstFocusedTextInput{
     return (UIView<UIKeyInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
-        if ([childView conformsToProtocol:@protocol(UIKeyInput)]&& childView.isFirstResponder) {
-            // Quick fix for web view issue
-            if ([childView isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [childView isKindOfClass:NSClassFromString(@"WKContentView")]) {
-                return NO;
-            }
-            return YES;
-        }
-        return NO;
+        return [childView isTextInputView] && childView.isFirstResponder;
     } deepQuery:YES];
 }
 
 - (UIView<UIKeyInput> *)findFirstTextInput{
     return (UIView<UIKeyInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
-        if ([childView conformsToProtocol:@protocol(UIKeyInput)]) {
-            // Quick fix for web view issue
-            if ([childView isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [childView isKindOfClass:NSClassFromString(@"WKContentView")]) {
-                return NO;
-            }
-            return YES;
-        }
-        return NO;
+        return [childView isTextInputView];
     } deepQuery:YES];
 }
 
