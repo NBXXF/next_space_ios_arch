@@ -60,14 +60,14 @@
 - (BOOL)isLeftForView:(UIView *)target{
     CGPoint selfPoint=[self convertPointToWindow];
     CGPoint targetPoint=[target convertPointToWindow];
-    return selfPoint.x>targetPoint.x;
+    return selfPoint.x<targetPoint.x;
 }
 
 
 - (BOOL)isRightForView:(UIView *)target{
     CGPoint selfPoint=[self convertPointToWindow];
     CGPoint targetPoint=[target convertPointToWindow];
-    return selfPoint.x<targetPoint.x;
+    return selfPoint.x>targetPoint.x;
 }
 
 
