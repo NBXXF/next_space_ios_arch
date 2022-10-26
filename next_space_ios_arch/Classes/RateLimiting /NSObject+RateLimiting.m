@@ -52,4 +52,15 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
     [weakSelf performSelector:action withObject:object afterDelay:duration];
 }
 
+
++ (BOOL)isRateLimitingWithId:(NSString *)ids duration:(NSTimeInterval)duration{
+    NSMutableDictionary *throttleData = [UIApplication.sharedApplication getThrottleData];
+    NSDate *lastCalled = [throttleData objectForKey:ids];
+    if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
+        [throttleData setObject:[NSDate date] forKey:ids];
+        return NO;
+    }
+    return YES;
+}
+
 @end

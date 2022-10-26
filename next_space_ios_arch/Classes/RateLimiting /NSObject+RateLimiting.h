@@ -23,6 +23,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)debounceWithSelector:(nonnull SEL)action
                   withObject:(nullable id)object duration:(NSTimeInterval)duration;
 
+/**
+ 是否应该限流
+ @param ids 业务唯一标识
+ @param duration 时间区间
+ */
++(BOOL)isRateLimitingWithId:(NSString *)ids duration:(NSTimeInterval)duration;
+
 @end
 
 NS_ASSUME_NONNULL_END

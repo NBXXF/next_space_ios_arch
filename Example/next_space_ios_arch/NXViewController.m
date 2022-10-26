@@ -40,9 +40,20 @@
     return NO;
 }
 
+-(void)test{
+    NSLog(@"============>收到:%@",[NSDate date]);
+}
+-(void)testThrott{
+    [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
+    [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
+    [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
+    [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
+    [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
+    [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
+}
 - (void)viewDidLoad
 {
-    
+    [self testThrott];
 
     UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
     text.placeholder=@"请输入";

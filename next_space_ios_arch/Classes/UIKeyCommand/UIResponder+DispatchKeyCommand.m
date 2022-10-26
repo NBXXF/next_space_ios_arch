@@ -102,10 +102,15 @@
     } @catch (NSException *exception) {
     }
     //增加阻塞 防暴力, //YYTextView 等存在多次分发的情况
-    [originatingResponder throttleWithSelector:@selector(dispatchUIResponder:commandEvent:) withObject:command withObject:commandEvent duration:0.5];
+    [originatingResponder throttleWithSelector:@selector(dispatchUIResponder:commandEvent:) withObject:command withObject:commandEvent duration:0.0];
 
 }
 -(void)dispatchUIResponder:(UIKeyCommand *)command commandEvent:(NSString *)commandEvent{
+    if(commandEvent&&[NSObject isRateLimitingWithId:commandEvent duration:0.3]){
+        //多个组件 同一个事件频率太高
+        NSLog(@"===========>commandEvent:%@ fast click",commandEvent);
+        return;
+    }
     //递归式分发 直到响应为止
     UIResponder *nextResponder = self;
     while (nextResponder) {

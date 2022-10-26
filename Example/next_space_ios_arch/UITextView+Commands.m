@@ -29,6 +29,6 @@
     return @[
         [UIKeyCommand commandWithTitle:@"撤销" image:nil action:@selector(nx_undo) input:@"z" modifierFlags:UIKeyModifierCommand propertyList:nil],
         [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"z" modifierFlags:UIKeyModifierCommand commandEvent:@"101"],
-             [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"o" modifierFlags:UIKeyModifierCommand commandEvent:@"101"]];
+             [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"I" modifierFlags:UIKeyModifierCommand commandEvent:@"101"]];
 }
 @end
