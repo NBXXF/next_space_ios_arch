@@ -65,12 +65,12 @@
 
 
 - (CGPoint)convertPointToWindow{
-    CGPoint selfPoint=[self convertPoint:self.frame.origin toView:self.window];
+    CGPoint selfPoint=[self.superview convertPoint:self.frame.origin toView:self.window];
     return selfPoint;
 }
 
 - (CGRect)convertRectToWindow{
-    CGRect selfRect=[self convertRect:self.frame toView:self.window];
+    CGRect selfRect=[self.superview convertRect:self.frame toView:self.window];
     return selfRect;
 }
 
