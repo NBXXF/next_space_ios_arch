@@ -8,27 +8,56 @@
 
 #import "YYTextField_KeyEvent.h"
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 @implementation YYTextView(KeyEvent)
 -(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
     NSLog(@"===========>执行key %@ by %@  %@  event:%@",command.input,self,@"",event);
+    if([event isEqual:UIKeyInputLeftArrow]){
+        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+            return [childView isTextInputView]&&[childView isLeftForView:self];
+        } deepQuery:YES];
+        [findTextInput becomeFirstResponder];
+        return YES;
+    }else if([event isEqual:UIKeyInputRightArrow]){
+        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+            return [childView isTextInputView]&&[childView isRightForView:self];
+        } deepQuery:YES];
+        [findTextInput becomeFirstResponder];
+        return YES;
+    }else if([event isEqual:UIKeyInputUpArrow]){
+        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+            BOOL result=[childView isUpForView:self]&&[childView isTextInputView];
+            return result;
+        } deepQuery:YES];
+        [findTextInput becomeFirstResponder];
+        return YES;
+    }else if([event isEqual:UIKeyInputDownArrow]){
+        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+            return [childView isDownForView:self]&&[childView isTextInputView];
+        } deepQuery:YES];
+        [findTextInput becomeFirstResponder];
+        return YES;
+    }
     return YES;
 }
-
 -(void)test{
-    NSLog(@"===========>执行key %@ ",self);
+    NSLog(@"===========>执行key lala");
 }
+//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+//    return YES;
+//}
+//- (void)validateCommand:(UICommand *)command{
+//    NSLog(@"===========>执行key222 %@ by %@  %@",command.title,self,self.placeholder);
+//}
 
 - (NSArray<UIKeyCommand *> *)keyCommands{
-    //ReturnOrEnter
-//    return @[
-//             [UIKeyCommand dispatchCommandWithTitle:@"换行" image:nil input:@"\r" modifierFlags:UIKeyModifierShift commandEvent:@"101"]];
-//
+    NSLog(@"===============>快捷键注册了 text");
     return @[
-        [UIKeyCommand keyCommandWithInput:@"i" modifierFlags:UIKeyModifierCommand action:@selector(test)],
-             [UIKeyCommand dispatchCommandWithTitle:@"cmd+回车" image:nil input:@"\r" modifierFlags:UIKeyModifierCommand commandEvent:@"103"],
-             [UIKeyCommand dispatchCommandWithTitle:@"cmd+0" image:nil input:@"o" modifierFlags:UIKeyModifierCommand commandEvent:@"104"],];
-
-//    return @[];
+        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputLeftArrow],
+        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputRightArrow modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputRightArrow],
+        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputUpArrow modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputUpArrow],
+        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputDownArrow modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputDownArrow]
+    ];
 }
 @end

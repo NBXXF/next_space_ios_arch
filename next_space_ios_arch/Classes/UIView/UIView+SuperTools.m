@@ -53,7 +53,7 @@
 
 
 - (CGPoint)convertPointToWindow{
-    CGPoint selfPoint=[self convertPoint:self.frame.origin fromView:self.window];
+    CGPoint selfPoint=[self convertPoint:self.frame.origin toView:self.window];
     return selfPoint;
 }
 
