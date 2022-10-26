@@ -27,7 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIView * __nullable)findSuperViewWithBlock:(BOOL (^)(UIView *superView))block;
 
 /**
- 找到view弟弟
+ 按展示原点x,y顺序排序的subviews
+ */
+-(NSArray<UIView *> *)findSortedSubviews;
+
+/**
+ 找到view弟弟 从左
  */
 - (UIView * __nullable)findYoungerBrotherView;
 
