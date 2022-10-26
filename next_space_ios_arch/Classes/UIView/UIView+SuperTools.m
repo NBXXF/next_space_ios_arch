@@ -116,7 +116,9 @@
     return nil;
 }
 
-
+/**
+ 查询第一个满足条件的
+ */
 - (UIView *)findFirstChildViewWithBlock:(BOOL (^)(UIView * _Nonnull))block deepQuery:(BOOL)deepQuery{
     NSArray<__kindof UIView *> *subViews=  [self findSortedSubviews];
     if(deepQuery){
@@ -136,6 +138,35 @@
     return nil;
 }
 
+/**
+ 查询最后一个满足条件的
+ */
+- (UIView *)findLastChildViewWithBlock:(BOOL (^)(UIView * _Nonnull))block deepQuery:(BOOL)deepQuery{
+    return [self findChildViewWithBlock:block deepQuery:deepQuery].lastObject;
+}
+
+
+/**
+ 查询满足条件的
+ */
+- (NSArray<UIView *> *)findChildViewWithBlock:(BOOL (^)(UIView * _Nonnull))block deepQuery:(BOOL)deepQuery{
+    NSMutableArray<UIView *> *queryResult=[NSMutableArray array];
+    NSArray<__kindof UIView *> *subViews=  [self findSortedSubviews];
+    if(deepQuery){
+        for(UIView *child in subViews){
+            [queryResult addObjectsFromArray:[self findChildViewWithBlock:block parent:child]];
+        }
+    }else{
+        for(UIView *child in subViews){
+            if(block(child)){
+                [queryResult addObject:child];
+            }
+        }
+    }
+    return queryResult;
+}
+
+
 - (UIView *)findDeepFirstChildViewWithBlock:(BOOL (^)(UIView * _Nonnull))block parent:(UIView *)parent{
     if(block(parent)){
         return parent;
@@ -149,6 +180,21 @@
     }
     return nil;
 }
+
+
+- (NSArray<UIView *> *)findChildViewWithBlock:(BOOL (^)(UIView * _Nonnull))block parent:(UIView *)parent{
+    NSMutableArray<UIView *> *queryResult=[NSMutableArray array];
+    if(block(parent)){
+        [queryResult addObject:parent];
+    }
+    NSArray<__kindof UIView *> *subViews=  [parent findSortedSubviews];
+    for(UIView *child in subViews){
+        [queryResult addObjectsFromArray:[self findChildViewWithBlock:block parent:child]];
+    }
+    return queryResult;
+}
+
+
 
 - (BOOL)isTextInputView{
     UIView *childView=self;

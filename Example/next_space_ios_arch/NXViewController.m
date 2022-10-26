@@ -47,16 +47,19 @@
     UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
     text.placeholder=@"请输入";
     text.text=@"1";
+    text.tag=1;
     [self.view addSubview:text];
 
     UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 101, 300, 100)];
     text2.placeholder=@"请输入2";
     text2.text=@"2";
+    text2.tag=2;
     [self.view addSubview:text2];
     
     YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 202, 300, 100)];
     text3.placeholderText=@"请输入3";
     text3.text=@"3";
+    text3.tag=3;
     [text3 becomeFirstResponder];
     [self.view addSubview:text3];
     
@@ -67,6 +70,7 @@
     
     UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];
     text4.text=@"4";
+    text4.tag=4;
     [self.view addSubview:text4];
     
     NSNumber *first=@1;

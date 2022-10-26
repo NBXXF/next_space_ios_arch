@@ -14,7 +14,7 @@
 -(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
     NSLog(@"===========>执行key %@ by %@  %@  event:%@",command.input,self,@"",event);
     if([event isEqual:UIKeyInputLeftArrow]){
-        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+        UIView *findTextInput= [self.superview.superview findLastChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
             return [childView isTextInputView]&&[childView isLeftForView:self];
         } deepQuery:YES];
         [findTextInput becomeFirstResponder];
@@ -26,8 +26,8 @@
         [findTextInput becomeFirstResponder];
         return YES;
     }else if([event isEqual:UIKeyInputUpArrow]){
-        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
-            BOOL result=[childView isUpForView:self]&&[childView isTextInputView];
+        UIView *findTextInput= [self.superview.superview findLastChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+            BOOL result=[childView isTextInputView]&&[childView isUpForView:self];
             return result;
         } deepQuery:YES];
         [findTextInput becomeFirstResponder];

@@ -77,6 +77,17 @@ NS_ASSUME_NONNULL_BEGIN
 -(UIView * __nullable)findFirstChildViewWithBlock:(BOOL (^)(UIView *childView))block deepQuery:(BOOL)deepQuery;
 
 
+/**
+ 查询满足条件的最后一个子view
+ */
+-(UIView * __nullable)findLastChildViewWithBlock:(BOOL (^)(UIView *childView))block deepQuery:(BOOL)deepQuery;
+
+/**
+ 查询满足条件的所有子view
+ */
+-(NSArray<UIView *> * __nullable)findChildViewWithBlock:(BOOL (^)(UIView *childView))block deepQuery:(BOOL)deepQuery;
+
+
 //是否是输入组件
 -(BOOL)isTextInputView;
 
