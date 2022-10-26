@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView(ForViewController)
+@interface UIView(SuperTools)
 
 /**
  找到最近的viewcontroller,不能在new 等没有显示出来的生命周期去访问
@@ -30,6 +30,36 @@ NS_ASSUME_NONNULL_BEGIN
  按展示原点x,y顺序排序的subviews
  */
 -(NSArray<UIView *> *)findSortedSubviews;
+
+
+/**
+ 转换成window的像素点
+ */
+-(CGPoint)convertPointToWindow;
+
+
+/**
+ 是否是target的左边
+ */
+-(BOOL)isLeftForView:(UIView *)target;
+
+
+/**
+ 是否是target的左边
+ */
+-(BOOL)isRightForView:(UIView *)target;
+
+
+/**
+ 是否是target的上边
+ */
+-(BOOL)isUpForView:(UIView *)target;
+
+
+/**
+ 是否是target的下边
+ */
+-(BOOL)isDownForView:(UIView *)target;
 
 /**
  找到view弟弟 从左

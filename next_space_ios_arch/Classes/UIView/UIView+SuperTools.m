@@ -5,9 +5,9 @@
 //  Created by XXF on 2022/10/19.
 //
 
-#import "UIView+ForViewController.h"
+#import "UIView+SuperTools.h"
 
-@implementation UIView(ForViewController)
+@implementation UIView(SuperTools)
 
 - (UIViewController *)findViewController{
     for (UIView *view = self; view; view = view.superview) {
@@ -44,12 +44,46 @@
     return [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView *  _Nonnull obj1, UIView *  _Nonnull obj2) {
        // [obj1.superview convertPoint:obj1.frame.origin toView:obj1.window];
        
-        CGPoint obj1Point1=[obj1 convertPoint:obj1.frame.origin fromView:obj1.window];
-        CGPoint obj1Point2=[obj2 convertPoint:obj2.frame.origin fromView:obj2.window];
+        CGPoint obj1Point1=[obj1 convertPointToWindow];
+        CGPoint obj1Point2=[obj2 convertPointToWindow];
         
         return obj1Point1.x<obj1Point2.x||obj1Point1.y<obj1Point2.y;
     }];
 }
+
+
+- (CGPoint)convertPointToWindow{
+    CGPoint selfPoint=[self convertPoint:self.frame.origin fromView:self.window];
+    return selfPoint;
+}
+
+- (BOOL)isLeftForView:(UIView *)target{
+    CGPoint selfPoint=[self convertPointToWindow];
+    CGPoint targetPoint=[target convertPointToWindow];
+    return selfPoint.x>targetPoint.x;
+}
+
+
+- (BOOL)isRightForView:(UIView *)target{
+    CGPoint selfPoint=[self convertPointToWindow];
+    CGPoint targetPoint=[target convertPointToWindow];
+    return selfPoint.x<targetPoint.x;
+}
+
+
+- (BOOL)isUpForView:(UIView *)target{
+    CGPoint selfPoint=[self convertPointToWindow];
+    CGPoint targetPoint=[target convertPointToWindow];
+    return selfPoint.y<targetPoint.y;
+}
+
+
+- (BOOL)isDownForView:(UIView *)target{
+    CGPoint selfPoint=[self convertPointToWindow];
+    CGPoint targetPoint=[target convertPointToWindow];
+    return selfPoint.y>targetPoint.y;
+}
+
 
 - (UIView *)findYoungerBrotherView{
     NSArray<__kindof UIView *> *subViews=  [self.superview findSortedSubviews];
