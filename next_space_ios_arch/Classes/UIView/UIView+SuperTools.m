@@ -152,7 +152,7 @@
 
 - (BOOL)isTextInputView{
     UIView *childView=self;
-    if ([childView conformsToProtocol:@protocol(UIKeyInput)]) {
+    if ([childView conformsToProtocol:@protocol(UITextInput)]) {
         // Quick fix for web view issue
         if ([childView isKindOfClass:NSClassFromString(@"UIWebBrowserView")] || [childView isKindOfClass:NSClassFromString(@"WKContentView")]) {
             return NO;
@@ -163,14 +163,14 @@
 }
 
 
-- (UIView<UIKeyInput> *)findFirstFocusedTextInput{
-    return (UIView<UIKeyInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+- (UIView<UITextInput> *)findFirstFocusedTextInput{
+    return (UIView<UITextInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
         return [childView isTextInputView] && childView.isFirstResponder;
     } deepQuery:YES];
 }
 
-- (UIView<UIKeyInput> *)findFirstTextInput{
-    return (UIView<UIKeyInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
+- (UIView<UITextInput> *)findFirstTextInput{
+    return (UIView<UITextInput> *)[self findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
         return [childView isTextInputView];
     } deepQuery:YES];
 }
