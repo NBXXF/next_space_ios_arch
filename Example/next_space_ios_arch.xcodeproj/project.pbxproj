@@ -27,6 +27,8 @@
 		E1268EA92908222B00E5DAB5 /* UITextView+Commands.m in Sources */ = {isa = PBXBuildFile; fileRef = E1268EA82908222B00E5DAB5 /* UITextView+Commands.m */; };
 		E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */; };
 		E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B6CFD32901912100529B70 /* UITextField+KeyEvent.m */; };
+		E1CB5443290AB8BD004DA7A4 /* UIViewController+TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CB5442290AB8BD004DA7A4 /* UIViewController+TestViewController.m */; };
+		E1CB5447290AB91C004DA7A4 /* NXViewController+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CB5446290AB91C004DA7A4 /* NXViewController+Test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,10 @@
 		E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTextField_KeyEvent.m; sourceTree = "<group>"; };
 		E1B6CFD22901912100529B70 /* UITextField+KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+KeyEvent.h"; sourceTree = "<group>"; };
 		E1B6CFD32901912100529B70 /* UITextField+KeyEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+KeyEvent.m"; sourceTree = "<group>"; };
+		E1CB5441290AB8BD004DA7A4 /* UIViewController+TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TestViewController.h"; sourceTree = "<group>"; };
+		E1CB5442290AB8BD004DA7A4 /* UIViewController+TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TestViewController.m"; sourceTree = "<group>"; };
+		E1CB5445290AB91C004DA7A4 /* NXViewController+Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NXViewController+Test.h"; sourceTree = "<group>"; };
+		E1CB5446290AB91C004DA7A4 /* NXViewController+Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NXViewController+Test.m"; sourceTree = "<group>"; };
 		F282FDE47CFCD0D0AC8C31A7 /* Pods_next_space_ios_arch_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_next_space_ios_arch_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,6 +158,7 @@
 		6003F593195388D20070C39A /* Example for next_space_ios_arch */ = {
 			isa = PBXGroup;
 			children = (
+				E1CB5444290AB90A004DA7A4 /* New Group */,
 				6003F59C195388D20070C39A /* NXAppDelegate.h */,
 				6003F59D195388D20070C39A /* NXAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -166,6 +173,10 @@
 				E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */,
 				E1268EA72908222B00E5DAB5 /* UITextView+Commands.h */,
 				E1268EA82908222B00E5DAB5 /* UITextView+Commands.m */,
+				E1CB5441290AB8BD004DA7A4 /* UIViewController+TestViewController.h */,
+				E1CB5442290AB8BD004DA7A4 /* UIViewController+TestViewController.m */,
+				E1CB5445290AB91C004DA7A4 /* NXViewController+Test.h */,
+				E1CB5446290AB91C004DA7A4 /* NXViewController+Test.m */,
 			);
 			name = "Example for next_space_ios_arch";
 			path = next_space_ios_arch;
@@ -209,6 +220,13 @@
 				680A172176E9D52618D23413 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		E1CB5444290AB90A004DA7A4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,10 +408,12 @@
 			files = (
 				6003F59E195388D20070C39A /* NXAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* NXViewController.m in Sources */,
+				E1CB5447290AB91C004DA7A4 /* NXViewController+Test.m in Sources */,
 				E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */,
 				E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E1268EA92908222B00E5DAB5 /* UITextView+Commands.m in Sources */,
+				E1CB5443290AB8BD004DA7A4 /* UIViewController+TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

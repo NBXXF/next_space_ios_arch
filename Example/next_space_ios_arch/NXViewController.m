@@ -13,6 +13,9 @@
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
+#import "NXViewController+Test.h"
+#import "UIViewController+TestViewController.h"
+
 
 @interface NXViewController ()<UIKeyCommanderProtocol>
 
@@ -54,6 +57,7 @@
 {
     [self testThrott];
 
+    [self testvc];
     
     UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
     text.placeholder=@"请输入";
