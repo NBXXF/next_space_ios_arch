@@ -398,6 +398,8 @@
 		E0E827DBEF28A4F57B973E9DD42773B5 /* NXBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BBEACF0ECAF952498DB2B8FD6F4CA85 /* NXBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E104B0F3E2C5A3E385B51C89E0E60470 /* RACArraySequence.h in Headers */ = {isa = PBXBuildFile; fileRef = ED92B079AA0C650487949897DACC05DC /* RACArraySequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E14727EAA95F465A398D84722B13B264 /* YYTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = ED7BCB79DF4DCCAF0D64AEA6E52229FF /* YYTimer.m */; };
+		E1CB5426290A34E6004DA7A4 /* RACScheduler+AppArch.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CB5424290A34E6004DA7A4 /* RACScheduler+AppArch.h */; };
+		E1CB5427290A34E6004DA7A4 /* RACScheduler+AppArch.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CB5425290A34E6004DA7A4 /* RACScheduler+AppArch.m */; };
 		E2D2D144CF63161CEB2FD57D39734F84 /* RACTupleSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 302AE29A71BA6D1AF281235A204532A2 /* RACTupleSequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E31B579975C36E87E41684AA8A274397 /* NSObject+RateLimiting.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C62DF01E2700958A6EE6AF09697F7A1 /* NSObject+RateLimiting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3421DAB039553E8206F4A55537518D3 /* YYTextRubyAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 011053116C357F1D30C395B5762F479F /* YYTextRubyAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -917,6 +919,8 @@
 		E025BABCD6903164B8E6F54234E66695 /* RACUnit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACUnit.m; path = ReactiveObjC/RACUnit.m; sourceTree = "<group>"; };
 		E03354B201D6974BE72D8B8306A7B32F /* UIBarButtonItem+RACCommandSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+RACCommandSupport.h"; path = "ReactiveObjC/UIBarButtonItem+RACCommandSupport.h"; sourceTree = "<group>"; };
 		E16E1166F1DB37C70A790681384D9D8D /* UITableViewCell+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+RACSignalSupport.h"; path = "ReactiveObjC/UITableViewCell+RACSignalSupport.h"; sourceTree = "<group>"; };
+		E1CB5424290A34E6004DA7A4 /* RACScheduler+AppArch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RACScheduler+AppArch.h"; sourceTree = "<group>"; };
+		E1CB5425290A34E6004DA7A4 /* RACScheduler+AppArch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RACScheduler+AppArch.m"; sourceTree = "<group>"; };
 		E2E498AAE6762D2DB0BC2EAC0BABE118 /* YYTextParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextParser.m; path = YYKit/Text/String/YYTextParser.m; sourceTree = "<group>"; };
 		E307D98AD4AA41D567E8BF65FA332071 /* YYImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYImageCache.m; path = YYKit/Image/YYImageCache.m; sourceTree = "<group>"; };
 		E325DCCD357AF9DF2F7C506424659D7E /* YYKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YYKit; path = YYKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1271,6 +1275,8 @@
 				55124D4DF2CBFA69CCB5AABDA95ADAB0 /* RACDisposable+AppArch.m */,
 				2C424C217B4889F82616C0ACF34E294E /* RACSignal+AppArch.h */,
 				3D4AC6D82908A94CC38DA8F8DCB9E627 /* RACSignal+AppArch.m */,
+				E1CB5424290A34E6004DA7A4 /* RACScheduler+AppArch.h */,
+				E1CB5425290A34E6004DA7A4 /* RACScheduler+AppArch.m */,
 			);
 			name = ReactiveObjc;
 			path = next_space_ios_arch/Classes/ReactiveObjc;
@@ -1988,6 +1994,7 @@
 				A7880FCE53CC2941566DD64F494C627B /* next_space_ios_arch-umbrella.h in Headers */,
 				A8C520E35813A1516EA9A510D0743E86 /* NSObject+ExchangeMethod.h in Headers */,
 				E31B579975C36E87E41684AA8A274397 /* NSObject+RateLimiting.h in Headers */,
+				E1CB5426290A34E6004DA7A4 /* RACScheduler+AppArch.h in Headers */,
 				E0E827DBEF28A4F57B973E9DD42773B5 /* NXBus.h in Headers */,
 				4E652DA24ED0CE023B37BBDB4ADFEAAD /* NXInitializer.h in Headers */,
 				9EC3486D3DEF1FCD7C0AB4F937BB03F5 /* NXRouter.h in Headers */,
@@ -2339,6 +2346,7 @@
 				005157CDE1B20E485F9E6369B56421E5 /* UIResponder+DispatchKeyCommand.m in Sources */,
 				9C417F82F49E177F1E550922221C3773 /* UIView+SuperTools.m in Sources */,
 				85CFBD77A0CF4921E7BB3663C116AE0A /* UIViewController+Lifecycle.m in Sources */,
+				E1CB5427290A34E6004DA7A4 /* RACScheduler+AppArch.m in Sources */,
 				13499781B71643A12CADEEE159FD5A99 /* UIViewController+PopDissmiss.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
