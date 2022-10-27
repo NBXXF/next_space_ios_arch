@@ -52,13 +52,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ 抛弃叠加
+ */
+-(BOOL)isLeftForTarget:(UIView *)target;
+
+/**
  是否是target的右边
  @param target 相对参考位置
  @param strict 是否抛弃重叠情况
  */
 -(BOOL)isRightForTarget:(UIView *)target strict:(BOOL)strict;
 
-
+/**
+ 抛弃叠加
+ */
+-(BOOL)isRightForTarget:(UIView *)target;
 
 /**
  是否是target的上边
@@ -67,7 +75,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(BOOL)isUpForTarget:(UIView *)target strict:(BOOL)strict;
 
-
+/**
+ 抛弃叠加
+ */
+-(BOOL)isUpForTarget:(UIView *)target;
 
 /**
  是否是target的下边
@@ -76,6 +87,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(BOOL)isDownForTarget:(UIView *)target strict:(BOOL)strict;
 
+
+/**
+ 抛弃叠加
+ */
+-(BOOL)isDownForTarget:(UIView *)target;
 
 @end
 

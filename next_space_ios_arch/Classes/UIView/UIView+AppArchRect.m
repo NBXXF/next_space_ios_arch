@@ -40,16 +40,32 @@
     return [NXRectUtils isLeft:self.frame target:target.frame strict:strict];
 }
 
+- (BOOL)isLeftForTarget:(UIView *)target{
+    return [NXRectUtils isLeft:self.frame target:target.frame strict:YES];
+}
+
 - (BOOL)isRightForTarget:(UIView *)target strict:(BOOL)strict{
     return [NXRectUtils isRight:self.frame target:target.frame strict:strict];
+}
+
+- (BOOL)isRightForTarget:(UIView *)target{
+    return [NXRectUtils isRight:self.frame target:target.frame strict:YES];
 }
 
 - (BOOL)isUpForTarget:(UIView *)target strict:(BOOL)strict{
     return [NXRectUtils isUp:self.frame target:target.frame strict:strict];
 }
 
+- (BOOL)isUpForTarget:(UIView *)target{
+    return [NXRectUtils isUp:self.frame target:target.frame strict:YES];
+}
+
 - (BOOL)isDownForTarget:(UIView *)target strict:(BOOL)strict{
     return [NXRectUtils isDown:self.frame target:target.frame strict:strict];
+}
+
+- (BOOL)isDownForTarget:(UIView *)target{
+    return [NXRectUtils isDown:self.frame target:target.frame strict:YES];
 }
 
 
