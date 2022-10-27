@@ -18,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
  [[RACScheduler xxxScheduler] afterDelay:1 schedule:^{
  <#code#>
  }]
+ 
+ 如果需求延迟和回调不一致的线程 那么可以选择
+ [[[[[RACSignal just:@""] delay:1.0]subscribeOn:RACScheduler.scheduler] deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(id  _Nullable x) {
+     <#code#>
+ }]
  */
 + (nullable RACDisposable *)afterInMainThreadScheduler:(NSDate *)date schedule:(void (^)(void))block;
 
@@ -28,6 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
  [[RACScheduler xxxScheduler] afterDelay:1 schedule:^{
  <#code#>
  }]
+ 
+ 如果需求延迟和回调不一致的线程 那么可以选择
+ [[[[[RACSignal just:@""] delay:1.0]subscribeOn:RACScheduler.scheduler] deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(id  _Nullable x) {
+     <#code#>
+ }]
  */
 + (nullable RACDisposable *)afterDelayInMainThreadScheduler:(NSTimeInterval)delay schedule:(void (^)(void))block;
 
@@ -37,6 +47,11 @@ NS_ASSUME_NONNULL_BEGIN
  其他线程 可以参考RACScheduler成员方法
  [[RACScheduler xxxScheduler] afterDelay:1 schedule:^{
  <#code#>
+ }]
+ 
+ 如果需求延迟和回调不一致的线程 那么可以选择
+ [[[[[RACSignal just:@""] delay:1.0]subscribeOn:RACScheduler.scheduler] deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(id  _Nullable x) {
+     <#code#>
  }]
  */
 + (nullable RACDisposable *)afterInMainThreadScheduler:(NSDate *)date repeatingEvery:(NSTimeInterval)interval withLeeway:(NSTimeInterval)leeway schedule:(void (^)(void))block;
