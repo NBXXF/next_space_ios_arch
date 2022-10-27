@@ -46,4 +46,18 @@
     return NSSelectorFromString(UIKeyCommandDefaultMethod);
 }
 
++ (NSMutableArray<UIKeyCommand *> *)combineArray:(NSArray<UIKeyCommand *> *)first second:(NSArray<UIKeyCommand *> *)second{
+    
+    NSMutableArray<UIKeyCommand *> *results=[NSMutableArray arrayWithArray:first];
+    [results addObjectsFromArray:second];
+    return results;
+}
+
++ (NSMutableArray<UIKeyCommand *> *)combineArray:(NSArray<UIKeyCommand *> *)first second:(NSArray<UIKeyCommand *> *)second third:(NSArray<UIKeyCommand *> *)third{
+    
+    NSMutableArray<UIKeyCommand *> *results=[NSMutableArray arrayWithArray:first];
+    [results addObjectsFromArray:second];
+    [results addObjectsFromArray:third];
+    return results;
+}
 @end

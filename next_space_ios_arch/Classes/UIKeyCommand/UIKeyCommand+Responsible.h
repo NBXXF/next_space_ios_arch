@@ -70,6 +70,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)dispatchKeyCommandWithInput:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags                        commandEvent:(NSString *) event;
 
 
+
++(NSMutableArray<UIKeyCommand *> *)combineArray:(NSArray<UIKeyCommand *> *)first second:(NSArray<UIKeyCommand *> *)second;
+
++(NSMutableArray<UIKeyCommand *> *)combineArray:(NSArray<UIKeyCommand *> *)first second:(NSArray<UIKeyCommand *> *)second third:(NSArray<UIKeyCommand *> *)third;
+
 @end
 
 NS_ASSUME_NONNULL_END
