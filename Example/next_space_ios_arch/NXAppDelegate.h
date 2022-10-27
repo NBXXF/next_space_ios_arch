@@ -7,8 +7,9 @@
 //
 
 @import UIKit;
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
-@interface NXAppDelegate : UIResponder <UIApplicationDelegate>
+@interface NXAppDelegate : UIResponder <UIApplicationDelegate,UIKeyCommanderProtocol>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import  <YYKit/YYTextView.h>
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YYTextView(KeyEvent)
+@interface YYTextView(KeyEvent)<UIKeyCommanderProtocol>
 
 @end
 

@@ -9,6 +9,7 @@
 #import "UIKeyCommandConstant.h"
 #import "NSObject+ExchangeMethod.h"
 #import "NSObject+RateLimiting.h"
+#import "UIKeyCommanderProtocol.h"
 
 @implementation UIResponder(DispatchKeyCommand)
 + (void)load{
@@ -107,16 +108,16 @@
 }
 -(void)dispatchUIResponder:(UIKeyCommand *)command commandEvent:(NSString *)commandEvent{
     if(commandEvent&&[NSObject isRateLimitingWithId:commandEvent duration:0.3]){
-        //多个组件 同一个事件频率太高
-        NSLog(@"===========>commandEvent:%@ fast click",commandEvent);
+        //多个组件 同一个事件频率太高,YYText也有bug
         return;
     }
     //递归式分发 直到响应为止
+    UIResponder *originatingResponder=self;
     UIResponder *nextResponder = self;
     while (nextResponder) {
-        SEL method=NSSelectorFromString(@"onKeyCommand:commandEvent:");
-        if([nextResponder respondsToSelector:method]){
-            if([nextResponder performSelector:method withObject:command withObject:commandEvent]){
+        if([nextResponder conformsToProtocol:@protocol(UIKeyCommanderProtocol)]){
+            id<UIKeyCommanderProtocol> ani = (id)nextResponder;
+            if([ani onKeyCommand:command commandEvent:commandEvent originatingResponder:originatingResponder]){
                 break;
             }
         }

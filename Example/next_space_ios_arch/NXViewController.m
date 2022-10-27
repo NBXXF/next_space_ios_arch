@@ -13,14 +13,13 @@
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
-@interface NXViewController ()
+@interface NXViewController ()<UIKeyCommanderProtocol>
 
 @end
 
 @implementation NXViewController
 
-
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
+- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder{
     NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
     return YES;
 }

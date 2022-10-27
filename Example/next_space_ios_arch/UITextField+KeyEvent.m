@@ -12,7 +12,7 @@
 
 @implementation UITextField(KeyEvent)
 
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
+- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder{
     NSLog(@"===========>执行key %@ by %@  %@  event:%@",command.input,self,self.placeholder,event);
 //    if([event isEqual:UIKeyInputLeftArrow]){
 //        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {

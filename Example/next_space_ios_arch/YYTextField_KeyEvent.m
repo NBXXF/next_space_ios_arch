@@ -11,8 +11,8 @@
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 @implementation YYTextView(KeyEvent)
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event{
-    NSLog(@"===========>执行key %@ by %@  %@  event:%@",command.input,self,@"",event);
+- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder{
+    NSLog(@"===========>执行key %@ by %@  %@  event:%@ originatingResponder:%@",command.input,self,@"",event,originatingResponder);
 //    if([event isEqual:UIKeyInputLeftArrow]){
 //        UIView *findTextInput= [self.superview.superview findLastChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
 //            return [childView isTextInputView]&&[childView isLeftForView:self];
@@ -39,7 +39,7 @@
 //        [findTextInput becomeFirstResponder];
 //        return YES;
 //    }
-    return YES;
+    return NO;
 }
 -(void)test{
     NSLog(@"===========>执行key lala");

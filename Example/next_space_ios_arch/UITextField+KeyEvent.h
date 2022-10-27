@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITextField(KeyEvent)
+@interface UITextField(KeyEvent)<UIKeyCommanderProtocol>
 
 @end
 
