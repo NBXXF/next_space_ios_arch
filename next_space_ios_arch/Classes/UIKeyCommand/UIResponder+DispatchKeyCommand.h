@@ -13,10 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
    递归式分发键盘快捷键事件 业务请复写,返回YES 将响应链自动断掉
- -(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString*)event{
-     NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
-     return YES;
- }
+     业务请实现UIKeyCommanderProtocol 协议
  */
 -(void)onDispatchKeyCommand:(UIKeyCommand *)command;
 @end

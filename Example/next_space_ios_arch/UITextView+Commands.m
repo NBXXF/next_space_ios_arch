@@ -10,8 +10,8 @@
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 
 @implementation UITextView(Commands)
-- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder{
-    NSLog(@"===========>执行key %@ by %@   event:%@",command.input,self,event);
+- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder{
+    NSLog(@"===========>执行key %@ by %@   event:%@",command.input,self.simpleDescription,event);
     return YES;
 }
 -(void)test{

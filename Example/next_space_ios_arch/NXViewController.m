@@ -19,15 +19,14 @@
 
 @implementation NXViewController
 
-- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder{
-    NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
+- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder{
+    NSLog(@"===========>执行key %@ by %@  %@",command.input,self.simpleDescription,event);
     return YES;
 }
 
 
 - (NSArray<UIKeyCommand *> *)keyCommands{
     NSLog(@"===============>快捷键注册了");
-//    return @[ [UIKeyCommand commandWithTitle:@"全选" image:nil action:@selector(onKeyCommands) input:@"a" modifierFlags:UIKeyModifierCommand propertyList:Nil]];
     UIKeyCommand *command= [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"a" modifierFlags:UIKeyModifierCommand commandEvent:@"100"];
     return @[command];
 }
@@ -72,10 +71,7 @@
     text3.tag=3;
     [text3 becomeFirstResponder];
     [self.view addSubview:text3];
-    
-
-    
-    
+        
     
     
     UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];

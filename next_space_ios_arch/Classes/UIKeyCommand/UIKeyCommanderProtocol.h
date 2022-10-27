@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param event 业务唯一标识
  @param originatingResponder 响应事件的最原始Responder
  */
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder;
+-(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder;
 
 @end
 

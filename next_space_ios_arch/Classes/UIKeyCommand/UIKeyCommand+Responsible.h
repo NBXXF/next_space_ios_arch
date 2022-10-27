@@ -15,10 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  UIResponder 子类只需要声明这个方法即可
  
  递归式分发键盘快捷键事件 业务请复写,返回YES 将响应链自动断掉
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString*)event{
-   NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
-   return YES;
-}
+ 业务请实现UIKeyCommanderProtocol 协议
  */
 
 /// Initializes a key command.
@@ -39,10 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  UIResponder 子类只需要声明这个方法即可
  
  递归式分发键盘快捷键事件 业务请复写,返回YES 将响应链自动断掉
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString*)event{
-   NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
-   return YES;
-}
+ 业务请实现UIKeyCommanderProtocol 协议
  */
 
 /// Initializes a key command with alternates.
@@ -67,10 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  UIResponder 子类只需要声明这个方法即可
  
  递归式分发键盘快捷键事件 业务请复写,返回YES 将响应链自动断掉
--(BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString*)event{
-   NSLog(@"===========>执行key %@ by %@  %@",command.input,self,event);
-   return YES;
-}
+ 业务请实现UIKeyCommanderProtocol 协议
  */
 
 // Creates an key command that will _not_ be discoverable in the UI.

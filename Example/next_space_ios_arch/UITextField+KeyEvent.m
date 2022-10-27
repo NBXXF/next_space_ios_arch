@@ -12,8 +12,8 @@
 
 @implementation UITextField(KeyEvent)
 
-- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder{
-    NSLog(@"===========>执行key %@ by %@  %@  event:%@",command.input,self,self.placeholder,event);
+- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder{
+    NSLog(@"===========>执行key %@ by %@  %@  event:%@",command.input,self.simpleDescription,self.placeholder,event);
 //    if([event isEqual:UIKeyInputLeftArrow]){
 //        UIView *findTextInput= [self.superview.superview findFirstChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
 //            return [childView isTextInputView]&&[childView isLeftForView:self];

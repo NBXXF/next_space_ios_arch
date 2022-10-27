@@ -11,8 +11,8 @@
 
 @implementation NXAppDelegate
 
-- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(id)originatingResponder{
-    NSLog(@"===========>执行key %@ by %@",command.input,self);
+- (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder{
+    NSLog(@"===========>执行key %@ by %@",command.input,self.simpleDescription);
     return YES;
 }
 
