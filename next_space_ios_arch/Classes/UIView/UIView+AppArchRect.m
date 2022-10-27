@@ -21,51 +21,75 @@
 }
 
 - (BOOL)isHorizontalCenterForTarget:(UIView *)target{
-    return [NXRectUtils isHorizontalCenter:self.frame target:target.frame];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isHorizontalCenter:selfRect target:targetRect];
 }
 
 - (BOOL)isHorizontalCenterForTarget:(UIView *)target distance:(CGFloat)distance{
-    return [NXRectUtils isHorizontalCenter:self.frame target:target.frame distance:distance];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isHorizontalCenter:selfRect target:targetRect distance:distance];
 }
 
 - (BOOL)isVerticalCenterForTarget:(UIView *)target{
-    return [NXRectUtils isVerticalCenter:self.frame target:target.frame];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isVerticalCenter:selfRect target:targetRect];
 }
 
 - (BOOL)isVerticalCenterForTarget:(UIView *)target distance:(CGFloat)distance{
-    return [NXRectUtils isVerticalCenter:self.frame target:target.frame distance:distance];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isVerticalCenter:selfRect target:targetRect distance:distance];
 }
 
 - (BOOL)isLeftForTarget:(UIView *)target strict:(BOOL)strict{
-    return [NXRectUtils isLeft:self.frame target:target.frame strict:strict];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isLeft:selfRect target:targetRect strict:strict];
 }
 
 - (BOOL)isLeftForTarget:(UIView *)target{
-    return [NXRectUtils isLeft:self.frame target:target.frame strict:YES];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isLeft:selfRect target:targetRect strict:YES];
 }
 
 - (BOOL)isRightForTarget:(UIView *)target strict:(BOOL)strict{
-    return [NXRectUtils isRight:self.frame target:target.frame strict:strict];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isRight:selfRect target:targetRect strict:strict];
 }
 
 - (BOOL)isRightForTarget:(UIView *)target{
-    return [NXRectUtils isRight:self.frame target:target.frame strict:YES];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isRight:selfRect target:targetRect strict:YES];
 }
 
 - (BOOL)isUpForTarget:(UIView *)target strict:(BOOL)strict{
-    return [NXRectUtils isUp:self.frame target:target.frame strict:strict];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isUp:selfRect target:targetRect strict:strict];
 }
 
 - (BOOL)isUpForTarget:(UIView *)target{
-    return [NXRectUtils isUp:self.frame target:target.frame strict:YES];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isUp:selfRect target:targetRect strict:YES];
 }
 
 - (BOOL)isDownForTarget:(UIView *)target strict:(BOOL)strict{
-    return [NXRectUtils isDown:self.frame target:target.frame strict:strict];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isDown:selfRect target:targetRect strict:strict];
 }
 
 - (BOOL)isDownForTarget:(UIView *)target{
-    return [NXRectUtils isDown:self.frame target:target.frame strict:YES];
+    CGRect selfRect=[self convertRectToWindow];
+    CGRect targetRect=[target convertRectToWindow];
+    return [NXRectUtils isDown:selfRect target:targetRect strict:YES];
 }
 
 
