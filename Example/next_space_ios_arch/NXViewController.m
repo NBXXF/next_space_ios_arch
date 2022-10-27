@@ -12,6 +12,7 @@
 //#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
+#import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 
 @interface NXViewController ()<UIKeyCommanderProtocol>
 
@@ -53,6 +54,7 @@
 {
     [self testThrott];
 
+    
     UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
     text.placeholder=@"请输入";
     text.text=@"1";
@@ -71,7 +73,7 @@
     text3.tag=3;
     [text3 becomeFirstResponder];
     [self.view addSubview:text3];
-        
+
     
     
     UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];

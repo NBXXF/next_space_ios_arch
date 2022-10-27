@@ -32,6 +32,8 @@
 #import "UIKeyCommandConstant.h"
 #import "UIKeyCommanderProtocol.h"
 #import "UIResponder+DispatchKeyCommand.h"
+#import "NXRectUtils.h"
+#import "UIView+AppArchRect.h"
 #import "UIView+SuperTools.h"
 #import "UIViewController+Lifecycle.h"
 #import "UIViewController+PopDissmiss.h"
