@@ -9,12 +9,14 @@
 #import "NXViewController.h"
 #import <JLRoutes/JLRoutes.h>
 #import  <YYKit/YYTextView.h>
-//#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 #import "NXViewController+Test.h"
 #import "UIViewController+TestViewController.h"
+
+//@import next_space_ios_arch;
 
 
 @interface NXViewController ()<UIKeyCommanderProtocol>
@@ -79,6 +81,16 @@
     [self.view addSubview:text3];
 
     
+    NSArray<NSString *> *arra=@[@"x",@"x2",@"x3",@"3"];
+  
+    NSString *s=[arra firstObjectWithBlock:^BOOL(NSString * _Nonnull obj) {
+        return [obj isEqual:@"x2"];
+    }];
+    NSLog(@"=========>find:%@",s);
+    NSArray *filter=[arra filterObjectWithBlock:^BOOL(NSString * _Nonnull obj) {
+        return [obj containsString:@"x"];
+    }];
+    NSLog(@"=========>find:%@",filter.lastObject);
     
     UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];
     text4.text=@"4";

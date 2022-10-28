@@ -11,7 +11,7 @@
 #endif
 
 #import "NXBus.h"
-#import "NXThreadSafeMutableDictionary.h"
+#import "NSArray+AppArch.h"
 #import "NSObject+Describe.h"
 #import "NSObject+ExchangeMethod.h"
 #import "NSObject+RateLimiting.h"

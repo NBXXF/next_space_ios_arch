@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+#import "NXAppDelegate.h"
 
 @interface NXViewController : UIViewController
 
