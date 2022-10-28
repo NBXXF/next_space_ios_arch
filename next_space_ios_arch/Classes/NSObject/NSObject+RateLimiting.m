@@ -23,6 +23,13 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
     return throttleData;
 }
 
+- (void)throttleWithBlock:(void (^)(void))block duration:(NSTimeInterval)duration{
+    if(![self isRateLimitingWithDuration:duration]){
+        block();
+    }
+}
+
+
 - (void)throttleWithSelector:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration {
     NSMutableDictionary *throttleData = [self getThrottleData];
 
@@ -34,6 +41,8 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
         [weakSelf performSelector:action withObject:object];
     }
 }
+
+
 - (void)throttleWithSelector:(SEL)action withObject:(id)object1 withObject:(id)object2 duration:(NSTimeInterval)duration{
     NSMutableDictionary *throttleData = [self getThrottleData];
 
@@ -52,6 +61,31 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
     [weakSelf performSelector:action withObject:object afterDelay:duration];
 }
 
+- (void)debounceWithBlock:(void (^)(void))block duration:(NSTimeInterval)duration{
+    if(![self isRateLimitingWithDuration:duration]){
+        SEL action=@selector(debounceWithBlock:);
+        __weak typeof(self) weakSelf = self;
+        [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf selector:action object:block];
+        [weakSelf performSelector:action withObject:block afterDelay:duration];
+    }
+}
+
+
+-(void)debounceWithBlock:(void (^)(void))block{
+    block();
+}
+
+
+- (BOOL)isRateLimitingWithDuration:(NSTimeInterval)duration{
+    NSMutableDictionary *throttleData = [self getThrottleData];
+    NSString *key=@"____lastRateLimitingTime";
+    NSDate *lastCalled = [throttleData objectForKey:key];
+    if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
+        [throttleData setObject:[NSDate date] forKey:key];
+        return NO;
+    }
+    return YES;
+}
 
 + (BOOL)isRateLimitingWithId:(NSString *)ids duration:(NSTimeInterval)duration{
     NSMutableDictionary *throttleData = [UIApplication.sharedApplication getThrottleData];

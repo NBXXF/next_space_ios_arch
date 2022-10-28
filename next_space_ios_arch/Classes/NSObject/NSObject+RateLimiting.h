@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject(RateLimiting)
 
+- (void)throttleWithBlock:(void (^)(void))block duration:(NSTimeInterval)duration;
+
+
 - (void)throttleWithSelector:(nonnull SEL)action
                   withObject:(nullable id)object
                     duration:(NSTimeInterval)duration;
@@ -22,6 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)debounceWithSelector:(nonnull SEL)action
                   withObject:(nullable id)object duration:(NSTimeInterval)duration;
+
+- (void)debounceWithBlock:(void (^)(void))block duration:(NSTimeInterval)duration;
+
+
+/**
+ 是否应该限流
+ */
+-(BOOL)isRateLimitingWithDuration:(NSTimeInterval)duration;
 
 /**
  是否应该限流
