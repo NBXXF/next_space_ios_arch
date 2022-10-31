@@ -26,20 +26,23 @@
 @implementation NXViewController
 
 - (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder{
-    NSLog(@"===========>执行key %@ by %@  %@",command.input,self.simpleDescription,event);
+    NSLog(@"===========>执行key %@ by %@  %@ from:%@  %d",command.input,self.simpleDescription,event,originatingResponder.simpleDescription,self.canBecomeFirstResponder);
     return YES;
 }
 
 
 - (NSArray<UIKeyCommand *> *)keyCommands{
-    NSLog(@"===============>快捷键注册了");
+    NSLog(@"===============>快捷键注册了 by vc  %d",self.canBecomeFirstResponder);
     UIKeyCommand *command= [UIKeyCommand dispatchCommandWithTitle:@"全选" image:nil input:@"a" modifierFlags:UIKeyModifierCommand commandEvent:@"100"];
-    return @[command];
+    return @[command,
+             [UIKeyCommand dispatchKeyCommandWithInput:@"." modifierFlags:UIKeyModifierControl commandEvent:UIKeyInputLeftArrow],
+             [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputEscape modifierFlags:0 commandEvent:UIKeyInputLeftArrow]
+    ];
 }
-
-- (BOOL)isFirstResponder{
-    return NO;
-}
+//
+//- (BOOL)isFirstResponder{
+//    return NO;
+//}
 - (BOOL)canBecomeFirstResponder{
     return NO;
 }
@@ -72,7 +75,7 @@
     text2.text=@"2";
     text2.tag=2;
     [self.view addSubview:text2];
-    
+
     YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 202, 300, 100)];
     text3.placeholderText=@"请输入3";
     text3.text=@"3";
@@ -81,6 +84,7 @@
     [self.view addSubview:text3];
 
     
+    NSLog(@"======>IS:%d",self.canBecomeFirstResponder);
     NSArray<NSString *> *arra=@[@"x",@"x2",@"x3",@"3"];
   
     NSString *s=[arra firstObjectWithBlock:^BOOL(NSString * _Nonnull obj) {

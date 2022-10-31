@@ -11,6 +11,8 @@
 #endif
 
 #import "NXBus.h"
+#import "NXItemMenu.h"
+#import "NXItemMenuImpl.h"
 #import "NSArray+AppArch.h"
 #import "NSObject+Describe.h"
 #import "NSObject+ExchangeMethod.h"

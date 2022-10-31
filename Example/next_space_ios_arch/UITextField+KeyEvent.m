@@ -54,6 +54,7 @@
 - (NSArray<UIKeyCommand *> *)keyCommands{
     NSLog(@"===============>快捷键注册了 text");
     return @[
+        [UIKeyCommand dispatchKeyCommandWithInput:@"." modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputLeftArrow],
         [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputLeftArrow],
         [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputRightArrow modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputRightArrow],
         [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputUpArrow modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputUpArrow],

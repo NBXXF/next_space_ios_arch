@@ -7,6 +7,10 @@
 #import "UIKeyCommand+Responsible.h"
 #import "UIKeyCommandConstant.h"
 
+/**
+ 逻辑规则 哪个类UIResponder 注册- (NSArray<UIKeyCommand *> *)keyCommands 那么就响应给谁
+ 然后框架封装了向上转发,用于业务不方便找寻上下文参数等
+ */
 @implementation UIKeyCommand(Responsible)
 
 /**
