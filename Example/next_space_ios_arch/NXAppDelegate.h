@@ -8,7 +8,7 @@
 
 @import UIKit;
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
-#import "NXViewController.h"
+#import "NXDemoViewController.h"
 
 @interface NXAppDelegate : UIResponder <UIApplicationDelegate,UIKeyCommanderProtocol>
 

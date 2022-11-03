@@ -9,7 +9,7 @@
 #import "NXViewController+Test.h"
 
 
-@implementation NXViewController(Test)
+@implementation NXDemoViewController(Test)
 
 //-(void)testvc{
 //    NSLog(@"============>分类:子类的方法");

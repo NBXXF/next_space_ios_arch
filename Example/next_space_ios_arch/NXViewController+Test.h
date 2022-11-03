@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NXViewController.h"
+#import "NXDemoViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NXViewController(Test)
+@interface NXDemoViewController(Test)
 //-(void)testvc;
 @end
 
