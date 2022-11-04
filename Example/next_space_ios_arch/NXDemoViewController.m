@@ -226,11 +226,9 @@
 
 -(void)showModal{
     [self.view endEditing:YES];
-    UIViewController *popoverContent=[[UINavigationController alloc] initWithRootViewController:[NXTestModalVC new]];
+    UIViewController *popoverContent=[NXTestModalVC new];
     popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-   // popoverContent.preferredContentSize = CGSizeMake(200, 200);
-   // popoverContent.popoverPresentationController.sourceView = self.view;
     [self presentViewController:popoverContent animated:NO completion:nil];
 }
 

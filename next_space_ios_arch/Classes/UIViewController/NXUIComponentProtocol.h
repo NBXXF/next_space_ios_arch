@@ -34,7 +34,10 @@ typedef NS_ENUM(NSInteger, NXComponentGravity) {
  */
 -(void)setComponentCornerRadius:(CGFloat)radius;
 
-
+/**
+ 设置阴影透明度
+ */
+-(void)setComponentShadowOpacity:(CGFloat)opacity;
 /**
  设置组件背景色
  */

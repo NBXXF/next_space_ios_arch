@@ -61,6 +61,13 @@
     self.contentView.layer.cornerRadius = 8;
 }
 
+-(void)setComponentShadowOpacity:(CGFloat)opacity{
+    self.contentView.layer.shadowColor = UIColor.blackColor.CGColor;
+    self.contentView.layer.shadowOffset = CGSizeMake(0, 4);
+    self.contentView.layer.shadowOpacity =opacity;
+    self.contentView.layer.shadowRadius = 20;
+}
+
 - (void)setComponentBackgroundColor:(UIColor *)color{
     self.view.backgroundColor = color;
 }
