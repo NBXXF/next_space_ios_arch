@@ -40,7 +40,10 @@
 }
 
 -(void)__canceledOnTouchOutside:(UITapGestureRecognizer *)gest{
-    [self backViewControllerAnimated:YES completion:nil];
+    CGPoint point = [gest locationInView:self.view];
+    if (!CGRectContainsPoint(self.contentView.frame, point)) {
+        [self backViewControllerAnimated:YES completion:nil];
+    }
 }
 - (void)setCanceledOnTouchOutside:(BOOL)cancel {
     if(!___touchOutsideTapGestureRecognizer){
