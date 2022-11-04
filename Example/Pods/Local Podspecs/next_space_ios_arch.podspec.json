@@ -26,6 +26,9 @@
     ],
     "ReactiveObjC": [
       "~> 3.1.1"
+    ],
+    "Masonry": [
+
     ]
   }
 }

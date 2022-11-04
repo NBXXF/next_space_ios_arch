@@ -7,7 +7,7 @@
 //
 
 #import "NXAppDelegate.h"
-#import "NXViewController.h"
+#import "NXDemoViewController.h"
 
 @implementation NXAppDelegate
 
@@ -23,7 +23,7 @@
     NSArray *windows = [[UIApplication sharedApplication] windows];
     for(UIWindow *window in windows) {
         if(window.rootViewController == nil){
-            UIViewController *vc = [[UINavigationController alloc] initWithRootViewController:[NXViewController new]];
+            UIViewController *vc = [[UINavigationController alloc] initWithRootViewController:[NXDemoViewController new]];
             window.rootViewController = vc;
         }
     }

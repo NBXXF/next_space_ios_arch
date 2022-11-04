@@ -6,7 +6,7 @@
 //  Copyright (c) 2022 Wenjinfu. All rights reserved.
 //
 
-#import "NXViewController.h"
+#import "NXDemoViewController.h"
 #import <JLRoutes/JLRoutes.h>
 #import  <YYKit/YYTextView.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
@@ -15,15 +15,16 @@
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 #import "NXViewController+Test.h"
 #import "UIViewController+TestViewController.h"
+#import "NXTestModalVC.h"
 
 //@import next_space_ios_arch;
 
 
-@interface NXViewController ()<UIKeyCommanderProtocol>
+@interface NXDemoViewController ()<UIKeyCommanderProtocol>
 
 @end
 
-@implementation NXViewController
+@implementation NXDemoViewController
 
 - (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder{
     NSLog(@"===========>执行key %@ by %@  %@ from:%@  %d",command.input,self.simpleDescription,event,originatingResponder.simpleDescription,self.canBecomeFirstResponder);
@@ -62,26 +63,40 @@
 {
     [self testThrott];
 
+  
+    UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(0, 40, 300, 100)];
+    btn.titleLabel.text=@"xxxx";
+    btn.titleLabel.textColor=UIColor.blackColor;
+    btn.backgroundColor=UIColor.yellowColor;
+    [btn setEnabled:YES];
+    [btn addTarget:self
+       action:@selector(showModal)
+  forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
+    
+    
+    NSLog(@"======>super:%@",self.view.superview);
     [self testvc];
     
-    UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-    text.placeholder=@"请输入";
-    text.text=@"1";
-    text.tag=1;
-    [self.view addSubview:text];
-
-    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 101, 300, 100)];
-    text2.placeholder=@"请输入2";
-    text2.text=@"2";
-    text2.tag=2;
-    [self.view addSubview:text2];
-
-    YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 202, 300, 100)];
-    text3.placeholderText=@"请输入3";
-    text3.text=@"3";
-    text3.tag=3;
-    [text3 becomeFirstResponder];
-    [self.view addSubview:text3];
+//    UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 101, 300, 100)];
+//    text.placeholder=@"请输入";
+//    text.text=@"1";
+//    text.tag=1;
+//    [self.view addSubview:text];
+//
+//    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 201, 300, 100)];
+//    text2.placeholder=@"请输入2";
+//    text2.text=@"2";
+//    text2.tag=2;
+//    [self.view addSubview:text2];
+//
+//    YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 302, 300, 100)];
+//    text3.placeholderText=@"请输入3";
+//    text3.text=@"3";
+//    text3.tag=3;
+//    [text3 becomeFirstResponder];
+//    [self.view addSubview:text3];
 
     
     NSLog(@"======>IS:%d",self.canBecomeFirstResponder);
@@ -96,10 +111,10 @@
     }];
     NSLog(@"=========>find:%@",filter.lastObject);
     
-    UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];
-    text4.text=@"4";
-    text4.tag=4;
-    [self.view addSubview:text4];
+//    UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 300, 800, 100)];
+//    text4.text=@"4";
+//    text4.tag=4;
+//    [self.view addSubview:text4];
     
     NSNumber *first=@1;
     NSNumber *second=nil;
@@ -203,6 +218,20 @@
     [self testArraySpeed:10000];
     [self testArraySpeed:100000];
     [self testArraySpeed:1000000];
+    
+    [self showModal];
+
+}
+
+
+-(void)showModal{
+    [self.view endEditing:YES];
+    UIViewController *popoverContent=[[UINavigationController alloc] initWithRootViewController:[NXTestModalVC new]];
+    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+   // popoverContent.preferredContentSize = CGSizeMake(200, 200);
+   // popoverContent.popoverPresentationController.sourceView = self.view;
+    [self presentViewController:popoverContent animated:NO completion:nil];
 }
 
 -(void)testArraySpeed:(NSInteger)size{

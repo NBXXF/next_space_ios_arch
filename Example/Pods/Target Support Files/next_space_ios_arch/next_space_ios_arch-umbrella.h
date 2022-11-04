@@ -38,6 +38,9 @@
 #import "NXRectUtils.h"
 #import "UIView+AppArchRect.h"
 #import "UIView+SuperTools.h"
+#import "NXNavigationViewController.h"
+#import "NXUIComponentProtocol.h"
+#import "NXViewController.h"
 #import "UIViewController+Lifecycle.h"
 #import "UIViewController+PopDissmiss.h"
 

@@ -14,7 +14,7 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* NXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* NXAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* NXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* NXViewController.m */; };
+		6003F5A7195388D20070C39A /* NXDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* NXDemoViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -25,6 +25,8 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D09A75826B97565461D625DB /* Pods_next_space_ios_arch_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F282FDE47CFCD0D0AC8C31A7 /* Pods_next_space_ios_arch_Example.framework */; };
 		E1268EA92908222B00E5DAB5 /* UITextView+Commands.m in Sources */ = {isa = PBXBuildFile; fileRef = E1268EA82908222B00E5DAB5 /* UITextView+Commands.m */; };
+		E18989C32913A7B2004AFFF5 /* NXTestModalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E18989C22913A7B2004AFFF5 /* NXTestModalVC.m */; };
+		E18989C62913AE2E004AFFF5 /* NXTestModal2VC.m in Sources */ = {isa = PBXBuildFile; fileRef = E18989C52913AE2E004AFFF5 /* NXTestModal2VC.m */; };
 		E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */; };
 		E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B6CFD32901912100529B70 /* UITextField+KeyEvent.m */; };
 		E1CB5443290AB8BD004DA7A4 /* UIViewController+TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CB5442290AB8BD004DA7A4 /* UIViewController+TestViewController.m */; };
@@ -55,8 +57,8 @@
 		6003F59B195388D20070C39A /* next_space_ios_arch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "next_space_ios_arch-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* NXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* NXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* NXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* NXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXViewController.m; sourceTree = "<group>"; };
+		6003F5A5195388D20070C39A /* NXDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXDemoViewController.h; sourceTree = "<group>"; };
+		6003F5A6195388D20070C39A /* NXDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXDemoViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* next_space_ios_arch_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = next_space_ios_arch_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -73,6 +75,10 @@
 		E0395E2C846DECFAF4A3929B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E1268EA72908222B00E5DAB5 /* UITextView+Commands.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Commands.h"; sourceTree = "<group>"; };
 		E1268EA82908222B00E5DAB5 /* UITextView+Commands.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Commands.m"; sourceTree = "<group>"; };
+		E18989C12913A7B2004AFFF5 /* NXTestModalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXTestModalVC.h; sourceTree = "<group>"; };
+		E18989C22913A7B2004AFFF5 /* NXTestModalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXTestModalVC.m; sourceTree = "<group>"; };
+		E18989C42913AE2E004AFFF5 /* NXTestModal2VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXTestModal2VC.h; sourceTree = "<group>"; };
+		E18989C52913AE2E004AFFF5 /* NXTestModal2VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXTestModal2VC.m; sourceTree = "<group>"; };
 		E1A007A629068AE400B2789B /* YYTextField_KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTextField_KeyEvent.h; sourceTree = "<group>"; };
 		E1A007A729068AE400B2789B /* YYTextField_KeyEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTextField_KeyEvent.m; sourceTree = "<group>"; };
 		E1B6CFD22901912100529B70 /* UITextField+KeyEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+KeyEvent.h"; sourceTree = "<group>"; };
@@ -158,12 +164,12 @@
 		6003F593195388D20070C39A /* Example for next_space_ios_arch */ = {
 			isa = PBXGroup;
 			children = (
-				E1CB5444290AB90A004DA7A4 /* New Group */,
+				E1CB5444290AB90A004DA7A4 /* Test */,
 				6003F59C195388D20070C39A /* NXAppDelegate.h */,
 				6003F59D195388D20070C39A /* NXAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* NXViewController.h */,
-				6003F5A6195388D20070C39A /* NXViewController.m */,
+				6003F5A5195388D20070C39A /* NXDemoViewController.h */,
+				6003F5A6195388D20070C39A /* NXDemoViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -222,11 +228,15 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		E1CB5444290AB90A004DA7A4 /* New Group */ = {
+		E1CB5444290AB90A004DA7A4 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				E18989C12913A7B2004AFFF5 /* NXTestModalVC.h */,
+				E18989C22913A7B2004AFFF5 /* NXTestModalVC.m */,
+				E18989C42913AE2E004AFFF5 /* NXTestModal2VC.h */,
+				E18989C52913AE2E004AFFF5 /* NXTestModal2VC.m */,
 			);
-			name = "New Group";
+			name = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +371,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-next_space_ios_arch_Example/Pods-next_space_ios_arch_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 				"${BUILT_PRODUCTS_DIR}/next_space_ios_arch/next_space_ios_arch.framework",
@@ -368,6 +379,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/next_space_ios_arch.framework",
@@ -407,12 +419,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* NXAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* NXViewController.m in Sources */,
+				6003F5A7195388D20070C39A /* NXDemoViewController.m in Sources */,
 				E1CB5447290AB91C004DA7A4 /* NXViewController+Test.m in Sources */,
+				E18989C62913AE2E004AFFF5 /* NXTestModal2VC.m in Sources */,
 				E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */,
 				E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E1268EA92908222B00E5DAB5 /* UITextView+Commands.m in Sources */,
+				E18989C32913A7B2004AFFF5 /* NXTestModalVC.m in Sources */,
 				E1CB5443290AB8BD004DA7A4 /* UIViewController+TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
