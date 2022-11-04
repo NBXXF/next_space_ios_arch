@@ -9,4 +9,10 @@
 
 @implementation NXNavigationViewController
 
+/**
+ 特殊标记系统方法废弃
+ */
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated DEPRECATED_MSG_ATTRIBUTE("为了组件复用,请直接使用分类拓展popOrDismissViewControllerAnimated或者finishNavigationControllerAnimated方法"){
+    return [super popViewControllerAnimated:animated];
+}
 @end

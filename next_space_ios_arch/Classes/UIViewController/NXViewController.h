@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) UIView *contentView;
 
+/**
+ 特殊标记系统方法废弃
+ */
+- (void)dismissViewControllerAnimated: (BOOL)flag completion: (void (^ __nullable)(void))completion DEPRECATED_MSG_ATTRIBUTE("为了组件复用,请直接使用分类拓展popOrDismissViewControllerAnimated或者finishNavigationControllerAnimated方法");
 
 @end
 

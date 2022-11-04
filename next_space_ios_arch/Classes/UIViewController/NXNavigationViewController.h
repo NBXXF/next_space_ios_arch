@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NXNavigationViewController : UINavigationController
 
 
+/**
+ 特殊标记系统方法废弃
+ */
+- (nullable UIViewController *)popViewControllerAnimated:(BOOL)animated DEPRECATED_MSG_ATTRIBUTE("为了组件复用,请直接使用分类拓展popOrDismissViewControllerAnimated或者finishNavigationControllerAnimated方法");
 
 @end
 
