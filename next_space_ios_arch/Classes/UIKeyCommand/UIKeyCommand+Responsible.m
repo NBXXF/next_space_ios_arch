@@ -23,6 +23,12 @@
     return [UIKeyCommand commandWithTitle:title image:image action: [self getDefaulActionSelector] input:input modifierFlags:modifierFlags propertyList:[NSDictionary dictionaryWithObject:event forKey:UIKeyCommandKeyCommandEvent]];
 }
 
+
++ (instancetype)dispatchCommandWithTitle:(NSString *)title image:(UIImage *)image input:(NSString *)input modifierFlags:(UIKeyModifierFlags)modifierFlags commandEvent:(NSString *)event apply:(void (^)(UIKeyCommand * _Nonnull))apply{
+    UIKeyCommand *com=[self dispatchCommandWithTitle:title image:image input:input modifierFlags:modifierFlags commandEvent:event];
+    apply(com);
+    return com;
+}
 /**
  UIResponder 子类只需要声明这个方法即可
  
