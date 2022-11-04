@@ -37,6 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
                    modifierFlags:(UIKeyModifierFlags)modifierFlags
                             commandEvent:(NSString *) event;
 
++ (instancetype)dispatchCommandWithTitle:(NSString *)title
+                           image:(nullable UIImage *)image
+                           input:(NSString *)input
+                   modifierFlags:(UIKeyModifierFlags)modifierFlags
+                            commandEvent:(NSString *) event
+                                   apply:(void (^)(UIKeyCommand *current)) apply;
+
 /**
  UIResponder 子类只需要声明这个方法即可
  
