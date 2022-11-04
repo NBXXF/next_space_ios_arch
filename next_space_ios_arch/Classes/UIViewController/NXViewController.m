@@ -12,6 +12,12 @@
 @property(nonatomic,strong) UITapGestureRecognizer *__touchOutsideTapGestureRecognizer;
 @end
 @implementation NXViewController
+/**
+ 特殊标记系统方法废弃
+ */
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion DEPRECATED_MSG_ATTRIBUTE("为了组件复用,请直接使用分类拓展popOrDismissViewControllerAnimated或者finishNavigationControllerAnimated方法"){
+    [super dismissViewControllerAnimated: flag completion:completion] ;
+}
 
 - (void)viewDidLoad{
     [super viewDidLoad];
