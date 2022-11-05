@@ -5,10 +5,10 @@
 //  Created by XXF on 2022/10/19.
 //
 
-#import "UIView+SuperTools.h"
+#import "UIView+NXQuery.h"
 #import "UIView+AppArchRect.h"
 
-@implementation UIView(SuperTools)
+@implementation UIView(NXQuery)
 
 - (UIViewController *)findViewController{
     for (UIView *view = self; view; view = view.superview) {

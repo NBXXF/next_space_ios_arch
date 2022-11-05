@@ -9,7 +9,9 @@
 #import "UIViewController+PopDissmiss.h"
 #import <Masonry/Masonry.h>
 @interface NXViewController()
-@property(nonatomic,strong) UITapGestureRecognizer *__touchOutsideTapGestureRecognizer;
+@property (nonatomic, strong) UIView *contentView;
+//默认NO 等同于普通ViewController
+@property(nonatomic,assign) BOOL isCanceledOnTouchOutside;
 @end
 @implementation NXViewController
 /**
@@ -21,48 +23,76 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    //初始化backgroundView
+    [self setBackgroundView:[UIView new]];
+    
+    
+    //初始化contentView
     [self.view addSubview:self.contentView];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.contentView.superview);
         make.height.equalTo(self.contentView.superview);
         make.centerX.centerY.equalTo(self.contentView.superview);
     }];
-    [self setCanceledOnTouchOutside:YES];
 }
+
+
+- (void)setBackgroundView:(UIView *)backgroundView {
+    if(_backgroundView==backgroundView){
+        return;
+    }
+    [_backgroundView removeFromSuperview];
+    _backgroundView = backgroundView;
+    if(_backgroundView){
+        //这一句很重要 设计必须是第0个元素
+        [self.view insertSubview:_backgroundView atIndex:0];
+        [_backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(_backgroundView.superview);
+            make.height.equalTo(_backgroundView.superview);
+            make.centerX.centerY.equalTo(_backgroundView.superview);
+        }];
+        [_backgroundView whenTapped:^{
+            if(self->_isCanceledOnTouchOutside){
+                [self popOrDismissViewControllerAnimated:YES completion:nil];
+            }
+        }];
+    }
+}
+
+
 
 - (UIView *)contentView {
     if (!_contentView) {
         _contentView = [UIView new];
         _contentView.backgroundColor=UIColor.whiteColor;
-        _contentView.userInteractionEnabled=YES;
     }
     return _contentView;
 }
 
--(void)__canceledOnTouchOutside:(UITapGestureRecognizer *)gest{
-    CGPoint point = [gest locationInView:self.view];
-    if (!CGRectContainsPoint(self.contentView.frame, point)) {
-        [self backViewControllerAnimated:YES completion:nil];
-    }
-}
+
 - (void)setCanceledOnTouchOutside:(BOOL)cancel {
-    if(!___touchOutsideTapGestureRecognizer){
-        ___touchOutsideTapGestureRecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(__canceledOnTouchOutside:)];
-    }
-    [self.view removeGestureRecognizer:___touchOutsideTapGestureRecognizer];
-    if(cancel){
-        [self.view addGestureRecognizer:___touchOutsideTapGestureRecognizer];
-    }
+    _isCanceledOnTouchOutside=cancel;
 }
 
+
 - (void)setComponentAlpha:(CGFloat)alpha{
-    self.view.backgroundColor=[UIColor colorWithWhite:0 alpha:alpha];
+    self.backgroundView.backgroundColor=[UIColor colorWithWhite:0 alpha:alpha];
 }
+
+
+
+- (void)setComponentBackgroundColor:(UIColor *)color{
+    self.backgroundView.backgroundColor = color;
+}
+
+
 
 - (void)setComponentCornerRadius:(CGFloat)radius{
     self.contentView.layer.masksToBounds = YES;
     self.contentView.layer.cornerRadius = 8;
 }
+
 
 -(void)setComponentShadowOpacity:(CGFloat)opacity{
     self.contentView.layer.shadowColor = UIColor.blackColor.CGColor;
@@ -71,9 +101,7 @@
     self.contentView.layer.shadowRadius = 20;
 }
 
-- (void)setComponentBackgroundColor:(UIColor *)color{
-    self.view.backgroundColor = color;
-}
+
 
 - (void)setComponentSize:(CGSize)size gravity:(NXComponentGravity)gravity{
     [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {

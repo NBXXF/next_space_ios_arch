@@ -8,14 +8,25 @@
 #import <Foundation/Foundation.h>
 #import "NXUIComponentProtocol.h"
 #import <UIKit/UIKit.h>
+#import "UIView+NXGestureRecognizer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXViewController :UIViewController<NXUIComponentProtocol>
+
+/**
+ * 背景组件,一般弹窗用 或者业务 可以自定义背景 如 `UIImageView`, `UIVisualEffectView`
+ * 内部处理insert at 0;
+ * 默认透明背景
+ */
+@property (nonatomic, strong) UIView *backgroundView;
+
 /**
  * 用于承载内容,业务组件都应该添加于此
+ * 只允许复写get方法
+ * 默认白色背景
  */
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong, readonly) UIView *contentView;
 
 /**
  特殊标记系统方法废弃

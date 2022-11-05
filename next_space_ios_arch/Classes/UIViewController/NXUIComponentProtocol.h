@@ -28,6 +28,10 @@ typedef NS_ENUM(NSInteger, NXComponentGravity) {
  */
 -(void)setComponentAlpha:(CGFloat)alpha;
 
+/**
+ 设置组件背景色
+ */
+-(void)setComponentBackgroundColor:(UIColor *)color;
 
 /**
  设置圆角
@@ -38,11 +42,6 @@ typedef NS_ENUM(NSInteger, NXComponentGravity) {
  设置阴影透明度
  */
 -(void)setComponentShadowOpacity:(CGFloat)opacity;
-/**
- 设置组件背景色
- */
--(void)setComponentBackgroundColor:(UIColor *)color;
-
 
 /**
  点击外部是否可以取消

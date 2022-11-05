@@ -10,6 +10,10 @@
 #import "NXTestModal2VC.h"
 #import <Masonry/Masonry.h>
 
+@interface NXTestModalVC()
+@property (nonatomic, strong) UIButton *confirmBtn;
+@end
+
 @implementation NXTestModalVC
 
 
@@ -17,8 +21,9 @@
     [super viewDidLoad];
     [self setComponentCornerRadius:10];
     [self setComponentAlpha:0.2];
+    [self setComponentShadowOpacity:0.2];
     [self setComponentSize:CGSizeMake(300, 300) gravity:NXComponentGravityCenter];
-   // [self setCanceledOnTouchOutside:NO];
+    [self setCanceledOnTouchOutside:YES];
 
     
     UIView *iv=UIView.new;
@@ -29,9 +34,30 @@
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(100);
     }];
-
     
+    [self.contentView addSubview:self.confirmBtn];
+    [self.confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView);
+        make.width.equalTo(self.contentView);
+        make.height.equalTo(@(40));
+    }];
+}
 
+- (UIButton *)confirmBtn {
+    if (!_confirmBtn) {
+        _confirmBtn = [[UIButton alloc] init];
+        [_confirmBtn setTitle:@"知道了" forState:UIControlStateNormal];
+        _confirmBtn.backgroundColor=UIColor.yellowColor;
+        _confirmBtn.layer.cornerRadius = 6.0;
+        _confirmBtn.layer.masksToBounds = YES;
+        [_confirmBtn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _confirmBtn;
+}
+
+-(void)close{
+    [self popOrDismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

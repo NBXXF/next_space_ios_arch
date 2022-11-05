@@ -51,6 +51,10 @@
     return find;
 }
 
+- (BOOL)containsObjectWithBlock:(BOOL (^)(id _Nonnull))block{
+    return [self indexOfObjectWithBlock:block]>=0;
+}
+
 - (NSMutableArray *)filterObjectWithBlock:(BOOL (^)(id _Nonnull))block{
     NSMutableArray *find=[NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

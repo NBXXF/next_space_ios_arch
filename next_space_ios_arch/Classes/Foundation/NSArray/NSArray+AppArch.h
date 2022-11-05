@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSUInteger)indexOfObjectWithBlock:(BOOL (^)(ObjectType obj))block;
 
+/**
+ 查找是否包含满足条件的元素
+ */
+- (BOOL)containsObjectWithBlock:(BOOL (^)(ObjectType obj))block;
 
 /**
  筛选出满足条件的对象集合
