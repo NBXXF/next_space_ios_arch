@@ -80,12 +80,16 @@
 
 - (void)setComponentAlpha:(CGFloat)alpha{
     self.backgroundView.backgroundColor=[UIColor colorWithWhite:0 alpha:alpha];
+    //清除底部的背景颜色
+    self.view.backgroundColor=UIColor.clearColor;
 }
 
 
 
 - (void)setComponentBackgroundColor:(UIColor *)color{
     self.backgroundView.backgroundColor = color;
+    //清除底部的背景颜色
+    self.view.backgroundColor=UIColor.clearColor;
 }
 
 
