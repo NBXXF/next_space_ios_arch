@@ -25,7 +25,9 @@
     [super viewDidLoad];
     
     //初始化backgroundView
-    [self setBackgroundView:[UIView new]];
+    UIView *bgView=[UIView new];
+    bgView.backgroundColor=UIColor.clearColor;
+    [self setBackgroundView:bgView];
     
     
     //初始化contentView
