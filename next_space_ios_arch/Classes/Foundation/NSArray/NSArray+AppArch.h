@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  所有对象是否一样
  */
--(BOOL)allObjectEqualWithBlock:(BOOL (^)(ObjectType first,ObjectType))block;
+-(BOOL)allObjectEqualWithBlock:(BOOL (^)(ObjectType first,ObjectType obj))block;
 
 
 /**
