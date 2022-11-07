@@ -37,6 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)containsObjectWithBlock:(BOOL (^)(ObjectType obj))block;
 
+
+/**
+ 所有对象是否一样
+ */
+-(BOOL)allObjectEqualWithBlock:(BOOL (^)(ObjectType first,ObjectType))block;
+
+
 /**
  筛选出满足条件的对象集合
  */

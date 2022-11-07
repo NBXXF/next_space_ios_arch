@@ -55,6 +55,21 @@
     return [self indexOfObjectWithBlock:block]>=0;
 }
 
+- (BOOL)allObjectEqualWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
+    if(self.count<=1){
+        return YES;
+    }
+    __block id first=self.firstObject;
+    __block BOOL allEqual=YES;
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(!block(first,obj)){
+            allEqual=NO;
+            *stop=YES;
+        }
+    }];
+    return allEqual;
+}
+
 - (NSMutableArray *)filterObjectWithBlock:(BOOL (^)(id _Nonnull))block{
     NSMutableArray *find=[NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
