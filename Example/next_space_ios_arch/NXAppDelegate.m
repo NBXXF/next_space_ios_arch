@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    
     NSArray *windows = [[UIApplication sharedApplication] windows];
     for(UIWindow *window in windows) {
         if(window.rootViewController == nil){
@@ -28,8 +28,8 @@
         }
     }
     self.window.backgroundColor = [UIColor whiteColor];
-      [self.window makeKeyAndVisible];
-   // self.window.rootViewController=[NXViewController new];
+    [self.window makeKeyAndVisible];
+    // self.window.rootViewController=[NXViewController new];
     // Override point for customization after application launch.
     return YES;
 }
@@ -49,6 +49,23 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    UIPasteboard *pasteboard =[UIPasteboard generalPasteboard];
+    pasteboard.persistent=YES;
+    [NXPasteboard copyToApplication:pasteboard];
+    
+    [RACScheduler afterDelayInMainThreadScheduler:0.1 schedule:^{
+        NSLog(@"===============>str1:%s",[NXPasteboard getFromApplication].string);
+    }];
+    [RACScheduler afterDelayInMainThreadScheduler:0.4 schedule:^{
+        NSLog(@"===============>str2:%s",[NXPasteboard getFromApplication].string);
+    }];
+    [RACScheduler afterDelayInMainThreadScheduler:0.8 schedule:^{
+        NSLog(@"===============>str3:%s",[NXPasteboard getFromApplication].string);
+    }];
+    [RACScheduler afterDelayInMainThreadScheduler:1.0 schedule:^{
+        NSLog(@"===============>str4:%s",[NXPasteboard getFromApplication].string);
+    }];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

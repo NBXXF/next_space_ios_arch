@@ -51,25 +51,25 @@
 //    NSLog(@"===========>执行key222 %@ by %@  %@",command.title,self,self.placeholder);
 //}
 
-- (NSArray<UIKeyCommand *> *)keyCommands{
-    NSLog(@"===============>快捷键注册了 text");
-    UIKeyCommand *key=  [UIKeyCommand dispatchKeyCommandWithInput:@"." modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputLeftArrow];
-    if (@available(iOS 15.0, *)) {
-        key.allowsAutomaticMirroring=NO;
-        key.wantsPriorityOverSystemBehavior=YES;
-        key.allowsAutomaticLocalization=NO;
-    } else {
-        // Fallback on earlier versions
-    }
-    
-    return @[
-        key,
-        [UIKeyCommand dispatchKeyCommandWithInput:@"." modifierFlags:UIKeyModifierControl commandEvent:UIKeyInputLeftArrow],
-        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputLeftArrow modifierFlags:0 commandEvent:UIKeyInputLeftArrow],
-        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputRightArrow modifierFlags:0 commandEvent:UIKeyInputRightArrow],
-        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputUpArrow modifierFlags:0 commandEvent:UIKeyInputUpArrow],
-        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputDownArrow modifierFlags:0 commandEvent:UIKeyInputDownArrow],
-        [UIKeyCommand dispatchKeyCommandWithInput:@"O" modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputDownArrow]
-    ];
-}
+//- (NSArray<UIKeyCommand *> *)keyCommands{
+//    NSLog(@"===============>快捷键注册了 text");
+//    UIKeyCommand *key=  [UIKeyCommand dispatchKeyCommandWithInput:@"." modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputLeftArrow];
+//    if (@available(iOS 15.0, *)) {
+//        key.allowsAutomaticMirroring=NO;
+//        key.wantsPriorityOverSystemBehavior=YES;
+//        key.allowsAutomaticLocalization=NO;
+//    } else {
+//        // Fallback on earlier versions
+//    }
+//    
+//    return @[
+//        key,
+//        [UIKeyCommand dispatchKeyCommandWithInput:@"." modifierFlags:UIKeyModifierControl commandEvent:UIKeyInputLeftArrow],
+//        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputLeftArrow modifierFlags:0 commandEvent:UIKeyInputLeftArrow],
+//        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputRightArrow modifierFlags:0 commandEvent:UIKeyInputRightArrow],
+//        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputUpArrow modifierFlags:0 commandEvent:UIKeyInputUpArrow],
+//        [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputDownArrow modifierFlags:0 commandEvent:UIKeyInputDownArrow],
+//        [UIKeyCommand dispatchKeyCommandWithInput:@"O" modifierFlags:UIKeyModifierCommand commandEvent:UIKeyInputDownArrow]
+//    ];
+//}
 @end

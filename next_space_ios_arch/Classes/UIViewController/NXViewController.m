@@ -32,6 +32,8 @@
     
     //初始化contentView
     [self.view addSubview:self.contentView];
+    //兼容以前的业务
+    self.contentView.frame=self.view.bounds;
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.contentView.superview);
         make.height.equalTo(self.contentView.superview);

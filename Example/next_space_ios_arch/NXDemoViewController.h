@@ -9,6 +9,6 @@
 @import UIKit;
 #import "NXAppDelegate.h"
 
-@interface NXDemoViewController : UIViewController
+@interface NXDemoViewController : NXViewController
 
 @end
