@@ -78,7 +78,10 @@
             lastCalled=lastCalled+1;
             [self setCallKeyCommandMethodCount:lastCalled];
             if(lastCalled>2){
-                [self setCallKeyCommandMethodCount:0];
+                //延迟恢复
+                [RACScheduler afterDelayInMainThreadScheduler:0.5 schedule:^{
+                    [self setCallKeyCommandMethodCount:0];
+                }];
                 return;
             }
    

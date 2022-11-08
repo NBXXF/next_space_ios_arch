@@ -49,7 +49,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSMutableArray<ObjectType> *)filterObjectWithBlock:(BOOL (^)(ObjectType obj))block;
 
-
+///**
+// 移除
+// */
+//-(NSMutableArray<ObjectType> *)removeFirstObjectWithBlock:(BOOL (^)(ObjectType obj))block;
 /**
  转换成字典 自定义key
  */
