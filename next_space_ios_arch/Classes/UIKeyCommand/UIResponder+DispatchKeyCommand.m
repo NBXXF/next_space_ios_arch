@@ -10,6 +10,7 @@
 #import "NSObject+ExchangeMethod.h"
 #import "NSObject+RateLimiting.h"
 #import "UIKeyCommanderProtocol.h"
+#import "RACScheduler+AppArch.h"
 
 @implementation UIResponder(DispatchKeyCommand)
 + (void)load{
@@ -17,18 +18,18 @@
     
     /**
      -(BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-         if (action == @selector(nx_undo) || action == @selector(nx_redo)) {
-             return YES;
-         }
-         return [super canPerformAction:action withSender:sender];
+     if (action == @selector(nx_undo) || action == @selector(nx_redo)) {
+     return YES;
      }
-
+     return [super canPerformAction:action withSender:sender];
+     }
+     
      -(void)validateCommand:(UICommand *)command {
-         if (command.action == @selector(nx_undo)) {
-             [self nx_undo];
-         } else if (command.action == @selector(nx_redo)) {
-             [self nx_redo];
-         }
+     if (command.action == @selector(nx_undo)) {
+     [self nx_undo];
+     } else if (command.action == @selector(nx_redo)) {
+     [self nx_redo];
+     }
      }
      */
     //只执行一次这个方法
@@ -69,15 +70,77 @@
         } @catch (NSException *exception) {
         }
         if(uiKeyCommand){
-            [self onDispatchKeyCommand:uiKeyCommand];
+            //永远取消上一次
+            [self removeLastCallKeyCommandMethodTask];
+            
+            //YYText 长按cmd  会把所有快捷键执行一次,先用算法 如果150ms 超过2次 就判断为用户长按cmd了
+            NSInteger lastCalled = [self getCallKeyCommandMethodCount];
+            lastCalled=lastCalled+1;
+            [self setCallKeyCommandMethodCount:lastCalled];
+            if(lastCalled>2){
+                [self setCallKeyCommandMethodCount:0];
+                return;
+            }
+   
+            
+            //添加延迟任务
+            RACDisposable *task= [RACScheduler afterDelayInMainThreadScheduler:0.15 schedule:^{
+                [self setCallKeyCommandMethodCount:0];
+                [self onDispatchKeyCommand:uiKeyCommand];
+            }];
+            [self addCallKeyCommandMethodTask:task];
             return;
         }
     }
     [self _dispatchValidateCommand:command];
 }
 
+/**
+ 添加全局任务
+ */
+-(void)addCallKeyCommandMethodTask:(RACDisposable *)task{
+    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
+    NSString *key=[NSString stringWithFormat:@"%@_task",NSStringFromSelector(@selector(_dispatchValidateCommand:))];
+    [throttleData setObject:task forKey:key];
+}
+
+/**
+ 移除上次任务
+ */
+-(void)removeLastCallKeyCommandMethodTask{
+    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
+    NSString *key=[NSString stringWithFormat:@"%@_task",NSStringFromSelector(@selector(_dispatchValidateCommand:))];
+    RACDisposable *task= [throttleData objectForKey:key];
+    if(task&&!task.isDisposed){
+        [task dispose];
+    }
+    [throttleData removeObjectForKey:key];
+}
+
+
+/**
+ 统计执行次数
+ */
+-(NSInteger)getCallKeyCommandMethodCount{
+    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
+    NSString *key=NSStringFromSelector(@selector(_dispatchValidateCommand:));
+    NSInteger lastCalled = [[throttleData objectForKey:key] integerValue];
+    return lastCalled;
+}
+
+/**
+ 更新执行次数
+ */
+-(void)setCallKeyCommandMethodCount:(NSInteger)count{
+    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
+    NSString *key=NSStringFromSelector(@selector(_dispatchValidateCommand:));
+    [throttleData setObject:@(count) forKey:key];
+}
+
+
 
 -(void)onDispatchKeyCommand:(UIKeyCommand *)command{
+   // [self setCallMethodCount:0];
     if(![command isKindOfClass:UIKeyCommand.class]){
         return;
     }

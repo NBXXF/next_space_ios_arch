@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject(RateLimiting)
 
+/**
+ 获取记录的字典
+ */
+- (NSMutableDictionary *)getThrottleData;
+
+
 - (void)throttleWithBlock:(void (^)(void))block duration:(NSTimeInterval)duration;
 
 
