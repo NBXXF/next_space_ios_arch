@@ -20,7 +20,7 @@
 //@import next_space_ios_arch;
 
 
-@interface NXDemoViewController ()<UIKeyCommanderProtocol>
+@interface NXDemoViewController ()<UIKeyCommanderProtocol,YYTextViewDelegate, UITextViewDelegate>
 
 @end
 
@@ -59,12 +59,41 @@
     [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
     [self throttleWithSelector:@selector(test) withObject:nil duration:0.5];
 }
+
+-(void)textViewDidChangeSelection:(UITextView *)textView{
+    NSLog(@"=======>输入法:%@  %lld", [[textView textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);
+}
+- (void)textViewDidChange:(UITextView *)textView{
+    NSLog(@"=======>输入法:%@  %lld", [[textView textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);
+}
+//- (void)textViewDidChange:(YYTextView *)textView{
+//    NSLog(@"=======>输入法:%@", [[textView textInputMode] primaryLanguage]);
+//}
+- (void)textViewDidBeginEditing:(YYTextView *)textView{
+    NSLog(@"=======>输入法:%@  %lld", [[textView textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);
+}
+
+// 方法二
+- (BOOL)isThirdPartyKeyboard {
+    UITextInputMode *currentInputMode = [[UIApplication sharedApplication] textInputMode];
+    NSString *currentInputModeClass = NSStringFromClass([currentInputMode class]);
+    if ([currentInputModeClass isEqualToString:@"UIKeyboardExtensionInputMode"]) {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)viewDidLoad
 {
     [self setCanceledOnTouchOutside:NO];
     self.contentView.backgroundColor=UIColor.clearColor;
     [self testThrott];
 
+    NSLog(@"=======>输入法 app:%@  %lld", [[self textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);
+    
+    [RACObserve(UIApplication.sharedApplication, textInputContextIdentifier) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"=======>输入法监听 app:%@  %lld", [[self textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);
+    }];
   
     UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(0, 40, 300, 100)];
     btn.titleLabel.text=@"xxxx";
@@ -97,6 +126,7 @@
     text3.placeholderText=@"请输入3";
     text3.text=@"3";
     text3.tag=3;
+    text3.delegate=self;
     [text3 becomeFirstResponder];
     [self.view addSubview:text3];
 
@@ -116,6 +146,7 @@
     UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 410, 800, 100)];
     text4.text=@"4";
     text4.tag=4;
+    text4.delegate=self;
     [self.view addSubview:text4];
     
     NSNumber *first=@1;

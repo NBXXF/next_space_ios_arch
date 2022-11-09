@@ -13,6 +13,7 @@
 #import "NXBus.h"
 #import "NSArray+AppArch.h"
 #import "NSMutableAttributedString+AppArch.h"
+#import "NXHTTPSessionManager.h"
 #import "NXItemMenu.h"
 #import "NXItemMenuImpl.h"
 #import "NSObject+Describe.h"

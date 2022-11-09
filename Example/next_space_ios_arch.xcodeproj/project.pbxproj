@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1A14CAB59B7BB320DBD3BB4C /* Pods-next_space_ios_arch_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Tests.debug.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Tests/Pods-next_space_ios_arch_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		21DA380E0023CAB74626F44B /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = next_space_ios_arch.podspec; path = ../next_space_ios_arch.podspec; sourceTree = "<group>"; };
+		21DA380E0023CAB74626F44B /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = next_space_ios_arch.podspec; path = ../next_space_ios_arch.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5EA92CA8F249B4FC3EDA07A0 /* Pods-next_space_ios_arch_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Example.debug.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Example/Pods-next_space_ios_arch_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* next_space_ios_arch_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = next_space_ios_arch_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -370,6 +370,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-next_space_ios_arch_Example/Pods-next_space_ios_arch_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
@@ -378,6 +379,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",

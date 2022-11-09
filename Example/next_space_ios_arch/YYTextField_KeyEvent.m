@@ -63,6 +63,8 @@
     }
     
     return @[
+        [UIKeyCommand dispatchCommandWithTitle:@"回车" image:nil input:@"\r" modifierFlags:0 commandEvent:@"回车1" ],
+        [UIKeyCommand dispatchCommandWithTitle:@"回车2" image:nil input:@"\n" modifierFlags:0 commandEvent:@"回车2" ],
         key,
         [UIKeyCommand dispatchKeyCommandWithInput:@"." modifierFlags:UIKeyModifierControl commandEvent:UIKeyInputLeftArrow],
         [UIKeyCommand dispatchKeyCommandWithInput:UIKeyInputLeftArrow modifierFlags:0 commandEvent:UIKeyInputLeftArrow],
