@@ -6,6 +6,7 @@
 //
 
 #import "NXViewController.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 #import "UIViewController+PopDissmiss.h"
 #import <Masonry/Masonry.h>
 @interface NXViewController()
@@ -56,8 +57,10 @@
             make.height.equalTo(_backgroundView.superview);
             make.centerX.centerY.equalTo(_backgroundView.superview);
         }];
+        @weakify(self);
         [_backgroundView whenTapped:^{
-            if(self->_isCanceledOnTouchOutside){
+            @strongify(self);
+            if(self.isCanceledOnTouchOutside){
                 [self popOrDismissViewControllerAnimated:YES completion:nil];
             }
         }];
