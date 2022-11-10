@@ -31,6 +31,9 @@
     [super setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
         @strongify(self)
         [self dispatchInterceptorWithResponse:task error:error];
+        if(block){
+            block(session,task,error);
+        }
     }];
 }
 
