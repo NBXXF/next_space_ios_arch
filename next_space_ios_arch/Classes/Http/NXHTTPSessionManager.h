@@ -7,10 +7,22 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
+#import "NXHttpInterceptor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXHTTPSessionManager : AFHTTPSessionManager
+
+/**
+ 添加拦截器
+ */
+-(void)addInterceptor:(NXHttpInterceptor *)interceptor;
+
+
+/**
+ 移除拦截器
+ */
+-(void)removeInterceptor:(NXHttpInterceptor *)interceptor;
 
 
 @end
