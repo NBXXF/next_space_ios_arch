@@ -6,10 +6,34 @@
 //
 
 #import "NXHTTPSessionManager.h"
+#import <ReactiveObjC/ReactiveObjC.h>
+
 @interface NXHTTPSessionManager()
 @property(nonatomic,strong) NSMutableArray<NXHttpInterceptor *> *interceptorArray;
 @end
 @implementation NXHTTPSessionManager
+- (instancetype)init{
+    self=[super init];
+    if(self){
+        //默认监听任务完成
+        [self setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
+            
+        }];
+    }
+    return self;
+    return [super init];
+}
+
+
+//这里包装完成拦截
+- (void)setTaskDidCompleteBlock:(void (^)(NSURLSession * _Nonnull, NSURLSessionTask * _Nonnull, NSError * _Nullable))block{
+    @weakify(self);
+    [super setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
+        @strongify(self)
+        [self dispatchInterceptorWithResponse:task error:error];
+    }];
+}
+
 
 - (NSMutableArray *)interceptorArray{
     if(!_interceptorArray){
@@ -36,13 +60,21 @@
  调度拦截器
  */
 -(NSURLRequest *)dispatchInterceptorWithRequest:(NSURLRequest *)request{
-   __block NSURLRequest *result=request;
+    __block NSURLRequest *result=request;
     [self.interceptorArray enumerateObjectsUsingBlock:^(NXHttpInterceptor * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         result=[obj interceptRequest:result];
     }];
     return result;
 }
 
+/**
+ 调度拦截器
+ */
+-(void)dispatchInterceptorWithResponse:(NSURLSessionTask * _Nonnull) task error:(NSError * _Nullable) error{
+    [self.interceptorArray enumerateObjectsUsingBlock:^(NXHttpInterceptor * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj interceptResponse:task error:error];
+    }];
+}
 
 
 //========================【下面是拦击afn本身方法】=====================

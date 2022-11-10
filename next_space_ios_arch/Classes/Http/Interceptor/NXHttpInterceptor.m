@@ -21,4 +21,8 @@
     
     return request;
 }
+
+- (void)interceptResponse:(NSURLSessionTask *)task error:(NSError *)error{
+    
+}
 @end
