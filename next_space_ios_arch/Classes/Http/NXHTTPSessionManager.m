@@ -6,8 +6,32 @@
 //
 
 #import "NXHTTPSessionManager.h"
-
+#import "NXURLSession.h"
+@interface NXHTTPSessionManager()
+@property (readwrite, nonatomic, strong) NSURLSession *mySession;
+@property (readwrite, nonatomic, strong) NSURLSessionConfiguration *mySessionConfiguration;
+@end
 @implementation NXHTTPSessionManager
+
+- (instancetype)initWithBaseURL:(NSURL *)url sessionConfiguration:(NSURLSessionConfiguration *)configuration{
+    _mySessionConfiguration=configuration;
+    return [super initWithBaseURL:url sessionConfiguration:configuration];
+}
+
+
+- (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)configuration{
+    _mySessionConfiguration=configuration;
+    return [super initWithSessionConfiguration:configuration];
+}
+- (NSURLSession *)session{
+    @synchronized (self) {
+        if (!_mySession) {
+            //这里用NXURLSession 进行拦截
+            _mySession = [NXURLSession sessionWithConfiguration:self.mySessionConfiguration delegate:self delegateQueue:self.operationQueue];
+        }
+    }
+    return _mySession;
+}
 
 
 - (void)URLSession:(NSURLSession *)session

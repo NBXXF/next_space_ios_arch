@@ -69,6 +69,12 @@
 //- (void)textViewDidChange:(YYTextView *)textView{
 //    NSLog(@"=======>输入法:%@", [[textView textInputMode] primaryLanguage]);
 //}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    NSLog(@"==========>输入法___:(%ld,%ld) %@",(long)range.location,(long)range.length,text);
+    return YES;
+}
+
+
 - (void)textViewDidBeginEditing:(YYTextView *)textView{
     NSLog(@"=======>输入法:%@  %lld", [[textView textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);
 }
@@ -83,8 +89,32 @@
     return NO;
 }
 
+-(void)printView:(UIView *)view{
+    NSLog(@"========>view:%@",view);
+    [view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self printView:obj];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    for (UIWindow * value in [[UIApplication sharedApplication].windows reverseObjectEnumerator]) {
+        NSLog(@"========>view: window:%@",value);
+        [value.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self printView:obj];
+        }];
+    }
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear: animated];
+
+}
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    
+    
     [self setCanceledOnTouchOutside:NO];
     self.contentView.backgroundColor=UIColor.clearColor;
     [self testThrott];
@@ -256,10 +286,6 @@
 
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-
-}
 
 
 

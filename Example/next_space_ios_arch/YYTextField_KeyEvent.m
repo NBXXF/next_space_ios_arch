@@ -12,6 +12,11 @@
 
 @implementation YYTextView(KeyEvent)
 - (BOOL)onKeyCommand:(UIKeyCommand *)command commandEvent:(NSString *)event originatingResponder:(UIResponder *)originatingResponder{
+    if([event isEqual:@"s+h"]){
+        self.text=[NSString stringWithFormat:@"%@\n",self.text];
+        self.selectedRange=NSMakeRange(self.text.length, 0);
+        return YES;
+    }
     NSLog(@"===========>执行key %@ by %@  %@  event:%@ originatingResponder:%@",command.input,self.simpleDescription,@"",event,originatingResponder.simpleDescription);
 //    if([event isEqual:UIKeyInputLeftArrow]){
 //        UIView *findTextInput= [self.superview.superview findLastChildViewWithBlock:^BOOL(UIView * _Nonnull childView) {
@@ -63,6 +68,10 @@
     }
     
     return @[
+        [UIKeyCommand dispatchCommandWithTitle:@"s+h" image:nil input:@"\r" modifierFlags:UIKeyModifierShift commandEvent:@"s+h" ],
+        [UIKeyCommand dispatchCommandWithTitle:@"s+h2" image:nil input:@"\n" modifierFlags:UIKeyModifierShift commandEvent:@"s+h2" ],
+        
+        [UIKeyCommand dispatchCommandWithTitle:@"TAB" image:nil input:@"\t"  modifierFlags:0 commandEvent:@"TAB" ],
         [UIKeyCommand dispatchCommandWithTitle:@"回车" image:nil input:@"\r" modifierFlags:0 commandEvent:@"回车1" ],
         [UIKeyCommand dispatchCommandWithTitle:@"回车2" image:nil input:@"\n" modifierFlags:0 commandEvent:@"回车2" ],
         key,
