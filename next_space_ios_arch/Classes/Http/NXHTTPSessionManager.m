@@ -12,29 +12,6 @@
 @property(nonatomic,strong) NSMutableArray<NXHttpInterceptor *> *interceptorArray;
 @end
 @implementation NXHTTPSessionManager
-- (instancetype)init{
-    self=[super init];
-    if(self){
-        //默认监听任务完成
-        [self setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
-            
-        }];
-    }
-    return self;
-}
-
-
-//这里包装完成拦截
-- (void)setTaskDidCompleteBlock:(void (^)(NSURLSession * _Nonnull, NSURLSessionTask * _Nonnull, NSError * _Nullable))block{
-    @weakify(self);
-    [super setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
-        @strongify(self)
-        [self dispatchInterceptorWithResponse:task error:error];
-        if(block){
-            block(session,task,error);
-        }
-    }];
-}
 
 
 - (NSMutableArray *)interceptorArray{
@@ -76,6 +53,17 @@
     [self.interceptorArray enumerateObjectsUsingBlock:^(NXHttpInterceptor * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj interceptResponse:task error:error];
     }];
+}
+
+
+//========================【下面是拦击afn本身请求完成方法】=====================
+- (void)URLSession:(NSURLSession *)session
+              task:(NSURLSessionTask *)task
+didCompleteWithError:(NSError *)error{
+    //先执行拦截器
+    [self dispatchInterceptorWithResponse:task error:error];
+    //再执行父类的方法
+    [super URLSession:session task:task didCompleteWithError:error];
 }
 
 
