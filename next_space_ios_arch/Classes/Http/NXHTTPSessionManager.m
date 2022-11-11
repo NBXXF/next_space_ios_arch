@@ -21,7 +21,6 @@
         }];
     }
     return self;
-    return [super init];
 }
 
 
