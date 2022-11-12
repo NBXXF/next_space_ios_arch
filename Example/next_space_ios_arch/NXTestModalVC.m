@@ -42,6 +42,39 @@
         make.width.equalTo(self.contentView);
         make.height.equalTo(@(40));
     }];
+    
+    
+    NSUserDefaults *t1= [[NSUserDefaults alloc] initWithSuiteName:@"test1"];
+    [self clear:t1];
+    [self insertCount:t1 andCount:100];
+    [self testTime:t1];
+    
+    
+    NSUserDefaults *t2= [[NSUserDefaults alloc] initWithSuiteName:@"test2"];
+    [self clear:t2];
+    [self insertCount:t2 andCount:10000];
+    [self testTime:t2];
+}
+
+-(void)testTime:(NSUserDefaults *) userDefatluts{
+    NSDate *start=[NSDate date];
+    NSString *s=[userDefatluts stringForKey:@"99"];
+    NSDate *end=[NSDate date];
+    NSLog(@"===========>take by(%@):%@ %f",userDefatluts,s,[end timeIntervalSinceDate:start]);
+}
+
+-(void)insertCount:(NSUserDefaults *) userDefatluts andCount:(NSInteger)count;{
+    for(int i =0;i<count;i++){
+        [userDefatluts setObject:[NSString stringWithFormat:@"data_%d",i] forKey:[NSString stringWithFormat:@"%d",i]];
+    }
+}
+
+-(void)clear:(NSUserDefaults *) userDefatluts{
+    NSDictionary *dictionary = [userDefatluts dictionaryRepresentation];
+    for(NSString* key in [dictionary allKeys]){
+        [userDefatluts removeObjectForKey:key];
+        [userDefatluts synchronize];
+    }
 }
 
 - (UIButton *)confirmBtn {
