@@ -113,7 +113,10 @@
 {
     [super viewDidLoad];
     
-    
+    [[[RACSignal just:@"xxx"] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+        NSLog(@"=================>yes:%@",value);
+        return [RACSignal just:value];
+    }] subscribe];
     
     [self setCanceledOnTouchOutside:NO];
     self.contentView.backgroundColor=UIColor.clearColor;

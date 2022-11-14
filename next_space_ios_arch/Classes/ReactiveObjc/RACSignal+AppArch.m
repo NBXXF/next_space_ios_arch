@@ -9,6 +9,12 @@
 
 @implementation RACSignal(AppArch)
 
+- (RACSignal *)subscribe{
+    return [self subscribeNext:^(id  _Nullable x) {
+        
+    }];
+}
+
 + (RACSignal *)just:(id __nullable)value{
     return [RACSignal return:value];
 }

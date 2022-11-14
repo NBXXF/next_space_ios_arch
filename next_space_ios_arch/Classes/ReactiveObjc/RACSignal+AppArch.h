@@ -10,6 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RACSignal(AppArch)
+///简化订阅,不关心结果
+-(RACSignal *)subscribe;
+
 ///将普通数据转换成流
 +(RACSignal *)just:(id __nullable)value;
 
