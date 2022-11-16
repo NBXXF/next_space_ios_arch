@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)removeInterceptor:(NXHttpInterceptor *)interceptor;
 
 
+/**
+ 下载
+ */
+- (NSURLSessionDownloadTask *)downloadTaskWithRequest:(NSURLRequest *)request progress:(void (^)(NSProgress * _Nonnull))downloadProgressBlock destinationPath:(NSString *)destinationPath completionHandler:(void (^)(NSURLResponse * _Nonnull, NSURL * _Nullable, NSError * _Nullable))completionHandler;
+
 @end
 
 NS_ASSUME_NONNULL_END
