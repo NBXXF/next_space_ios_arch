@@ -6,25 +6,39 @@
 //
 
 #import "NXItemMenuImpl.h"
+#import "NSArray+AppArch.h"
 
 @implementation NXItemMenuImpl
-+ (void)clearAllSelected:(NSArray<id<NXSelectableProtocol>> *)list{
+
++ (NSArray<id<NXSelectableProtocol>> *)getSelected:(NSArray<id<NXSelectableProtocol>> *)list{
+    return [list filterObjectWithBlock:^BOOL(id<NXSelectableProtocol>  _Nonnull obj) {
+        return [obj isItemSelected];
+    }];
+}
+
++ (id<NXSelectableProtocol>)getFirstSelected:(NSArray<id<NXSelectableProtocol>> *)list{
+    return [list firstObjectWithBlock:^BOOL(id<NXSelectableProtocol>  _Nonnull obj) {
+        return [obj isItemSelected];
+    }];
+}
+
++ (void)clearSelected:(NSArray<id<NXSelectableProtocol>> *)list{
     [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj setSelected:NO];
+        [obj setItemSelected:NO];
     }];
 }
 
 + (void)selectAll:(NSArray<id<NXSelectableProtocol>> *)list{
     [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj setSelected:YES];
+        [obj setItemSelected:YES];
     }];
 }
 
 + (void)selectItem:(id<NXSelectableProtocol>)item inArray:(NSArray<id<NXSelectableProtocol>> *)list{
     [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj setSelected:item==obj];
+        [obj setItemSelected:item==obj];
     }];
-    [item setSelected:YES];
+    [item setItemSelected:YES];
 }
 
 @synthesize title;
@@ -63,8 +77,12 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected{
+- (void)setItemSelected:(BOOL)selected{
     isSelected=selected;
+}
+
+- (BOOL)isItemSelected{
+    return isSelected;
 }
 
 @end

@@ -112,6 +112,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     
     [[[RACSignal just:@"xxx"] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
         NSLog(@"=================>yes:%@",value);

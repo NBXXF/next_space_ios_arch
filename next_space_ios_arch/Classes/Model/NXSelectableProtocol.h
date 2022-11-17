@@ -10,10 +10,24 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol NXSelectableProtocol <NSObject>
+
+/**
+ 获取选中的
+ */
++(NSArray<id<NXSelectableProtocol>> *)getSelected:(NSArray<id<NXSelectableProtocol>>
+                                                        *)list;
+
+/**
+ 获取第一个选中的
+ */
++(id<NXSelectableProtocol>)getFirstSelected:(NSArray<id<NXSelectableProtocol>>
+                                                        *)list;
+
+
 /**
  清除选中
  */
-+(void)clearAllSelected:(NSArray<id<NXSelectableProtocol>>
++(void)clearSelected:(NSArray<id<NXSelectableProtocol>>
                   *)list;
 /**
  全选
@@ -31,7 +45,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  设置选中
  */
--(void)setSelected:(BOOL)selected;
+-(void)setItemSelected:(BOOL)selected;
+
+/**
+ 是否选中
+ */
+-(BOOL)isItemSelected;
 
 @end
 
