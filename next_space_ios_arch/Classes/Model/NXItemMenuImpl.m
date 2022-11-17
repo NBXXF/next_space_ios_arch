@@ -8,7 +8,24 @@
 #import "NXItemMenuImpl.h"
 
 @implementation NXItemMenuImpl
++ (void)clearAllSelected:(NSArray<id<NXSelectableProtocol>> *)list{
+    [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setSelected:NO];
+    }];
+}
 
++ (void)selectAll:(NSArray<id<NXSelectableProtocol>> *)list{
+    [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setSelected:YES];
+    }];
+}
+
++ (void)selectItem:(id<NXSelectableProtocol>)item inArray:(NSArray<id<NXSelectableProtocol>> *)list{
+    [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setSelected:item==obj];
+    }];
+    [item setSelected:YES];
+}
 
 @synthesize title;
 @synthesize icon;
@@ -44,6 +61,10 @@
         self.tag=nil;
     }
     return self;
+}
+
+- (void)setSelected:(BOOL)selected{
+    isSelected=selected;
 }
 
 @end

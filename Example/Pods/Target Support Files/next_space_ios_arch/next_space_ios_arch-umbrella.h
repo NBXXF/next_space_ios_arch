@@ -17,6 +17,7 @@
 #import "NXHTTPSessionManager.h"
 #import "NXItemMenu.h"
 #import "NXItemMenuImpl.h"
+#import "NXSelectableProtocol.h"
 #import "NSObject+Describe.h"
 #import "NSObject+ExchangeMethod.h"
 #import "NSObject+RateLimiting.h"

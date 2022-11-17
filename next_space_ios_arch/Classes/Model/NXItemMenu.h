@@ -4,8 +4,9 @@
 //  常见菜单模型封装
 //  Created by XXF on 2022/10/29.
 //
+#import "NXSelectableProtocol.h"
 
-@protocol NXItemMenu <NSObject>
+@protocol NXItemMenu <NSObject,NXSelectableProtocol>
 
 /**
  标题
