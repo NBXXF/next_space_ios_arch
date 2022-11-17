@@ -7,18 +7,29 @@
 
 #import "NXItemMenuImpl.h"
 #import "NSArray+AppArch.h"
+@interface NXItemMenuImpl()
+/**
+ 是否选中
+ */
+@property(nonatomic,assign) BOOL isSelected;
 
+/**
+ 是否无效,不可点击
+ */
+@property(nonatomic,assign) BOOL isDisable;
+
+@end
 @implementation NXItemMenuImpl
 
 + (NSArray<id<NXSelectableProtocol>> *)getSelected:(NSArray<id<NXSelectableProtocol>> *)list{
     return [list filterObjectWithBlock:^BOOL(id<NXSelectableProtocol>  _Nonnull obj) {
-        return [obj isItemSelected];
+        return [obj isItemSelected]&&![obj isItemDisable];
     }];
 }
 
 + (id<NXSelectableProtocol>)getFirstSelected:(NSArray<id<NXSelectableProtocol>> *)list{
     return [list firstObjectWithBlock:^BOOL(id<NXSelectableProtocol>  _Nonnull obj) {
-        return [obj isItemSelected];
+        return [obj isItemSelected]&&![obj isItemDisable];
     }];
 }
 
@@ -30,11 +41,16 @@
 
 + (void)selectAll:(NSArray<id<NXSelectableProtocol>> *)list{
     [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj setItemSelected:YES];
+        if(![obj isItemDisable]){
+            [obj setItemSelected:YES];
+        }
     }];
 }
 
 + (void)selectItem:(id<NXSelectableProtocol>)item inArray:(NSArray<id<NXSelectableProtocol>> *)list{
+    if([item isItemDisable]){
+        return;
+    }
     [list enumerateObjectsUsingBlock:^(id<NXSelectableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setItemSelected:item==obj];
     }];
@@ -43,46 +59,46 @@
 
 @synthesize title;
 @synthesize icon;
-@synthesize isSelected;
-@synthesize isDisable;
 @synthesize item;
 @synthesize flag;
 @synthesize tag;
 
 - (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon{
-    self=[super init];
-    if(self){
-        self.title=title;
-        self.icon=icon;
-        self.isSelected=NO;
-        self.isDisable=NO;
-        self.item=nil;
-        self.flag=0;
-        self.tag=nil;
-    }
-    return self;
+    return [self initWithTitle:title andIcon:icon andItem:nil andFlag:0 andTag:nil];
+}
+- (instancetype)initWithTitle:(NSString *)title andIcon:(NSString *)icon andItem:(id)item{
+    return [self initWithTitle:title andIcon:icon andItem:item andFlag:0 andTag:nil];
 }
 
-- (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon andSelected:(BOOL)selected andDisable:(BOOL)disable andItem:(id __nullable)item{
-    self=[super init];
-    if(self){
-        self.title=title;
-        self.icon=icon;
-        self.isSelected=selected;
-        self.isDisable=disable;
-        self.item=item;
-        self.flag=0;
-        self.tag=nil;
-    }
+- (instancetype)initWithTitle:(NSString *)title andIcon:(NSString *)icon andItem:(id)item andFlag:(NSInteger)flag{
+    return [self initWithTitle:title andIcon:icon andItem:item andFlag:flag andTag:nil];
+}
+
+- (instancetype)initWithTitle:(NSString *)title andIcon:(NSString *)icon andItem:(id)item andFlag:(NSInteger)flag andTag:(id)tag{
+    self.title=title;
+    self.icon=icon;
+    self.item=nil;
+    self.flag=flag;
+    self.tag=tag;
     return self;
 }
 
 - (void)setItemSelected:(BOOL)selected{
-    isSelected=selected;
+    _isSelected=selected;
 }
 
 - (BOOL)isItemSelected{
-    return isSelected;
+    return _isSelected;
 }
+
+- (BOOL)isItemDisable {
+    return _isDisable;
+}
+
+
+- (void)setItemDisable:(BOOL)disable {
+    _isDisable=disable;
+}
+
 
 @end

@@ -52,6 +52,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(BOOL)isItemSelected;
 
+
+/**
+ 是否禁用状态
+ */
+-(void)setItemDisable:(BOOL)disable;
+
+/**
+ 是否禁用状态
+ */
+-(BOOL)isItemDisable;
+
 @end
 
 NS_ASSUME_NONNULL_END

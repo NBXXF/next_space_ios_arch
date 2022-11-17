@@ -20,18 +20,6 @@
 @required
 @property(nonatomic,copy) id _Nullable icon;
 
-/**
- 是否选中
- */
-@required
-@property(nonatomic,assign) BOOL isSelected;
-
-/**
- 是否无效,不可点击
- */
-@required
-@property(nonatomic,assign) BOOL isDisable;
-
 
 /**
  一般为原始数据

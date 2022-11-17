@@ -13,7 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon;
 
-- (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon andSelected:(BOOL)selected andDisable:(BOOL)disable andItem:(id __nullable)item;
+
+- (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon andItem:(id __nullable)item;
+
+
+- (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon andItem:(id __nullable)item andFlag:(NSInteger)flag;
+
+
+- (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon andItem:(id __nullable)item andFlag:(NSInteger)flag andTag:(id __nullable)tag;
 
 @end
 
