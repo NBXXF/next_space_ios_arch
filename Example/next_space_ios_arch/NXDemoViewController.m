@@ -113,14 +113,19 @@
 {
     [super viewDidLoad];
 
+    NSLog(@"=========>margin:%f",[UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom);
+    
+    [self.contentView setBackgroundColor:UIColor.grayColor];
+    self.additionalSafeAreaInsets=[UIApplication sharedApplication].keyWindow.safeAreaInsets;
+    NSLog(@"=========>margin2:%f",self.view.safeAreaInsets.bottom);
     
     [[[RACSignal just:@"xxx"] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
         NSLog(@"=================>yes:%@",value);
         return [RACSignal just:value];
     }] subscribe];
     
-    [self setCanceledOnTouchOutside:NO];
-    self.contentView.backgroundColor=UIColor.clearColor;
+//    [self setCanceledOnTouchOutside:NO];
+//    self.contentView.backgroundColor=UIColor.clearColor;
     [self testThrott];
 
     NSLog(@"=======>输入法 app:%@  %lld", [[self textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);

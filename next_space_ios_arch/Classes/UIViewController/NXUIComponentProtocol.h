@@ -49,6 +49,18 @@ typedef NS_ENUM(NSInteger, NXComponentGravity) {
 -(void)setCanceledOnTouchOutside:(BOOL)cancel;
 
 
+/**
+ 开启底部导航条安全区
+ additionalSafeAreaInsets 没什么效果,据说带了导航控制器也不行,这里采用传统方式
+ */
+-(void)enableSafeAreaBottomInsets;
+
+/**
+ 取消底部导航条安全区
+ */
+-(void)disableSafeAreaBottomInsets;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

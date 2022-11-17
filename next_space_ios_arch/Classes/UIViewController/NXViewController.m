@@ -141,4 +141,21 @@
     }];
 }
 
+- (void)enableSafeAreaBottomInsets{
+    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.contentView.superview);
+        make.top.equalTo(self.contentView.superview);
+        make.bottom.equalTo(self.contentView.superview).offset(self.view.safeAreaInsets.bottom);
+        make.centerX.centerY.equalTo(self.contentView.superview);
+    }];
+}
+
+- (void)disableSafeAreaBottomInsets{
+    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.contentView.superview);
+        make.top.equalTo(self.contentView.superview);
+        make.bottom.equalTo(self.contentView.superview);
+        make.centerX.centerY.equalTo(self.contentView.superview);
+    }];
+}
 @end
