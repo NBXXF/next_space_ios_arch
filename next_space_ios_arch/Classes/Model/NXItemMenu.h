@@ -36,7 +36,19 @@
  一般为原始数据
  */
 @optional
-@property(nonatomic,assign) id __nullable item;
+@property(nonatomic,copy) id __nullable item;
 
+/**
+ 扩展标记字段
+ */
+@optional
+@property(nonatomic,assign) NSInteger flag;
+
+
+/**
+ 扩展tag字段
+ */
+@optional
+@property(nonatomic,copy) id __nullable tag;
 
 @end

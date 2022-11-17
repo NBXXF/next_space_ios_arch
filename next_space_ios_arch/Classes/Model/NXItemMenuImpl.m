@@ -15,6 +15,8 @@
 @synthesize isSelected;
 @synthesize isDisable;
 @synthesize item;
+@synthesize flag;
+@synthesize tag;
 
 - (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon{
     self=[super init];
@@ -24,6 +26,8 @@
         self.isSelected=NO;
         self.isDisable=NO;
         self.item=nil;
+        self.flag=0;
+        self.tag=nil;
     }
     return self;
 }
@@ -36,6 +40,8 @@
         self.isSelected=selected;
         self.isDisable=disable;
         self.item=item;
+        self.flag=0;
+        self.tag=nil;
     }
     return self;
 }
