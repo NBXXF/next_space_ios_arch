@@ -75,11 +75,14 @@
 }
 
 - (instancetype)initWithTitle:(NSString *)title andIcon:(NSString *)icon andItem:(id)item andFlag:(NSInteger)flag andTag:(id)tag{
-    self.title=title;
-    self.icon=icon;
-    self.item=nil;
-    self.flag=flag;
-    self.tag=tag;
+    self=[super init];
+    if(self){
+        self.title=title;
+        self.icon=icon;
+        self.item=item;
+        self.flag=flag;
+        self.tag=tag;
+    }
     return self;
 }
 
