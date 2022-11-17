@@ -38,6 +38,7 @@
 #import "UIKeyCommanderProtocol.h"
 #import "UIResponder+DispatchKeyCommand.h"
 #import "NXPasteboard.h"
+#import "UITableView+NXRegister.h"
 #import "NXRectUtils.h"
 #import "UIView+AppArchRect.h"
 #import "UIView+NXGestureRecognizer.h"
