@@ -44,6 +44,7 @@
 #import "UIView+AppArchRect.h"
 #import "UIView+NXGestureRecognizer.h"
 #import "UIView+NXQuery.h"
+#import "UIView+NXStatus.h"
 #import "NXNavigationViewController.h"
 #import "NXUIComponentProtocol.h"
 #import "NXViewController.h"

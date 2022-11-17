@@ -149,12 +149,16 @@
     text.text=@"1";
     text.tag=1;
     [self.view addSubview:text];
+    
+    text.disable=YES;
+    text.disable=YES;
 
     UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 201, 300, 100)];
     text2.placeholder=@"请输入2";
     text2.text=@"2";
     text2.tag=2;
     [self.view addSubview:text2];
+    text2.disable=NO;
 
     YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 302, 300, 100)];
     text3.placeholderText=@"请输入3";
