@@ -145,7 +145,7 @@
     [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.contentView.superview);
         make.top.equalTo(self.contentView.superview);
-        make.bottom.equalTo(self.contentView.superview).offset(self.view.safeAreaInsets.bottom);
+        make.bottom.equalTo(self.contentView.superview).offset(-fabs(self.view.safeAreaInsets.bottom));
         make.centerX.centerY.equalTo(self.contentView.superview);
     }];
 }
