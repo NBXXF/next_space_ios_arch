@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  简化注册identifier 就是class名称
  */
-- (void)registerClassforCellReuse:(nullable Class)cellClass;
+- (void)registerClassForCellReuse:(nullable Class)cellClass;
 
 
 /**
