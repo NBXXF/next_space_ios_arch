@@ -9,6 +9,7 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import "UIViewController+PopDissmiss.h"
 #import <Masonry/Masonry.h>
+#import "UIApplication+NXTools.h"
 @interface NXViewController()
 @property (nonatomic, strong) UIView *contentView;
 //默认NO 等同于普通ViewController
@@ -145,7 +146,7 @@
     [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.contentView.superview);
         make.top.equalTo(self.contentView.superview);
-        make.bottom.equalTo(self.contentView.superview).offset(-fabs(self.view.safeAreaInsets.bottom));
+        make.bottom.equalTo(self.contentView.superview).offset(-fabs(UIApplication.sharedApplication.bottomLayoutOffset));
         make.centerX.centerY.equalTo(self.contentView.superview);
     }];
 }

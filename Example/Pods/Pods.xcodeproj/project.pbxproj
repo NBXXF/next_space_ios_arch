@@ -279,6 +279,8 @@
 		7BEAFADAFA6A9D1D3929076C3C36F085 /* RACEmptySignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 25A481F40DEF687D0ECBEC0DEB104395 /* RACEmptySignal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		7C8CEBE7BA533C5B30BA7304960C4EB2 /* UIDevice+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 85090CDA913893B68F64F9B3D02BC3F5 /* UIDevice+YYAdd.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1730457429339B923533F728D4961 /* RACSerialDisposable.m */; };
+		7CA7054029273927009A42EC /* UIApplication+NXTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA7053E29273927009A42EC /* UIApplication+NXTools.h */; };
+		7CA7054129273927009A42EC /* UIApplication+NXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7053F29273927009A42EC /* UIApplication+NXTools.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A2F6B3B20C9A8E7E330A451E0CBFE4 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D5262095002D91365E124DD1E5CBD31 /* RACDisposable+AppArch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D491CAD8506ACCDB77E2A4547AFAD18 /* RACDisposable+AppArch.m */; };
 		7EE6C492AE0E485B8FACB352821E0542 /* RACReturnSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AB53A39E466B798B1696332178673E /* RACReturnSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -876,6 +878,8 @@
 		7B7AE9B4ADEBAC002A9E659F1F71AE84 /* NSThread+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSThread+YYAdd.h"; path = "YYKit/Base/Foundation/NSThread+YYAdd.h"; sourceTree = "<group>"; };
 		7B7EE2BE0C730E03A954A94A97562FD7 /* UIGestureRecognizer+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+RACSignalSupport.m"; path = "ReactiveObjC/UIGestureRecognizer+RACSignalSupport.m"; sourceTree = "<group>"; };
 		7CA1871B03ABBEBF748268BE4943416D /* YYKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYKit.release.xcconfig; sourceTree = "<group>"; };
+		7CA7053E29273927009A42EC /* UIApplication+NXTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NXTools.h"; sourceTree = "<group>"; };
+		7CA7053F29273927009A42EC /* UIApplication+NXTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NXTools.m"; sourceTree = "<group>"; };
 		7D1651BDD0F720E1DEA352E7E19D3520 /* NSObject+YYAddForARC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYAddForARC.h"; path = "YYKit/Base/Foundation/NSObject+YYAddForARC.h"; sourceTree = "<group>"; };
 		7D8DD6C3F53665A7AE49854BF6897573 /* RACChannel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACChannel.m; path = ReactiveObjC/RACChannel.m; sourceTree = "<group>"; };
 		7DBBA335658906A26D94F9C9F4D516C8 /* UITableViewCell+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+RACSignalSupport.h"; path = "ReactiveObjC/UITableViewCell+RACSignalSupport.h"; sourceTree = "<group>"; };
@@ -1932,6 +1936,8 @@
 				67FE6D4EB400F6E9548269F26FD04E7C /* NXPasteboard.h */,
 				E32C4E9E3A913122C8D081387E7ACCFA /* NXPasteboard.m */,
 				FEA047562FFF4088B58529D28E900A22 /* UITableview */,
+				7CA7053E29273927009A42EC /* UIApplication+NXTools.h */,
+				7CA7053F29273927009A42EC /* UIApplication+NXTools.m */,
 			);
 			name = UIKit;
 			path = next_space_ios_arch/Classes/UIKit;
@@ -2484,6 +2490,7 @@
 				8DB9EE4C21F007EB4ABFAB39904D973F /* NXHTTPSessionManager.h in Headers */,
 				328742BB9EF2624466878B7B19C7E29F /* NXInitializer.h in Headers */,
 				ADB226DA77FEF1619DDB257B826EF46B /* NXItemMenu.h in Headers */,
+				7CA7054029273927009A42EC /* UIApplication+NXTools.h in Headers */,
 				46DDDD8C9BCB37F80E12960B5D1EBCE7 /* NXItemMenuImpl.h in Headers */,
 				E5DB334651E03E24C2A954E237337AAB /* NXNavigationViewController.h in Headers */,
 				7007CD64C903518032EF67D329B78FDF /* NXPasteboard.h in Headers */,
@@ -2958,6 +2965,7 @@
 				D57FB16F98E0B7B478070110595503D7 /* NXRouter+NewInstance.m in Sources */,
 				EE4562979F5C5BF1F2B523DC92276BB9 /* NXRouterKeys.swift in Sources */,
 				FFFD13B43848DE667637F79417498F44 /* NXRouterServiceDefinition.m in Sources */,
+				7CA7054129273927009A42EC /* UIApplication+NXTools.m in Sources */,
 				E4276913E7ACCFFB9ACBAEE5AB75870F /* NXServiceLoader.m in Sources */,
 				BB5FD37F9CBFD3749E907398E54A30BE /* NXViewController.m in Sources */,
 				7D5262095002D91365E124DD1E5CBD31 /* RACDisposable+AppArch.m in Sources */,
