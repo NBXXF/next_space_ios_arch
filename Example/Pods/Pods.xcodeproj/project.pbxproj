@@ -294,6 +294,10 @@
 		7CA7055C29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7055A29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m */; };
 		7CA7055F2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA7055D2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h */; };
 		7CA705602927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7055E2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m */; };
+		7CA705642927C486009A42EC /* UICollectionView+NXHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA705622927C486009A42EC /* UICollectionView+NXHeader.h */; };
+		7CA705652927C486009A42EC /* UICollectionView+NXHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA705632927C486009A42EC /* UICollectionView+NXHeader.m */; };
+		7CA705692927C70E009A42EC /* NXCollectionViewHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA705672927C70E009A42EC /* NXCollectionViewHeaderView.h */; };
+		7CA7056A2927C70E009A42EC /* NXCollectionViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA705682927C70E009A42EC /* NXCollectionViewHeaderView.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A2F6B3B20C9A8E7E330A451E0CBFE4 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE6C492AE0E485B8FACB352821E0542 /* RACReturnSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AB53A39E466B798B1696332178673E /* RACReturnSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F4A0B3756EDD20898D785FB027FB15A /* UIBarButtonItem+YYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 582EFC668C385FAB833B6FFD3BC0686F /* UIBarButtonItem+YYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -899,6 +903,10 @@
 		7CA7055A29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+NXAutoHeightLayoutCell.m"; sourceTree = "<group>"; };
 		7CA7055D2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+NXAutoHeightLayoutCellByClass.h"; sourceTree = "<group>"; };
 		7CA7055E2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+NXAutoHeightLayoutCellByClass.m"; sourceTree = "<group>"; };
+		7CA705622927C486009A42EC /* UICollectionView+NXHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+NXHeader.h"; sourceTree = "<group>"; };
+		7CA705632927C486009A42EC /* UICollectionView+NXHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+NXHeader.m"; sourceTree = "<group>"; };
+		7CA705672927C70E009A42EC /* NXCollectionViewHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXCollectionViewHeaderView.h; sourceTree = "<group>"; };
+		7CA705682927C70E009A42EC /* NXCollectionViewHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXCollectionViewHeaderView.m; sourceTree = "<group>"; };
 		7D1651BDD0F720E1DEA352E7E19D3520 /* NSObject+YYAddForARC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYAddForARC.h"; path = "YYKit/Base/Foundation/NSObject+YYAddForARC.h"; sourceTree = "<group>"; };
 		7D8DD6C3F53665A7AE49854BF6897573 /* RACChannel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACChannel.m; path = ReactiveObjC/RACChannel.m; sourceTree = "<group>"; };
 		7DBBA335658906A26D94F9C9F4D516C8 /* UITableViewCell+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+RACSignalSupport.h"; path = "ReactiveObjC/UITableViewCell+RACSignalSupport.h"; sourceTree = "<group>"; };
@@ -2032,6 +2040,8 @@
 		79A9465E7B2EFA01A0ADF9EAF87487E7 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				7CA705662927C6CD009A42EC /* Headers */,
+				7CA705612927C460009A42EC /* AutoHeight */,
 				3F3ACCE92116B6DD75F948B04D781439 /* NXCollectionReusableView.h */,
 				BB7F6772CE9247FBDA2E6BFCA62892B4 /* NXCollectionReusableView.m */,
 				7CA70553292771F3009A42EC /* NXCollectionSectionTextView.h */,
@@ -2040,12 +2050,30 @@
 				7CA705502927711D009A42EC /* NXCollectionViewCell.m */,
 				0187910ACDC6A65BCFC6CD8298E7346D /* UICollectionView+NXRegister.h */,
 				510028A34E74BB9762CB2915D8CC1F90 /* UICollectionView+NXRegister.m */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		7CA705612927C460009A42EC /* AutoHeight */ = {
+			isa = PBXGroup;
+			children = (
 				7CA7055929279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.h */,
 				7CA7055A29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m */,
 				7CA7055D2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h */,
 				7CA7055E2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m */,
 			);
-			path = UICollectionView;
+			path = AutoHeight;
+			sourceTree = "<group>";
+		};
+		7CA705662927C6CD009A42EC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7CA705622927C486009A42EC /* UICollectionView+NXHeader.h */,
+				7CA705632927C486009A42EC /* UICollectionView+NXHeader.m */,
+				7CA705672927C70E009A42EC /* NXCollectionViewHeaderView.h */,
+				7CA705682927C70E009A42EC /* NXCollectionViewHeaderView.m */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		9AC939C15CE56725AACA886B64A84D82 /* Development Pods */ = {
@@ -2586,6 +2614,7 @@
 				B9029D8DE836EFF511191D81AEF2D003 /* NXUIComponentProtocol.h in Headers */,
 				AB39D74D2CB3BD0B28C575CD73FB66AE /* NXViewController.h in Headers */,
 				5A9EF7DBC31C22F5E9089FD5A1860798 /* RACDisposable+AppArch.h in Headers */,
+				7CA705692927C70E009A42EC /* NXCollectionViewHeaderView.h in Headers */,
 				60AD9DDD46FD447076740409C7F28B92 /* RACScheduler+AppArch.h in Headers */,
 				15AF01FA8A073B484A94153A3103D119 /* RACSignal+AppArch.h in Headers */,
 				716839ACC819DD3AF3B82B77C4C4FCA1 /* UIApplication+NXTools.h in Headers */,
@@ -2596,6 +2625,7 @@
 				9DA9EF6BAF2B7AA48C4958757C1B67CC /* UIResponder+DispatchKeyCommand.h in Headers */,
 				2CEEBED29CDC592D46CBB1CD02D457F5 /* UITableView+NXRegister.h in Headers */,
 				D022250E668C6D183BA4A9AA4A72CCCC /* UIView+AppArchRect.h in Headers */,
+				7CA705642927C486009A42EC /* UICollectionView+NXHeader.h in Headers */,
 				699FDF8599886C9F6BD98ACD4DBD8AAB /* UIView+NXGestureRecognizer.h in Headers */,
 				CBBA6971B5B5EC62335237A607600A37 /* UIView+NXQuery.h in Headers */,
 				338277339CE6289519FB27C110BD198C /* UIView+NXStatus.h in Headers */,
@@ -3002,6 +3032,7 @@
 				4AF0B8D12C777655F31BD1583D85F9A1 /* NSMutableAttributedString+AppArch.m in Sources */,
 				2DF2C1A2667E45949AB19A35D3758D09 /* NSObject+Describe.m in Sources */,
 				B7E8A0B2F4E727A5B5714AF20190011A /* NSObject+ExchangeMethod.m in Sources */,
+				7CA705652927C486009A42EC /* UICollectionView+NXHeader.m in Sources */,
 				05D2CB74903AD1410EF4085EAD6B8B8D /* NSObject+RateLimiting.m in Sources */,
 				7124ECB311C55B65DC3B1BB11D79A434 /* NXBus.m in Sources */,
 				8C105929CB978FAFFD5EFAE1C937B5EE /* NXCollectionReusableView.m in Sources */,
@@ -3009,6 +3040,7 @@
 				683FBF521AAED3C27464F85D5B084ABD /* NXHTTPSessionManager.m in Sources */,
 				C7110A5B38E4FB7F0A7C1851AF7F92FA /* NXItemMenuImpl.m in Sources */,
 				4EDE02C1A8FE8AB89ABF497FCA85E89F /* NXNavigationViewController.m in Sources */,
+				7CA7056A2927C70E009A42EC /* NXCollectionViewHeaderView.m in Sources */,
 				7C4FDED55F5EFF8B44CC51D4112B102B /* NXPasteboard.m in Sources */,
 				CE1B1D73307B1FD8EF2E4F1DB593C542 /* NXRectUtils.m in Sources */,
 				7CA705602927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m in Sources */,
