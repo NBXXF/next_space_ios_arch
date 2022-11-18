@@ -75,6 +75,7 @@ configuration;
  */
 
 - (CGSize)autoSizeForReusableViewHeightIdentifier:(NSString *)identifier
+                                             kind:(NSString *)kind
                                        indexPath:(NSIndexPath *)indexPath
                                       fixedWidth:(CGFloat)fixedWidth
                                    configuration:

@@ -312,6 +312,7 @@ forSupplementaryViewOfKind:(NSString *)kind withReuseIdentifier:(NSString *)iden
 
 
 - (CGSize)autoSizeForReusableViewHeightIdentifier:(NSString *)identifier
+                                             kind:(NSString *)kind
                                        indexPath:(NSIndexPath *)indexPath
                                       fixedWidth:(CGFloat)fixedWidth
                                    configuration:(void (^)(__kindof UICollectionReusableView *))configuration {

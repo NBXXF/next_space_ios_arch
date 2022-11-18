@@ -1,10 +1,22 @@
 //
 //  UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h
 //  next_space_ios_arch
-//
-//  Created by 1234 on 2022/11/18.
+//   高度自适应框架
+//  Created by xxf on 2022/11/18.
 //
 
+/**
+ 教程
+ -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+ {
+     return [collectionView autoSizeForCellWithClass:NXPayCouponCell.class
+                                           indexPath:indexPath
+                                          fixedWidth:collectionView.width
+                                       configuration:^(id cell) {
+         [cell mock];
+     }];
+ }
+ */
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -74,6 +86,7 @@ configuration;
  */
 
 - (CGSize)autoSizeForReusableViewHeightWithClass:(Class)aClass
+                                            kind:(NSString *)kind
                                        indexPath:(NSIndexPath *)indexPath
                                       fixedWidth:(CGFloat)fixedWidth
                                    configuration:
