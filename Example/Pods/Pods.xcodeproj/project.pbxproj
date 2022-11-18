@@ -290,10 +290,10 @@
 		7CA705522927711D009A42EC /* NXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA705502927711D009A42EC /* NXCollectionViewCell.m */; };
 		7CA70555292771F3009A42EC /* NXCollectionSectionTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA70553292771F3009A42EC /* NXCollectionSectionTextView.h */; };
 		7CA70556292771F3009A42EC /* NXCollectionSectionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA70554292771F3009A42EC /* NXCollectionSectionTextView.m */; };
-		7CA7055B29279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA7055929279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.h */; };
-		7CA7055C29279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7055A29279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.m */; };
-		7CA7055F2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA7055D2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h */; };
-		7CA705602927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7055E2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.m */; };
+		7CA7055B29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA7055929279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.h */; };
+		7CA7055C29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7055A29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m */; };
+		7CA7055F2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA7055D2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h */; };
+		7CA705602927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7055E2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A2F6B3B20C9A8E7E330A451E0CBFE4 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE6C492AE0E485B8FACB352821E0542 /* RACReturnSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AB53A39E466B798B1696332178673E /* RACReturnSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F4A0B3756EDD20898D785FB027FB15A /* UIBarButtonItem+YYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 582EFC668C385FAB833B6FFD3BC0686F /* UIBarButtonItem+YYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -895,10 +895,10 @@
 		7CA705502927711D009A42EC /* NXCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXCollectionViewCell.m; sourceTree = "<group>"; };
 		7CA70553292771F3009A42EC /* NXCollectionSectionTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXCollectionSectionTextView.h; sourceTree = "<group>"; };
 		7CA70554292771F3009A42EC /* NXCollectionSectionTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXCollectionSectionTextView.m; sourceTree = "<group>"; };
-		7CA7055929279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+AutoDynamicCacheHeightLayoutCell.h"; sourceTree = "<group>"; };
-		7CA7055A29279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+AutoDynamicCacheHeightLayoutCell.m"; sourceTree = "<group>"; };
-		7CA7055D2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h"; sourceTree = "<group>"; };
-		7CA7055E2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.m"; sourceTree = "<group>"; };
+		7CA7055929279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+NXAutoHeightLayoutCell.h"; sourceTree = "<group>"; };
+		7CA7055A29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+NXAutoHeightLayoutCell.m"; sourceTree = "<group>"; };
+		7CA7055D2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+NXAutoHeightLayoutCellByClass.h"; sourceTree = "<group>"; };
+		7CA7055E2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+NXAutoHeightLayoutCellByClass.m"; sourceTree = "<group>"; };
 		7D1651BDD0F720E1DEA352E7E19D3520 /* NSObject+YYAddForARC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYAddForARC.h"; path = "YYKit/Base/Foundation/NSObject+YYAddForARC.h"; sourceTree = "<group>"; };
 		7D8DD6C3F53665A7AE49854BF6897573 /* RACChannel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACChannel.m; path = ReactiveObjC/RACChannel.m; sourceTree = "<group>"; };
 		7DBBA335658906A26D94F9C9F4D516C8 /* UITableViewCell+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+RACSignalSupport.h"; path = "ReactiveObjC/UITableViewCell+RACSignalSupport.h"; sourceTree = "<group>"; };
@@ -2040,10 +2040,10 @@
 				7CA705502927711D009A42EC /* NXCollectionViewCell.m */,
 				0187910ACDC6A65BCFC6CD8298E7346D /* UICollectionView+NXRegister.h */,
 				510028A34E74BB9762CB2915D8CC1F90 /* UICollectionView+NXRegister.m */,
-				7CA7055929279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.h */,
-				7CA7055A29279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.m */,
-				7CA7055D2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h */,
-				7CA7055E2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.m */,
+				7CA7055929279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.h */,
+				7CA7055A29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m */,
+				7CA7055D2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h */,
+				7CA7055E2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -2563,7 +2563,7 @@
 				2C426BF43B9703CB2CA96DB4430809B1 /* NXBus.h in Headers */,
 				6FA37B6FFE4CE21BE303D514FC63A4F3 /* NXCollectionReusableView.h in Headers */,
 				1259FE6923848790E12B6E37D5FD0C22 /* NXHttpInterceptor.h in Headers */,
-				7CA7055F2927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h in Headers */,
+				7CA7055F2927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.h in Headers */,
 				229E683C9104CB26A15936BE6F88D075 /* NXHTTPSessionManager.h in Headers */,
 				B52EC2211E11013A1FFC8BBC2C365294 /* NXInitializer.h in Headers */,
 				27D8B98647DD9985D0F10E04E03DCB58 /* NXItemMenu.h in Headers */,
@@ -2571,7 +2571,7 @@
 				5E3F27B92E45C24A244F917B4F489CA1 /* NXNavigationViewController.h in Headers */,
 				B73028BDEC2FC47C97B54146C3B4D452 /* NXPasteboard.h in Headers */,
 				2D8AC1B3DCD524A2AEF8D337978E72B9 /* NXRectUtils.h in Headers */,
-				7CA7055B29279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.h in Headers */,
+				7CA7055B29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.h in Headers */,
 				3D247830542E0254475BEC4953245943 /* NXRouter.h in Headers */,
 				27D9E8424891D58F1BABCFCD0083FDBD /* NXRouter+NewInstance.h in Headers */,
 				0FBB7BA5972440DB856B3D1B673A0B65 /* NXRouterFlags.h in Headers */,
@@ -3011,7 +3011,7 @@
 				4EDE02C1A8FE8AB89ABF497FCA85E89F /* NXNavigationViewController.m in Sources */,
 				7C4FDED55F5EFF8B44CC51D4112B102B /* NXPasteboard.m in Sources */,
 				CE1B1D73307B1FD8EF2E4F1DB593C542 /* NXRectUtils.m in Sources */,
-				7CA705602927A202009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.m in Sources */,
+				7CA705602927A202009A42EC /* UICollectionView+NXAutoHeightLayoutCellByClass.m in Sources */,
 				B9DFA610FE5189777B448B803600DC3A /* NXRouter.m in Sources */,
 				16A2E79C5F443AEAA7F90A578CA7A2A0 /* NXRouter+NewInstance.m in Sources */,
 				C4E6FA60B4B43875BDD3B83D32B44A6E /* NXRouterKeys.swift in Sources */,
@@ -3019,7 +3019,7 @@
 				2751DEDF6461776FADD9893DEBF77386 /* NXServiceLoader.m in Sources */,
 				B061D7E838AACF2299593B4E588D1D53 /* NXViewController.m in Sources */,
 				B9D726595135D11C1694F8BBA81162F0 /* RACDisposable+AppArch.m in Sources */,
-				7CA7055C29279E89009A42EC /* UICollectionView+AutoDynamicCacheHeightLayoutCell.m in Sources */,
+				7CA7055C29279E89009A42EC /* UICollectionView+NXAutoHeightLayoutCell.m in Sources */,
 				51220341FABD97F803D4EF83F461D1DA /* RACScheduler+AppArch.m in Sources */,
 				7CA70556292771F3009A42EC /* NXCollectionSectionTextView.m in Sources */,
 				A26849847415BE8273DA1F25EF344502 /* RACSignal+AppArch.m in Sources */,

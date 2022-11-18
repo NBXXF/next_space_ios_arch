@@ -1,5 +1,5 @@
 //
-//  UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.m
+//  UICollectionView+NXAutoHeightLayoutCellByClass.m
 //  next_space_ios_arch
 //   高度自适应框架
 //  Created by 1234 on 2022/11/18.
@@ -27,11 +27,11 @@
  }
  */
 
-#import "UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h"
-#import "UICollectionView+AutoDynamicCacheHeightLayoutCell.h"
+#import "UICollectionView+NXAutoHeightLayoutCellByClass.h"
+#import "UICollectionView+NXAutoHeightLayoutCell.h"
 #import "UICollectionView+NXRegister.h"
 
-@implementation UICollectionView(AutoDynamicCacheHeightLayoutCellByClass)
+@implementation UICollectionView(NXAutoHeightLayoutCellByClass)
 
 - (CGSize)autoSizeForCellWithClass:(Class)aClass
                              indexPath:(NSIndexPath *)indexPath

@@ -1,11 +1,11 @@
 //
-//  UICollectionView+AutoDynamicCacheHeightLayoutCell.h
+//  UICollectionView+NXAutoHeightLayoutCell.h
 //  next_space_ios_arch
 //  cell自适应框架
 //  Created by XXF on 2022/11/18.
 //
 
-#import "UICollectionView+AutoDynamicCacheHeightLayoutCell.h"
+#import "UICollectionView+NXAutoHeightLayoutCell.h"
 #import <objc/runtime.h>
 
 typedef NS_ENUM(NSUInteger, AutoDynamicSizeCaculateType) {
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, AutoDynamicSizeCaculateType) {
 };
 
 #define AutoLayoutCellInvalidateValue [NSValue valueWithCGSize:CGSizeZero]
-@implementation UICollectionView(AutoDynamicCacheHeightLayoutCell)
+@implementation UICollectionView(NXAutoHeightLayoutCell)
 
 + (void)load {
     static dispatch_once_t onceToken;

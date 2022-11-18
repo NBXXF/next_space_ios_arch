@@ -1,5 +1,5 @@
 //
-//  UICollectionView+AutoDynamicCacheHeightLayoutCellByClass.h
+//  UICollectionView+NXAutoHeightLayoutCellByClass.h
 //  next_space_ios_arch
 //   高度自适应框架
 //  Created by xxf on 2022/11/18.
@@ -31,7 +31,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UICollectionView(AutoDynamicCacheHeightLayoutCellByClass)
+@interface UICollectionView(NXAutoHeightLayoutCellByClass)
 /**
  *  caculate cell size
  *
