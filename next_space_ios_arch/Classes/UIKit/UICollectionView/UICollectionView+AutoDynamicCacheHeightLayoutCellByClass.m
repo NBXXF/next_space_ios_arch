@@ -5,6 +5,16 @@
 //  Created by 1234 on 2022/11/18.
 //
 /**
+ 
+ 不要设置（发现的坑1）
+ //flowlayout.estimatedItemSize
+ //flowlayout.itemSize；
+ 
+ // 都应用我封装 的全部用class 方法的方法 不要直接用xxxxWithIdentifier方法,否则请先确保[cell layoutIfNeeded] 执行完所有布局约束
+ 
+ 
+ 
+ 在UICollectionView 代理方法中复写
  教程
  -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
  {
