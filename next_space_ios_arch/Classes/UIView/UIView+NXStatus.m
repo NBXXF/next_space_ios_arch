@@ -9,7 +9,7 @@
 
 @implementation UIView(NXStatus)
 
-- (BOOL)disable{
+- (BOOL)disabled{
     if([self isKindOfClass:UIControl.class]){
         UIControl *control=(UIControl *)self;
         return !control.enabled;
@@ -17,14 +17,14 @@
     return !self.userInteractionEnabled;
 }
 
-- (void)setDisable:(BOOL)disable{
+- (void)setDisabled:(BOOL)disabled{
     if([self isKindOfClass:UIControl.class]){
         UIControl *control=(UIControl *)self;
-        control.enabled=!disable;
+        control.enabled=!disabled;
     }else{
-        self.userInteractionEnabled=!disable;
+        self.userInteractionEnabled=!disabled;
     }
-    if(disable){
+    if(disabled){
         self.alpha=0.3f;
     }else{
         self.alpha=1.0f;

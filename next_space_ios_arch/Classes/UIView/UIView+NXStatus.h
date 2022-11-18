@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
  enabled 和UIControl定义字段冲突
  是否是禁用状态
  */
-@property(nonatomic,assign) BOOL disable;
+@property(nonatomic,assign) BOOL disabled;
 
 @end
 
