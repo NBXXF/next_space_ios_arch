@@ -171,6 +171,15 @@
     text3.delegate=self;
     [text3 becomeFirstResponder];
     [self.view addSubview:text3];
+    
+    
+    NXItemMenuImpl *item=[[NXItemMenuImpl alloc] initWithBlock:^(__kindof NXItemMenuImpl * _Nonnull it) {
+        it.title=@"xxx";
+    }];
+    NSLog(@"==========>result:%@",item.title);
+//    [item also:^(__kindof NSObject * _Nonnull it) {
+//        it.title=@"xxx";
+//    }];
 
     
     NSLog(@"======>IS:%d",self.canBecomeFirstResponder);

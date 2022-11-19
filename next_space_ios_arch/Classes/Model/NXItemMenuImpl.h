@@ -11,6 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NXItemMenuImpl : NSObject<NXItemMenu>
 
+//万能初始化方法
+- (instancetype)initWithBlock: (void (^)(__kindof NXItemMenuImpl * _Nonnull it))block;
+
+
 - (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon;
 
 

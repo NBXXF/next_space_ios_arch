@@ -58,10 +58,20 @@
 }
 
 @synthesize title;
+@synthesize subTitle;
 @synthesize icon;
 @synthesize item;
 @synthesize flag;
 @synthesize tag;
+
+
+- (instancetype)initWithBlock:(void (^)(__kindof NXItemMenuImpl * _Nonnull))block{
+    self=[super init];
+    if(self){
+        block(self);
+    }
+    return self;
+}
 
 - (instancetype)initWithTitle: (NSString *)title andIcon:(NSString * __nullable)icon{
     return [self initWithTitle:title andIcon:icon andItem:nil andFlag:0 andTag:nil];

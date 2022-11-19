@@ -15,6 +15,12 @@
 @property(nonatomic,copy) NSString * _Nullable title;
 
 /**
+ 子标题
+ */
+@optional
+@property(nonatomic,copy) NSString * _Nullable subTitle;
+
+/**
  icon
  */
 @required
