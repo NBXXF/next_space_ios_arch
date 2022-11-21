@@ -38,6 +38,7 @@
 #import "UIKeyCommandConstant.h"
 #import "UIKeyCommanderProtocol.h"
 #import "UIResponder+DispatchKeyCommand.h"
+#import "MAS_VIEW+NXExtend.h"
 #import "NXPasteboard.h"
 #import "UIApplication+NXTools.h"
 #import "UICollectionView+NXAutoHeightLayoutCell.h"

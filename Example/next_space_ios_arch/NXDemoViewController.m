@@ -16,6 +16,7 @@
 #import "NXViewController+Test.h"
 #import "UIViewController+TestViewController.h"
 #import "NXTestModalVC.h"
+#import <Masonry/Masonry.h>
 
 //@import next_space_ios_arch;
 
@@ -143,6 +144,9 @@
        action:@selector(showModal)
   forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    [btn  mas_makeConstraintsWithSelf:^(MASConstraintMaker * _Nonnull make, __kindof UIView * _Nonnull it, UIView * _Nonnull superview) {
+        
+    }];
     
     
     
