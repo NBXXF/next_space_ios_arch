@@ -9,8 +9,10 @@
 #import "NXTestModalVC.h"
 #import "NXTestModal2VC.h"
 #import <Masonry/Masonry.h>
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 @interface NXTestModalVC()
+@property (nonatomic, strong)UIView *iv;
 @property (nonatomic, strong) UIButton *confirmBtn;
 @end
 
@@ -26,11 +28,21 @@
     [self setCanceledOnTouchOutside:YES];
 
     
-    UIView *iv=UIView.new;
-    iv.backgroundColor=UIColor.orangeColor;
-    [self.contentView addSubview:iv];
-    [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.iv=UIView.new;
+    self.iv.backgroundColor=UIColor.orangeColor;
+    [self.contentView addSubview:self.iv];
+    [self.iv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self.contentView);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(100);
+    }];
+    
+    UIView *next=UIView.new;
+    next.backgroundColor=UIColor.blueColor;
+    [self.contentView addSubview:next];
+    [next mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView);
+        make.top.equalTo(self.iv.mas_bottom);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(100);
     }];
@@ -90,7 +102,12 @@
 }
 
 -(void)close{
-    [self popOrDismissViewControllerAnimated:YES completion:nil];
+    if(!self.iv.isVisible){
+        [self.iv setVisibility:UIViewVisibilityGone];
+    }else{
+        [self.iv setVisibility:UIViewVisibilityVisible];
+    }
+   // [self popOrDismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
