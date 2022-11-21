@@ -296,6 +296,8 @@
 		7C9B5548292B6378008ECDDC /* UIColor+NXGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5546292B6378008ECDDC /* UIColor+NXGradient.m */; };
 		7C9B554C292B73A0008ECDDC /* UIImage+NXGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9B554A292B73A0008ECDDC /* UIImage+NXGradient.h */; };
 		7C9B554D292B73A0008ECDDC /* UIImage+NXGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B554B292B73A0008ECDDC /* UIImage+NXGradient.m */; };
+		7C9B5551292B7CA8008ECDDC /* TKRoundedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9B554F292B7CA8008ECDDC /* TKRoundedView.h */; };
+		7C9B5552292B7CA8008ECDDC /* TKRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5550292B7CA8008ECDDC /* TKRoundedView.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1730457429339B923533F728D4961 /* RACSerialDisposable.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A2F6B3B20C9A8E7E330A451E0CBFE4 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CC586CE681FBCF06013B5C11EFE3647 /* RACDisposable+AppArch.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F8595FE744153991E159E61EDD193CE /* RACDisposable+AppArch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -915,6 +917,8 @@
 		7C9B5546292B6378008ECDDC /* UIColor+NXGradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NXGradient.m"; sourceTree = "<group>"; };
 		7C9B554A292B73A0008ECDDC /* UIImage+NXGradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+NXGradient.h"; sourceTree = "<group>"; };
 		7C9B554B292B73A0008ECDDC /* UIImage+NXGradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NXGradient.m"; sourceTree = "<group>"; };
+		7C9B554F292B7CA8008ECDDC /* TKRoundedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKRoundedView.h; sourceTree = "<group>"; };
+		7C9B5550292B7CA8008ECDDC /* TKRoundedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKRoundedView.m; sourceTree = "<group>"; };
 		7CA1871B03ABBEBF748268BE4943416D /* YYKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYKit.release.xcconfig; sourceTree = "<group>"; };
 		7CD37422415D2C61D6C86EF9BE359BCA /* NXViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NXViewController.m; sourceTree = "<group>"; };
 		7D1651BDD0F720E1DEA352E7E19D3520 /* NSObject+YYAddForARC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYAddForARC.h"; path = "YYKit/Base/Foundation/NSObject+YYAddForARC.h"; sourceTree = "<group>"; };
@@ -2008,6 +2012,15 @@
 			path = UIImage;
 			sourceTree = "<group>";
 		};
+		7C9B554E292B7C8A008ECDDC /* Round */ = {
+			isa = PBXGroup;
+			children = (
+				7C9B554F292B7CA8008ECDDC /* TKRoundedView.h */,
+				7C9B5550292B7CA8008ECDDC /* TKRoundedView.m */,
+			);
+			path = Round;
+			sourceTree = "<group>";
+		};
 		83085C1A6A6DF297C5293A5C99032066 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -2234,6 +2247,7 @@
 		E657412C6B5A83CF4F489F741C594751 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				7C9B554E292B7C8A008ECDDC /* Round */,
 				7C9B5549292B738C008ECDDC /* UIImage */,
 				7C9B5544292B635A008ECDDC /* UIColor */,
 				39B7A3B722B3A38A1FB69BFFC48200C8 /* NXPasteboard.h */,
@@ -2562,6 +2576,7 @@
 				7C9B554C292B73A0008ECDDC /* UIImage+NXGradient.h in Headers */,
 				27AB52C7962046BC8963B2CD626F22BD /* AFNetworkReachabilityManager.h in Headers */,
 				0FC2C7300D3DE350BD73741888D9A1A8 /* AFSecurityPolicy.h in Headers */,
+				7C9B5551292B7CA8008ECDDC /* TKRoundedView.h in Headers */,
 				918AD88A49B79CD1B13BAD5415FE5621 /* AFURLRequestSerialization.h in Headers */,
 				81C76941D750B3F226E07AE600A67FC6 /* AFURLResponseSerialization.h in Headers */,
 				22AD28E260EF21FECAAEF40B04E8E020 /* AFURLSessionManager.h in Headers */,
@@ -3138,6 +3153,7 @@
 				18AEFCE986FB74A0B6B092B3BA2267C6 /* UIImageView+AFNetworking.m in Sources */,
 				6C239323DE74D9551EB571A31A24EC1E /* UIProgressView+AFNetworking.m in Sources */,
 				AC29EE5318026D0BAF479C904536378F /* UIRefreshControl+AFNetworking.m in Sources */,
+				7C9B5552292B7CA8008ECDDC /* TKRoundedView.m in Sources */,
 				657D596F7ED1260403D4E064E6BF8CD1 /* WKWebView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
