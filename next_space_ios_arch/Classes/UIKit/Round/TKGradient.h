@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  位置比例 0-1.0
  */
-@property(nonatomic,assign)CGFloat *location;
+@property(nonatomic,assign)CGFloat location;
 
 - (instancetype)initWithBlock: (void (^)(__kindof TKGradient * _Nonnull it))block;
 

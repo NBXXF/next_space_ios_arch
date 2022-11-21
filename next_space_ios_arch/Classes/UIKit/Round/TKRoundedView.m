@@ -425,8 +425,7 @@ UIImage * TKRoundedCornerImage(CGSize size,
     
     [self.gradientColorsAndLocations enumerateObjectsUsingBlock:^(TKGradient * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [colors addObject:obj.color];
-        CGFloat f = *(obj.location);
-        [locations addObject:[NSNumber numberWithFloat:f]];
+        [locations addObject:[NSNumber numberWithFloat:obj.location]];
     }];
 
     
