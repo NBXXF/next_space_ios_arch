@@ -6,6 +6,7 @@
 //
 
 #import "UIColor+NXGradient.h"
+#import "UIImage+NXGradient.h"
 
 @implementation UIColor(NXGradient)
 + (instancetype)gradientColorWithSize:(CGSize)size
@@ -13,42 +14,12 @@
                            startColor:(UIColor *)startcolor
                              endColor:(UIColor *)endColor {
     
-    if (CGSizeEqualToSize(size, CGSizeZero) || !startcolor || !endColor) {
-        return nil;
+    UIImage *image=[UIImage gradientImageWithSize:size direction:direction startColor:startcolor endColor:endColor];
+    if(image){
+        return [UIColor colorWithPatternImage:image];
     }
-    
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = CGRectMake(0, 0, size.width, size.height);
-    
-    CGPoint startPoint = CGPointMake(0.0, 0.0);
-    if (direction == GradientColorDirectionUpwardDiagonalLine) {
-        startPoint = CGPointMake(0.0, 1.0);
-    }
-    
-    CGPoint endPoint = CGPointMake(0.0, 0.0);
-    switch (direction) {
-        case GradientColorDirectionVertical:
-            endPoint = CGPointMake(0.0, 1.0);
-            break;
-        case GradientColorDirectionDownDiagonalLine:
-            endPoint = CGPointMake(1.0, 1.0);
-            break;
-        case GradientColorDirectionUpwardDiagonalLine:
-            endPoint = CGPointMake(1.0, 0.0);
-            break;
-        default:
-            endPoint = CGPointMake(1.0, 0.0);
-            break;
-    }
-    gradientLayer.startPoint = startPoint;
-    gradientLayer.endPoint = endPoint;
-    
-    gradientLayer.colors = @[(__bridge id)startcolor.CGColor, (__bridge id)endColor.CGColor];
-    UIGraphicsBeginImageContext(size);
-    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return [UIColor colorWithPatternImage:image];
+    return nil;
 }
+
+
 @end
