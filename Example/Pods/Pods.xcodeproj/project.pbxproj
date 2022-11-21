@@ -298,6 +298,8 @@
 		7C9B554D292B73A0008ECDDC /* UIImage+NXGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B554B292B73A0008ECDDC /* UIImage+NXGradient.m */; };
 		7C9B5551292B7CA8008ECDDC /* TKRoundedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9B554F292B7CA8008ECDDC /* TKRoundedView.h */; };
 		7C9B5552292B7CA8008ECDDC /* TKRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5550292B7CA8008ECDDC /* TKRoundedView.m */; };
+		7C9B5555292B8492008ECDDC /* TKGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9B5553292B8492008ECDDC /* TKGradient.h */; };
+		7C9B5556292B8492008ECDDC /* TKGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5554292B8492008ECDDC /* TKGradient.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1730457429339B923533F728D4961 /* RACSerialDisposable.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A2F6B3B20C9A8E7E330A451E0CBFE4 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CC586CE681FBCF06013B5C11EFE3647 /* RACDisposable+AppArch.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F8595FE744153991E159E61EDD193CE /* RACDisposable+AppArch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -919,6 +921,8 @@
 		7C9B554B292B73A0008ECDDC /* UIImage+NXGradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NXGradient.m"; sourceTree = "<group>"; };
 		7C9B554F292B7CA8008ECDDC /* TKRoundedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKRoundedView.h; sourceTree = "<group>"; };
 		7C9B5550292B7CA8008ECDDC /* TKRoundedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKRoundedView.m; sourceTree = "<group>"; };
+		7C9B5553292B8492008ECDDC /* TKGradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKGradient.h; sourceTree = "<group>"; };
+		7C9B5554292B8492008ECDDC /* TKGradient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKGradient.m; sourceTree = "<group>"; };
 		7CA1871B03ABBEBF748268BE4943416D /* YYKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYKit.release.xcconfig; sourceTree = "<group>"; };
 		7CD37422415D2C61D6C86EF9BE359BCA /* NXViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NXViewController.m; sourceTree = "<group>"; };
 		7D1651BDD0F720E1DEA352E7E19D3520 /* NSObject+YYAddForARC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYAddForARC.h"; path = "YYKit/Base/Foundation/NSObject+YYAddForARC.h"; sourceTree = "<group>"; };
@@ -2017,6 +2021,8 @@
 			children = (
 				7C9B554F292B7CA8008ECDDC /* TKRoundedView.h */,
 				7C9B5550292B7CA8008ECDDC /* TKRoundedView.m */,
+				7C9B5553292B8492008ECDDC /* TKGradient.h */,
+				7C9B5554292B8492008ECDDC /* TKGradient.m */,
 			);
 			path = Round;
 			sourceTree = "<group>";
@@ -2586,6 +2592,7 @@
 				27A1AA22D234973BA30D8493C546884C /* UIImageView+AFNetworking.h in Headers */,
 				3E7A25BCE5BAC256FBBA56106C3192CD /* UIKit+AFNetworking.h in Headers */,
 				B8B4A245FEFA2CE20339CA8CA8BE68EC /* UIProgressView+AFNetworking.h in Headers */,
+				7C9B5555292B8492008ECDDC /* TKGradient.h in Headers */,
 				65163D7E6539C8A1D65F5FCBA0E6EFD2 /* UIRefreshControl+AFNetworking.h in Headers */,
 				57744CA757400E7183DFC0D37EFB5214 /* WKWebView+AFNetworking.h in Headers */,
 			);
@@ -3144,6 +3151,7 @@
 				63419018E7222B414E161CD480398E20 /* AFNetworkReachabilityManager.m in Sources */,
 				5BE27AF46E2DE81F61752081EDB7E52B /* AFSecurityPolicy.m in Sources */,
 				CDEF12A353FEBC8FE4E2EA0D3FFAC615 /* AFURLRequestSerialization.m in Sources */,
+				7C9B5556292B8492008ECDDC /* TKGradient.m in Sources */,
 				97EB8976E78AA2C17544A6453BC1EF04 /* AFURLResponseSerialization.m in Sources */,
 				7C9B5548292B6378008ECDDC /* UIColor+NXGradient.m in Sources */,
 				637243EE5807271030AE4D9741392852 /* AFURLSessionManager.m in Sources */,

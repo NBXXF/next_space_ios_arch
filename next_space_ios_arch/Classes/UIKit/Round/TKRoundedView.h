@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TKGradient.h"
 
 typedef NS_OPTIONS(NSUInteger, TKRoundedCorner) {
     TKRoundedCornerNone         = 0,
@@ -65,6 +66,6 @@ UIImage * TKRoundedCornerImage(CGSize size,
 @property (nonatomic, assign) TKGradientDirection gradientDirection;
 
 /* NSArray of NSDictionaries with NSNumber with color's locations and the UIColor object, default nil  */
-@property (nonatomic, strong) NSArray *gradientColorsAndLocations;
+@property (nonatomic, strong) NSArray<TKGradient *> *gradientColorsAndLocations;
 
 @end

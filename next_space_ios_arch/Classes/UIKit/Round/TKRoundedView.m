@@ -421,21 +421,14 @@ UIImage * TKRoundedCornerImage(CGSize size,
 
 - (void)prepareGradient{
     NSMutableArray *colors = [NSMutableArray arrayWithCapacity:_gradientColorsAndLocations.count];
-    NSMutableArray *locations = [NSMutableArray arrayWithCapacity:_gradientColorsAndLocations.count];
+    NSMutableArray<NSNumber *> *locations = [NSMutableArray arrayWithCapacity:_gradientColorsAndLocations.count];
     
-    for (NSDictionary *dictionary in self.gradientColorsAndLocations) {
-        if ([dictionary isKindOfClass:[NSDictionary class]]) {
-            for (NSString *key in dictionary) {
-                id object = dictionary[key];
-                if ([object isKindOfClass:[NSNumber class]]) {
-                    [locations addObject:object];
-                }
-                else if ([object isKindOfClass:[UIColor class]]){
-                    [colors addObject:object];
-                }
-            }
-        }
-    }
+    [self.gradientColorsAndLocations enumerateObjectsUsingBlock:^(TKGradient * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [colors addObject:obj.color];
+        CGFloat f = *(obj.location);
+        [locations addObject:[NSNumber numberWithFloat:f]];
+    }];
+
     
     if (colors.count == locations.count) {
         
