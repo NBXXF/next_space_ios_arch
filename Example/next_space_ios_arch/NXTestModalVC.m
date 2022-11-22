@@ -33,7 +33,8 @@
     [self.contentView addSubview:self.iv];
     [self.iv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView);
-        make.top.equalTo(self.contentView).offset(40);
+      //  make.top.equalTo(self.contentView).offset(40);
+        make.top.equalTo(self.view).offset(260).priorityLow();
         make.width.equalTo(self.contentView);
         make.height.mas_equalTo(100);
     }];

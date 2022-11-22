@@ -26,6 +26,7 @@
     [self addSubview:collectionHeaderView];
     [collectionHeaderView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self);
+        make.width.equalTo(self);
         make.height.mas_equalTo(absHeaderHeight);
         make.top.equalTo(self).offset(-absHeaderHeight);
     }];
