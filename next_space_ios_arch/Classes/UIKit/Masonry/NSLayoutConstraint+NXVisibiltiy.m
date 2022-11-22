@@ -1,15 +1,15 @@
 //
-//  UIView+Visibility.h
+//  NSLayoutConstraint+NXVisibiltiy.h
 //  XXF
 //  替代系统的hidden字段隐藏还展位的情况
 //  Created by xxf on 2022/11/21.
 //
-#import "NSLayoutConstraint+Visibiltiy.h"
+#import "NSLayoutConstraint+NXVisibiltiy.h"
 #import <objc/runtime.h>
 
 static const void *key = &key;
 
-@implementation NSLayoutConstraint(Visibiltiy)
+@implementation NSLayoutConstraint(NXVisibiltiy)
 
 -(void)clear {
     if (self.constant != 0) {

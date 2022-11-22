@@ -25,10 +25,12 @@ PODS:
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - next_space_ios_arch (from `../`)
   - YYKit
+  - YYModel
 
 SPEC REPOS:
   trunk:
@@ -37,6 +39,7 @@ SPEC REPOS:
     - Masonry
     - ReactiveObjC
     - YYKit
+    - YYModel
 
 EXTERNAL SOURCES:
   next_space_ios_arch:
@@ -49,7 +52,8 @@ SPEC CHECKSUMS:
   next_space_ios_arch: 622de696c6d345a0192fa3975433df64a0a3cfbc
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: a8063767a74d19b7513f5946d0197cfa810a717f
+PODFILE CHECKSUM: d2970de77a781a65feaf502ede33505ed761782e
 
 COCOAPODS: 1.11.3

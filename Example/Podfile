@@ -7,6 +7,7 @@ target 'next_space_ios_arch_Example' do
   
   pod 'next_space_ios_arch', :path => '../'
   pod 'YYKit'
+  pod 'YYModel'
   
   target 'next_space_ios_arch_Tests' do
     inherit! :search_paths

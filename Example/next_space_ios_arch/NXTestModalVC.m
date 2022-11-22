@@ -32,21 +32,25 @@
     self.iv.backgroundColor=UIColor.orangeColor;
     [self.contentView addSubview:self.iv];
     [self.iv mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(self.contentView);
-        make.width.mas_equalTo(100);
+        make.left.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).offset(40);
+        make.width.equalTo(self.contentView);
         make.height.mas_equalTo(100);
     }];
+    self.iv.tag=1;
     
     UIView *next=UIView.new;
     next.backgroundColor=UIColor.blueColor;
     [self.contentView addSubview:next];
     [next mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView);
-        make.top.equalTo(self.iv.mas_bottom);
+        make.top.equalTo(self.iv.mas_bottom).offset(20);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(100);
     }];
+    next.tag=2;
     
+    self.confirmBtn.tag=3;
     [self.contentView addSubview:self.confirmBtn];
     [self.confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView);
@@ -102,7 +106,7 @@
 }
 
 -(void)close{
-    if(!self.iv.isVisible){
+    if(self.iv.isVisible){
         [self.iv setVisibility:UIViewVisibilityGone];
     }else{
         [self.iv setVisibility:UIViewVisibilityVisible];

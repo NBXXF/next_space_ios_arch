@@ -17,6 +17,7 @@
 #import "UIViewController+TestViewController.h"
 #import "NXTestModalVC.h"
 #import <Masonry/Masonry.h>
+//#import <YYModel/YYModel.h>
 
 //@import next_space_ios_arch;
 
@@ -113,6 +114,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    NSString *urlStr=@"http://baidu.com?alipay_root_cert_sn=687b59193f3f462dd5336e5abf83c5d8_02941eef3187dddf3d3b83462e1dfcf6&alipay_sdk=alipay-sdk-php-2020-04-15&app_cert_sn=5a6d29c893ebbe94778081c14cccc8a2&app_id=2021002117619942&biz_content=%7B%22body%22%3A%22%5Cu8d2d%5Cu4e70%5Cu53ef%5Cu53ef%5Cu5b9d%5Cu8d1dVIP%5Cu4f1a%5Cu5458%22%2C%22subject%22%3A%22%5Cu8d2d%5Cu4e70%5Cu53ef%5Cu53ef%5Cu5b9d%5Cu8d1dVIP%5Cu4f1a%5Cu545812+%5Cu4e2a%5Cu6708%22%2C%22total_amount%22%3A298%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22out_trade_no%22%3A%222088011334402752202205171805575950205%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fapp.kekebaby.com%2Fkeke%2Fbll%2Fpayment%2Faplipay%2Fnotify_url_baby.php&sign_type=RSA2&timestamp=2022-05-17+18%3A05%3A57&version=1.0&sign=uP6kY48A5a0ytENmTORO4iJEpNVuq9Jyoq26gMeUbCLf6zto9%2BWnEzMXc4z4kQJEGnnXotfJKVW%2BErk5R1Jni5udo%2FBY9PAd%2F991Psp0t8O8u0c%2BcKwlVQysB%2FSqIMI83OAmcmRBW8XDufy1o119KrvM%2Fc1S2wi8VZawK%2F7uw9WVaOpP98DqcHfwKW6tG0ANuUYz2aWD%2FtOrBcFKcqWP2uVOvbqTPJeW37OenVwvmO7LB39bJ26bqL%2FcOirEeOb6ogsmtrxI8ggH4G%2FkHmn6yaIFCiBz8eXh6xVwVezk5jHDxp%2BSFnSB6aGhW0JWZkthgAAZG26uOyGuGUMyB14kCg%3D%3D";
+    NSURLComponents *url= [[NSURLComponents alloc] initWithString:urlStr];
+    __block NSMutableDictionary *dic=[NSMutableDictionary dictionary];
+    [url.queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [dic setObject:obj.value forKey:obj.name];
+    }];
+   NSLog(@"====>zhifubao:%@",dic);
 
     NSLog(@"=========>margin:%f",[UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom);
     
@@ -284,8 +293,6 @@
        //[self printContains:flag fl:i];
     }
     
-    NSString *url=@"/xxxxx";
-    NSString *urlStr=@"/xxxxx?name=jack";
 
 //
 //    [NXRouter addInterceptor:url priority:99 interceptor:^BOOL(NSDictionary<NSString *,id> *parameters) {
