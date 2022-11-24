@@ -7,6 +7,7 @@
 
 #import "MASConstraint+NXPT.h"
 #import "XXF.h"
+#import <Masonry/MASConstraint+Private.h>
 
 @implementation MASConstraint(NXPT)
 
@@ -15,15 +16,20 @@
 }
 
 - (CGSize)convertPTSizeFromPX:(CGSize)value{
-    return CGSizeMake([XXF convertPTFromPX:value.width], [XXF convertPTFromPX:value.height]);
+    return CGSizeMake([XXF convertPTFromPX:value.width],
+                      [XXF convertPTFromPX:value.height]);
 }
 
 - (CGPoint)convertPTPointFromPX:(CGPoint)value{
-    return CGPointMake([XXF convertPTFromPX:value.x], [XXF convertPTFromPX:value.y]);
+    return CGPointMake([XXF convertPTFromPX:value.x],
+                       [XXF convertPTFromPX:value.y]);
 }
 
 - (UIEdgeInsets)convertPTEdgeInsetsFromPX:(UIEdgeInsets)value{
-    return UIEdgeInsetsMake([XXF convertPTFromPX:value.top], [XXF convertPTFromPX:value.left], [XXF convertPTFromPX:value.bottom], [XXF convertPTFromPX:value.right]);
+    return UIEdgeInsetsMake([XXF convertPTFromPX:value.top],
+                            [XXF convertPTFromPX:value.left],
+                            [XXF convertPTFromPX:value.bottom],
+                            [XXF convertPTFromPX:value.right]);
 }
 
 - (MASConstraint * (^)(MASEdgeInsets insets))insetsPT{
@@ -36,6 +42,7 @@
 
 - (MASConstraint * (^)(CGFloat inset))insetPT{
     return ^id(CGFloat inset){
+//        return self.inset(inset);
         self.inset = [self convertPTFromPX:inset];
         return self;
     };
@@ -62,6 +69,27 @@
     return ^id(CGFloat offset){
         self.offset = [self convertPTFromPX:offset];
         return self;
+    };
+}
+
+- (MASConstraint * (^)(CGFloat value))mas_equalToPT {
+    return ^id(CGFloat value) {
+        CGFloat newValue=[self convertPTFromPX:value];
+        return self.equalToWithRelation(@(newValue), NSLayoutRelationEqual);
+    };
+}
+
+- (MASConstraint * (^)(CGFloat value))mas_greaterThanOrEqualToPT {
+    return ^id(CGFloat value) {
+        CGFloat newValue=[self convertPTFromPX:value];
+        return self.equalToWithRelation(@(newValue), NSLayoutRelationGreaterThanOrEqual);
+    };
+}
+
+- (MASConstraint * (^)(CGFloat value))mas_lessThanOrEqualToPT {
+    return ^id(CGFloat value) {
+        CGFloat newValue=[self convertPTFromPX:value];
+        return self.equalToWithRelation(@(newValue), NSLayoutRelationLessThanOrEqual);
     };
 }
 @end

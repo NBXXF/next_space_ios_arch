@@ -25,6 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (MASConstraint * (^)(CGFloat offset))offsetPT;
 
+
+- (MASConstraint * (^)(CGFloat value))mas_equalToPT;
+
+
+- (MASConstraint * (^)(CGFloat value))mas_greaterThanOrEqualToPT;
+
+
+- (MASConstraint * (^)(CGFloat value))mas_lessThanOrEqualToPT;
 @end
 
 NS_ASSUME_NONNULL_END
