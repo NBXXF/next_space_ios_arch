@@ -2,7 +2,7 @@
 //  UIImage+NXGradient.h
 //  AFNetworking
 //
-//  Created by 1234 on 2022/11/21.
+//  Created by XXF on 2022/11/21.
 //
 
 #import <Foundation/Foundation.h>
