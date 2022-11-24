@@ -38,6 +38,7 @@
 #import "UIKeyCommandConstant.h"
 #import "UIKeyCommanderProtocol.h"
 #import "UIResponder+DispatchKeyCommand.h"
+#import "MASConstraint+NXPT.h"
 #import "MAS_VIEW+NXExtend.h"
 #import "NSLayoutConstraint+NXVisibiltiy.h"
 #import "UIView+NXVisibility.h"
@@ -66,6 +67,7 @@
 #import "NXViewController.h"
 #import "UIViewController+Lifecycle.h"
 #import "UIViewController+PopDissmiss.h"
+#import "XXF.h"
 
 FOUNDATION_EXPORT double next_space_ios_archVersionNumber;
 FOUNDATION_EXPORT const unsigned char next_space_ios_archVersionString[];

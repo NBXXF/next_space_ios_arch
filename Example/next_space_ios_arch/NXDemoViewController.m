@@ -111,17 +111,24 @@
     [super viewDidAppear: animated];
 
 }
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
 
-    NSString *urlStr=@"http://baidu.com?alipay_root_cert_sn=687b59193f3f462dd5336e5abf83c5d8_02941eef3187dddf3d3b83462e1dfcf6&alipay_sdk=alipay-sdk-php-2020-04-15&app_cert_sn=5a6d29c893ebbe94778081c14cccc8a2&app_id=2021002117619942&biz_content=%7B%22body%22%3A%22%5Cu8d2d%5Cu4e70%5Cu53ef%5Cu53ef%5Cu5b9d%5Cu8d1dVIP%5Cu4f1a%5Cu5458%22%2C%22subject%22%3A%22%5Cu8d2d%5Cu4e70%5Cu53ef%5Cu53ef%5Cu5b9d%5Cu8d1dVIP%5Cu4f1a%5Cu545812+%5Cu4e2a%5Cu6708%22%2C%22total_amount%22%3A298%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22out_trade_no%22%3A%222088011334402752202205171805575950205%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fapp.kekebaby.com%2Fkeke%2Fbll%2Fpayment%2Faplipay%2Fnotify_url_baby.php&sign_type=RSA2&timestamp=2022-05-17+18%3A05%3A57&version=1.0&sign=uP6kY48A5a0ytENmTORO4iJEpNVuq9Jyoq26gMeUbCLf6zto9%2BWnEzMXc4z4kQJEGnnXotfJKVW%2BErk5R1Jni5udo%2FBY9PAd%2F991Psp0t8O8u0c%2BcKwlVQysB%2FSqIMI83OAmcmRBW8XDufy1o119KrvM%2Fc1S2wi8VZawK%2F7uw9WVaOpP98DqcHfwKW6tG0ANuUYz2aWD%2FtOrBcFKcqWP2uVOvbqTPJeW37OenVwvmO7LB39bJ26bqL%2FcOirEeOb6ogsmtrxI8ggH4G%2FkHmn6yaIFCiBz8eXh6xVwVezk5jHDxp%2BSFnSB6aGhW0JWZkthgAAZG26uOyGuGUMyB14kCg%3D%3D";
+-(void)testUrl:(NSString *)urlStr{
     NSURLComponents *url= [[NSURLComponents alloc] initWithString:urlStr];
     __block NSMutableDictionary *dic=[NSMutableDictionary dictionary];
     [url.queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [dic setObject:obj.value forKey:obj.name];
     }];
    NSLog(@"====>zhifubao:%@",dic);
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    NSString *urlStr=@"http://baidu.com?alipay_root_cert_sn=687b59193f3f462dd5336e5abf83c5d8_02941eef3187dddf3d3b83462e1dfcf6&alipay_sdk=alipay-sdk-php-2020-04-15&app_cert_sn=5a6d29c893ebbe94778081c14cccc8a2&app_id=2021002117619942&biz_content=%7B%22body%22%3A%22%5Cu8d2d%5Cu4e70%5Cu53ef%5Cu53ef%5Cu5b9d%5Cu8d1dVIP%5Cu4f1a%5Cu5458%22%2C%22subject%22%3A%22%5Cu8d2d%5Cu4e70%5Cu53ef%5Cu53ef%5Cu5b9d%5Cu8d1dVIP%5Cu4f1a%5Cu545812+%5Cu4e2a%5Cu6708%22%2C%22total_amount%22%3A298%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22out_trade_no%22%3A%222088011334402752202205171805575950205%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fapp.kekebaby.com%2Fkeke%2Fbll%2Fpayment%2Faplipay%2Fnotify_url_baby.php&sign_type=RSA2&timestamp=2022-05-17+18%3A05%3A57&version=1.0&sign=uP6kY48A5a0ytENmTORO4iJEpNVuq9Jyoq26gMeUbCLf6zto9%2BWnEzMXc4z4kQJEGnnXotfJKVW%2BErk5R1Jni5udo%2FBY9PAd%2F991Psp0t8O8u0c%2BcKwlVQysB%2FSqIMI83OAmcmRBW8XDufy1o119KrvM%2Fc1S2wi8VZawK%2F7uw9WVaOpP98DqcHfwKW6tG0ANuUYz2aWD%2FtOrBcFKcqWP2uVOvbqTPJeW37OenVwvmO7LB39bJ26bqL%2FcOirEeOb6ogsmtrxI8ggH4G%2FkHmn6yaIFCiBz8eXh6xVwVezk5jHDxp%2BSFnSB6aGhW0JWZkthgAAZG26uOyGuGUMyB14kCg%3D%3D";
+    [self testUrl:urlStr];
+    urlStr=@"https://openapi.alipay.com/gateway.do?alipay_sdk=alipay-sdk-java-dynamicVersionNo&app_id=2021003160653140&biz_content=%7B%22body%22%3A%22flowus-1%E4%B8%AA%E6%9C%88%22%2C%22out_trade_no%22%3A%2222327115000000c04e79a4%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22subject%22%3A%221%E4%B8%AA%E6%9C%88%22%2C%22timeout_express%22%3A%221m%22%2C%22total_amount%22%3A%2225.0%22%7D&charset=UTF-8&format=json&method=alipay.trade.app.pay&notify_url=https%3A%2F%2Fdev.allflow.cn%2Fapi%2Fcallback%2FaliPay&sign=aXrh%2FdYhbCmDxSzzIW7nTGXpDbBmG8XPyVmdvf7ztvzXPXvayYIGjvT4pdyCQ6Hbiq%2FU%2FNPK22B9NyrgCvDhnl0q6KwN0B9DkZXkYtw3XwhgFQ%2BDSNXTqY4vtDUTrx%2BMw1MVrXOChkO%2F0io8UwYWP07rogACT9MUG6dQ1v2sxMvP7m51AePWcQcryoDgrezrp7TGWL3eG0p1igUOrKF1kf55OYUi8NC4XeX3XQfoSyBLbLxHp48bVsRM4CTzmtWoFO8t%2BBl%2F0QdW0qCZwn6WTIKZi0KLdCW1D7YXPGZU0DNw%2BgAgPP1bXRq77ns%2FIocj3PZpwKzWwWQW05iuLLzsFQ%3D%3D&sign_type=RSA2&timestamp=2022-11-23+11%3A50%3A37&version=1.0";
+    [self testUrl:urlStr];
+  
 
     NSLog(@"=========>margin:%f",[UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom);
     

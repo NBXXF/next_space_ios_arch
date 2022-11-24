@@ -10,6 +10,7 @@
 #import "NXTestModal2VC.h"
 #import <Masonry/Masonry.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
+#import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 
 @interface NXTestModalVC()
 @property (nonatomic, strong)UIView *iv;
@@ -50,7 +51,6 @@
         make.height.mas_equalTo(100);
     }];
     next.tag=2;
-    
     self.confirmBtn.tag=3;
     [self.contentView addSubview:self.confirmBtn];
     [self.confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
