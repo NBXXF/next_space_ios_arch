@@ -23,6 +23,7 @@
 - (void)bindData:(NSArray *)dataList isRefresh:(BOOL)isRefresh{
     if(isRefresh){
         [self.dataArray removeAllObjects];
+        [self.dataArray addObjectsFromArray:dataList];
     }else{
         [self.dataArray addObjectsFromArray:dataList];
     }
