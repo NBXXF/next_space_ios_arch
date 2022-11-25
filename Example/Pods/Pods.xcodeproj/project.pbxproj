@@ -295,6 +295,10 @@
 		7C8CEBE7BA533C5B30BA7304960C4EB2 /* UIDevice+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = FB79D7BBE35BE565A648B2E12E8C90D2 /* UIDevice+YYAdd.m */; };
 		7C91E2A9292FAFF700B26DB3 /* NXAutoHeightCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C91E2A7292FAFF700B26DB3 /* NXAutoHeightCollectionView.h */; };
 		7C91E2AA292FAFF700B26DB3 /* NXAutoHeightCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C91E2A8292FAFF700B26DB3 /* NXAutoHeightCollectionView.m */; };
+		7C9940EB293056DC0032FD72 /* NXListAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9940E9293056DC0032FD72 /* NXListAdapter.h */; };
+		7C9940EC293056DC0032FD72 /* NXListAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9940EA293056DC0032FD72 /* NXListAdapter.m */; };
+		7C9940EF29305ABE0032FD72 /* UICollectionView+NXAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9940ED29305ABE0032FD72 /* UICollectionView+NXAdapter.h */; };
+		7C9940F029305ABE0032FD72 /* UICollectionView+NXAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9940EE29305ABE0032FD72 /* UICollectionView+NXAdapter.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 10ECBD4660D2956F00F54FD216D7AB6A /* RACSerialDisposable.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 08EA1BF8EDF5024F32C5828376D0B6F3 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CC0E21F651E95BD8E3A4628862115F3 /* NSArray+AppArch.h in Headers */ = {isa = PBXBuildFile; fileRef = F13B020A632FE8D35CA206AA088320CA /* NSArray+AppArch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -972,6 +976,10 @@
 		7C30765290CC309B217992AF6135D56F /* RACSubscriptingAssignmentTrampoline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACSubscriptingAssignmentTrampoline.h; path = ReactiveObjC/RACSubscriptingAssignmentTrampoline.h; sourceTree = "<group>"; };
 		7C91E2A7292FAFF700B26DB3 /* NXAutoHeightCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXAutoHeightCollectionView.h; sourceTree = "<group>"; };
 		7C91E2A8292FAFF700B26DB3 /* NXAutoHeightCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXAutoHeightCollectionView.m; sourceTree = "<group>"; };
+		7C9940E9293056DC0032FD72 /* NXListAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXListAdapter.h; sourceTree = "<group>"; };
+		7C9940EA293056DC0032FD72 /* NXListAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXListAdapter.m; sourceTree = "<group>"; };
+		7C9940ED29305ABE0032FD72 /* UICollectionView+NXAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+NXAdapter.h"; sourceTree = "<group>"; };
+		7C9940EE29305ABE0032FD72 /* UICollectionView+NXAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+NXAdapter.m"; sourceTree = "<group>"; };
 		7D9552A745018FF81BE4B8019113606A /* RACKVOProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACKVOProxy.h; path = ReactiveObjC/RACKVOProxy.h; sourceTree = "<group>"; };
 		7E16150B0C77484C2DA3A45A70E22ACF /* UIControl+RACSignalSupportPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+RACSignalSupportPrivate.h"; path = "ReactiveObjC/UIControl+RACSignalSupportPrivate.h"; sourceTree = "<group>"; };
 		7E43461EA4E71FB96CAFB8772E31F673 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+YYAdd.m"; path = "YYKit/Base/UIKit/UIControl+YYAdd.m"; sourceTree = "<group>"; };
@@ -1782,6 +1790,7 @@
 		38477458C2911BFF30CAD2B53D9A8365 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				7C9940E8293056B50032FD72 /* Adapter */,
 				AFA454C886D6595F0DDF0CA1A32AF1D3 /* NXCollectionReusableView.h */,
 				3CE39B1FD27A252F5338ABA768F83569 /* NXCollectionReusableView.m */,
 				CFCF39F3B0D92BB24CBF2584B6DD4EA9 /* NXCollectionSectionTextView.h */,
@@ -2095,6 +2104,17 @@
 				BBBF8720D81CC674B5F7CA2C1AD101E8 /* NSThread+YYAdd.m */,
 			);
 			name = "no-arc";
+			sourceTree = "<group>";
+		};
+		7C9940E8293056B50032FD72 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				7C9940E9293056DC0032FD72 /* NXListAdapter.h */,
+				7C9940EA293056DC0032FD72 /* NXListAdapter.m */,
+				7C9940ED29305ABE0032FD72 /* UICollectionView+NXAdapter.h */,
+				7C9940EE29305ABE0032FD72 /* UICollectionView+NXAdapter.m */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 		7DD2B02258D3E6824F0F8F80193CD7E2 /* UIColor */ = {
@@ -2670,6 +2690,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C9940EB293056DC0032FD72 /* NXListAdapter.h in Headers */,
 				347731E8D4C4F27FC53DDFAC590481D6 /* AFAutoPurgingImageCache.h in Headers */,
 				EE3B8613CDD20D58260C22D21BC61F38 /* AFCompatibilityMacros.h in Headers */,
 				584233A4CEC7C9AA382A1A43C26B87EE /* AFHTTPSessionManager.h in Headers */,
@@ -2686,6 +2707,7 @@
 				9F5D472E0B58C95613C76C43148FC8B5 /* UIButton+AFNetworking.h in Headers */,
 				27A1AA22D234973BA30D8493C546884C /* UIImageView+AFNetworking.h in Headers */,
 				3E7A25BCE5BAC256FBBA56106C3192CD /* UIKit+AFNetworking.h in Headers */,
+				7C9940EF29305ABE0032FD72 /* UICollectionView+NXAdapter.h in Headers */,
 				B8B4A245FEFA2CE20339CA8CA8BE68EC /* UIProgressView+AFNetworking.h in Headers */,
 				65163D7E6539C8A1D65F5FCBA0E6EFD2 /* UIRefreshControl+AFNetworking.h in Headers */,
 				57744CA757400E7183DFC0D37EFB5214 /* WKWebView+AFNetworking.h in Headers */,
@@ -3304,10 +3326,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				801724F329AA434F8BB6A11E96E5805A /* AFAutoPurgingImageCache.m in Sources */,
+				7C9940EC293056DC0032FD72 /* NXListAdapter.m in Sources */,
 				33B9A195FDB315F18465CB1BA24D74A9 /* AFHTTPSessionManager.m in Sources */,
 				FA57C7B9116769DBBCAEE173060683A3 /* AFImageDownloader.m in Sources */,
 				BAB08D6748C698A6AA6DC7D6A2BFFE49 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4DCB59DE84A69063E9485E4D8BF8C637 /* AFNetworking-dummy.m in Sources */,
+				7C9940F029305ABE0032FD72 /* UICollectionView+NXAdapter.m in Sources */,
 				63419018E7222B414E161CD480398E20 /* AFNetworkReachabilityManager.m in Sources */,
 				5BE27AF46E2DE81F61752081EDB7E52B /* AFSecurityPolicy.m in Sources */,
 				CDEF12A353FEBC8FE4E2EA0D3FFAC615 /* AFURLRequestSerialization.m in Sources */,
