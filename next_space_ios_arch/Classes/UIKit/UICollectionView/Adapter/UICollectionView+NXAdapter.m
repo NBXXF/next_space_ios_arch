@@ -16,8 +16,8 @@
     return nil;
 }
 - (void)setAdapter:(NXListAdapter *)adapter{
-    self.dataSource=adapter;
     adapter.collectionView=self;
+    self.dataSource=adapter;
 }
 
 @end
