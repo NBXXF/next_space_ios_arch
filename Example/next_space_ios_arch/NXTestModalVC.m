@@ -71,6 +71,17 @@
     [self clear:t2];
     [self insertCount:t2 andCount:10000];
     [self testTime:t2];
+
+    [NXKeyValueService.shared setString:@"xx" forKey:@"name" differUser:NO];
+    NSString *str= [NXKeyValueService.shared stringForKey:@"name" defaultValue:@"ddd" differUser:NO];
+    NSLog(@"=========>存储了:%@",str);
+    
+    [[NXKeyValueService.shared observeChangeWithKey:@"name" differUser:NO] subscribeNext:^(NSString * _Nullable x) {
+        NSLog(@"=========>存储了改变了:%@",[NXKeyValueService.shared stringForKey:@"name" defaultValue:@"ddd2" differUser:NO]);
+    }];
+    
+    [NXKeyValueService.shared setString:@"xx33" forKey:@"name" differUser:NO];
+    [NXKeyValueService.shared setString:@"xx44" forKey:@"name" differUser:NO];
 }
 
 -(void)testTime:(NSUserDefaults *) userDefatluts{

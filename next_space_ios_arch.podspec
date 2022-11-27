@@ -44,4 +44,5 @@ TODO: Add long description of the pod here.
  s.dependency 'ReactiveObjC', '~> 3.1.1'
  s.dependency 'Masonry'
  s.dependency 'AFNetworking'
+ s.dependency 'MMKV'
 end

@@ -80,6 +80,31 @@
     return find;
 }
 
+- (NSMutableArray *)removeFirstObjectWithBlock:(BOOL (^)(id _Nonnull))block{
+    NSMutableArray *array=[NSMutableArray arrayWithArray:self];
+    __block NSUInteger removeIndex=-1;
+    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(block(obj)){
+            removeIndex=idx;
+            *stop=YES;
+        }
+    }];
+    if(removeIndex>=0){
+        [array removeObjectAtIndex:removeIndex];
+    }
+    return array;
+}
+
+- (NSMutableArray *)removeObjectWithBlock:(BOOL (^)(id _Nonnull))block{
+    NSMutableArray *array=[NSMutableArray array];
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(!block(obj)){
+            [array addObject:obj];
+        }
+    }];
+    return array;
+}
+
 - (NSMutableDictionary *)associateObjectBy:(id  _Nonnull (^)(id _Nonnull))keyBlock{
     NSMutableDictionary *find=[NSMutableDictionary dictionary];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

@@ -16,10 +16,14 @@ PODS:
     - AFNetworking/NSURLSession
   - JLRoutes (2.1)
   - Masonry (1.1.0)
+  - MMKV (1.2.14):
+    - MMKVCore (~> 1.2.14)
+  - MMKVCore (1.2.14)
   - next_space_ios_arch (0.1.1):
     - AFNetworking
     - JLRoutes
     - Masonry
+    - MMKV
     - ReactiveObjC (~> 3.1.1)
   - ReactiveObjC (3.1.1)
   - YYKit (1.0.9):
@@ -37,6 +41,8 @@ SPEC REPOS:
     - AFNetworking
     - JLRoutes
     - Masonry
+    - MMKV
+    - MMKVCore
     - ReactiveObjC
     - YYKit
     - YYModel
@@ -49,7 +55,9 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  next_space_ios_arch: 622de696c6d345a0192fa3975433df64a0a3cfbc
+  MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
+  MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
+  next_space_ios_arch: 6aa6951f47418f86b7168f9ab63b9fb2cbd04575
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30

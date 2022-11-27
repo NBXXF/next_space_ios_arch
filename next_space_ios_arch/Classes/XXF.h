@@ -7,18 +7,28 @@
 
 #import <Foundation/Foundation.h>
 typedef CGFloat(^NXPTConvertBlock)(CGFloat value);
+typedef NSString *_Nonnull(^NXUserIdProvider)(void);
+typedef NSString *_Nonnull(^NXAppGroupNameProvider)(void);
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XXF : NSObject
-/**
- 设置相对转换的回调
- */
-+(void)setPTWithBlock:(NXPTConvertBlock)block;
+
++(void)initWithConfig:(NXPTConvertBlock)ptConvertBlock
+ appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider
+       userIdProvider:(NXUserIdProvider)userIdProvider;
 
 /**
  转换相对单位
  */
 +(CGFloat)convertPTFromPX:(CGFloat)value;
+
+//获取userId
++(NSString *_Nonnull)getUserId;
+
+//获取GroupName
++(NSString *_Nonnull)getAppGroupName;
 
 @end
 

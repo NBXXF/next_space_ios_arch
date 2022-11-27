@@ -8,6 +8,7 @@
 
 #import "NXAppDelegate.h"
 #import "NXDemoViewController.h"
+#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 
 @implementation NXAppDelegate
 
@@ -18,6 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [XXF initWithConfig:^CGFloat(CGFloat value) {
+        return value;
+    } appGroupNameProvider:^NSString * _Nonnull{
+        return @"";
+    } userIdProvider:^NSString * _Nonnull{
+        return @"testUser";
+    }];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     NSArray *windows = [[UIApplication sharedApplication] windows];

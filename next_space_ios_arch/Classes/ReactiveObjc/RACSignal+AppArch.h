@@ -9,7 +9,7 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RACSignal(AppArch)
+@interface RACSignal<__covariant ValueType>(AppArch)
 ///简化订阅,不关心结果
 -(RACSignal *)subscribe;
 
@@ -20,26 +20,26 @@ NS_ASSUME_NONNULL_BEGIN
 +(RACSignal *)fromCallbck:(id __nullable (^)(void))block;
 
 //遇到错误 返回对应的值
--(RACSignal *)onErrorReturnItem:(id)value;
+-(RACSignal<ValueType> *)onErrorReturnItem:(ValueType)value;
 
 //遇到错误 返回对应的值
--(RACSignal *)onErrorReturn:(id __nullable (^)(void))block;
+-(RACSignal<ValueType> *)onErrorReturn:(ValueType __nullable (^)(void))block;
 
 //遇到错误 返回对应的值
--(RACSignal *)onErrorResumeNext:(RACSignal * (^)(NSError *error))catchBlock;
+-(RACSignal<ValueType> *)onErrorResumeNext:(RACSignal<ValueType> * (^)(NSError *error))catchBlock;
 
 /// 错误信号连接
-- (RACSignal *)concatIgnoreError:(RACSignal *)signal;
+- (RACSignal *)concatIgnoreError:(RACSignal *)signal DEPRECATED_MSG_ATTRIBUTE("这个不应该这样设计");
 
 /// ignoreError 转换成nil信号
 - (RACSignal *)ignoreError DEPRECATED_MSG_ATTRIBUTE("这个不应该这样设计");
 
 //订阅再子线程
-- (RACSignal *)subscribeOnSubThread;
+- (RACSignal<ValueType> *)subscribeOnSubThread;
 
 
 // 自定义是否节流
-- (RACSignal *)distinctUntilChangedWithBlock:(BOOL (^)(id last,id current))block;
+- (RACSignal<ValueType> *)distinctUntilChangedWithBlock:(BOOL (^)(ValueType last,ValueType current))block;
 
 @end
 
