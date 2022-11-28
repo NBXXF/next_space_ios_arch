@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(CGFloat)convertPTFromPX:(CGFloat)value;
 
 //获取userId
-+(NSString *_Nonnull)getUserId;
++(NSString *_Nonnull)getUserId DEPRECATED_MSG_ATTRIBUTE("仅限于框架使用,业务代码勿调");
 
 //获取GroupName
 +(NSString *_Nonnull)getAppGroupName;
