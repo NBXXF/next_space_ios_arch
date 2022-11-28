@@ -54,7 +54,7 @@
            differUser:(BOOL)differUser;
 
 - (nullable NSString *)stringForKey:(NSString *_Nonnull)key
-                       defaultValue:(NSString *_Nonnull)defaultValue
+                       defaultValue:(nullable NSString *)defaultValue
                          differUser:(BOOL)differUser;
 
 
@@ -65,7 +65,7 @@
         differUser:(BOOL)differUser;
 
 - (nullable NSData *)dataForKey:(NSString *_Nonnull)key
-                   defaultValue:(NSData *_Nonnull)defaultValue
+                   defaultValue:(nullable NSData *)defaultValue
                      differUser:(BOOL)differUser;
 
 

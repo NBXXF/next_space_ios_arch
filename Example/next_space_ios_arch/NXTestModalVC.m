@@ -72,7 +72,9 @@
     [self insertCount:t2 andCount:10000];
     [self testTime:t2];
 
+
     [NXKeyValueService.shared setString:@"xx" forKey:@"name" differUser:NO];
+    [self testMMKVSpped];
     NSString *str= [NXKeyValueService.shared stringForKey:@"name" defaultValue:@"ddd" differUser:NO];
     NSLog(@"=========>存储了:%@",str);
     
@@ -82,6 +84,45 @@
     
     [NXKeyValueService.shared setString:@"xx33" forKey:@"name" differUser:NO];
     [NXKeyValueService.shared setString:@"xx44" forKey:@"name" differUser:NO];
+}
+
+-(void)testMMKVSpped{
+    NSTimeInterval start=[NSDate date].timeIntervalSince1970;
+    for(NSInteger i=0;i<1000;i++){
+        NSString *s= [NSString stringWithFormat:@"xx:%ld",(long)i];
+        [NXKeyValueService.shared setString:@"xx" forKey:s differUser:NO];
+    }
+    NSTimeInterval end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take write by MMKV:%f",(end-start));
+    
+    start=[NSDate date].timeIntervalSince1970;
+    for(NSInteger i=0;i<1000;i++){
+        NSString *s= [NSString stringWithFormat:@"xx:%ld",(long)i];
+        [NSUserDefaults.standardUserDefaults setObject:@"xx" forKey:s];
+    }
+    end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take write by NSUserDefaults:%f",(end-start));
+    
+    start=[NSDate date].timeIntervalSince1970;
+    for(NSInteger i=0;i<1000;i++){
+        NSString *s= [NSString stringWithFormat:@"xx:%ld",(long)i];
+        [NSUserDefaults.standardUserDefaults stringForKey:@"name"];
+    }
+    end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take read by NSUserDefaults:%f",(end-start));
+    
+    
+    start=[NSDate date].timeIntervalSince1970;
+    for(NSInteger i=0;i<1000;i++){
+        NSString *s= [NSString stringWithFormat:@"xx:%ld",(long)i];
+        [NXKeyValueService.shared stringForKey:@"name" defaultValue:nil differUser:NO];
+    }
+    end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take read by MMKV:%f",(end-start));
+    
+    
+  
+    
 }
 
 -(void)testTime:(NSUserDefaults *) userDefatluts{

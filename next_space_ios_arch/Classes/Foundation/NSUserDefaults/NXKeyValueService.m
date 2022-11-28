@@ -114,7 +114,7 @@ static NSString *DIFFERUSER_PATH_SEGEMENT = @"_D_I_F_F_E_R_U_S_E_R_";
 }
 
 - (nullable NSString *)stringForKey:(NSString *_Nonnull)key
-                       defaultValue:(NSString *_Nonnull)defaultValue
+                       defaultValue:(nullable NSString *)defaultValue
                          differUser:(BOOL)differUser{
     NSString *newKey=[self generateKey:key differUser:differUser];
     return [self.client getStringForKey:newKey defaultValue:defaultValue];
@@ -132,7 +132,7 @@ static NSString *DIFFERUSER_PATH_SEGEMENT = @"_D_I_F_F_E_R_U_S_E_R_";
 }
 
 - (nullable NSData *)dataForKey:(NSString *_Nonnull)key
-                   defaultValue:(NSData *_Nonnull)defaultValue
+                   defaultValue:(nullable NSData *)defaultValue
                      differUser:(BOOL)differUser{
     NSString *newKey=[self generateKey:key differUser:differUser];
     NSData *result= [self.client getObjectOfClass:NSData.class forKey:newKey];
