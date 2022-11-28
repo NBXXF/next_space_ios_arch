@@ -9,6 +9,7 @@
 #import <MMKV/MMKV.h>
 #import <MMKV/MMKV-umbrella.h>
 #import "XXF.h"
+#import <YYModel/YYModel.h>
 
 @interface NXKeyValueService()
 @property(nonatomic,strong) MMKV *client;
@@ -95,12 +96,27 @@ static NSString *DIFFERUSER_PATH_SEGEMENT = @"_D_I_F_F_E_R_U_S_E_R_";
     [self.subject sendNext:newKey];
 }
 
-- (nullable id)objectForKey:(NSString *_Nonnull)key
+- (nullable NSObject<NSCoding> *)objectForKey:(NSString *_Nonnull)key
                defaultValue:(nullable id)defaultValue
                  differUser:(BOOL)differUser{
     NSString *newKey=[self generateKey:key differUser:differUser];
     return [self.client getObjectOfClass:NSObject.class forKey:newKey];
 }
+
+
+
+
+
+- (void)setObjectToJson:(NSObject *)value forKey:(NSString *)key differUser:(BOOL)differUser{
+    NSString *str=[value yy_modelToJSONString];
+    [self setString:str forKey:key differUser:differUser];
+}
+
+- (NSObject *)objectFromJson:(Class)value forKey:(NSString *)key defaultValue:(NSObject *)defaultValue differUser:(BOOL)differUser{
+    NSString *str=[self stringForKey:key defaultValue:nil differUser:differUser];
+    return [value yy_modelWithJSON:str];
+}
+
 
 
 

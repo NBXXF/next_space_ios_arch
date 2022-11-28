@@ -14,6 +14,7 @@
 #import "NSArray+AppArch.h"
 #import "NSMutableArray+AppArch.h"
 #import "NSMutableAttributedString+AppArch.h"
+#import "NXAppSettings.h"
 #import "NXKeyValueService.h"
 #import "NXKeyValueServiceProtocal.h"
 #import "NXHttpInterceptor.h"

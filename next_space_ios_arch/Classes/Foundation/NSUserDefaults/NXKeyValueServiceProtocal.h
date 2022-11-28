@@ -38,13 +38,27 @@
 
 
 
-- (void)setObject:(nullable id)value
+- (void)setObject:(nullable NSObject<NSCoding> *)value
            forKey:(NSString *_Nonnull)key
            differUser:(BOOL)differUser;
 
-- (nullable id)objectForKey:(NSString *_Nonnull)key
+- (nullable NSObject<NSCoding> *)objectForKey:(NSString *_Nonnull)key
                defaultValue:(nullable id)defaultValue
                  differUser:(BOOL)differUser;
+
+
+
+
+- (void)setObjectToJson:(nullable NSObject *)value
+           forKey:(NSString *_Nonnull)key
+           differUser:(BOOL)differUser;
+
+- (nullable NSObject *)objectFromJson:(Class _Nonnull)value
+           forKey:(NSString *_Nonnull)key
+           defaultValue:(nullable NSObject *)defaultValue
+           differUser:(BOOL)differUser;
+
+
 
 
 

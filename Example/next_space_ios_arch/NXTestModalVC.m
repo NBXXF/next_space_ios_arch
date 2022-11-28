@@ -11,6 +11,7 @@
 #import <Masonry/Masonry.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
+#import "NXBean.h"
 
 @interface NXTestModalVC()
 @property (nonatomic, strong)UIView *iv;
@@ -84,6 +85,15 @@
     
     [NXKeyValueService.shared setString:@"xx33" forKey:@"name" differUser:NO];
     [NXKeyValueService.shared setString:@"xx44" forKey:@"name" differUser:NO];
+    
+    
+    NXBean *ben=NXBean.new;
+    ben.name=@"张三";
+    [NXKeyValueService.shared setObjectToJson:ben forKey:@"xxx" differUser:NO];
+    NSLog(@"=========>ben1:%@ _ %@",ben.simpleDescription,ben.name);
+    
+    ben=(NXBean *)[NXKeyValueService.shared objectFromJson:NXBean.class forKey:@"xxx" defaultValue:nil differUser:NO ];
+    NSLog(@"=========>ben2:%@ _ %@",ben.simpleDescription,ben.name);
 }
 
 -(void)testMMKVSpped{

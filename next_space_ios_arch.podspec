@@ -45,4 +45,5 @@ TODO: Add long description of the pod here.
  s.dependency 'Masonry'
  s.dependency 'AFNetworking'
  s.dependency 'MMKV'
+ s.dependency 'YYModel'
 end

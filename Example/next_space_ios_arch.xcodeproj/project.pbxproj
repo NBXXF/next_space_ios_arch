@@ -22,6 +22,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		7CA425322934F274006EA927 /* NXBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA425312934F274006EA927 /* NXBean.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D09A75826B97565461D625DB /* Pods_next_space_ios_arch_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F282FDE47CFCD0D0AC8C31A7 /* Pods_next_space_ios_arch_Example.framework */; };
 		E1268EA92908222B00E5DAB5 /* UITextView+Commands.m in Sources */ = {isa = PBXBuildFile; fileRef = E1268EA82908222B00E5DAB5 /* UITextView+Commands.m */; };
@@ -70,6 +71,8 @@
 		680A172176E9D52618D23413 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6C789331131B52AF5BBCB2A0 /* Pods_next_space_ios_arch_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_next_space_ios_arch_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7CA425302934F274006EA927 /* NXBean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXBean.h; sourceTree = "<group>"; };
+		7CA425312934F274006EA927 /* NXBean.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXBean.m; sourceTree = "<group>"; };
 		846026C6DFD5C918A4FC3D12 /* Pods-next_space_ios_arch_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Tests.release.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Tests/Pods-next_space_ios_arch_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0395E2C846DECFAF4A3929B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				E18989C22913A7B2004AFFF5 /* NXTestModalVC.m */,
 				E18989C42913AE2E004AFFF5 /* NXTestModal2VC.h */,
 				E18989C52913AE2E004AFFF5 /* NXTestModal2VC.m */,
+				7CA425302934F274006EA927 /* NXBean.h */,
+				7CA425312934F274006EA927 /* NXBean.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				E1CB5447290AB91C004DA7A4 /* NXViewController+Test.m in Sources */,
 				E18989C62913AE2E004AFFF5 /* NXTestModal2VC.m in Sources */,
 				E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */,
+				7CA425322934F274006EA927 /* NXBean.m in Sources */,
 				E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E1268EA92908222B00E5DAB5 /* UITextView+Commands.m in Sources */,
