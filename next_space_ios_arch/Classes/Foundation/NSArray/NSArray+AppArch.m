@@ -56,7 +56,7 @@
 }
 
 - (BOOL)allObjectEqualWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
-    if(self.count<=1){
+    if(self.count<=0){
         return YES;
     }
     __block id first=self.firstObject;
