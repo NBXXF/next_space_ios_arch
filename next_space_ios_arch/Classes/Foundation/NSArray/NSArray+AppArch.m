@@ -41,7 +41,7 @@
 }
 
 - (NSUInteger)indexOfObjectWithBlock:(BOOL (^)(id _Nonnull))block{
-    __block NSInteger find=-1;
+    __block NSUInteger find=NSNotFound;
     [self enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(block(obj)){
             find=idx;
@@ -52,7 +52,7 @@
 }
 
 - (BOOL)containsObjectWithBlock:(BOOL (^)(id _Nonnull))block{
-    return [self indexOfObjectWithBlock:block]>=0;
+    return [self indexOfObjectWithBlock:block]!=NSNotFound;
 }
 
 - (BOOL)allObjectEqualWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
@@ -82,14 +82,14 @@
 
 - (NSMutableArray *)removeFirstObjectWithBlock:(BOOL (^)(id _Nonnull))block{
     NSMutableArray *array=[NSMutableArray arrayWithArray:self];
-    __block NSUInteger removeIndex=-1;
+    __block NSUInteger removeIndex=NSNotFound;
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(block(obj)){
             removeIndex=idx;
             *stop=YES;
         }
     }];
-    if(removeIndex>=0){
+    if(removeIndex!=NSNotFound){
         [array removeObjectAtIndex:removeIndex];
     }
     return array;
