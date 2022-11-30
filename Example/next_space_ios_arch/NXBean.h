@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NXBean : NSObject
+@interface NXBean : NSObject<NSCoding>
 @property(nonatomic,strong) NSString *name;
 @end
 

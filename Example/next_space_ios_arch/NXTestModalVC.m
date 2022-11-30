@@ -12,6 +12,7 @@
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 #import "NXBean.h"
+#import <YYModel/YYModel.h>
 
 @interface NXTestModalVC()
 @property (nonatomic, strong)UIView *iv;
@@ -94,6 +95,50 @@
     
     ben=(NXBean *)[NXKeyValueService.shared objectFromJson:NXBean.class forKey:@"xxx" defaultValue:nil differUser:NO ];
     NSLog(@"=========>ben2:%@ _ %@",ben.simpleDescription,ben.name);
+    
+
+    
+    NSData *data=[NSKeyedArchiver archivedDataWithRootObject:ben];
+    data=[ben yy_modelToJSONData];
+    
+    [self testSpeed];
+}
+
+-(void)testSpeed{
+    NXBean *ben=NXBean.new;
+    ben.name=@"张三";
+    
+    NSTimeInterval start=[NSDate date].timeIntervalSince1970;
+    NSData *data;
+    for(NSInteger i=0;i<1000;i++){
+        data=[NSKeyedArchiver archivedDataWithRootObject:ben];
+    }
+    NSTimeInterval end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take ser by nscoding:%f",(end-start));
+    
+    start=[NSDate date].timeIntervalSince1970;
+    for(NSInteger i=0;i<1000;i++){
+        NXBean *ben=[NSKeyedUnarchiver unarchivedObjectOfClass:NXBean.class fromData:data error:nil];
+    }
+    end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take deser by nscoding:%f",(end-start));
+    
+    
+    start=[NSDate date].timeIntervalSince1970;
+    for(NSInteger i=0;i<1000;i++){
+        data=[ben yy_modelToJSONData];
+    }
+    end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take ser by json:%f",(end-start));
+    
+    start=[NSDate date].timeIntervalSince1970;
+    for(NSInteger i=0;i<1000;i++){
+        NXBean *ben=[NXBean yy_modelWithJSON:data];
+    }
+    end=[NSDate date].timeIntervalSince1970;
+    NSLog(@"=============>take deser by json:%f",(end-start));
+    
+    
 }
 
 -(void)testMMKVSpped{

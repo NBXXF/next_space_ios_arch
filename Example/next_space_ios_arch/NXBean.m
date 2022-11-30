@@ -7,7 +7,9 @@
 //
 
 #import "NXBean.h"
+#import <YYModel/YYModel.h>
 
 @implementation NXBean
-
+- (void)encodeWithCoder:(NSCoder *)aCoder { [self yy_modelEncodeWithCoder:aCoder]; }
+- (id)initWithCoder:(NSCoder *)aDecoder { return [self yy_modelInitWithCoder:aDecoder]; }
 @end
