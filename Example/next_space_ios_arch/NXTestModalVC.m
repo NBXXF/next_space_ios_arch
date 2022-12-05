@@ -138,6 +138,7 @@
     end=[NSDate date].timeIntervalSince1970;
     NSLog(@"=============>take deser by json:%f",(end-start));
     
+    NSLog(@"==========>xx:%ld",NSIntegerMax);
     
 }
 

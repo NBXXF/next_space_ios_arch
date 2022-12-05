@@ -13,7 +13,10 @@
 - (NSMutableArray *)mapObjectWithBlock:(id  _Nonnull (^)(id _Nonnull))block{
     NSMutableArray *find=[NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [find addObject:block(obj)];
+        id result= block(obj);
+        if(result){
+            [find addObject:result];
+        }
     }];
     return find;
 }
