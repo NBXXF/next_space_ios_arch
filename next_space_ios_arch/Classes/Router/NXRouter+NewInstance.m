@@ -6,6 +6,7 @@
 //
 
 #import "NXRouter+NewInstance.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @implementation NXRouter(NewInstance)
 + (UIViewController *)viewControllerWithRouteURL:(NSString *)routeURL parameters:(NSDictionary * _Nullable )parameters{
@@ -14,5 +15,26 @@
         return (UIViewController *)instance;
     }
     return nil;
+}
+
+
++ (void)startURL:(NSString *)url{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NXRouter openURL:url];
+    });
+}
+
+
++ (void)startURL:(NSString *)url parameters:(NSDictionary *)parameters{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NXRouter openURL:url parameters:parameters];
+    });
+}
+
+
++ (void)startURL:(NSString *)url parameters:(NSDictionary *)parameters resultCallback:(NXRouterResultCallback)callback{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NXRouter openURL:url parameters:parameters resultCallback:callback];
+    });
 }
 @end
