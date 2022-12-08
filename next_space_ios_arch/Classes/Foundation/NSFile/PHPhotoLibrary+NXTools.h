@@ -22,24 +22,14 @@ typedef void(^PHAssetLibraryAccessFailureBlock)(NSError *error);
 - (PHAssetCollection *)createNewAlbumCalled:(NSString *)albumName;
 
 /**
- *  保存一个UIImage对象到某一个相册里，若没有该相册会先自动创建
- *
- *  @param image 图片
- *  @param albumName 相册名
- *  @param completion 完成
- *  @param failure 失败
- */
-- (void)saveImage:(UIImage *)image ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
-
-/**
  *  通过一个图片的本地url保存该图片到某一个相册里
  *
- *  @param imageUrl 图片
+ *  @param url 图片
  *  @param albumName 相册名
  *  @param completion 完成
  *  @param failure 失败
  */
-- (void)saveImageWithImageUrl:(NSURL *)imageUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
+- (void)saveImageWithURL:(NSURL *)url ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
 
 
 /**
@@ -50,7 +40,7 @@ typedef void(^PHAssetLibraryAccessFailureBlock)(NSError *error);
  *  @param completion 完成
  *  @param failure 失败
  */
-- (void)saveImageData:(NSData *)imageData ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
+- (void)saveImageWithData:(NSData *)imageData ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
 
 
 /**
@@ -61,7 +51,7 @@ typedef void(^PHAssetLibraryAccessFailureBlock)(NSError *error);
  *  @param completion 完成
  *  @param failure 失败
  */
-- (void)saveVideoWithUrl:(NSURL *)videoUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
+- (void)saveVideoWithURL:(NSURL *)url ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
 
 
 /**

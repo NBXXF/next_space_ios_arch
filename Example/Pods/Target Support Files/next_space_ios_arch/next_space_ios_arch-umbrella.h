@@ -15,7 +15,6 @@
 #import "NSMutableArray+AppArch.h"
 #import "NXPath.h"
 #import "NXPermissionResult.h"
-#import "PHPhotoLibrary+CustomPhotoAlbum.h"
 #import "NSMutableAttributedString+AppArch.h"
 #import "NXAppSettings.h"
 #import "NXKeyValueService.h"

@@ -44,26 +44,24 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)saveImage:(UIImage *)image ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
+- (void)saveImageWithURL:(NSURL *)url ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
 {
-    [self saveObject:image WithType:ImageTpye ToAlbum:albumName completion:^(id callbackObject) {
-        completion((PHAsset *)callbackObject);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
+    NSData *data=[NSData dataWithContentsOfURL:url];
+    if(data){
+        //优先用这种方式
+        [self saveImageWithData:data ToAlbum:albumName completion:completion failure:failure];
+    }else{
+        //下面这种方式 会有格式缺陷(bmp就不行）
+        [self saveObject:url WithType:ImageUrlTpye ToAlbum:albumName completion:^(id callbackObject) {
+            completion((PHAsset *)callbackObject);
+        } failure:^(NSError *error) {
+            failure(error);
+        }];
+    }
 }
 
-- (void)saveImageWithImageUrl:(NSURL *)imageUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
-{
-    [self saveObject:imageUrl WithType:ImageUrlTpye ToAlbum:albumName completion:^(id callbackObject) {
-        completion((PHAsset *)callbackObject);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
-}
 
-
-- (void)saveImageData:(NSData *)imageData ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
+- (void)saveImageWithData:(NSData *)imageData ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
 {
     [self saveObject:imageData WithType:ImageDataTpye ToAlbum:albumName completion:^(id callbackObject) {
         completion((PHAsset *)callbackObject);
@@ -73,9 +71,8 @@ typedef enum : NSUInteger {
 }
 
 
-- (void)saveVideoWithUrl:(NSURL *)videoUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
-{
-    [self saveObject:videoUrl WithType:videoType ToAlbum:albumName completion:^(id callbackObject) {
+- (void)saveVideoWithURL:(NSURL *)url ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure{
+    [self saveObject:url WithType:videoType ToAlbum:albumName completion:^(id callbackObject) {
         completion((NSURL *)callbackObject);
     } failure:^(NSError *error) {
         failure(error);
