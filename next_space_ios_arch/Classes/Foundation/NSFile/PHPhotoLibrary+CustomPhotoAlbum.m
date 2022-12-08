@@ -87,7 +87,7 @@ typedef enum : NSUInteger {
    NXPermissionResult *permissionResult= [self canAccessPhotoAlbum];
     if (!permissionResult.enable) {
         // 提示用户开启允许访问相册的权限
-        failure([[NXError alloc] initWithMsg:permissionResult.msg code:PHPhotoLibrary.noPermissionCode]);
+        failure([[NXError alloc] initWithCode:PHPhotoLibrary.noPermissionCode msg:permissionResult.msg]);
     }else{
         __block NSString *assetId = nil;
         [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
@@ -155,7 +155,7 @@ typedef enum : NSUInteger {
     NXPermissionResult *permissionResult= [self canAccessPhotoAlbum];
      if (!permissionResult.enable) {
          // 提示用户开启允许访问相册的权限
-         completion([NSMutableArray array],[[NXError alloc] initWithMsg:permissionResult.msg code:PHPhotoLibrary.noPermissionCode]);
+         completion([NSMutableArray array],[[NXError alloc] initWithCode:PHPhotoLibrary.noPermissionCode msg:permissionResult.msg]);
      }else{
         PHFetchResult<PHAssetCollection *> *collectionResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
         PHFetchOptions *fetchOptions = [PHFetchOptions new];
