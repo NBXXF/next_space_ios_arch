@@ -7,7 +7,7 @@
 
 import Foundation
 @objc public class NXError:NSError{
-    var msg:String?=nil;
+    @objc public var msg:String?=nil;
     @objc public init(msg: String? = nil) {
         super.init(domain: "http", code: -1);
         self.msg = msg
