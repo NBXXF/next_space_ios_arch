@@ -14,7 +14,7 @@ typedef void(^PHAssetLibraryWriteVideoCompletionBlock)(NSURL *videoUrl);
 
 typedef void(^PHAssetLibraryAccessFailureBlock)(NSError *error);
 
-@interface PHPhotoLibrary (CustomPhotoAlbum)
+@interface PHPhotoLibrary (NXTools)
 
 @property(nonatomic,assign,class,readonly) NSInteger noPermissionCode;
 
@@ -41,15 +41,6 @@ typedef void(^PHAssetLibraryAccessFailureBlock)(NSError *error);
  */
 - (void)saveImageWithImageUrl:(NSURL *)imageUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
 
-/**
- *  通过一个视频的本地url保存该视频到某一个相册里
- *
- *  @param videoUrl 视频路径
- *  @param albumName 相册名
- *  @param completion 完成
- *  @param failure 失败
- */
-- (void)saveVideoWithUrl:(NSURL *)videoUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
 
 /**
  *  保存一个imageData对象到某一个相册里
@@ -60,6 +51,17 @@ typedef void(^PHAssetLibraryAccessFailureBlock)(NSError *error);
  *  @param failure 失败
  */
 - (void)saveImageData:(NSData *)imageData ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
+
+
+/**
+ *  通过一个视频的本地url保存该视频到某一个相册里
+ *
+ *  @param videoUrl 视频路径
+ *  @param albumName 相册名
+ *  @param completion 完成
+ *  @param failure 失败
+ */
+- (void)saveVideoWithUrl:(NSURL *)videoUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure;
 
 
 /**

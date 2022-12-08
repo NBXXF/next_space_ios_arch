@@ -5,7 +5,7 @@
 //  Created by XXF on 2022/12/8.
 //
 
-#import "PHPhotoLibrary+CustomPhotoAlbum.h"
+#import "PHPhotoLibrary+NXTools.h"
 #import "NXPermissionResult.h"
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 typedef enum : NSUInteger {
@@ -15,7 +15,7 @@ typedef enum : NSUInteger {
     videoType,
 } SaveTypes;
 
-@implementation PHPhotoLibrary (CustomPhotoAlbum)
+@implementation PHPhotoLibrary (NXTools)
 
 + (NSInteger)noPermissionCode{
     return -403;
@@ -62,19 +62,21 @@ typedef enum : NSUInteger {
     }];
 }
 
-- (void)saveVideoWithUrl:(NSURL *)videoUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
-{
-    [self saveObject:videoUrl WithType:videoType ToAlbum:albumName completion:^(id callbackObject) {
-        completion((NSURL *)callbackObject);
-    } failure:^(NSError *error) {
-        failure(error);
-    }];
-}
 
 - (void)saveImageData:(NSData *)imageData ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
 {
     [self saveObject:imageData WithType:ImageDataTpye ToAlbum:albumName completion:^(id callbackObject) {
         completion((PHAsset *)callbackObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+
+- (void)saveVideoWithUrl:(NSURL *)videoUrl ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
+{
+    [self saveObject:videoUrl WithType:videoType ToAlbum:albumName completion:^(id callbackObject) {
+        completion((NSURL *)callbackObject);
     } failure:^(NSError *error) {
         failure(error);
     }];
@@ -95,6 +97,7 @@ typedef enum : NSUInteger {
         } completionHandler:^(BOOL success, NSError * _Nullable error) {
             NSLog(@"Finished updating asset. %@", (success ? @"Success." : error));
             if (error) {
+                failure(error);
                 return;
             }
             PHAssetCollection *collection = [self createNewAlbumCalled:albumName];
