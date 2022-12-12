@@ -22,6 +22,8 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		7C9DFDB02942E59200D1D728 /* NXTestFlowLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DFDAF2942E59200D1D728 /* NXTestFlowLayoutViewController.m */; };
+		7C9DFDB32942E5C000D1D728 /* MyCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DFDB22942E5C000D1D728 /* MyCellCollectionViewCell.m */; };
 		7CA425322934F274006EA927 /* NXBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA425312934F274006EA927 /* NXBean.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D09A75826B97565461D625DB /* Pods_next_space_ios_arch_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F282FDE47CFCD0D0AC8C31A7 /* Pods_next_space_ios_arch_Example.framework */; };
@@ -71,6 +73,10 @@
 		680A172176E9D52618D23413 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6C789331131B52AF5BBCB2A0 /* Pods_next_space_ios_arch_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_next_space_ios_arch_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C9DFDAE2942E59200D1D728 /* NXTestFlowLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXTestFlowLayoutViewController.h; sourceTree = "<group>"; };
+		7C9DFDAF2942E59200D1D728 /* NXTestFlowLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXTestFlowLayoutViewController.m; sourceTree = "<group>"; };
+		7C9DFDB12942E5C000D1D728 /* MyCellCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCellCollectionViewCell.h; sourceTree = "<group>"; };
+		7C9DFDB22942E5C000D1D728 /* MyCellCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCellCollectionViewCell.m; sourceTree = "<group>"; };
 		7CA425302934F274006EA927 /* NXBean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXBean.h; sourceTree = "<group>"; };
 		7CA425312934F274006EA927 /* NXBean.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXBean.m; sourceTree = "<group>"; };
 		846026C6DFD5C918A4FC3D12 /* Pods-next_space_ios_arch_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-next_space_ios_arch_Tests.release.xcconfig"; path = "Target Support Files/Pods-next_space_ios_arch_Tests/Pods-next_space_ios_arch_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +246,10 @@
 				E18989C52913AE2E004AFFF5 /* NXTestModal2VC.m */,
 				7CA425302934F274006EA927 /* NXBean.h */,
 				7CA425312934F274006EA927 /* NXBean.m */,
+				7C9DFDAE2942E59200D1D728 /* NXTestFlowLayoutViewController.h */,
+				7C9DFDAF2942E59200D1D728 /* NXTestFlowLayoutViewController.m */,
+				7C9DFDB12942E5C000D1D728 /* MyCellCollectionViewCell.h */,
+				7C9DFDB22942E5C000D1D728 /* MyCellCollectionViewCell.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -431,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C9DFDB32942E5C000D1D728 /* MyCellCollectionViewCell.m in Sources */,
 				6003F59E195388D20070C39A /* NXAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* NXDemoViewController.m in Sources */,
 				E1CB5447290AB91C004DA7A4 /* NXViewController+Test.m in Sources */,
@@ -439,6 +450,7 @@
 				7CA425322934F274006EA927 /* NXBean.m in Sources */,
 				E1A007A829068AE400B2789B /* YYTextField_KeyEvent.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				7C9DFDB02942E59200D1D728 /* NXTestFlowLayoutViewController.m in Sources */,
 				E1268EA92908222B00E5DAB5 /* UITextView+Commands.m in Sources */,
 				E18989C32913A7B2004AFFF5 /* NXTestModalVC.m in Sources */,
 				E1CB5443290AB8BD004DA7A4 /* UIViewController+TestViewController.m in Sources */,
@@ -573,6 +585,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "next_space_ios_arch/next_space_ios_arch-Prefix.pch";
 				INFOPLIST_FILE = "next_space_ios_arch/next_space_ios_arch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -590,6 +603,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "next_space_ios_arch/next_space_ios_arch-Prefix.pch";
 				INFOPLIST_FILE = "next_space_ios_arch/next_space_ios_arch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

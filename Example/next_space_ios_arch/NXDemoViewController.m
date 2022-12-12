@@ -17,6 +17,7 @@
 #import "UIViewController+TestViewController.h"
 #import "NXTestModalVC.h"
 #import <Masonry/Masonry.h>
+#import "NXTestFlowLayoutViewController.h"
 //#import <YYModel/YYModel.h>
 
 //@import next_space_ios_arch;
@@ -331,9 +332,9 @@
 
 -(void)showModal{
     [self.view endEditing:YES];
-    UIViewController *popoverContent=[NXTestModalVC new];
-    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    UIViewController *popoverContent=[NXTestFlowLayoutViewController new];
+//    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:popoverContent animated:NO completion:nil];
 }
 

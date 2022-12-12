@@ -104,6 +104,7 @@
     [self testSpeed];
 }
 
+
 -(void)testSpeed{
     NXBean *ben=NXBean.new;
     ben.name=@"张三";

@@ -1,6 +1,6 @@
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '13.0'
 
 target 'next_space_ios_arch_Example' do
   pod 'next_space_ios_arch', :path => '../'
