@@ -12,7 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSArray<ObjectType>(AppArch)
 
 /**
- 变换类型
+ 变换整体
+ */
+-(NSMutableArray<ObjectType> *)applyWithBlock:(NSMutableArray<ObjectType> * (^)(NSArray<ObjectType> *it))block;
+
+/**
+ 变换item类型
  */
 - (NSMutableArray *)mapObjectWithBlock:(id (^)(ObjectType obj))block;
 

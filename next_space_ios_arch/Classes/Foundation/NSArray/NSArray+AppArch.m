@@ -9,6 +9,9 @@
 
 @implementation NSArray(AppArch)
 
+- (NSMutableArray *)applyWithBlock:(NSMutableArray * _Nonnull (^)(NSArray * _Nonnull))block{
+    return block(self);
+}
 
 - (NSMutableArray *)mapObjectWithBlock:(id  _Nonnull (^)(id _Nonnull))block{
     NSMutableArray *find=[NSMutableArray array];
