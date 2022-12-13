@@ -13,6 +13,7 @@
 #import "NXBus.h"
 #import "NSArray+AppArch.h"
 #import "NSDictionary+NXTools.h"
+#import "NSError+NXTools.h"
 #import "NXPath.h"
 #import "NXPermissionResult.h"
 #import "PHPhotoLibrary+NXTools.h"
