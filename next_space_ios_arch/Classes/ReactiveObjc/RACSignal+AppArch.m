@@ -55,6 +55,12 @@
     return [self subscribeOn:RACScheduler.scheduler];
 }
 
+
+- (RACSignal *)deliverOnOnSubThread{
+    return [self deliverOn:RACScheduler.scheduler];
+}
+
+
 - (RACSignal *)distinctUntilChangedWithBlock:(BOOL (^)(id last,id current))block{
     Class class = self.class;
 

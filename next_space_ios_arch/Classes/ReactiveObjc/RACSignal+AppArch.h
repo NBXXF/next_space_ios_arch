@@ -34,9 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// ignoreError 转换成nil信号
 - (RACSignal *)ignoreError DEPRECATED_MSG_ATTRIBUTE("这个不应该这样设计");
 
-//订阅再子线程
+//订阅在子线程
 - (RACSignal<ValueType> *)subscribeOnSubThread;
 
+
+//观察在子线程
+- (RACSignal<ValueType> *)deliverOnOnSubThread;
 
 // 自定义是否节流
 - (RACSignal<ValueType> *)distinctUntilChangedWithBlock:(BOOL (^)(ValueType last,ValueType current))block;
