@@ -11,6 +11,11 @@
 #endif
 
 #import "NXBus.h"
+#import "dsbridge.h"
+#import "DSCallInfo.h"
+#import "DWKWebView.h"
+#import "InternalApis.h"
+#import "JSBUtil.h"
 #import "NSArray+AppArch.h"
 #import "NSDictionary+NXTools.h"
 #import "NSError+NXTools.h"
