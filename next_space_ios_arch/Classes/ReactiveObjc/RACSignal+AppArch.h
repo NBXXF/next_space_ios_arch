@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(RACSignal *)fromCallbck:(id __nullable (^)(void))block;
 
 //遇到错误 返回对应的值
--(RACSignal<ValueType> *)onErrorReturnItem:(ValueType)value;
+-(RACSignal<ValueType> *)onErrorReturnItem:(ValueType __nullable)value;
 
 //遇到错误 返回对应的值
 -(RACSignal<ValueType> *)onErrorReturn:(ValueType __nullable (^)(void))block;
