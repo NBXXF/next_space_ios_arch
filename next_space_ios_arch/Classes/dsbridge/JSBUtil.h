@@ -10,8 +10,12 @@ enum{
 
 @interface JSBUtil : NSObject
 + (NSString * _Nullable)objToJsonString:(id  _Nonnull)dict;
+
 + (id  _Nullable)jsonStringToObject:(NSString * _Nonnull)jsonString;
+
 +(NSString *_Nullable)methodByNameArg:(NSInteger)argNum
-                              selName:( NSString * _Nullable)selName class:(Class _Nonnull )class;
+                              selName:(NSString * _Nullable)selName
+                              clazz:(Class _Nonnull )clazz;
+
 + (NSArray *_Nonnull)parseNamespace: (NSString *_Nonnull) method;
 @end
