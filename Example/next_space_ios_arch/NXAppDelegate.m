@@ -9,6 +9,7 @@
 #import "NXAppDelegate.h"
 #import "NXDemoViewController.h"
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
+#import <next_space_ios_arch/UIScreen+NXTools.h>
 
 @implementation NXAppDelegate
 
@@ -19,6 +20,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+   
+    NSLog(@"============>scale:%f", UIScreen.mainScreen.scale);
+    NSLog(@"============>scale width:%f",  [UIScreen mainScreen].bounds.size.width);
+    NSLog(@"============>scale width:%f",  [UIScreen.mainScreen getDensityValue:14]);
+    
     [XXF initWithConfig:^CGFloat(CGFloat value) {
         return value;
     } appGroupNameProvider:^NSString * _Nonnull{

@@ -72,6 +72,7 @@
 #import "UIKeyCommandConstant.h"
 #import "UIKeyCommanderProtocol.h"
 #import "UIResponder+DispatchKeyCommand.h"
+#import "UIScreen+NXTools.h"
 #import "UITableView+NXRegister.h"
 #import "NXRectUtils.h"
 #import "UIView+AppArchRect.h"
