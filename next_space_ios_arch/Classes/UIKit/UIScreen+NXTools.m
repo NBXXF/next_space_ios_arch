@@ -19,14 +19,25 @@
      [UIScreen mainScreen].bounds.size.width 这个得到的是 【没有】乘以倍数的
      */
     static CGFloat density = 1.0;
+    
+    /**
+     权重
+     */
+    static CGFloat weight=0.8;
 
     static dispatch_once_t  densityOnceToken;
     dispatch_once(&densityOnceToken, ^{
         if ([NSThread isMainThread]) {
             density = [self _formatDensity:standardScale/[[UIScreen mainScreen] scale]];
+            if(density>1.0){
+                density=[self _formatDensity:density *weight];
+            }
         } else {
             dispatch_sync(dispatch_get_main_queue(), ^{
                 density =[self _formatDensity: standardScale/[[UIScreen mainScreen] scale]];
+                if(density>1.0){
+                    density=[self _formatDensity:density *weight];
+                }
             });
         }
     });
