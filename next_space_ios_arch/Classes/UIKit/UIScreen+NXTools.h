@@ -7,6 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
+//宏 定义大小
+#define KRealWidth(px) [UIScreen.mainScreen getDensityValue:px]
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIScreen(NXTools)
