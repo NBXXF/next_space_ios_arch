@@ -84,6 +84,10 @@
 #import "NXViewController.h"
 #import "UIViewController+Lifecycle.h"
 #import "UIViewController+PopDissmiss.h"
+#import "SingletonUtils.h"
+#import "StringUtils.h"
+#import "ThreadUtils.h"
+#import "WindowUtils.h"
 #import "XXF.h"
 
 FOUNDATION_EXPORT double next_space_ios_archVersionNumber;
