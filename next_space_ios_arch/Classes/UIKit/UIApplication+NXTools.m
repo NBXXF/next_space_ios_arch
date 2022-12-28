@@ -9,6 +9,18 @@
 
 @implementation UIApplication(NXTools)
 
+- (UIWindow *)topWindow {
+    UIWindow * window;
+    for (UIWindow * value in [[UIApplication sharedApplication].windows reverseObjectEnumerator]) {
+        if (value.windowLevel == UIWindowLevelNormal) {
+            window = value;
+            break;
+        }
+    }
+    return window ?: [[UIWindow alloc] init];
+}
+
+
 - (CGFloat)topLayoutOffset {
     if (@available(iOS 11, *)) {
         return [UIApplication sharedApplication].keyWindow.safeAreaInsets.top;

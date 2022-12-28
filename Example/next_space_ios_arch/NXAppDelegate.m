@@ -21,9 +21,33 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+    long s=1UL << 1;
+    NSLog(@"============>%ld",s);
+    
     NSLog(@"============>scale:%f", UIScreen.mainScreen.scale);
     NSLog(@"============>scale width:%f",  [UIScreen mainScreen].bounds.size.width);
     NSLog(@"============>scale width:%f",  [UIScreen.mainScreen getDensityValue:14]);
+    
+    [[[[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                NSLog(@"=============>delay next2:2");
+                [subscriber sendNext:@"2"];
+        [subscriber sendCompleted];
+        return [RACDisposable disposableWithBlock:^{
+            
+        }];
+    }] delay:1] doNext:^(id  _Nullable x) {
+        NSLog(@"=============>delay next donnext2:%@",x);
+    }] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"=============>delay next sub:2:%@",x);
+    }];
+    
+//    [[[RACSignal fromCallbck:^id _Nullable{
+//        NSLog(@"=============>delay start next:1");
+//        return @"1";
+//    }] delay:1] subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"=============>delay next:%@",x);
+//    }];
+    
     
     [XXF initWithConfig:^CGFloat(CGFloat value) {
         return value;

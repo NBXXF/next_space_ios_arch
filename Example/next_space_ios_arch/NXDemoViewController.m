@@ -216,11 +216,30 @@
     }];
     NSLog(@"=========>find:%@",filter.lastObject);
     
-    UITextView *text4=[[UITextView alloc] initWithFrame:CGRectMake(0, 410, 800, 100)];
+    
+    __block UITextView *text4=[[UITextView alloc] initWithFrame:CGRectZero];
     text4.text=@"4";
     text4.tag=4;
     text4.delegate=self;
-    [self.view addSubview:text4];
+    [self.contentView addSubview:text4];
+    //[self.view addSubview:text4];
+    [text4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(800);
+        make.height.mas_equalTo(100);
+        make.top.equalTo(self.contentView).offset(410);
+        make.left.equalTo(self.contentView);
+    }];
+    
+    
+    
+    [RACScheduler.mainThreadScheduler afterDelay:1.0 schedule:^{
+        
+        CGRect rect1=[NXDemoViewController getFrameRelateWindowWithView:text4];
+        CGRect rect2=[text4 convertRectToWindow];
+   
+        NSLog(@"=========>rect:%@  rect1:%@       rect2:%@",NSStringFromCGRect(text4.frame),NSStringFromCGRect(rect1),NSStringFromCGRect(rect2));
+    }];
+
     
     NSNumber *first=@1;
     NSNumber *second=nil;
@@ -327,15 +346,17 @@
 
 }
 
-
++ (CGRect)getFrameRelateWindowWithView:(UIView *)view {
+    return [view convertRect:view.frame toView:nil];
+}
 
 
 -(void)showModal{
-    [self.view endEditing:YES];
-    UIViewController *popoverContent=[NXTestFlowLayoutViewController new];
-//    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:popoverContent animated:NO completion:nil];
+//    [self.view endEditing:YES];
+//    UIViewController *popoverContent=[NXTestFlowLayoutViewController new];
+////    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+////    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    [self presentViewController:popoverContent animated:NO completion:nil];
 }
 
 -(void)testArraySpeed:(NSInteger)size{

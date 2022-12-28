@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIApplication(NXTools)
 
 /**
+ 获取最顶层Window
+ */
+- (UIWindow *)topWindow;
+
+/**
  顶部状态栏高度
  */
 - (CGFloat)topLayoutOffset;
