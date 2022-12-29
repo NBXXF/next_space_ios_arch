@@ -1,7 +1,7 @@
 //
 //  JLRRouteDefinition+NXHook.h
 //  AFNetworking
-//  hook 合并净态配置参数    且回调为NSMutable的字典 业务可以修改
+//  hook 合并静态配置参数 
 //  Created by XXF on 2022/12/29.
 //
 
