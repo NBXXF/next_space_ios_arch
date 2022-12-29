@@ -347,6 +347,8 @@
 		7C9C8042295D701C005EE80A /* NSMutableDictionary+NXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C8040295D701C005EE80A /* NSMutableDictionary+NXTools.m */; };
 		7C9C8045295D70DE005EE80A /* NSMutableArray+NXTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9C8043295D70DE005EE80A /* NSMutableArray+NXTools.h */; };
 		7C9C8046295D70DE005EE80A /* NSMutableArray+NXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C8044295D70DE005EE80A /* NSMutableArray+NXTools.m */; };
+		7C9C8049295D9F69005EE80A /* UIViewController+NXQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9C8047295D9F69005EE80A /* UIViewController+NXQuery.h */; };
+		7C9C804A295D9F69005EE80A /* UIViewController+NXQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C8048295D9F69005EE80A /* UIViewController+NXQuery.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C23740D6727948AF527D5B66A2B472 /* RACSerialDisposable.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = DA94C7440FE63F2F9918ABEE28D16993 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DE332DB12605DB9F0D6CA461639ADB2 /* ThreadUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C66426FBC7488AC15C57FCE0D99C4E58 /* ThreadUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1180,6 +1182,8 @@
 		7C9C8040295D701C005EE80A /* NSMutableDictionary+NXTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NXTools.m"; sourceTree = "<group>"; };
 		7C9C8043295D70DE005EE80A /* NSMutableArray+NXTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NXTools.h"; sourceTree = "<group>"; };
 		7C9C8044295D70DE005EE80A /* NSMutableArray+NXTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NXTools.m"; sourceTree = "<group>"; };
+		7C9C8047295D9F69005EE80A /* UIViewController+NXQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NXQuery.h"; sourceTree = "<group>"; };
+		7C9C8048295D9F69005EE80A /* UIViewController+NXQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NXQuery.m"; sourceTree = "<group>"; };
 		7CEA5280786A0554ADCBC70529EE2A12 /* RACUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACUnit.h; path = ReactiveObjC/RACUnit.h; sourceTree = "<group>"; };
 		7CFC0FE6296BED2E0157B662709744CA /* JLRParsingUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRParsingUtilities.m; path = JLRoutes/Classes/JLRParsingUtilities.m; sourceTree = "<group>"; };
 		7CFFEDDF7DC172D4DF98494BF598B44C /* RACDisposable+AppArch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RACDisposable+AppArch.m"; sourceTree = "<group>"; };
@@ -2547,6 +2551,8 @@
 				1BB135D38B2F0E1EBE736B7139CA384F /* UIViewController+Lifecycle.m */,
 				B8566AC28A6386A9C96903E431FA3063 /* UIViewController+PopDissmiss.h */,
 				0F9AE8DCE210F6D3F7C913B0E5E4F92D /* UIViewController+PopDissmiss.m */,
+				7C9C8047295D9F69005EE80A /* UIViewController+NXQuery.h */,
+				7C9C8048295D9F69005EE80A /* UIViewController+NXQuery.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -3360,6 +3366,7 @@
 				4BE3C52C8A7E919D84F83573E8C02FBC /* UICollectionView+NXAutoHeightLayoutCell.h in Headers */,
 				E4E45097FC5FFDBB8F7A4054404B0B21 /* UICollectionView+NXAutoHeightLayoutCellByClass.h in Headers */,
 				976224D51196E034EEF49B840161BC3D /* UICollectionView+NXHeader.h in Headers */,
+				7C9C8049295D9F69005EE80A /* UIViewController+NXQuery.h in Headers */,
 				F2D58CC2FB57410B237B73B416A0DFA1 /* UICollectionView+NXRegister.h in Headers */,
 				4F28D0347782CAC288A227F15AE530DA /* UIColor+NXGradient.h in Headers */,
 				6CA6F13FD2AE56B7CEFEAE099F7A6326 /* UIImage+NXGradient.h in Headers */,
@@ -3864,6 +3871,7 @@
 				0EDDAB3DF12FFF187545CE7FBA0F33CE /* UICollectionView+NXHeader.m in Sources */,
 				F83FA0A9DD7DA86FFCA7DDC2BBEAB446 /* UICollectionView+NXRegister.m in Sources */,
 				C4FDE08021D4CED3D415082C54B5EB63 /* UIColor+NXGradient.m in Sources */,
+				7C9C804A295D9F69005EE80A /* UIViewController+NXQuery.m in Sources */,
 				905B0D9CDCB43643942F2312E84AAAE3 /* UIImage+NXGradient.m in Sources */,
 				3FAC41542E513B5FB6A5723FA13154BE /* UIKeyCommand+Responsible.m in Sources */,
 				DFB1C9864C13FFF3E813DDB3FFA08A90 /* UIKeyCommandConstant.m in Sources */,
