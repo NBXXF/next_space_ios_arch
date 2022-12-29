@@ -343,6 +343,10 @@
 		7BEAFADAFA6A9D1D3929076C3C36F085 /* RACEmptySignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 760C4718EBEF3886D770005FC2BECF0F /* RACEmptySignal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		7C6597CEC6039A4ABA5CBBCE56B6AE57 /* TKGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B49908E4E4221BD989B690748FB079A /* TKGradient.m */; };
 		7C8CEBE7BA533C5B30BA7304960C4EB2 /* UIDevice+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = F505162CCEB215F9A5B929911F0C40D1 /* UIDevice+YYAdd.m */; };
+		7C9C8041295D701C005EE80A /* NSMutableDictionary+NXTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9C803F295D701C005EE80A /* NSMutableDictionary+NXTools.h */; };
+		7C9C8042295D701C005EE80A /* NSMutableDictionary+NXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C8040295D701C005EE80A /* NSMutableDictionary+NXTools.m */; };
+		7C9C8045295D70DE005EE80A /* NSMutableArray+NXTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C9C8043295D70DE005EE80A /* NSMutableArray+NXTools.h */; };
+		7C9C8046295D70DE005EE80A /* NSMutableArray+NXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C8044295D70DE005EE80A /* NSMutableArray+NXTools.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C23740D6727948AF527D5B66A2B472 /* RACSerialDisposable.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = DA94C7440FE63F2F9918ABEE28D16993 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DE332DB12605DB9F0D6CA461639ADB2 /* ThreadUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C66426FBC7488AC15C57FCE0D99C4E58 /* ThreadUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1172,6 +1176,10 @@
 		7C42107A393991F8A70AE65E27BBFCCC /* RACBehaviorSubject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACBehaviorSubject.h; path = ReactiveObjC/RACBehaviorSubject.h; sourceTree = "<group>"; };
 		7C68782DD74729FCE20103A252DD9671 /* NSObject+RateLimiting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+RateLimiting.h"; sourceTree = "<group>"; };
 		7C9C3CB2C41C085EAE6BAC9DE409CDF0 /* JLRRouteResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRRouteResponse.h; path = JLRoutes/Classes/JLRRouteResponse.h; sourceTree = "<group>"; };
+		7C9C803F295D701C005EE80A /* NSMutableDictionary+NXTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NXTools.h"; sourceTree = "<group>"; };
+		7C9C8040295D701C005EE80A /* NSMutableDictionary+NXTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NXTools.m"; sourceTree = "<group>"; };
+		7C9C8043295D70DE005EE80A /* NSMutableArray+NXTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NXTools.h"; sourceTree = "<group>"; };
+		7C9C8044295D70DE005EE80A /* NSMutableArray+NXTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NXTools.m"; sourceTree = "<group>"; };
 		7CEA5280786A0554ADCBC70529EE2A12 /* RACUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACUnit.h; path = ReactiveObjC/RACUnit.h; sourceTree = "<group>"; };
 		7CFC0FE6296BED2E0157B662709744CA /* JLRParsingUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRParsingUtilities.m; path = JLRoutes/Classes/JLRParsingUtilities.m; sourceTree = "<group>"; };
 		7CFFEDDF7DC172D4DF98494BF598B44C /* RACDisposable+AppArch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RACDisposable+AppArch.m"; sourceTree = "<group>"; };
@@ -2086,6 +2094,8 @@
 			children = (
 				3C9FBBDCD3F72C5068C4358B06648D3C /* NSDictionary+NXTools.h */,
 				85F57CEB5A259C3EF5A8E581EB501242 /* NSDictionary+NXTools.m */,
+				7C9C803F295D701C005EE80A /* NSMutableDictionary+NXTools.h */,
+				7C9C8040295D701C005EE80A /* NSMutableDictionary+NXTools.m */,
 			);
 			path = NSDictionary;
 			sourceTree = "<group>";
@@ -2192,6 +2202,8 @@
 			children = (
 				A69AD8F10387BD0CF6037F41437EE76C /* NSArray+AppArch.h */,
 				3C02086DC48485A11E4AAC78181A0E00 /* NSArray+AppArch.m */,
+				7C9C8043295D70DE005EE80A /* NSMutableArray+NXTools.h */,
+				7C9C8044295D70DE005EE80A /* NSMutableArray+NXTools.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -3290,6 +3302,7 @@
 				EBF592B9BC73A4B88839F22E2BFED2D8 /* InternalApis.h in Headers */,
 				8872923DA6EA05B9CD376399FCD56013 /* JSBUtil.h in Headers */,
 				AAAACA53D0E1AA1AE03814202894B1AA /* MAS_VIEW+NXExtend.h in Headers */,
+				7C9C8041295D701C005EE80A /* NSMutableDictionary+NXTools.h in Headers */,
 				4777A99607FD2D9BF000B3FDFF781A6E /* MASConstraint+NXPT.h in Headers */,
 				182D51CA96A7E96F77342F580E1DEAF7 /* next_space_ios_arch-umbrella.h in Headers */,
 				88716C981E14B1735BEC51317B451367 /* NSArray+AppArch.h in Headers */,
@@ -3341,6 +3354,7 @@
 				7DE332DB12605DB9F0D6CA461639ADB2 /* ThreadUtils.h in Headers */,
 				DC1BFCF0980759470A0503EBCFDDB514 /* TKGradient.h in Headers */,
 				D5FE17051A9E1BFD7D3EF0DE904AFDEE /* TKRoundedView.h in Headers */,
+				7C9C8045295D70DE005EE80A /* NSMutableArray+NXTools.h in Headers */,
 				6728EB3DA946F45DFC693D2850A761AB /* UIApplication+NXTools.h in Headers */,
 				9D8AC1131F1F0A88E0211374E929B30E /* UICollectionView+NXAdapter.h in Headers */,
 				4BE3C52C8A7E919D84F83573E8C02FBC /* UICollectionView+NXAutoHeightLayoutCell.h in Headers */,
@@ -3818,6 +3832,7 @@
 				DDE2D7415CD145A653E1078FCD66E050 /* NXCollectionViewCell.m in Sources */,
 				6DBF1358E0DA73F8E5FA4224D6BB3C28 /* NXCollectionViewHeaderView.m in Sources */,
 				0C1C1BE35433962ECD789BED5B6F628B /* NXError.swift in Sources */,
+				7C9C8042295D701C005EE80A /* NSMutableDictionary+NXTools.m in Sources */,
 				29C626F6D170020C5DBB18C17AE0FBDD /* NXHttpInterceptor.m in Sources */,
 				0D341AB02413F084429EA75F04111BA4 /* NXHTTPSessionManager.m in Sources */,
 				4FFC9F9FB8A648812151BBB2ECC60779 /* NXItemMenuImpl.m in Sources */,
@@ -3835,6 +3850,7 @@
 				7EADEC406B159D286F11744B345AE182 /* NXServiceLoader.m in Sources */,
 				8AEE42AFD0F943831E41125B80C3EB35 /* NXViewController.m in Sources */,
 				104A144432F4A85D7A7D8F9ABDC860E8 /* PHPhotoLibrary+NXTools.m in Sources */,
+				7C9C8046295D70DE005EE80A /* NSMutableArray+NXTools.m in Sources */,
 				33FFDFECE617AC2D5F97201A7955D351 /* RACDisposable+AppArch.m in Sources */,
 				694C13D9435D1ED0397F0EED5DF9E7C2 /* RACScheduler+AppArch.m in Sources */,
 				9F4FEB2CD5CC8F91E294A726D3E6BCD9 /* RACSignal+AppArch.m in Sources */,

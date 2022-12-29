@@ -10,6 +10,7 @@
 #import "NXDemoViewController.h"
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/UIScreen+NXTools.h>
+#import <malloc/malloc.h>
 
 @implementation NXAppDelegate
 
@@ -21,6 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+    NSString *str=@"a";
+    NSLog(@"========>malloc_size = %zd", malloc_size((__bridge const void *)(str)));
     long s=1UL << 1;
     NSLog(@"============>%ld",s);
     
