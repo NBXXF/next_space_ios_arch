@@ -187,6 +187,12 @@ static NXRouterInstanceFactory globalInstanceFactory;
     return [NSDictionary dictionary];
 }
 
+
++ (NSString *)getAdjustTargetClassWithURL:(NSString *)url{
+    return [self getAdjustURLConfig:url][NXRouterClassNameKey];
+}
+
+
 + (NXRouterInstanceFactory)getInstanceFactory{
     return globalInstanceFactory;
 }

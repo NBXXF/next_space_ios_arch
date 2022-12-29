@@ -115,6 +115,11 @@ extern NSString *const NXRouterClassNameKey;
 
 
 /**
+ 获取目标的class
+ */
++(NSString *)getAdjustTargetClassWithURL:(NSString* )url;
+
+/**
  获取构建实例的工厂
  */
 +(NXRouterInstanceFactory)getInstanceFactory;
