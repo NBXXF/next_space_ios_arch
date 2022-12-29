@@ -190,7 +190,7 @@ static NXRouterInstanceFactory globalInstanceFactory;
 
 
 + (void)replaceToURL:(NSString *)toURL toURLConfig:(NSMutableDictionary *)urlConfig{
-    [urlConfig setObject:JLRouteURLKey forKey:[NSURL URLWithString:toURL]];
+    [urlConfig setObject:[NSURL URLWithString:toURL] forKey:JLRouteURLKey];
     NSString *tagetClass=[self getAdjustURLConfig:toURL][NXRouterClassNameKey];
     [urlConfig setObject:tagetClass forKey:NXRouterClassNameKey];
 }
