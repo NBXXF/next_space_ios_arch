@@ -115,9 +115,9 @@ extern NSString *const NXRouterClassNameKey;
 
 
 /**
- 获取目标的class
+ 替换到目标路由
  */
-+(NSString *)getAdjustTargetClassWithURL:(NSString* )url;
++(void)replaceToURL:(NSString* )toURL toURLConfig:(NSMutableDictionary *)urlConfig;
 
 /**
  获取构建实例的工厂
