@@ -8,7 +8,8 @@
 #import "NSMutableDictionary+NXTools.h"
 
 @implementation NSMutableDictionary(NXTools)
-- (NSMutableDictionary *)applyWithBlock:(NSMutableDictionary * _Nonnull (^)(NSMutableDictionary * _Nonnull))block{
-    return block(self);
+
+- (NSMutableDictionary *)applyWithBlock:(void (^)(NSMutableDictionary * _Nonnull))block{
+    block(self);
 }
 @end

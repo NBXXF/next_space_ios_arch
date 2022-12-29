@@ -8,7 +8,8 @@
 #import "NSMutableArray+NXTools.h"
 
 @implementation NSMutableArray(NXTools)
-- (NSMutableArray *)applyWithBlock:(NSMutableArray * _Nonnull (^)(NSMutableArray * _Nonnull))block{
-    return block(self);
+
+- (NSMutableArray *)applyWithBlock:(void (^)(NSMutableArray * _Nonnull))block{
+    block(self);
 }
 @end
