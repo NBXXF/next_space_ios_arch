@@ -11,5 +11,6 @@
 
 - (NSMutableArray *)applyWithBlock:(void (^)(NSMutableArray * _Nonnull))block{
     block(self);
+    return self;
 }
 @end

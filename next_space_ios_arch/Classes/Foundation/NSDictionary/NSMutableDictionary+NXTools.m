@@ -11,5 +11,7 @@
 
 - (NSMutableDictionary *)applyWithBlock:(void (^)(NSMutableDictionary * _Nonnull))block{
     block(self);
+    return self;
 }
+
 @end
