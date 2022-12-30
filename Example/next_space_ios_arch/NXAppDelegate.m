@@ -23,6 +23,9 @@
 {
    
     NSArray *array=[NSMutableArray arrayWithObjects:@"张三",@"张三",nil];
+    [array.rac_sequence map:^id _Nullable(id  _Nullable value) {
+        return @"";
+    }];
     NSLog(@"===========>array:%@",array.simpleDescription);
     NSMutableArray *array2=array.mutableCopy;
     NSLog(@"===========>array2:%@",array2.simpleDescription);
