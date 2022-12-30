@@ -128,4 +128,19 @@
 }
 
 
+
+-(NSMutableArray *)mutableCopyOrCast{
+    if([self isKindOfClass:NSMutableArray.class]){
+        return (NSMutableArray *)self;
+    }
+    return self.mutableCopy;
+}
+
+
+-(NSArray *)copyOrCast{
+    if([self isKindOfClass:NSArray.class]){
+        return self;
+    }
+    return self.copy;
+}
 @end

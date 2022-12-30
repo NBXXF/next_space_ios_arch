@@ -22,6 +22,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+    NSArray *array=[NSMutableArray arrayWithObjects:@"张三",@"张三",nil];
+    NSLog(@"===========>array:%@",array.simpleDescription);
+    NSMutableArray *array2=array.mutableCopy;
+    NSLog(@"===========>array2:%@",array2.simpleDescription);
+    
+    
     NSString *str=@"a";
     NSLog(@"========>malloc_size = %zd", malloc_size((__bridge const void *)(str)));
     long s=1UL << 1;

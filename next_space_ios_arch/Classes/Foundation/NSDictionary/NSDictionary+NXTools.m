@@ -17,4 +17,18 @@
     }];
     return result;
 }
+
+- (NSMutableDictionary *)mutableCopyOrCast{
+    if([self isKindOfClass:NSMutableDictionary.class]){
+        return (NSMutableDictionary *)self;
+    }
+    return self.mutableCopy;
+}
+
+- (NSDictionary *)copyOrCast{
+    if([self isKindOfClass:NSDictionary.class]){
+        return self;
+    }
+    return self.copy;
+}
 @end

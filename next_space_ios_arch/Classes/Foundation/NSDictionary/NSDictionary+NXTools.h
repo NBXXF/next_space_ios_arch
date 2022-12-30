@@ -15,6 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSMutableDictionary<KeyType,ObjectType> *)filterObjectWithBlock:(BOOL (^)(KeyType key,ObjectType obj))block;
 
+/**
+ 先判读类型 如果类型符合就转换,否则重新生成新的类型
+ */
+-(NSMutableDictionary<KeyType,ObjectType> *)mutableCopyOrCast;
+
+/**
+ 先判读类型 如果类型符合就转换,否则重新生成新的类型
+ */
+-(NSDictionary<KeyType,ObjectType> *)copyOrCast;
 @end
 
 NS_ASSUME_NONNULL_END

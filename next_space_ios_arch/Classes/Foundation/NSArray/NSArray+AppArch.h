@@ -75,6 +75,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSMutableDictionary<id,id> *)associateObjectBy:(id (^)(ObjectType obj))keyBlock valueBlock:(id (^)(ObjectType obj))valueBlock;
 
+
+/**
+ 先判读类型 如果类型符合就转换,否则重新生成新的类型
+ */
+-(NSMutableArray<ObjectType> *)mutableCopyOrCast;
+
+/**
+ 先判读类型 如果类型符合就转换,否则重新生成新的类型
+ */
+-(NSArray<ObjectType> *)copyOrCast;
 @end
 
 NS_ASSUME_NONNULL_END
