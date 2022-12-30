@@ -40,6 +40,7 @@
 #import "RACScheduler+AppArch.h"
 #import "RACSignal+AppArch.h"
 #import "JLRRouteDefinition+NXHook.h"
+#import "NXCommonResultProtocol.h"
 #import "NXInitializer.h"
 #import "NXRouter+NewInstance.h"
 #import "NXRouter.h"

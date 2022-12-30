@@ -9,10 +9,22 @@
 #import "NXUIComponentProtocol.h"
 #import <UIKit/UIKit.h>
 #import "UIView+NXGestureRecognizer.h"
+#import "NXRouterResultCallback.h"
+#import "NXCommonResultProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NXViewController :UIViewController<NXUIComponentProtocol>
+@interface NXViewController :UIViewController<NXUIComponentProtocol,NXCommonResultProtocol>
+
+/**
+ 路由传过来的参数
+ */
+@property (nullable, strong, nonatomic) NSMutableDictionary * routerParams;
+
+/**
+ 路由定义的回调
+ */
+@property (nonatomic,copy) NXRouterResultCallback kRouterResultCallback;
 
 /**
  * 背景组件,一般弹窗用 或者业务 可以自定义背景 如 `UIImageView`, `UIVisualEffectView`

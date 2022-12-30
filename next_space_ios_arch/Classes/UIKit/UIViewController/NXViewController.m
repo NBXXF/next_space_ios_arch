@@ -159,4 +159,11 @@
         make.centerX.centerY.equalTo(self.contentView.superview);
     }];
 }
+
+
+- (void)setBaseResult:(id)result{
+    if(self.kRouterResultCallback){
+        self.kRouterResultCallback(self,result);
+    }
+}
 @end
