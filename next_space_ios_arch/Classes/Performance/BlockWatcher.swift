@@ -62,7 +62,7 @@ private final class WatchThread: Thread {
         self.threshold = threshold
         self.handler = handler
         super.init()
-        self.name = "WatchDog"
+        self.name = "BlockWatcher"
     }
     
     override func main() {

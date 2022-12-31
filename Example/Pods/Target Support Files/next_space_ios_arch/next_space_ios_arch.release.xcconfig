@@ -1,9 +1,9 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/next_space_ios_arch
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/JLRoutes" "${PODS_CONFIGURATION_BUILD_DIR}/MMKV" "${PODS_CONFIGURATION_BUILD_DIR}/MMKVCore" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC" "${PODS_CONFIGURATION_BUILD_DIR}/Watchdog" "${PODS_CONFIGURATION_BUILD_DIR}/YYModel"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/JLRoutes" "${PODS_CONFIGURATION_BUILD_DIR}/MMKV" "${PODS_CONFIGURATION_BUILD_DIR}/MMKVCore" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC" "${PODS_CONFIGURATION_BUILD_DIR}/YYModel"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LIBRARY_SEARCH_PATHS = $(inherited) "${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "CoreFoundation" -framework "Foundation" -framework "JLRoutes" -framework "MMKV" -framework "Masonry" -framework "ReactiveObjC" -framework "UIKit" -framework "Watchdog" -framework "YYModel"
+OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "CoreFoundation" -framework "Foundation" -framework "JLRoutes" -framework "MMKV" -framework "Masonry" -framework "ReactiveObjC" -framework "UIKit" -framework "YYModel"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
