@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)initWithConfig:(NXPTConvertBlock)ptConvertBlock
  appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider
-       userIdProvider:(NXUserIdProvider)userIdProvider;
+       userIdProvider:(NXUserIdProvider)userIdProvider
+performance:(CGFloat (^)(void))performanceBlock;
 
 /**
  转换相对单位

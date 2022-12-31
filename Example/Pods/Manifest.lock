@@ -25,8 +25,10 @@ PODS:
     - Masonry
     - MMKV
     - ReactiveObjC (~> 3.1.1)
+    - Watchdog
     - YYModel
   - ReactiveObjC (3.1.1)
+  - Watchdog (5.2)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -45,6 +47,7 @@ SPEC REPOS:
     - MMKV
     - MMKVCore
     - ReactiveObjC
+    - Watchdog
     - YYKit
     - YYModel
 
@@ -58,8 +61,9 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
-  next_space_ios_arch: 0e7b775c2d04e733d63ca6585a2fbf773fe38010
+  next_space_ios_arch: ba7a764358e7b66d3908b87de898da6c8cec2bf7
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  Watchdog: 622647e6bc5a55665e6dbae0b7831ad8d95abeab
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 

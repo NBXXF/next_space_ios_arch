@@ -46,4 +46,5 @@ TODO: Add long description of the pod here.
  s.dependency 'AFNetworking'
  s.dependency 'MMKV'
  s.dependency 'YYModel'
+ s.dependency 'Watchdog' #性能监控
 end

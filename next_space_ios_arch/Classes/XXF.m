@@ -7,19 +7,25 @@
 
 #import "XXF.h"
 #import <MMKV/MMKV.h>
+#import <Watchdog/Watchdog-umbrella.h>
+#import <Watchdog/Watchdog-Swift.h>
 
 
 @implementation XXF
 static NXPTConvertBlock __ptConvertBlock;
 static NXUserIdProvider __userIdProvider;
 static NXAppGroupNameProvider __appGroupNameProvider;
+static Watchdog *__watchdog;
 
-+ (void)initWithConfig:(NXPTConvertBlock)ptConvertBlock appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
++ (void)initWithConfig:(NXPTConvertBlock)ptConvertBlock appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider performance:(CGFloat (^)(void))performanceBlock{
     __ptConvertBlock=ptConvertBlock;
     __appGroupNameProvider=appGroupNameProvider;
     __userIdProvider=userIdProvider;
     [self _initMMKV];
+    [self _initPerformanceMonitor:performanceBlock()];
 }
+
+
 
 +(void)_initMMKV{
     NSString *myGroupID = self.getAppGroupName;
@@ -34,6 +40,13 @@ static NXAppGroupNameProvider __appGroupNameProvider;
     }
 }
 
+
++(void)_initPerformanceMonitor:(CGFloat)threshold{
+    if(threshold<=0||threshold>=CGFLOAT_MAX){
+        return;
+    }
+    __watchdog=[[Watchdog alloc] initWithThreshold:threshold strictMode:YES];
+}
 
 + (CGFloat)convertPTFromPX:(CGFloat)value{
     if(!__ptConvertBlock){

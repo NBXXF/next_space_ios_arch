@@ -67,6 +67,8 @@
         return @"";
     } userIdProvider:^NSString * _Nonnull{
         return @"testUser";
+    } performance:^CGFloat{
+        return 0.5;
     }];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -82,6 +84,9 @@
     [self.window makeKeyAndVisible];
     // self.window.rootViewController=[NXViewController new];
     // Override point for customization after application launch.
+    
+    //[NSThread sleepForTimeInterval:1.0];
+    
     return YES;
 }
 
