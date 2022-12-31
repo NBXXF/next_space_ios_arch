@@ -17,7 +17,7 @@ final public class BlockWatcher: NSObject {
 
         self.init(threshold: threshold) {
             if strictMode {
-                //主线程卡顿了 请用xcode 切换Thread 查看
+                //主线程卡顿了 请用xcode 切换MainThread 查看
                 fatalError(message)
             } else {
                 NSLog("%@", message)
