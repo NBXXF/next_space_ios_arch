@@ -67,9 +67,8 @@
         return @"";
     } userIdProvider:^NSString * _Nonnull{
         return @"testUser";
-    } performance:^CGFloat{
-        return 0.5;
     }];
+    [XXF startPerformanceMonitor:0.5];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

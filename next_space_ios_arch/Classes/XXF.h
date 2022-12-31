@@ -17,8 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)initWithConfig:(NXPTConvertBlock)ptConvertBlock
  appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider
-       userIdProvider:(NXUserIdProvider)userIdProvider
-performance:(CGFloat (^)(void))performanceBlock;
+       userIdProvider:(NXUserIdProvider)userIdProvider;
 
 /**
  转换相对单位
@@ -30,6 +29,12 @@ performance:(CGFloat (^)(void))performanceBlock;
 
 //获取GroupName
 +(NSString *_Nonnull)getAppGroupName;
+
+/**
+ 开始性能监控
+ */
++(void)startPerformanceMonitor:(CGFloat)threshold;
+
 
 @end
 

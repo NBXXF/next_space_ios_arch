@@ -7,22 +7,20 @@
 
 #import "XXF.h"
 #import <MMKV/MMKV.h>
-#import <Watchdog/Watchdog-umbrella.h>
-#import <Watchdog/Watchdog-Swift.h>
+#import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 
 
 @implementation XXF
 static NXPTConvertBlock __ptConvertBlock;
 static NXUserIdProvider __userIdProvider;
 static NXAppGroupNameProvider __appGroupNameProvider;
-static Watchdog *__watchdog;
+static BlockWatcher *__watchdog;
 
-+ (void)initWithConfig:(NXPTConvertBlock)ptConvertBlock appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider performance:(CGFloat (^)(void))performanceBlock{
++ (void)initWithConfig:(NXPTConvertBlock)ptConvertBlock appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
     __ptConvertBlock=ptConvertBlock;
     __appGroupNameProvider=appGroupNameProvider;
     __userIdProvider=userIdProvider;
     [self _initMMKV];
-    [self _initPerformanceMonitor:performanceBlock()];
 }
 
 
@@ -41,12 +39,6 @@ static Watchdog *__watchdog;
 }
 
 
-+(void)_initPerformanceMonitor:(CGFloat)threshold{
-    if(threshold<=0||threshold>=CGFLOAT_MAX){
-        return;
-    }
-    __watchdog=[[Watchdog alloc] initWithThreshold:threshold strictMode:YES];
-}
 
 + (CGFloat)convertPTFromPX:(CGFloat)value{
     if(!__ptConvertBlock){
@@ -68,4 +60,13 @@ static Watchdog *__watchdog;
     }
     return __appGroupNameProvider();
 }
+
+
++ (void)startPerformanceMonitor:(CGFloat)threshold{
+    NSAssert(threshold>0, @"threshold 必须大于0");
+    if(!__watchdog){
+        __watchdog=[[BlockWatcher alloc] initWithThreshold:threshold strictMode:YES];
+    }
+}
+
 @end
