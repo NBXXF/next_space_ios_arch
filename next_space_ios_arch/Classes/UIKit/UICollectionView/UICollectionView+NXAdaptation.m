@@ -10,43 +10,36 @@
 @implementation UICollectionView(NXAdaptation)
 
 - (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth
-                     minColumn:(NSInteger)minColumn{
+                   columnRange:(NSRange)columnRange{
     CGFloat spacing=0.0;
     if([self.collectionViewLayout isKindOfClass:UICollectionViewFlowLayout.class]){
         spacing=((UICollectionViewFlowLayout *)self.collectionViewLayout).minimumInteritemSpacing;
     }
-    return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:0 withMinimumInteritemSpacing:spacing minColumn:minColumn];
+    return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:0 withMinimumInteritemSpacing:spacing columnRange:columnRange];
 }
 
 - (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth insetForSectionAtIndex:(NSInteger)section
-                     minColumn:(NSInteger)minColumn{
+                   columnRange:(NSRange)columnRange{
     if([self.delegate conformsToProtocol:@protocol(UICollectionViewDelegateFlowLayout)]){
         id<UICollectionViewDelegateFlowLayout> _Nullable delegate=self.delegate;
         CGFloat minimumInteritemSpacing= [delegate collectionView:self layout:self.collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
         UIEdgeInsets sectionEdge=[delegate collectionView:self layout:self.collectionViewLayout insetForSectionAtIndex:section];
         CGFloat sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
         return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:minimumInteritemSpacing
-            minColumn:minColumn];
+            columnRange:columnRange];
     }
-    return [self getAdaptColumnWidth:expectColumnWidth minColumn:minColumn];
+    return [self getAdaptColumnWidth:expectColumnWidth columnRange:columnRange];
 }
 
 
 - (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth withSectionPadding:(CGFloat)sectionPadding withMinimumInteritemSpacing:(CGFloat)minimumInteritemSpacing
-                     minColumn:(NSInteger)minColumn{
+                   columnRange:(NSRange)columnRange{
     CGFloat padding=fabs(self.contentInset.left)+fabs(self.contentInset.right)+sectionPadding;
     CGFloat totalWidth=self.frame.size.width-padding;
     
     
     NSInteger column= (NSInteger) (floor(totalWidth/expectColumnWidth));
-    //优先级为minColumn 最高
-    if(column<=minColumn){
-        CGFloat realColumnWidth=totalWidth/column;
-        BOOL flag=(realColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
-        if(flag){
-            return realColumnWidth;
-        }
-    }
+   
     
     //循环递减列数量
     CGFloat realColumnWidth=totalWidth/column;
@@ -55,6 +48,24 @@
         column--;
         realColumnWidth=self.frame.size.width/column;
         flag=(realColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
+    }
+    CGFloat minColumn=columnRange.location;
+    CGFloat maxColumn=NSMaxRange(columnRange);
+    
+    NSAssert(minColumn<maxColumn&&minColumn>=1, @"columnRange参数不合法");
+    
+    if(column<minColumn){
+        CGFloat realColumnWidth=totalWidth/minColumn;
+        BOOL flag=(realColumnWidth*minColumn+(minColumn-1)*minimumInteritemSpacing)<=totalWidth;
+        if(flag){
+            return realColumnWidth;
+        }
+    }else if(column>maxColumn){
+        CGFloat realColumnWidth=totalWidth/maxColumn;
+        BOOL flag=(realColumnWidth*maxColumn+(maxColumn-1)*minimumInteritemSpacing)<=totalWidth;
+        if(flag){
+            return realColumnWidth;
+        }
     }
     return realColumnWidth;
 }

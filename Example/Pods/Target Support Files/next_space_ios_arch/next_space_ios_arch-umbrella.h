@@ -67,6 +67,7 @@
 #import "NXCollectionReusableView.h"
 #import "NXCollectionSectionTextView.h"
 #import "NXCollectionViewCell.h"
+#import "UICollectionView+NXAdaptation.h"
 #import "UICollectionView+NXRegister.h"
 #import "UIColor+NXGradient.h"
 #import "UIImage+NXGradient.h"
