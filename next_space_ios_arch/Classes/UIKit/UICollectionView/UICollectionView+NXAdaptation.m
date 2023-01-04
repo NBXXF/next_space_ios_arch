@@ -64,7 +64,6 @@
         column=maxColumn;
     }
     CGFloat realWidth=(totalWidth-(column-1)*minimumInteritemSpacing)/column;
-    NSString * str = [NSString stringWithFormat:@"%.1f",realWidth];
-    return MAX(floor([str floatValue]), 0.1);
+    return realWidth;
 }
 @end
