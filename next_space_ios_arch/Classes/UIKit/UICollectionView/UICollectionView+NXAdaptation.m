@@ -18,8 +18,9 @@
     return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:0 withMinimumInteritemSpacing:spacing columnRange:columnRange];
 }
 
-- (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth insetForSectionAtIndex:(NSInteger)section
-                   columnRange:(NSRange)columnRange{
+-(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth
+                  columnRange:(NSRange)columnRange
+               sectionAtIndex:(NSInteger)section{
     if([self.delegate conformsToProtocol:@protocol(UICollectionViewDelegateFlowLayout)]){
         id<UICollectionViewDelegateFlowLayout> _Nullable delegate=self.delegate;
         CGFloat minimumInteritemSpacing= [delegate collectionView:self layout:self.collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
@@ -30,7 +31,6 @@
     }
     return [self getAdaptColumnWidth:expectColumnWidth columnRange:columnRange];
 }
-
 
 - (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth withSectionPadding:(CGFloat)sectionPadding withMinimumInteritemSpacing:(CGFloat)minimumInteritemSpacing
                    columnRange:(NSRange)columnRange{
@@ -53,15 +53,9 @@
     NSAssert(minColumn<maxColumn&&minColumn>=1, @"columnRange参数不合法");
     
     if(column<minColumn){
-        BOOL flag=(expectColumnWidth*minColumn+(minColumn-1)*minimumInteritemSpacing)<=totalWidth;
-        if(flag){
-            column=minColumn;
-        }
+        column=minColumn;
     }else if(column>maxColumn){
-        BOOL flag=(expectColumnWidth*maxColumn+(maxColumn-1)*minimumInteritemSpacing)<=totalWidth;
-        if(flag){
-            column=maxColumn;
-        }
+        column=maxColumn;
     }
     return (totalWidth-(column-1)*minimumInteritemSpacing)/column;
 }

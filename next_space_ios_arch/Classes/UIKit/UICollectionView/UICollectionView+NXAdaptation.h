@@ -25,8 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param expectColumnWidth 期望的格子宽度
  @param columnRange 格子区间 最高优先级
  */
--(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth insetForSectionAtIndex:(NSInteger)section
-                  columnRange:(NSRange)columnRange;
+-(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth
+                  columnRange:(NSRange)columnRange
+               sectionAtIndex:(NSInteger)section;
 
 @end
 
