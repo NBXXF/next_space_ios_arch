@@ -24,6 +24,12 @@
     if([self.delegate conformsToProtocol:@protocol(UICollectionViewDelegateFlowLayout)]){
         id<UICollectionViewDelegateFlowLayout> _Nullable delegate=self.delegate;
         CGFloat minimumInteritemSpacing= [delegate collectionView:self layout:self.collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
+        //用默认的
+        if(minimumInteritemSpacing<=0.0){
+            if([self.collectionViewLayout isKindOfClass:UICollectionViewFlowLayout.class]){
+                minimumInteritemSpacing=((UICollectionViewFlowLayout *)self.collectionViewLayout).minimumInteritemSpacing;
+            }
+        }
         UIEdgeInsets sectionEdge=[delegate collectionView:self layout:self.collectionViewLayout insetForSectionAtIndex:section];
         CGFloat sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
         return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:minimumInteritemSpacing
