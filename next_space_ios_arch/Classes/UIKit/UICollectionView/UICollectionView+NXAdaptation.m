@@ -46,7 +46,7 @@
     BOOL flag=(realColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
     while (!flag&&column>1) {
         column--;
-        realColumnWidth=self.frame.size.width/column;
+        realColumnWidth=totalWidth/column;
         flag=(realColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
     }
     CGFloat minColumn=columnRange.location;
