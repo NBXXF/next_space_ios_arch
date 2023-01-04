@@ -12,15 +12,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UICollectionView(NXAdaptation)
 
 /**
- 返回实际应该的width
+ 适配之后返回实际的格子宽度
+ @param expectColumnWidth 期望的格子宽度
+ @param minColumn 最小格子数量 最高优先级
  */
--(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth;
+-(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth minColumn:(NSInteger)minColumn;
 
 
 /**
  对应的分组 考虑分组可以设置内边距
+ 适配之后返回实际的格子宽度
+ @param expectColumnWidth 期望的格子宽度
+ @param minColumn 最小格子数量  最高优先级
  */
--(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth insetForSectionAtIndex:(NSInteger)section;
+-(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth insetForSectionAtIndex:(NSInteger)section
+                    minColumn:(NSInteger)minColumn;
 
 @end
 
