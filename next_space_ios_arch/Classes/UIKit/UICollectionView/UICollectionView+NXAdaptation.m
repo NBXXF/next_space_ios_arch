@@ -40,33 +40,29 @@
     
     NSInteger column= (NSInteger) (floor(totalWidth/expectColumnWidth));
    
-    
     //循环递减列数量
-    CGFloat realColumnWidth=totalWidth/column;
-    BOOL flag=(realColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
+    BOOL flag=(expectColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
     while (!flag&&column>1) {
         column--;
-        realColumnWidth=totalWidth/column;
-        flag=(realColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
+        flag=(expectColumnWidth*column+(column-1)*minimumInteritemSpacing)<=totalWidth;
     }
+
     CGFloat minColumn=columnRange.location;
     CGFloat maxColumn=NSMaxRange(columnRange);
     
     NSAssert(minColumn<maxColumn&&minColumn>=1, @"columnRange参数不合法");
     
     if(column<minColumn){
-        CGFloat realColumnWidth=totalWidth/minColumn;
-        BOOL flag=(realColumnWidth*minColumn+(minColumn-1)*minimumInteritemSpacing)<=totalWidth;
+        BOOL flag=(expectColumnWidth*minColumn+(minColumn-1)*minimumInteritemSpacing)<=totalWidth;
         if(flag){
-            return realColumnWidth;
+            column=minColumn;
         }
     }else if(column>maxColumn){
-        CGFloat realColumnWidth=totalWidth/maxColumn;
-        BOOL flag=(realColumnWidth*maxColumn+(maxColumn-1)*minimumInteritemSpacing)<=totalWidth;
+        BOOL flag=(expectColumnWidth*maxColumn+(maxColumn-1)*minimumInteritemSpacing)<=totalWidth;
         if(flag){
-            return realColumnWidth;
+            column=maxColumn;
         }
     }
-    return realColumnWidth;
+    return (totalWidth-(column-1)*minimumInteritemSpacing)/column;
 }
 @end
