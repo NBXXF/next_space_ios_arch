@@ -22,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+    NSString *s= [NSString toKindOfClassObjectOrNilFrom:nil];
     NSArray *array=[NSMutableArray arrayWithObjects:@"张三",@"张三",nil];
     [array.rac_sequence map:^id _Nullable(id  _Nullable value) {
         return @"";
@@ -33,8 +34,7 @@
     
     NSString *str=@"a";
     NSLog(@"========>malloc_size = %zd", malloc_size((__bridge const void *)(str)));
-    long s=1UL << 1;
-    NSLog(@"============>%ld",s);
+
     
     NSLog(@"============>scale:%f", UIScreen.mainScreen.scale);
     NSLog(@"============>scale width:%f",  [UIScreen mainScreen].bounds.size.width);
