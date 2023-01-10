@@ -8,22 +8,24 @@
 #import "XXF.h"
 #import <MMKV/MMKV.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
+#import <UIScreen+NXTools.h>
 
 
 @implementation XXF
-static NXPTConvertBlock __ptConvertBlock;
 static NXUserIdProvider __userIdProvider;
 static NXAppGroupNameProvider __appGroupNameProvider;
 static BlockWatcher *__watchdog;
 
 + (void)initWithConfig:(NXPTConvertBlock)ptConvertBlock appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
-    __ptConvertBlock=ptConvertBlock;
+    [self initWithConfig:appGroupNameProvider userIdProvider:userIdProvider];
+}
+
+
++ (void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
     __appGroupNameProvider=appGroupNameProvider;
     __userIdProvider=userIdProvider;
     [self _initMMKV];
 }
-
-
 
 +(void)_initMMKV{
     NSString *myGroupID = self.getAppGroupName;
@@ -41,11 +43,9 @@ static BlockWatcher *__watchdog;
 
 
 + (CGFloat)convertPTFromPX:(CGFloat)value{
-    if(!__ptConvertBlock){
-        @throw [NSException exceptionWithName:@"初始化失败" reason:@"请初始化xxf" userInfo:nil];
-    }
-    return __ptConvertBlock(value);
+    return [UIScreen.mainScreen getDensityValue:value];
 }
+
 
 + (NSString *)getUserId{
     if(!__userIdProvider){

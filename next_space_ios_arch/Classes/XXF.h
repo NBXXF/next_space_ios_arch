@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)initWithConfig:(NXPTConvertBlock)ptConvertBlock
  appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider
+       userIdProvider:(NXUserIdProvider)userIdProvider DEPRECATED_MSG_ATTRIBUTE("过时了");
+
++(void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider
        userIdProvider:(NXUserIdProvider)userIdProvider;
 
 /**

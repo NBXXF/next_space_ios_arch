@@ -65,24 +65,24 @@
 }
 
 
-- (CGRect)orientationBounds{
+- (CGRect)currentBounds{
     return [self boundsForOrientation:self.orientation];
 }
 
 
 
-- (CGSize)orientationSize{
+- (CGSize)currentSize{
     return [self sizeForOrientation:self.orientation];
 }
 
 
 - (CGFloat)minimumEdgeWidth{
-    CGSize size=self.orientationSize;
+    CGSize size=self.currentSize;
     return MIN(size.width, size.height);
 }
 
 - (CGFloat)maximumEdgeWidth{
-    CGSize size=self.orientationSize;
+    CGSize size=self.currentSize;
     return MAX(size.width, size.height);
 }
 
