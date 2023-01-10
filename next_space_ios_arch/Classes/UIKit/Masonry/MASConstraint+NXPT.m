@@ -6,30 +6,30 @@
 //
 
 #import "MASConstraint+NXPT.h"
-#import "XXF.h"
 #import <Masonry/MASConstraint+Private.h>
+#import "UIScreen+NXTools.h"
 
 @implementation MASConstraint(NXPT)
 
 - (CGFloat)convertPTFromPX:(CGFloat)value{
-    return [XXF convertPTFromPX:value];
+    return [UIScreen.mainScreen getDensityValue:value];
 }
 
 - (CGSize)convertPTSizeFromPX:(CGSize)value{
-    return CGSizeMake([XXF convertPTFromPX:value.width],
-                      [XXF convertPTFromPX:value.height]);
+    return CGSizeMake([self convertPTFromPX:value.width],
+                      [self convertPTFromPX:value.height]);
 }
 
 - (CGPoint)convertPTPointFromPX:(CGPoint)value{
-    return CGPointMake([XXF convertPTFromPX:value.x],
-                       [XXF convertPTFromPX:value.y]);
+    return CGPointMake([self convertPTFromPX:value.x],
+                       [self convertPTFromPX:value.y]);
 }
 
 - (UIEdgeInsets)convertPTEdgeInsetsFromPX:(UIEdgeInsets)value{
-    return UIEdgeInsetsMake([XXF convertPTFromPX:value.top],
-                            [XXF convertPTFromPX:value.left],
-                            [XXF convertPTFromPX:value.bottom],
-                            [XXF convertPTFromPX:value.right]);
+    return UIEdgeInsetsMake([self convertPTFromPX:value.top],
+                            [self convertPTFromPX:value.left],
+                            [self convertPTFromPX:value.bottom],
+                            [self convertPTFromPX:value.right]);
 }
 
 - (MASConstraint * (^)(MASEdgeInsets insets))insetsPT{

@@ -61,9 +61,7 @@
 //    }];
     
     
-    [XXF initWithConfig:^CGFloat(CGFloat value) {
-        return value;
-    } appGroupNameProvider:^NSString * _Nonnull{
+    [XXF initWithConfig:^NSString * _Nonnull{
         return @"";
     } userIdProvider:^NSString * _Nonnull{
         return @"testUser";

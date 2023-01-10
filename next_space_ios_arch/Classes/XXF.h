@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef CGFloat(^NXPTConvertBlock)(CGFloat value);
 typedef NSString *_Nonnull(^NXUserIdProvider)(void);
 typedef NSString *_Nonnull(^NXAppGroupNameProvider)(void);
 
@@ -15,14 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XXF : NSObject
 
-+(void)initWithConfig:(NXPTConvertBlock)ptConvertBlock
- appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider
++(void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider
        userIdProvider:(NXUserIdProvider)userIdProvider;
-
-/**
- 转换相对单位
- */
-+(CGFloat)convertPTFromPX:(CGFloat)value;
 
 //获取userId
 +(NSString *_Nonnull)getUserId DEPRECATED_MSG_ATTRIBUTE("仅限于框架使用,业务代码勿调");
