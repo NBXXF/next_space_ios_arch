@@ -35,13 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  当前屏幕方向矩阵
  */
-@property(nonatomic,assign,readonly) CGRect orientationBounds;
+@property(nonatomic,assign,readonly) CGRect currentBounds;
 
 
 /**
  当前屏幕方向大小
  */
-@property(nonatomic,assign,readonly) CGSize orientationSize;
+@property(nonatomic,assign,readonly) CGSize currentSize;
 
 
 /**
