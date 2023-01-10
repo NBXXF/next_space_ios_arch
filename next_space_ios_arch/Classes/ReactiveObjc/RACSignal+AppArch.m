@@ -6,7 +6,7 @@
 //
 
 #import "RACSignal+AppArch.h"
-
+typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
 @implementation RACSignal(AppArch)
 
 - (RACSignal *)subscribe{
@@ -67,13 +67,25 @@
     return [[self bind:^{
         __block id lastValue = nil;
         __block BOOL initial = YES;
+        //先强制持有
+        __block DistinctUntilChangedWithBlock callback=block;
 
         return ^(id x, BOOL *stop) {
-            if (!initial && (block(lastValue,x))) return [class empty];
+            if(callback){
+                //这里代码为自定义
+                if (!initial && (callback(lastValue,x))) return [class empty];
+                
+                initial = NO;
+                lastValue = x;
+                return [class return:x];
+            }else{
+                //这里代码等同copy from distinctUntilChanged
+                if (!initial && (lastValue == x || [x isEqual:lastValue])) return [class empty];
 
-            initial = NO;
-            lastValue = x;
-            return [class return:x];
+                initial = NO;
+                lastValue = x;
+                return [class return:x];
+            }
         };
     }] setNameWithFormat:@"[%@] -distinctUntilChangedWithBlock", self.name];
 }

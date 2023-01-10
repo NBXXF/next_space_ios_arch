@@ -22,6 +22,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+//    [[[RACSignal interval:1 onScheduler:RACScheduler.scheduler] distinctUntilChangedWithBlock:^BOOL(NSDate * _Nonnull last, NSDate * _Nonnull current) {
+//            return [last isEqual:current];
+//    }] subscribeNext:^(NSDate * _Nullable x) {
+//        NSLog(@"===========>distinct1:%@",x);
+//    }];
+    
+    [[[[RACSignal just:@"1"] concat:[RACSignal just:@"1"]] distinctUntilChangedWithBlock:^BOOL(id  _Nonnull last, id  _Nonnull current) {
+           // return [last isEqual:current];
+        return false;
+    }] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"===========>distinct2:%@",x);
+    }];
     NSString *s= [NSString toKindOfClassObjectOrNilFrom:nil];
     NSArray *array=[NSMutableArray arrayWithObjects:@"张三",@"张三",nil];
     [array.rac_sequence map:^id _Nullable(id  _Nullable value) {
@@ -66,7 +78,7 @@
     } userIdProvider:^NSString * _Nonnull{
         return @"testUser";
     }];
-    [XXF startPerformanceMonitor:0.5];
+    [XXF startPerformanceMonitor:10.5];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
