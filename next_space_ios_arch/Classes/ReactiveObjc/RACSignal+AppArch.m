@@ -75,7 +75,7 @@
             lastValue = x;
             return [class return:x];
         };
-    }] setNameWithFormat:@"[%@] -distinctUntilChanged", self.name];
+    }] setNameWithFormat:@"[%@] -distinctUntilChangedWithBlock", self.name];
 }
 
 @end
