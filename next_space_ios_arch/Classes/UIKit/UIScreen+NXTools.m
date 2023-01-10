@@ -57,4 +57,50 @@
 - (CGFloat)getDensityValue:(CGFloat)value{
     return value*[self getDensity];
 }
+
+
+- (UIInterfaceOrientation)orientation{
+    UIInterfaceOrientation  interfaceOrientation=UIApplication.sharedApplication.windows.firstObject.windowScene.interfaceOrientation;
+    return interfaceOrientation;
+}
+
+
+- (CGRect)orientationBounds{
+    return [self boundsForOrientation:self.orientation];
+}
+
+
+
+- (CGSize)orientationSize{
+    return [self sizeForOrientation:self.orientation];
+}
+
+
+- (CGFloat)minimumEdgeWidth{
+    CGSize size=self.orientationSize;
+    return MIN(size.width, size.height);
+}
+
+- (CGFloat)maximumEdgeWidth{
+    CGSize size=self.orientationSize;
+    return MAX(size.width, size.height);
+}
+
+
+- (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation {
+    CGRect bounds = [self bounds];
+    
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        CGFloat buffer = bounds.size.width;
+        bounds.size.width = bounds.size.height;
+        bounds.size.height = buffer;
+    }
+    return bounds;
+}
+
+
+
+- (CGSize)sizeForOrientation:(UIInterfaceOrientation)orientation{
+    return [self boundsForOrientation:orientation].size;
+}
 @end
