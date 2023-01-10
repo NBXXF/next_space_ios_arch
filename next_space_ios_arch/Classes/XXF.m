@@ -16,12 +16,16 @@ static NXUserIdProvider __userIdProvider;
 static NXAppGroupNameProvider __appGroupNameProvider;
 static BlockWatcher *__watchdog;
 
++ (void)initWithConfig:(NXPTConvertBlock)ptConvertBlock appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
+    [self initWithConfig:appGroupNameProvider userIdProvider:userIdProvider];
+}
+
+
 + (void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
     __appGroupNameProvider=appGroupNameProvider;
     __userIdProvider=userIdProvider;
     [self _initMMKV];
 }
-
 
 +(void)_initMMKV{
     NSString *myGroupID = self.getAppGroupName;
@@ -34,6 +38,12 @@ static BlockWatcher *__watchdog;
         }
         [MMKV initializeMMKV:nil groupDir:groupDir logLevel:MMKVLogDebug];
     }
+}
+
+
+
++ (CGFloat)convertPTFromPX:(CGFloat)value{
+    return [UIScreen.mainScreen getDensityValue:value];
 }
 
 
