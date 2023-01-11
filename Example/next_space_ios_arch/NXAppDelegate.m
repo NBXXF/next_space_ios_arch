@@ -21,7 +21,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   
+    CGFloat div=0.0;
+    CGFloat a=10.0/div;
+    NSLog(@"=========>%f",a);
+    @try {
+        CGFloat a=10.0/div;
+        NSLog(@"=========>%f",a);
+    } @catch (NSException *exception) {
+        NSLog(@"===========>div error:%@",exception);
+    } @finally {
+     
+    }
+    NSUserDefaults *user=NSUserDefaults.standardUserDefaults;
+    NSUserDefaults *user2=NSUserDefaults.standardUserDefaults;
+    NSLog(@"============>u1:%@",user.simpleDescription);
+    NSLog(@"============>u2:%@",user.simpleDescription);
+    
 //    [[[RACSignal interval:1 onScheduler:RACScheduler.scheduler] distinctUntilChangedWithBlock:^BOOL(NSDate * _Nonnull last, NSDate * _Nonnull current) {
 //            return [last isEqual:current];
 //    }] subscribeNext:^(NSDate * _Nullable x) {
