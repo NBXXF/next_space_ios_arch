@@ -59,7 +59,7 @@ typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
     if(inheritContext){
         BOOL isSubThread=![NSThread isMainThread];
         if(isSubThread){
-            return self;
+            return [self subscribeOn:RACScheduler.immediateScheduler];
         }
     }
     return [self subscribeOn:RACScheduler.scheduler];
@@ -74,7 +74,7 @@ typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
     if(inheritContext){
         BOOL isSubThread=![NSThread isMainThread];
         if(isSubThread){
-            return self;
+            return [self deliverOn:RACScheduler.immediateScheduler];
         }
     }
     return [self deliverOn:RACScheduler.scheduler];

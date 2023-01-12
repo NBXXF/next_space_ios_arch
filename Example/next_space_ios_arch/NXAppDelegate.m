@@ -22,6 +22,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+    [[RACSignal defer:^RACSignal * _Nonnull{
+        NSLog(@"===========>thread1:%@",NSThread.currentThread);
+        return [[RACSignal defer:^RACSignal * _Nonnull{
+            NSLog(@"===========>thread2:%@",NSThread.currentThread);
+            return [[RACSignal fromCallbck:^id _Nullable{
+                NSLog(@"===========>thread3:%@",NSThread.currentThread);
+                return @"";
+            }] subscribeOnSubThread:YES];
+        }] subscribeOnSubThread:YES];
+    }] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"===========>thread3:%@",NSThread.currentThread);
+    }];
 //    [[[RACSignal interval:1 onScheduler:RACScheduler.scheduler] distinctUntilChangedWithBlock:^BOOL(NSDate * _Nonnull last, NSDate * _Nonnull current) {
 //            return [last isEqual:current];
 //    }] subscribeNext:^(NSDate * _Nullable x) {
