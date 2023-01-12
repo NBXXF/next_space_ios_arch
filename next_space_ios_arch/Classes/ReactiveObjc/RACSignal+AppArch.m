@@ -55,8 +55,28 @@ typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
     return [self subscribeOn:RACScheduler.scheduler];
 }
 
+- (RACSignal *)subscribeOnSubThread:(BOOL)inheritContext{
+    if(inheritContext){
+        BOOL isSubThread=![NSThread isMainThread];
+        if(isSubThread){
+            return self;
+        }
+    }
+    return [self subscribeOn:RACScheduler.scheduler];
+}
+
 
 - (RACSignal *)deliverOnOnSubThread{
+    return [self deliverOn:RACScheduler.scheduler];
+}
+
+- (RACSignal *)deliverOnOnSubThread:(BOOL)inheritContext{
+    if(inheritContext){
+        BOOL isSubThread=![NSThread isMainThread];
+        if(isSubThread){
+            return self;
+        }
+    }
     return [self deliverOn:RACScheduler.scheduler];
 }
 

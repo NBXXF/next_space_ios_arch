@@ -52,6 +52,7 @@
 #import "NXRouterResultCallback.h"
 #import "NXRouterServiceDefinition.h"
 #import "NXServiceLoader.h"
+#import "UIView+NXDrop.h"
 #import "MASConstraint+NXPT.h"
 #import "MAS_VIEW+NXExtend.h"
 #import "NSLayoutConstraint+NXVisibiltiy.h"
