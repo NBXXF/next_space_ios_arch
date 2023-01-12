@@ -37,9 +37,22 @@ NS_ASSUME_NONNULL_BEGIN
 //订阅在子线程
 - (RACSignal<ValueType> *)subscribeOnSubThread;
 
+/**
+ 订阅在子线程
+ @param inheritContext 代表是否继承上文的子线程  如果上文是子线程 那么还是在那个子线程
+ */
+- (RACSignal<ValueType> *)subscribeOnSubThread:(BOOL)inheritContext;
+
 
 //观察在子线程
 - (RACSignal<ValueType> *)deliverOnOnSubThread;
+
+/**
+ /观察在子线程
+ @param inheritContext 代表是否继承上文的子线程  如果上文是子线程 那么还是在那个子线程
+ */
+- (RACSignal<ValueType> *)deliverOnOnSubThread:(BOOL)inheritContext;
+
 
 // 自定义是否节流
 - (RACSignal<ValueType> *)distinctUntilChangedWithBlock:(BOOL (^)(ValueType last,ValueType current))block;
