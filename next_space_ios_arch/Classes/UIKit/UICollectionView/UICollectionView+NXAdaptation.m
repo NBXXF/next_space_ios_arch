@@ -21,21 +21,36 @@
 -(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth
                   columnRange:(NSRange)columnRange
                sectionAtIndex:(NSInteger)section{
+    CGFloat spacing=0.0;
+    if([self.collectionViewLayout isKindOfClass:UICollectionViewFlowLayout.class]){
+        spacing=((UICollectionViewFlowLayout *)self.collectionViewLayout).minimumInteritemSpacing;
+    }
+    
+    CGFloat sectionPadding=0;
+    
+    
     if([self.delegate conformsToProtocol:@protocol(UICollectionViewDelegateFlowLayout)]){
         id<UICollectionViewDelegateFlowLayout> _Nullable delegate=self.delegate;
-        CGFloat minimumInteritemSpacing= [delegate collectionView:self layout:self.collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
-        //用默认的
-        if(minimumInteritemSpacing<=0.0){
-            if([self.collectionViewLayout isKindOfClass:UICollectionViewFlowLayout.class]){
-                minimumInteritemSpacing=((UICollectionViewFlowLayout *)self.collectionViewLayout).minimumInteritemSpacing;
+        if([delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)]){
+            CGFloat minimumInteritemSpacing= [delegate collectionView:self layout:self.collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
+            if(minimumInteritemSpacing>0.0){
+                spacing=minimumInteritemSpacing;
             }
         }
-        UIEdgeInsets sectionEdge=[delegate collectionView:self layout:self.collectionViewLayout insetForSectionAtIndex:section];
-        CGFloat sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
-        return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:minimumInteritemSpacing
+        
+        if([delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]){
+            UIEdgeInsets sectionEdge=[delegate collectionView:self layout:self.collectionViewLayout insetForSectionAtIndex:section];
+            CGFloat sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
+            if(UIEdgeInsetsEqualToEdgeInsets(sectionEdge,UIEdgeInsetsZero)){
+                sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
+            }
+        }
+    
+        return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:spacing
             columnRange:columnRange];
+    }else{
+        return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:0 withMinimumInteritemSpacing:spacing columnRange:columnRange];
     }
-    return [self getAdaptColumnWidth:expectColumnWidth columnRange:columnRange];
 }
 
 - (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth withSectionPadding:(CGFloat)sectionPadding withMinimumInteritemSpacing:(CGFloat)minimumInteritemSpacing
