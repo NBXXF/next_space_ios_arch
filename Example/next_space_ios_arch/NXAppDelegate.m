@@ -22,6 +22,36 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
+    NSMutableArray<NSString *> *arr=NSMutableArray.array;
+    for(int i=0;i<100;i++){
+        [arr addObject:[NSString stringWithFormat:@"%d",i]];
+    }
+    
+    CGFloat start=NSDate.date.timeIntervalSince1970*1000;
+    for(int i=0;i<100;i++){
+        [arr.rac_sequence filter:^BOOL(NSString *_Nullable value) {
+            return [value isEqual:@"50"];
+        }].array.firstObject;
+    }
+    CGFloat end=NSDate.date.timeIntervalSince1970*1000;
+    NSLog(@"===========>take1:%f",(end-start));
+    
+    
+    start=NSDate.date.timeIntervalSince1970*1000;
+    for(int i=0;i<100;i++){
+        [arr firstObjectWithBlock:^BOOL(NSString * _Nonnull value) {
+            return [value isEqual:@"50"];
+        }];
+    }
+    end=NSDate.date.timeIntervalSince1970*1000;
+    NSLog(@"===========>take2:%f",(end-start));
+    
+    [[RACSignal fromCallbck:^id _Nullable{
+            return @"xxx";
+    }].deliverOnMainThread subscribeNext:^(id  _Nullable x) {
+        NSLog(@"===========>yes:%@",x);
+    }];
+    
     [[RACSignal defer:^RACSignal * _Nonnull{
         NSLog(@"===========>thread1:%@",NSThread.currentThread);
         return [[RACSignal defer:^RACSignal * _Nonnull{
