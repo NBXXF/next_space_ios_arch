@@ -7,6 +7,7 @@
 
 #import "RACSignal+AppArch.h"
 typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
+typedef id __nullable (^ResultCallbck)(void);
 @implementation RACSignal(AppArch)
 
 - (RACSignal *)subscribe{
@@ -20,8 +21,9 @@ typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
 }
 
 + (RACSignal *)fromCallbck:(id __nullable (^)(void))block{
+    __block ResultCallbck fromCallBack=block;
     return [RACSignal defer:^RACSignal * _Nonnull{
-        return [RACSignal return:block()];
+        return [RACSignal return:fromCallBack()];
     }];
 }
 
@@ -30,8 +32,9 @@ typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
 }
 
 - (RACSignal *)onErrorReturn:(id  _Nullable (^)(void))block{
+    __block ResultCallbck errorCallBack=block;
     return [self catch:^RACSignal * _Nonnull(NSError * _Nonnull error) {
-        return [RACSignal just:block()];
+        return [RACSignal just:errorCallBack()];
     }];
 }
 
@@ -59,7 +62,7 @@ typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
     if(inheritContext){
         BOOL isSubThread=![NSThread isMainThread];
         if(isSubThread){
-            return self;
+            return [self subscribeOn:RACScheduler.immediateScheduler];
         }
     }
     return [self subscribeOn:RACScheduler.scheduler];
@@ -74,7 +77,7 @@ typedef BOOL (^DistinctUntilChangedWithBlock)(id last,id current);
     if(inheritContext){
         BOOL isSubThread=![NSThread isMainThread];
         if(isSubThread){
-            return self;
+            return [self deliverOn:RACScheduler.immediateScheduler];
         }
     }
     return [self deliverOn:RACScheduler.scheduler];
