@@ -50,4 +50,14 @@
     }
     return nil;
 }
+
+
+- (instancetype)applyWithBlock:(void (^)(id _Nonnull))block{
+    block(self);
+    return self;
+}
+
+- (id)mapWithBlock:(id  _Nonnull (^)(id _Nonnull))block{
+    return block(self);
+}
 @end

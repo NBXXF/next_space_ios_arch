@@ -8,6 +8,12 @@
 #import "NSDictionary+NXTools.h"
 
 @implementation NSDictionary(NXTools)
+
+- (instancetype)applyWithBlock:(void (^)(NSDictionary * _Nonnull))block{
+    block(self);
+    return self;
+}
+
 - (NSMutableDictionary *)filterObjectWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
     NSMutableDictionary *result=[NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {

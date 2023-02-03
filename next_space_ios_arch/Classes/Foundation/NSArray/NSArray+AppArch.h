@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  变换整体
  */
--(NSMutableArray<ObjectType> *)applyWithBlock:(NSMutableArray<ObjectType> * (^)(NSArray<ObjectType> *it))block;
+-(instancetype)applyWithBlock:(void(^)(NSArray<ObjectType> *it))block;
 
 /**
  变换item类型

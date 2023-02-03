@@ -9,7 +9,7 @@
 
 @implementation NSMutableDictionary(NXTools)
 
-- (NSMutableDictionary *)applyWithBlock:(void (^)(NSMutableDictionary * _Nonnull))block{
+- (instancetype)applyWithBlock:(void (^)(NSMutableDictionary * _Nonnull))block{
     block(self);
     return self;
 }

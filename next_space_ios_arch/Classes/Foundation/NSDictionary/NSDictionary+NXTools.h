@@ -10,6 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary<__covariant KeyType, __covariant ObjectType>(NXTools)
+
+/**
+ 变换整体
+ */
+-(instancetype)applyWithBlock:(void (^)(NSDictionary<KeyType,ObjectType> *it))block;
+
 /**
  筛选出满足条件的对象集合
  */

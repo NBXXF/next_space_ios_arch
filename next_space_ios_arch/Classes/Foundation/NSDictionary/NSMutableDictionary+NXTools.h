@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  变换整体
  */
--(NSMutableDictionary<KeyType,ObjectType> *)applyWithBlock:(void (^)(NSMutableDictionary<KeyType,ObjectType> *it))block;
+-(instancetype)applyWithBlock:(void (^)(NSMutableDictionary<KeyType,ObjectType> *it))block;
 @end
 
 NS_ASSUME_NONNULL_END

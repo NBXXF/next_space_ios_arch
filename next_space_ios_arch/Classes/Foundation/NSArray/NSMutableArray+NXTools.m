@@ -9,8 +9,10 @@
 
 @implementation NSMutableArray(NXTools)
 
-- (NSMutableArray *)applyWithBlock:(void (^)(NSMutableArray * _Nonnull))block{
+
+- (instancetype)applyWithBlock:(void (^)(NSMutableArray * _Nonnull))block{
     block(self);
     return self;
 }
+
 @end

@@ -10,6 +10,7 @@
 #import "NXDemoViewController.h"
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/UIScreen+NXTools.h>
+#import <next_space_ios_arch/NSObject+NXTools.h>
 #import <malloc/malloc.h>
 
 @implementation NXAppDelegate
@@ -21,7 +22,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   
+    NSString *s1=@"";
+    NSDictionary *dict=[application applyWithBlock:^(UIApplication *_Nonnull it) {
+        
+    }];
+    NSMutableArray<NSString *> *temp=NSMutableArray.array;
+//    [temp applyWithBlock:^(NSMutableArray<NSString *> * _Nonnull it) {
+//        return nil;
+//    }];
+    
     NSMutableArray<NSString *> *arr=NSMutableArray.array;
     for(int i=0;i<100;i++){
         [arr addObject:[NSString stringWithFormat:@"%d",i]];
