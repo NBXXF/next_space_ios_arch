@@ -6,49 +6,49 @@
 //
 
 #import "UICollectionView+NXAdaptation.h"
+#import <next_space_ios_arch/NSObject+NXTools.h>
 
 @implementation UICollectionView(NXAdaptation)
 
 - (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth
                    columnRange:(NSRange)columnRange{
     CGFloat spacing=0.0;
-    if([self.collectionViewLayout isKindOfClass:UICollectionViewFlowLayout.class]){
-        spacing=((UICollectionViewFlowLayout *)self.collectionViewLayout).minimumInteritemSpacing;
+    CGFloat sectionPadding=0.0;
+    UICollectionViewFlowLayout *flowLayout =[UICollectionViewFlowLayout toKindOfClassObjectOrNilFrom:self.collectionViewLayout];
+    if(flowLayout){
+        spacing=flowLayout.minimumInteritemSpacing;
+        sectionPadding=fabs(flowLayout.sectionInset.left)+fabs(flowLayout.sectionInset.right);
     }
-    return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:0 withMinimumInteritemSpacing:spacing columnRange:columnRange];
+    return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:spacing columnRange:columnRange];
 }
 
 -(CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth
                   columnRange:(NSRange)columnRange
                sectionAtIndex:(NSInteger)section{
     CGFloat spacing=0.0;
-    if([self.collectionViewLayout isKindOfClass:UICollectionViewFlowLayout.class]){
-        spacing=((UICollectionViewFlowLayout *)self.collectionViewLayout).minimumInteritemSpacing;
+    CGFloat sectionPadding=0.0;
+    UICollectionViewFlowLayout *flowLayout =[UICollectionViewFlowLayout toKindOfClassObjectOrNilFrom:self.collectionViewLayout];
+    if(flowLayout){
+        spacing=flowLayout.minimumInteritemSpacing;
+        sectionPadding=fabs(flowLayout.sectionInset.left)+fabs(flowLayout.sectionInset.right);
     }
-    
-    CGFloat sectionPadding=0;
     
     
     if([self.delegate conformsToProtocol:@protocol(UICollectionViewDelegateFlowLayout)]){
         id<UICollectionViewDelegateFlowLayout> _Nullable delegate=self.delegate;
         if([delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)]){
-            CGFloat minimumInteritemSpacing= [delegate collectionView:self layout:self.collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
-            if(minimumInteritemSpacing>0.0){
-                spacing=minimumInteritemSpacing;
-            }
+            spacing= [delegate collectionView:self layout:self.collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
         }
         
         if([delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]){
             UIEdgeInsets sectionEdge=[delegate collectionView:self layout:self.collectionViewLayout insetForSectionAtIndex:section];
-            if(!UIEdgeInsetsEqualToEdgeInsets(sectionEdge,UIEdgeInsetsZero)){
-                sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
-            }
+            sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
         }
     
         return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:spacing
             columnRange:columnRange];
     }else{
-        return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:0 withMinimumInteritemSpacing:spacing columnRange:columnRange];
+        return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:spacing columnRange:columnRange];
     }
 }
 
@@ -77,7 +77,9 @@
     }else if(column>maxColumn){
         column=maxColumn;
     }
-    CGFloat realWidth=(totalWidth-(column-1)*minimumInteritemSpacing)/column;
+    
+    //向下取整 差一点点没关系,否则上游部分运算有问题
+    CGFloat realWidth=floor((totalWidth-(column-1)*minimumInteritemSpacing)/column);
     return realWidth;
 }
 @end
