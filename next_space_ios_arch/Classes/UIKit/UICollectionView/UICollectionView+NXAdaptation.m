@@ -13,10 +13,11 @@
 - (CGFloat)getAdaptColumnWidth:(NSInteger)expectColumnWidth
                    columnRange:(NSRange)columnRange{
     CGFloat spacing=0.0;
-    CGFloat sectionPadding=fabs(self.contentInset.left)+fabs(self.contentInset.right);
+    CGFloat sectionPadding=0.0;
     UICollectionViewFlowLayout *flowLayout =[UICollectionViewFlowLayout toKindOfClassObjectOrNilFrom:self.collectionViewLayout];
     if(flowLayout){
         spacing=flowLayout.minimumInteritemSpacing;
+        sectionPadding=fabs(flowLayout.sectionInset.left)+fabs(flowLayout.sectionInset.right);
     }
     return [self getAdaptColumnWidth:expectColumnWidth withSectionPadding:sectionPadding withMinimumInteritemSpacing:spacing columnRange:columnRange];
 }
@@ -25,10 +26,11 @@
                   columnRange:(NSRange)columnRange
                sectionAtIndex:(NSInteger)section{
     CGFloat spacing=0.0;
-    CGFloat sectionPadding=fabs(self.contentInset.left)+fabs(self.contentInset.right);
+    CGFloat sectionPadding=0.0;
     UICollectionViewFlowLayout *flowLayout =[UICollectionViewFlowLayout toKindOfClassObjectOrNilFrom:self.collectionViewLayout];
     if(flowLayout){
         spacing=flowLayout.minimumInteritemSpacing;
+        sectionPadding=fabs(flowLayout.sectionInset.left)+fabs(flowLayout.sectionInset.right);
     }
     
     
