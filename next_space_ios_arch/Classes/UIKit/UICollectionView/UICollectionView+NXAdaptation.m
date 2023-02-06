@@ -77,7 +77,9 @@
     }else if(column>maxColumn){
         column=maxColumn;
     }
-    CGFloat realWidth=(totalWidth-(column-1)*minimumInteritemSpacing)/column;
+    
+    //向下取整 差一点点没关系,否则上游部分运算有问题
+    CGFloat realWidth=floor((totalWidth-(column-1)*minimumInteritemSpacing)/column);
     return realWidth;
 }
 @end
