@@ -40,8 +40,7 @@
         
         if([delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]){
             UIEdgeInsets sectionEdge=[delegate collectionView:self layout:self.collectionViewLayout insetForSectionAtIndex:section];
-            CGFloat sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
-            if(UIEdgeInsetsEqualToEdgeInsets(sectionEdge,UIEdgeInsetsZero)){
+            if(!UIEdgeInsetsEqualToEdgeInsets(sectionEdge,UIEdgeInsetsZero)){
                 sectionPadding= fabs(sectionEdge.left)+fabs(sectionEdge.right);
             }
         }
