@@ -32,6 +32,7 @@
 #import "NXHTTPSessionManager.h"
 #import "NXItemMenu.h"
 #import "NXItemMenuImpl.h"
+#import "NXSelectableObject.h"
 #import "NXSelectableProtocol.h"
 #import "NSObject+ExchangeMethod.h"
 #import "NSObject+NXTools.h"
