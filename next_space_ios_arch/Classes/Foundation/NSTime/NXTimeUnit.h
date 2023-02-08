@@ -5,9 +5,14 @@
 //  Created by XXF on 2023/2/8.
 /**
  支持纳秒,微秒,毫秒,秒,分,时,天各种交叉转换
- 用法如下:
- 天转成毫秒
+ 用法如下:  原单位*参数 to 对应的单位数据
+ 将1天转成毫秒
  long long m=NXTimeUnit.DAYS.toMillis(1);
+ 
+ 将2天转成毫秒
+ long long m=NXTimeUnit.DAYS.toMillis(2);
+ 
+ 
  毫秒转成天
  long long m3=NXTimeUnit.MILLISECONDS.toDays(86400000);
  */
