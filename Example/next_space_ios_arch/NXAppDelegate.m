@@ -22,6 +22,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    long long m=NXTimeUnit.DAYS.toMillis(1);
+    NSLog(@"========>m:%lld",m);
+    
+    long long m2=NXTimeUnit.DAYS.toDays(2);
+    NSLog(@"========>m2:%lld",m2);
+    
+    long long m3=NXTimeUnit.MILLISECONDS.toDays(86400000);
+    NSLog(@"========>m3:%lld",m3);
+    
     NSString *s1=@"";
     NSDictionary *dict=[application applyWithBlock:^(UIApplication *_Nonnull it) {
         
