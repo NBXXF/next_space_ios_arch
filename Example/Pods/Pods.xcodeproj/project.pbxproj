@@ -380,6 +380,8 @@
 		7CA94FD72994DB6F00E0F0B7 /* NXTableListAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA94FD52994DB6E00E0F0B7 /* NXTableListAdapter.m */; };
 		7CA94FDA2994DC5D00E0F0B7 /* UITableView+NXAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA94FD82994DC5D00E0F0B7 /* UITableView+NXAdapter.h */; };
 		7CA94FDB2994DC5D00E0F0B7 /* UITableView+NXAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA94FD92994DC5D00E0F0B7 /* UITableView+NXAdapter.m */; };
+		7CA94FDF2994DE9000E0F0B7 /* NXTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA94FDD2994DE9000E0F0B7 /* NXTableViewCell.h */; };
+		7CA94FE02994DE9000E0F0B7 /* NXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA94FDE2994DE9000E0F0B7 /* NXTableViewCell.m */; };
 		7CFB14A8627EC8F2EDD8C9D672533D0E /* NSDictionary+RACSequenceAdditionsDeprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9C71237195E72979F81AB8D2A76D2B /* NSDictionary+RACSequenceAdditionsDeprecated.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EE6C492AE0E485B8FACB352821E0542 /* RACReturnSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 558D47EA0B7FFF5F15D1ADF9E4E3DC1A /* RACReturnSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F4A0B3756EDD20898D785FB027FB15A /* UIBarButtonItem+YYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A79BDD1909E1E6BF5DDF8E656277DC /* UIBarButtonItem+YYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1233,6 +1235,8 @@
 		7CA94FD52994DB6E00E0F0B7 /* NXTableListAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXTableListAdapter.m; sourceTree = "<group>"; };
 		7CA94FD82994DC5D00E0F0B7 /* UITableView+NXAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+NXAdapter.h"; sourceTree = "<group>"; };
 		7CA94FD92994DC5D00E0F0B7 /* UITableView+NXAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NXAdapter.m"; sourceTree = "<group>"; };
+		7CA94FDD2994DE9000E0F0B7 /* NXTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXTableViewCell.h; sourceTree = "<group>"; };
+		7CA94FDE2994DE9000E0F0B7 /* NXTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXTableViewCell.m; sourceTree = "<group>"; };
 		7CEA5280786A0554ADCBC70529EE2A12 /* RACUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACUnit.h; path = ReactiveObjC/RACUnit.h; sourceTree = "<group>"; };
 		7CFC0FE6296BED2E0157B662709744CA /* JLRParsingUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRParsingUtilities.m; path = JLRoutes/Classes/JLRParsingUtilities.m; sourceTree = "<group>"; };
 		7D0C744A9EDBCA4678A8DDBC425D50A0 /* YYCGUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYCGUtilities.h; path = YYKit/Base/Quartz/YYCGUtilities.h; sourceTree = "<group>"; };
@@ -2637,6 +2641,8 @@
 			children = (
 				59DAD0E267E5C4066FABE6EEED11287C /* UITableView+NXRegister.h */,
 				DDE9791EB4B92EA3FC0AE00F928096C9 /* UITableView+NXRegister.m */,
+				7CA94FDD2994DE9000E0F0B7 /* NXTableViewCell.h */,
+				7CA94FDE2994DE9000E0F0B7 /* NXTableViewCell.m */,
 			);
 			path = UITableview;
 			sourceTree = "<group>";
@@ -3530,6 +3536,7 @@
 				43A9DECE96E2EF0CDDA36766FC98A454 /* UIView+NXVisibility.h in Headers */,
 				69302533541311BE4B53BCDC09D9FD24 /* UIViewController+Lifecycle.h in Headers */,
 				2810F3C21BC4BB294DCB80B3C810E906 /* UIViewController+NXQuery.h in Headers */,
+				7CA94FDF2994DE9000E0F0B7 /* NXTableViewCell.h in Headers */,
 				69427C5A02CAEAC01FB888A53C107C1B /* UIViewController+PopDissmiss.h in Headers */,
 				299634E9B90F67609BEA83933DAC4853 /* XXF.h in Headers */,
 			);
@@ -4303,6 +4310,7 @@
 				0AF5F789FAC5F51FE4058815967E12C1 /* UICollectionView+NXAdaptation.m in Sources */,
 				3D34D75E869B53265C8AB322218DFDEC /* UICollectionView+NXAdapter.m in Sources */,
 				BC198F985687797D27D051CA4346A884 /* UICollectionView+NXAutoHeightLayoutCell.m in Sources */,
+				7CA94FE02994DE9000E0F0B7 /* NXTableViewCell.m in Sources */,
 				C01B4AC32A56D72CF7FE66A77A65B00C /* UICollectionView+NXAutoHeightLayoutCellByClass.m in Sources */,
 				6C1A43A345F8DD3CF9F6C08A29A55276 /* UICollectionView+NXHeader.m in Sources */,
 				E4B4B0CDA053712A24D348A3347E7323 /* UICollectionView+NXRegister.m in Sources */,
