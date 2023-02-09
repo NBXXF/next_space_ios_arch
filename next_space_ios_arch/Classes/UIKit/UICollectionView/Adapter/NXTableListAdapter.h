@@ -6,13 +6,12 @@
 //  用法:collection.adapter=NXListAdapter继承类对象
 //  Created by XXF on 2022/11/25.
 //
-
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NXListAdapter<T> : NSObject<UICollectionViewDataSource>
-@property(nonatomic,strong)UICollectionView *container;
+@interface NXTableListAdapter<T> : NSObject<UITableViewDataSource>
+@property(nonatomic,strong)UITableView *container;
 @property(nonatomic,strong,readonly)NSMutableArray<T> *dataArray;
 
 -(void)bindData:(NSArray<T> *)dataList isRefresh:(BOOL)isRefresh;
