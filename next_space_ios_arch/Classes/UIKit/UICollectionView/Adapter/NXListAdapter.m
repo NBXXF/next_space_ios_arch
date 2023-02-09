@@ -34,4 +34,8 @@
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
+
+- (UICollectionView *)collectionView{
+    return self.container;
+}
 @end

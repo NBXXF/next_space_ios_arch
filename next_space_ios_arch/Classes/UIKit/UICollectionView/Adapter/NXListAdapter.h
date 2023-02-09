@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXListAdapter<T> : NSObject<UICollectionViewDataSource>
+@property(nonatomic,strong,readonly)UICollectionView *collectionView DEPRECATED_MSG_ATTRIBUTE("请用container字段");
 @property(nonatomic,strong)UICollectionView *container;
 @property(nonatomic,strong,readonly)NSMutableArray<T> *dataArray;
 
