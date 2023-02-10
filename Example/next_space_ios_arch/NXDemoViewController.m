@@ -108,10 +108,6 @@
         }];
     }
 }
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear: animated];
-
-}
 
 -(void)testUrl:(NSString *)urlStr{
     NSURLComponents *url= [[NSURLComponents alloc] initWithString:urlStr];

@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  开始性能监控
  */
-+(void)startPerformanceMonitor:(CGFloat)threshold;
++(void)startPerformanceMonitor:(CGFloat)threshold  DEPRECATED_MSG_ATTRIBUTE("已经移动到框架内部了 便于推进性能提升进程");
 
 
 @end

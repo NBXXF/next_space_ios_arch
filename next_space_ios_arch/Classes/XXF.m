@@ -25,7 +25,9 @@ static BlockWatcher *__watchdog;
     __appGroupNameProvider=appGroupNameProvider;
     __userIdProvider=userIdProvider;
     [self _initMMKV];
+    [self _initPerformanceMonitor];
 }
+
 
 +(void)_initMMKV{
     NSString *myGroupID = self.getAppGroupName;
@@ -62,11 +64,18 @@ static BlockWatcher *__watchdog;
 }
 
 
-+ (void)startPerformanceMonitor:(CGFloat)threshold{
-    NSAssert(threshold>0, @"threshold 必须大于0");
++ (void)_initPerformanceMonitor{
+    //200ms==0.2s 业务可以选择unlock方式修改 短暂解决临时不变
+    CGFloat threshold=0.2;
     if(!__watchdog){
+        //单位是s 秒
         __watchdog=[[BlockWatcher alloc] initWithThreshold:threshold strictMode:YES];
     }
+}
+
+
++ (void)startPerformanceMonitor:(CGFloat)threshold{
+    NSLog(@"***********无效api#startPerformanceMonitor 已经框架自动处理了");
 }
 
 @end
