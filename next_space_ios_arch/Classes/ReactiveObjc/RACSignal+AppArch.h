@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC/ReactiveObjC.h>
+#import <next_space_ios_arch/NXLifecycleEvent.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RACSignal<__covariant ValueType>(AppArch)
@@ -56,6 +57,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 自定义是否节流
 - (RACSignal<ValueType> *)distinctUntilChangedWithBlock:(BOOL (^)(ValueType last,ValueType current))block;
+
+/**
+ 绑定生命周期到具体放到节点
+ */
+- (RACSignal<ValueType> *)bindLifecycleWithLifecycleOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector;
+
+/**
+ 绑定生命周期到对象销毁
+ */
+- (RACSignal<ValueType> *)bindLifecycleToDealloc:(NSObject *)lifecycleOwner;
+
+/**
+ 绑定生命周期到对象销毁
+ */
+- (RACSignal<ValueType> *)bindLifecycleWithVC:(UIViewController *)lifecycleOwner toEvent:(NXLifecycleEvent *)event;
 
 @end
 

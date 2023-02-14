@@ -22,6 +22,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    for(int i=0;i<100;i++){
+        [[RACObserve(self, window) takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id  _Nullable x) {
+            
+        }];
+    }
+    RACCompoundDisposable *d= self.rac_deallocDisposable;
+//    NSArray *arrayDisposable=[NSArray toKindOfClassObjectOrNilFrom: [d valueForKey:@"_disposables"]];
+    
+    
+    NSMutableArray<NSString *> *testArr= [NSMutableArray array];
+    NSString *a=@"a";
+    [testArr addObject:a];
+    
+   // NSLog(@"==========>ttt:%@",[testArr objectAtIndex:NSNotFound]);
+//    NSString *b=@"b";
+//    [testArr addObject:b];
+    a=NULL;
+    [RACScheduler.scheduler afterDelay:5 schedule:^{
+        NSString *c=[testArr objectAtIndex:0];
+        NSLog(@"==========>ttt:%@ _%@",a,a.simpleDescription);
+        NSLog(@"==========>ttt:%@ _%@",c,c.simpleDescription);
+    }];
+
+    
+    
+    
+    
+    
     long long m=NXTimeUnit.DAYS.toMillis(1);
     NSLog(@"========>m:%lld",m);
     

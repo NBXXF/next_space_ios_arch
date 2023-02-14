@@ -47,6 +47,7 @@
 #import "NSObject+RateLimiting.h"
 #import "NSArray+RACSequenceAdditionsDeprecated.h"
 #import "NSDictionary+RACSequenceAdditionsDeprecated.h"
+#import "NXLifecycleEvent.h"
 #import "RACDisposable+AppArch.h"
 #import "RACScheduler+AppArch.h"
 #import "RACSignal+AppArch.h"

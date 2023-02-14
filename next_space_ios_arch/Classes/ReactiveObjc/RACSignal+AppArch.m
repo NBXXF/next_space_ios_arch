@@ -113,4 +113,33 @@ typedef id __nullable (^ResultCallbck)(void);
     }] setNameWithFormat:@"[%@] -distinctUntilChangedWithBlock", self.name];
 }
 
+
+/**
+ 绑定生命周期到具体放到节点
+ */
+- (RACSignal *)bindLifecycleWithLifecycleOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector{
+    NSAssert(NO, @"暂未实现");
+    return self;
+}
+
+/**
+ 绑定生命周期到对象销毁
+ */
+- (RACSignal *)bindLifecycleToDealloc:(NSObject *)lifecycleOwner{
+    if(!lifecycleOwner){
+        NSAssert(NO, @"lifecycleOwner参数错误");
+    }else{
+        return [self takeUntil:lifecycleOwner.rac_willDeallocSignal];
+    }
+    return self;
+}
+
+/**
+ 绑定生命周期到对象销毁
+ */
+- (RACSignal *)bindLifecycleWithVC:(UIViewController *)lifecycleOwner toEvent:(NXLifecycleEvent *)event{
+    NSAssert(NO, @"暂未实现");
+    return self;
+}
+
 @end

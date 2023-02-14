@@ -227,7 +227,7 @@
     }];
     
     
-    [NSThread sleepForTimeInterval:2.0];
+    //[NSThread sleepForTimeInterval:2.0];
     
     [RACScheduler.mainThreadScheduler afterDelay:1.0 schedule:^{
         
