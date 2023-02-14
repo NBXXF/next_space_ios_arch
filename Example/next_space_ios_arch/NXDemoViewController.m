@@ -18,6 +18,7 @@
 #import "NXTestModalVC.h"
 #import <Masonry/Masonry.h>
 #import "NXTestFlowLayoutViewController.h"
+#import "NXTestRAC.h"
 //#import <YYModel/YYModel.h>
 
 //@import next_space_ios_arch;
@@ -340,6 +341,11 @@
     [self testArraySpeed:1000000];
     
     [self showModal];
+    
+    __block NXTestRAC *t=NXTestRAC.new;
+    [RACScheduler.scheduler afterDelay:5 schedule:^{
+        t=nil;
+    }];
 
 }
 

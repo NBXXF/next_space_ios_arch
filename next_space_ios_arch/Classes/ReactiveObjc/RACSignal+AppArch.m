@@ -117,7 +117,7 @@ typedef id __nullable (^ResultCallbck)(void);
 /**
  绑定生命周期到具体放到节点
  */
-- (RACSignal *)bindLifecycleWithLifecycleOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector{
+- (RACSignal *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector{
     NSAssert(NO, @"暂未实现");
     return self;
 }
@@ -125,7 +125,7 @@ typedef id __nullable (^ResultCallbck)(void);
 /**
  绑定生命周期到对象销毁
  */
-- (RACSignal *)bindLifecycleToDealloc:(NSObject *)lifecycleOwner{
+- (RACSignal *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner{
     if(!lifecycleOwner){
         NSAssert(NO, @"lifecycleOwner参数错误");
     }else{

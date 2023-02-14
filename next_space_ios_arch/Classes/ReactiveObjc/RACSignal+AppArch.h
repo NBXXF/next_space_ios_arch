@@ -61,12 +61,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  绑定生命周期到具体放到节点
  */
-- (RACSignal<ValueType> *)bindLifecycleWithLifecycleOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector;
+- (RACSignal<ValueType> *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector;
 
 /**
  绑定生命周期到对象销毁
  */
-- (RACSignal<ValueType> *)bindLifecycleToDealloc:(NSObject *)lifecycleOwner;
+- (RACSignal<ValueType> *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner;
 
 /**
  绑定生命周期到对象销毁
