@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)有 rac_prepareForReuseSignal
- rac_prepareForReuseSignal 是复用的时候 会让上传的completed 但是Dealloc不会执行completed
+ rac_prepareForReuseSignal 是复用的时候 会让上次的completed 但是Dealloc不会执行completed
  rac_willDeallocSignal 是Dealloc执行completed
  
  【复用组件 既想复用的时候结束也想销毁的时候能结束】
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)有 rac_prepareForReuseSignal
- rac_prepareForReuseSignal 是复用的时候 会让上传的completed 但是Dealloc不会执行completed
+ rac_prepareForReuseSignal 是复用的时候 会让上次的completed 但是Dealloc不会执行completed
  rac_willDeallocSignal 是Dealloc执行completed
  
  【复用组件 既想复用的时候结束也想销毁的时候能结束】
