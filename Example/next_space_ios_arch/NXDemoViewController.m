@@ -257,13 +257,14 @@
             NSLog(@"========>YY:nil");
             break;
     }
-//
-//    [[self observeViewDidLoad] subscribeNext:^(id  _Nullable x) {
-//        NSLog(@"==============>observeViewDidLoad");
-//    }];
-//    [[self observeViewWillAppear] subscribeNext:^(id  _Nullable x) {
-//        NSLog(@"==============>observeViewWillAppear");
-//    }];
+
+    [[[[[self observeViewWillAppear] mapReplace:RACUnit.defaultUnit] doError:^(NSError * _Nonnull error) {
+        NSLog(@"==============>observeViewWillAppear  doError");
+    }] doCompleted:^{
+        NSLog(@"==============>observeViewWillAppear  doCompleted");
+    }] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"==============>observeViewWillAppear");
+    }];
 //
 //    [[self observeViewDidAppear] subscribeNext:^(id  _Nullable x) {
 //        NSLog(@"==============>observeViewDidAppear");

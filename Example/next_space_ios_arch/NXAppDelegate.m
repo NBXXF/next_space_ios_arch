@@ -12,6 +12,7 @@
 #import <next_space_ios_arch/UIScreen+NXTools.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
 #import <malloc/malloc.h>
+#import <YYKit/YYKit.h>
 
 @implementation NXAppDelegate
 
@@ -22,13 +23,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    for(int i=0;i<100;i++){
-        [[RACObserve(self, window) takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id  _Nullable x) {
-            
-        }];
+    NSString *str1=@"xxx";
+    YYThreadSafeArray *safeArray=[YYThreadSafeArray array];
+    double start1=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [safeArray addObject:str1];
     }
-    RACCompoundDisposable *d= self.rac_deallocDisposable;
-//    NSArray *arrayDisposable=[NSArray toKindOfClassObjectOrNilFrom: [d valueForKey:@"_disposables"]];
+    double end1=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"==========>array take1:%f",(end1-start1));
+    
+    NSMutableArray *array1=[NSMutableArray array];
+    start1=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [array1 addObject:str1];
+    }
+    end1=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"==========>array take2:%f",(end1-start1));
+    
+    
+    
     
     
     NSMutableArray<NSString *> *testArr= [NSMutableArray array];

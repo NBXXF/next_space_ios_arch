@@ -43,7 +43,13 @@ NS_ASSUME_NONNULL_BEGIN
  将自己变换为其他对象
  it为当前对象
  */
-- (id)mapWithBlock:(id (^)(id it))block;
+- (id)mapWithBlock:(id (^)(id it))block DEPRECATED_MSG_ATTRIBUTE("请使用mapReplaceWithBlock");
+
+/**
+ 将自己变换为其他对象
+ it为当前对象
+ */
+- (id)mapReplaceWithBlock:(id (^)(id it))block;
 
 @end
 

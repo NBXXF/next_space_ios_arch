@@ -65,6 +65,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  绑定生命周期到对象销毁
+ (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)有 rac_prepareForReuseSignal
+ rac_prepareForReuseSignal 是复用的时候 会让上传的completed 但是Dealloc不会执行completed
+ rac_willDeallocSignal 是Dealloc执行completed
+ 
  */
 - (RACSignal<ValueType> *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner;
 

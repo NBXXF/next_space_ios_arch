@@ -57,7 +57,11 @@
     return self;
 }
 
-- (id)mapWithBlock:(id  _Nonnull (^)(id _Nonnull))block{
+- (id)mapWithBlock:(id  _Nonnull (^)(id _Nonnull))block DEPRECATED_MSG_ATTRIBUTE("请使用mapReplaceWithBlock"){
+    return block(self);
+}
+
+- (id)mapReplaceWithBlock:(id  _Nonnull (^)(id _Nonnull))block{
     return block(self);
 }
 @end
