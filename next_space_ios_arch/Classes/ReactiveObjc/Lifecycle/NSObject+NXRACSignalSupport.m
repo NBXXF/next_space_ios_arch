@@ -7,6 +7,7 @@
 
 #import "NSObject+NXRACSignalSupport.h"
 #import <objc/runtime.h>
+#import <next_space_ios_arch/NSObject+NXTools.h>
 
 @implementation NSObject(NXRACSignalSupport)
 
@@ -14,22 +15,23 @@
     return [self rac_willDeallocSignal];
 }
 
-- (RACSignal<RACUnit *> *)untilUniqueSignalWithOwner:(NSObject *)lifecycleOwner identifier:(NSString *)identifier{
-    RACSignal *signal = objc_getAssociatedObject(self, _cmd);
-    if (signal != nil) return signal;
-
+- (RACSignal<RACUnit *> *)untilUniqueSignalWithIdentifier:(NSString *)identifier{
+    NSAssert(identifier, @"identifier 必须不为空");
+    NSMutableDictionary *uniqueSubjectDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
+    
+    RACReplaySubject *signal = uniqueSubjectDict[identifier];
+    if (signal){
+        //就是要主动取消上次的 避免重复绑定
+        [signal sendCompleted];
+    }
+  
     RACReplaySubject *subject = [RACReplaySubject subject];
-
-    [self.rac_deallocDisposable addDisposable:[RACDisposable disposableWithBlock:^{
-        [subject sendCompleted];
-    }]];
-
-    objc_setAssociatedObject(self, _cmd, subject, OBJC_ASSOCIATION_RETAIN);
-
+    [uniqueSubjectDict setObject:subject forKey:identifier];
+    
+    objc_setAssociatedObject(self, _cmd, uniqueSubjectDict, OBJC_ASSOCIATION_RETAIN);
     return subject;
 }
-
-- (RACSignal<RACUnit *> *)untilUniqueOrDeallocSignalWithOwner:(NSObject *)lifecycleOwner identifier:(NSString *)identifier{
-    return [self.untilDeallocSignal merge:[self untilUniqueSignalWithOwner:lifecycleOwner identifier:identifier]];
+- (RACSignal<RACUnit *> *)untilUniqueOrDeallocSignalWithIdentifier:(NSString *)identifier{
+    return [self.untilDeallocSignal merge:[self untilUniqueSignalWithIdentifier:identifier]];
 }
 @end

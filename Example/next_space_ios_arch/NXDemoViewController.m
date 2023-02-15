@@ -347,7 +347,26 @@
     [RACScheduler.scheduler afterDelay:5 schedule:^{
         t=nil;
     }];
+    
+    
+    
+    
+    [self testBind];
+    @weakify(self)
+    [RACScheduler.mainThreadScheduler afterDelay:5 schedule:^{
+        @strongify(self)
+        [self testBind];
+    }];
+}
 
+-(void)testBind{
+    [[[[RACObserve(self.view, frame) takeUntil:[self untilUniqueSignalWithIdentifier:NSStringFromSelector(_cmd)]] initially:^{
+        NSLog(@"==========>testBind start binding");
+    }] doCompleted:^{
+        NSLog(@"==========>testBind completed");
+    }] subscribeNext:^(id  _Nullable x) {
+       // NSLog(@"==========>testBind next");
+    }];
 }
 
 + (CGRect)getFrameRelateWindowWithView:(UIView *)view {

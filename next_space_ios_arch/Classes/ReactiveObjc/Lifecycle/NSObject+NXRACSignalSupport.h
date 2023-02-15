@@ -13,6 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject(NXRACSignalSupport)
 /**
  是Dealloc执行completed
+ 
+ 如果是vc的话 可以配合
+observeViewDidLoad;
+observeViewWillAppear;
+observeViewDidAppear;
+observeViewWillDisappear;
+observeViewDidDisappear;
+ 这些来 限制 在vc 某个局部的声明周期区间
  */
 @property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilDeallocSignal;
 
@@ -21,15 +29,15 @@ NS_ASSUME_NONNULL_BEGIN
  注意:【如果是一个方法中有多个且identifier一样    需要写成局部变量去共享使用】
   比如当前方法 identifier=NSStringFromSelector(_cmd)
  */
--(RACSignal<RACUnit *> *)untilUniqueSignalWithOwner:(NSObject *)lifecycleOwner identifier:(NSString *)identifier;
+-(RACSignal<RACUnit *> *)untilUniqueSignalWithIdentifier:(NSString *)identifier;
 
 /**
    避免重复绑定
  【再次绑定的时候会上次的执行completed】
  注意:【如果是一个方法中有多个且identifier一样    需要写成局部变量去共享使用】
-   比untilUniqueSignalWithOwner:lifecycleOwner identifier:identifier 多一个绑定销毁的生命周期
+   比untilUniqueSignalWithIdentifier 多一个绑定销毁的生命周期
  */
--(RACSignal<RACUnit *> *)untilUniqueOrDeallocSignalWithOwner:(NSObject *)lifecycleOwner identifier:(NSString *)identifier;
+-(RACSignal<RACUnit *> *)untilUniqueOrDeallocSignalWithIdentifier:(NSString *)identifier;
 @end
 
 NS_ASSUME_NONNULL_END
