@@ -366,7 +366,7 @@
 }
 
 -(void)testBind{
-    [[[[RACObserve(self.view, frame) takeUntil:[self untilUniqueSignalWithIdentifier:NSStringFromSelector(_cmd)]] initially:^{
+    [[[[RACObserve(self.view, frame) takeUntil:self.untilUniqueSignalWithIdentifier(NSStringFromSelector(_cmd))] initially:^{
         NSLog(@"==========>testBind start binding");
     }] doCompleted:^{
         NSLog(@"==========>testBind completed");
