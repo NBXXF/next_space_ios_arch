@@ -32,6 +32,7 @@
 #import "NXTimeUnit_MINUTES.h"
 #import "NXTimeUnit_NANOSECONDS.h"
 #import "NXTimeUnit_SECONDS.h"
+#import "NSDate+NXTools.h"
 #import "NXTimeUnit.h"
 #import "NXAppSettings.h"
 #import "NXKeyValueService.h"
