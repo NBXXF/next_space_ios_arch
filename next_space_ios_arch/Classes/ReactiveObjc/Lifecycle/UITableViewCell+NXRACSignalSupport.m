@@ -8,6 +8,9 @@
 #import "UITableViewCell+NXRACSignalSupport.h"
 
 @implementation UITableViewCell(NXRACSignalSupport)
+- (RACSignal<RACUnit *> *)untilReuseSignal{
+    return self.rac_prepareForReuseSignal;
+}
 
 - (RACSignal<RACUnit *> *)untilDeallocOrReuseSignal{
     return [self.rac_willDeallocSignal merge:self.rac_prepareForReuseSignal];

@@ -357,6 +357,12 @@
         @strongify(self)
         [self testBind];
     }];
+    
+    
+}
+
+-(void)testSwitch{
+
 }
 
 -(void)testBind{

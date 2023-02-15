@@ -13,7 +13,7 @@
 - (instancetype)init{
     self=[super init];
     if(self){
-        [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler] bindLifecycleWithOwner:self] doCompleted:^{
+        [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler] bindLifecycle:self.untilDeallocSignal] doCompleted:^{
             NSLog(@"===========>rac next:%@",@"Completed");
         }] subscribeNext:^(NSDate * _Nullable x) {
             NSLog(@"===========>rac next:%@",x);

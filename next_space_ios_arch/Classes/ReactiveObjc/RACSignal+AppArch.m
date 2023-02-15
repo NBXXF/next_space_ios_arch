@@ -114,18 +114,28 @@ typedef id __nullable (^ResultCallbck)(void);
 }
 
 
-/**
- 绑定生命周期到具体放到节点
- */
-- (RACSignal *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector{
-    NSAssert(NO, @"暂未实现");
-    return self;
+- (RACSignal *)doSubscribe:(void (^)(void))block{
+    NSCParameterAssert(block != NULL);
+    return [[RACSignal defer:^{
+        block();
+        return self;
+    }] setNameWithFormat:@"[%@] -doSubscribe:", self.name];
+}
+
+
+- (RACSignal *)bindLifecycle:(RACSignal<RACUnit *> *)untilSignal{
+    NSCParameterAssert(untilSignal);
+    if(untilSignal){
+        return [self takeUntil:untilSignal];
+    }else{
+        return self;
+    }
 }
 
 /**
  绑定生命周期到对象销毁
  */
-- (RACSignal *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner{
+- (RACSignal *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner  DEPRECATED_MSG_ATTRIBUTE("过时了 请直接使用#bindLifecycle方法"){
     if(!lifecycleOwner){
         NSAssert(NO, @"lifecycleOwner参数错误");
     }else{
@@ -133,13 +143,4 @@ typedef id __nullable (^ResultCallbck)(void);
     }
     return self;
 }
-
-/**
- 绑定生命周期到对象销毁
- */
-- (RACSignal *)bindLifecycleWithVC:(UIViewController *)lifecycleOwner toEvent:(NXLifecycleEvent *)event{
-    NSAssert(NO, @"暂未实现");
-    return self;
-}
-
 @end

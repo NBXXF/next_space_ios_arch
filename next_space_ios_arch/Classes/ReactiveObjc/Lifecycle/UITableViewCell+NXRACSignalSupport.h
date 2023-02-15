@@ -10,6 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableViewCell(NXRACSignalSupport)
+
+/**
+ 复用开始时会执行上次的completed
+ */
+@property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilReuseSignal;
 /**
  (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)有 rac_prepareForReuseSignal
  rac_prepareForReuseSignal 是复用的时候 会让上次的completed 但是Dealloc不会执行completed

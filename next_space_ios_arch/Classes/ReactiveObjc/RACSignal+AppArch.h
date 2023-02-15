@@ -58,24 +58,30 @@ NS_ASSUME_NONNULL_BEGIN
 // 自定义是否节流
 - (RACSignal<ValueType> *)distinctUntilChangedWithBlock:(BOOL (^)(ValueType last,ValueType current))block;
 
-/**
- 绑定生命周期到具体放到节点
- */
-- (RACSignal<ValueType> *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner toSelector:(SEL)toSelector;
 
 /**
- 绑定生命周期到对象销毁
- (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)有 rac_prepareForReuseSignal
- rac_prepareForReuseSignal 是复用的时候 会让上次的completed 但是Dealloc不会执行completed
- rac_willDeallocSignal 是Dealloc执行completed
+   等价initially 系统那个方法不好记忆
+ */
+- (RACSignal<ValueType> *)doSubscribe:(void (^)(void))block;
+   
+
+
+/**
+ 绑定声明周期 取代takeUtil 绑定生命周期单独提供方法
+ untilSignal 的可选值如下 详细解释请点击到具体方法里面的注释或者参考源码(特征 都是untilXXX)
+ 1. 销毁的 self.untilDeallocSignal
+ 2. KVO 避免多次订阅 [self untilUniqueSignalWithIdentifier:xxxx]
+ 2. KVO 避免多次订阅或者销毁的 [self  untilUniqueOrDeallocSignalWithIdentifier:xxx]
+ 4.针对复用的ui列表组件  (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)
+  4.1 self.untilReuseSignal 复用
+  4.2 self.untilReuseOrDeallocSignal ==untilDeallocOrReuseSignal  复用或者销毁
  
  */
-- (RACSignal<ValueType> *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner;
+- (RACSignal<ValueType> *)bindLifecycle:(RACSignal<RACUnit *> *)untilSignal;
 
-/**
- 绑定生命周期到对象销毁
- */
-- (RACSignal<ValueType> *)bindLifecycleWithVC:(UIViewController *)lifecycleOwner toEvent:(NXLifecycleEvent *)event;
+
+
+- (RACSignal<ValueType> *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner DEPRECATED_MSG_ATTRIBUTE("过时了 请直接使用#bindLifecycle方法");
 
 @end
 
