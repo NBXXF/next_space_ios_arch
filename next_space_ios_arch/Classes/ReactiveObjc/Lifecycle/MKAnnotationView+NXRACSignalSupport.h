@@ -34,6 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilDeallocOrReuseSignal;
 
+/**
+ 重复添加的问题(批量场景)
+ 每次都要重置对象
+ - (void)prepareForReuse {
+     [super prepareForReuse];
+     self.disposeBag = [[NSObject alloc] init];
+ }
+ */
+//@property (nonatomic, strong, readonly) RACCompoundDisposable *disposeBag;
 @end
 
 NS_ASSUME_NONNULL_END

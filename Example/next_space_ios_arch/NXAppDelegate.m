@@ -23,6 +23,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSDate *date=NSDate.now;
+    [date dayOfYear];
+    
+    long long yearMillis=NXTimeUnit.DAYS.toMillis(365);
+    long long desiredExpireTime=1770699523192;
+    long long year=(desiredExpireTime-NSDate.now.timeIntervalSince1970*1000)/yearMillis;
+    long long day=NXTimeUnit.MILLISECONDS.toDays((desiredExpireTime-NSDate.now.timeIntervalSince1970*1000)-year*yearMillis);
+    
     NSString *str1=@"xxx";
     YYThreadSafeArray *safeArray=[YYThreadSafeArray array];
     double start1=NSDate.now.timeIntervalSince1970*1000;
