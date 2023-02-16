@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  拼接字符串
  */
-- (NSString *)componentsJoinedByString:(NSString *)separator mapBlock:(NSString * (^)(ObjectType value))block;
+- (NSString *)componentsJoinedByString:(NSString *)separator objectMapBlock:(NSString * (^)(ObjectType value))block;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -147,7 +147,7 @@
     return self.copy;
 }
 
-- (NSString *)componentsJoinedByString:(NSString *)separator mapBlock:(NSString * _Nonnull (^)(id _Nonnull))block{
+- (NSString *)componentsJoinedByString:(NSString *)separator objectMapBlock:(NSString * _Nonnull (^)(id _Nonnull))block{
     //TODO 一个循环 提高效率
     return [[self mapObjectWithBlock:block] componentsJoinedByString:separator];
 }
