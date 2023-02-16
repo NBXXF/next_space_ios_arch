@@ -19,28 +19,28 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  变换item类型
  */
-- (NSMutableArray *)mapObjectWithBlock:(id (^)(ObjectType obj))block;
+- (NSMutableArray *)mapObjectWithBlock:(id (^)(ObjectType value))block;
 
 /**
  查找满足条件的第一个
  */
--(ObjectType)firstObjectWithBlock:(BOOL (^)(ObjectType obj))block;
+-(ObjectType)firstObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 /**
  查找满足条件的最后
  */
--(ObjectType)lastObjectWithBlock:(BOOL (^)(ObjectType obj))block;
+-(ObjectType)lastObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 
 /**
  查找满足条件的位置
  */
-- (NSUInteger)indexOfObjectWithBlock:(BOOL (^)(ObjectType obj))block;
+- (NSUInteger)indexOfObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 /**
  查找是否包含满足条件的元素
  */
-- (BOOL)containsObjectWithBlock:(BOOL (^)(ObjectType obj))block;
+- (BOOL)containsObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 
 /**
@@ -52,22 +52,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  筛选出满足条件的对象集合
  */
-- (NSMutableArray<ObjectType> *)filterObjectWithBlock:(BOOL (^)(ObjectType obj))block;
+- (NSMutableArray<ObjectType> *)filterObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 /**
  移除满足条件的第一个
  */
--(NSMutableArray<ObjectType> *)removeFirstObjectWithBlock:(BOOL (^)(ObjectType obj))block;
+-(NSMutableArray<ObjectType> *)removeFirstObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 /**
  移除满足条件的所有
  */
--(NSMutableArray<ObjectType> *)removeObjectWithBlock:(BOOL (^)(ObjectType obj))block;
+-(NSMutableArray<ObjectType> *)removeObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 /**
  转换成字典 自定义key
  */
-- (NSMutableDictionary<id,ObjectType> *)associateObjectBy:(id (^)(ObjectType obj))keyBlock;
+- (NSMutableDictionary<id,ObjectType> *)associateObjectBy:(id (^)(ObjectType value))keyBlock;
 
 
 /**
