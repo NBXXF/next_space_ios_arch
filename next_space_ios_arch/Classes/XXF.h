@@ -6,21 +6,25 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef CGFloat(^NXPTConvertBlock)(CGFloat value);
+#import <next_space_ios_arch/XXFConfigOption.h>
 typedef NSString *_Nonnull(^NXUserIdProvider)(void);
 typedef NSString *_Nonnull(^NXAppGroupNameProvider)(void);
-
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XXF : NSObject
 
-+(void)initWithConfig:(NXPTConvertBlock)ptConvertBlock
- appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider
+@property(nonatomic,strong,readonly,class) XXF *shared;
+@property(nonatomic,strong)XXFConfigOption *config;
+
+
+
++(void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider
        userIdProvider:(NXUserIdProvider)userIdProvider DEPRECATED_MSG_ATTRIBUTE("过时了");
 
 +(void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider
-       userIdProvider:(NXUserIdProvider)userIdProvider;
+       userIdProvider:(NXUserIdProvider)userIdProvider
+     configOption:(XXFConfigOption *)option;
 
 /**
  转换相对单位

@@ -181,12 +181,13 @@
 //        NSLog(@"=============>delay next:%@",x);
 //    }];
     
-    
     [XXF initWithConfig:^NSString * _Nonnull{
         return @"";
     } userIdProvider:^NSString * _Nonnull{
         return @"testUser";
-    }];
+    } configOption:[XXFConfigOption.new applyWithBlock:^(XXFConfigOption *_Nonnull it) {
+        it.allowCallStackSymbols=YES;
+    }]];
     
    
     

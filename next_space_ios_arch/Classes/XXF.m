@@ -9,21 +9,43 @@
 #import <MMKV/MMKV.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 #import <UIScreen+NXTools.h>
+#import <objc/runtime.h>
 
+@interface XXF()
+
+@end
 
 @implementation XXF
+
+
+
 static NXUserIdProvider __userIdProvider;
 static NXAppGroupNameProvider __appGroupNameProvider;
 static BlockWatcher *__watchdog;
 
-+ (void)initWithConfig:(NXPTConvertBlock)ptConvertBlock appGroupNameProvider:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
-    [self initWithConfig:appGroupNameProvider userIdProvider:userIdProvider];
+
++ (XXF *)shared{
+    static XXF *service=nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        service = [[self alloc]init];
+    });
+    return service;
 }
 
 
+
 + (void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider{
+    [self initWithConfig:appGroupNameProvider
+          userIdProvider:userIdProvider
+            configOption:XXFConfigOption.new];
+}
+
++ (void)initWithConfig:(NXAppGroupNameProvider)appGroupNameProvider userIdProvider:(NXUserIdProvider)userIdProvider
+          configOption:(XXFConfigOption *)option{
     __appGroupNameProvider=appGroupNameProvider;
     __userIdProvider=userIdProvider;
+    XXF.shared.config=option;
     [self _initMMKV];
     [self _initPerformanceMonitor];
 }
@@ -67,7 +89,7 @@ static BlockWatcher *__watchdog;
 + (void)_initPerformanceMonitor{
 #if DEBUG
     //业务可以选择unlock方式修改 短暂解决临时不变
-    CGFloat threshold=10000.0;
+    CGFloat threshold=0.6;
     if(!__watchdog){
         //单位是s 秒
         __watchdog=[[BlockWatcher alloc] initWithThreshold:threshold strictMode:YES];
