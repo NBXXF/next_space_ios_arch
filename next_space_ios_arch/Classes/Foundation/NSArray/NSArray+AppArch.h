@@ -85,6 +85,12 @@ NS_ASSUME_NONNULL_BEGIN
  先判读类型 如果类型符合就转换,否则重新生成新的类型
  */
 -(NSArray<ObjectType> *)copyOrCast;
+
+
+/**
+ 拼接字符串
+ */
+- (NSString *)componentsJoinedByString:(NSString *)separator mapBlock:(NSString * (^)(ObjectType value))block;
 @end
 
 NS_ASSUME_NONNULL_END
