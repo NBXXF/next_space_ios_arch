@@ -358,7 +358,10 @@
         [self testBind];
     }];
     
-    
+//    
+//    [[[RACSignal just:@""] takeUntil:self.untilUniqueSignalWithIdentifier(@"xxxx")] subscribeNext:^(id  _Nullable x) {
+//        
+//    }];
 }
 
 -(void)testSwitch{
@@ -366,7 +369,9 @@
 }
 
 -(void)testBind{
-    [[[[RACObserve(self.view, frame) takeUntil:self.untilUniqueSignalWithIdentifier(NSStringFromSelector(_cmd))] initially:^{
+    [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+        return [RACSignal just:@"xx"];
+    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(@"xxxx")] initially:^{
         NSLog(@"==========>testBind start binding");
     }] doCompleted:^{
         NSLog(@"==========>testBind completed");

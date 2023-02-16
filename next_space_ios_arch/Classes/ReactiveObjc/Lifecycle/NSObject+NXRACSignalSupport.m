@@ -8,6 +8,7 @@
 #import "NSObject+NXRACSignalSupport.h"
 #import <objc/runtime.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
+#import <next_space_ios_arch/NSArray+AppArch.h>
 
 @implementation NSObject(NXRACSignalSupport)
 
@@ -19,7 +20,7 @@
         NSAssert(identifier, @"identifier 必须不为空");
         NSMutableDictionary *uniqueSubjectDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
         
-        RACReplaySubject *signal = uniqueSubjectDict[identifier];
+        RACReplaySubject *signal = [RACReplaySubject toKindOfClassObjectOrNilFrom:[uniqueSubjectDict objectForKey:identifier]];
         if (signal){
             //就是要主动取消上次的 避免重复绑定
             [signal sendCompleted];
@@ -29,8 +30,54 @@
         [uniqueSubjectDict setObject:subject forKey:identifier];
         
         objc_setAssociatedObject(self, _cmd, uniqueSubjectDict, OBJC_ASSOCIATION_RETAIN);
+        [self ____checkDebugSignalWithIdentifier:identifier];
         return subject;
     };
+}
+
+-(void)____checkDebugSignalWithIdentifier:(NSString *)identifier{
+#if DEBUG
+    NSMutableDictionary *callStackDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
+    NSString *lastUserCallLine=[callStackDict objectForKey:identifier];
+
+    NSArray<NSString *> *callStack = [NSThread callStackSymbols];
+    //ios内核得不到+[ 或者-[
+    NSString *prefixCallInstanceMethod=@"-[";
+    NSString *prefixCallStaticMethod=@"+[";
+    NSString *userCallLine = [callStack firstObjectWithBlock:^BOOL(NSString * _Nonnull obj) {
+        //注意这两个内置方法
+        if([obj containsString:@"____checkDebugSignalWithIdentifier"]
+           ||[obj containsString:@"untilUniqueSignalWithIdentifier"]
+           ||[obj containsString:@"untilUniqueOrDeallocSignalWithIdentifier"]){
+            return NO;
+        }
+        
+        if([obj containsString:prefixCallInstanceMethod]||[obj containsString:prefixCallStaticMethod]){
+            return YES;
+        }
+        return NO;
+    }];
+    NSRange range=[userCallLine rangeOfString:prefixCallInstanceMethod];
+    if(range.length==0){
+        range=[userCallLine rangeOfString:prefixCallStaticMethod];
+    }
+    if(range.length!=0){
+        userCallLine=[userCallLine substringFromIndex:range.location];
+    }
+
+    
+    if(lastUserCallLine&&![lastUserCallLine isEqual:userCallLine]){
+        NSString *errorDesc = [NSString stringWithFormat:@"绑定生命周期在同不同位置添加了一样的唯一标识%@",identifier];
+        NSAssert(NO, errorDesc);
+    }
+    if(userCallLine){
+        [callStackDict setObject:userCallLine forKey:identifier];
+        objc_setAssociatedObject(self, _cmd, callStackDict, OBJC_ASSOCIATION_RETAIN);
+    }
+
+    NSString *callStackString = [NSString stringWithFormat:@"%@",callStackDict];
+    NSLog(@"======>untilUniqueIdentifier_%@_adding(%@)  all:%@",self.simpleDescription,identifier,callStackString);
+#endif
 }
 
 - (RACSignal<RACUnit *> * _Nonnull (^)(NSString * _Nonnull))untilUniqueOrDeallocSignalWithIdentifier{
