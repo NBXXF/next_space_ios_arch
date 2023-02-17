@@ -10,10 +10,18 @@
 
 @implementation NSDate(NXTools)
 
++ (long long)currentTimeMillis{
+    return NSDate.now.milliseconds;
+}
+
 - (NSInteger)dayOfYear{
     NSCalendar *cal = NSCalendar.currentCalendar;
     NSInteger dayInYear=[cal ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitYear forDate:self];
     return dayInYear;
+}
+
+- (long long)milliseconds{
+    return (long long)self.timeIntervalSince1970 * 1000;
 }
 
 @end

@@ -10,7 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDate(NXTools)
-@property (nonatomic, readonly) NSInteger dayOfYear; ///< Day component (1~365或者366)
+@property (nonatomic,assign,readonly,class) long long currentTimeMillis;/// < 当前时间戳
+@property (nonatomic,assign,readonly) NSInteger dayOfYear; ///< Day component (1~365或者366)
+@property(nonatomic,assign,readonly)  long long milliseconds;
 @end
 
 NS_ASSUME_NONNULL_END
