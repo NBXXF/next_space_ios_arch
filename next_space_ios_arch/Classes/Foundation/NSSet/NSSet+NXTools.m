@@ -10,7 +10,7 @@
 
 @implementation NSSet(NXTools)
 
-- (id)filterObjectWithBlock:(BOOL (^)(id _Nonnull))block{
+- (NSMutableArray *)filterObjectWithBlock:(BOOL (^)(id _Nonnull))block{
     NSMutableArray *find=[NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         if(block(obj)){
@@ -19,5 +19,6 @@
     }];
     return find;
 }
+
 
 @end

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  筛选出满足条件的对象集合
  */
-- (ObjectType)filterObjectWithBlock:(BOOL (^)(ObjectType value))block;
+- (NSMutableArray<ObjectType> *)filterObjectWithBlock:(BOOL (^)(ObjectType value))block;
 
 @end
 
