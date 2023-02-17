@@ -366,6 +366,37 @@
 }
 
 -(void)testSwitch{
+    NSString *constStr=@"4776467457667546754`";
+    double start=NSDate.now.timeIntervalSince1970*1000;
+    NSString *str1=@"";
+    for(int i=0;i<1000;i++){
+        str1=[NSString stringWithFormat:@"%@%@%@",str1,@",",constStr];
+    }
+    double end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"=========>strApped by format take:%f",(end-start));
+    
+    
+    start=NSDate.now.timeIntervalSince1970*1000;
+    NSString *str2=@"";
+    for(int i=0;i<1000;i++){
+        str2=[str2 stringByAppendingFormat:@"%@%@",@",",constStr];
+    }
+    end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"=========>strApped by appendingFormat take:%f",(end-start));
+    
+    
+    start=NSDate.now.timeIntervalSince1970*1000;
+    NSString *str3=@"";
+    for(int i=0;i<1000;i++){
+        str3=[str3 stringByAppendingString:@","];
+        str3=[str3 stringByAppendingString:constStr];
+    }
+    end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"=========>strApped by appending take:%f",(end-start));
+    
+    
+    
+    
     NSArray<NSNumber *> *arr=@[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
     NSString *str= [arr componentsJoinedByString:@"_" objectMapBlock:^NSString * _Nonnull(NSNumber * _Nonnull value) {
         return value.stringValue;
