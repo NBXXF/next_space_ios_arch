@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  变换每一个item类型
  */
-- (NSMutableDictionary *)mapEachWithBlock:(RACTwoTuple * (^)(KeyType key,ObjectType value))block;
+- (NSMutableDictionary *)mapReplaceEachWithBlock:(RACTwoTuple * (^)(KeyType key,ObjectType value))block;
 
 
 /**

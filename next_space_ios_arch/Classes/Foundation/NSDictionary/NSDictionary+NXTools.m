@@ -14,7 +14,7 @@
     return self;
 }
 
-- (NSMutableDictionary *)mapEachWithBlock:(RACTwoTuple * _Nonnull (^)(id _Nonnull, id _Nonnull))block{
+- (NSMutableDictionary *)mapReplaceEachWithBlock:(RACTwoTuple * _Nonnull (^)(id _Nonnull, id _Nonnull))block{
     NSMutableDictionary *result=[NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         RACTwoTuple *convert= block(key,obj);

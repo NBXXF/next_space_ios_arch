@@ -19,12 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  变换每一个item类型
  */
-- (NSMutableArray *)mapObjectWithBlock:(id (^)(ObjectType value))block  DEPRECATED_MSG_ATTRIBUTE("容易混淆,请使用mapEachWithBlock");
+- (NSMutableArray *)mapObjectWithBlock:(id (^)(ObjectType value))block  DEPRECATED_MSG_ATTRIBUTE("容易混淆,请使用mapReplaceEachWithBlock");
 
 /**
  变换每一个item类型
  */
-- (NSMutableArray *)mapEachWithBlock:(id (^)(ObjectType value))block;
+- (NSMutableArray *)mapReplaceEachWithBlock:(id (^)(ObjectType value))block;
 
 
 /**
