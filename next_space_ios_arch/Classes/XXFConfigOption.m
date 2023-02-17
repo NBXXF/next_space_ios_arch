@@ -9,4 +9,13 @@
 
 @implementation XXFConfigOption
 
+/**
+ 是否允许访问堆栈 (仅debug生效)
+ */
+- (BOOL)allowCallStackSymbols{
+#if DEBUG
+    return _allowCallStackSymbols;
+#endif
+    return NO;
+}
 @end

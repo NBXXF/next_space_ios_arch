@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XXFConfigOption : NSObject
 
 /**
- 是否允许访问堆栈
+ 是否允许访问堆栈 (仅debug生效)
  */
 @property(nonatomic,assign) BOOL allowCallStackSymbols;
 

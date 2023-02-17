@@ -422,11 +422,11 @@
 
 
 -(void)showModal{
-//    [self.view endEditing:YES];
-//    UIViewController *popoverContent=[NXTestFlowLayoutViewController new];
-////    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-////    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    [self presentViewController:popoverContent animated:NO completion:nil];
+    [self.view endEditing:YES];
+    UIViewController *popoverContent=[XXFHelperViewController new];
+//    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:popoverContent animated:NO completion:nil];
 }
 
 -(void)testArraySpeed:(NSInteger)size{

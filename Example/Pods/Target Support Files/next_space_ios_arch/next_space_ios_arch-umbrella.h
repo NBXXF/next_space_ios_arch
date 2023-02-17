@@ -11,6 +11,8 @@
 #endif
 
 #import "NXBus.h"
+#import "XXFHelperMenuCellTableViewCell.h"
+#import "XXFHelperViewController.h"
 #import "dsbridge.h"
 #import "DSCallInfo.h"
 #import "DWKWebView.h"
@@ -24,6 +26,7 @@
 #import "NXPath.h"
 #import "NXPermissionResult.h"
 #import "PHPhotoLibrary+NXTools.h"
+#import "NSSet+NXTools.h"
 #import "NSMutableAttributedString+AppArch.h"
 #import "NXTimeUnit_DAYS.h"
 #import "NXTimeUnit_HOURS.h"
