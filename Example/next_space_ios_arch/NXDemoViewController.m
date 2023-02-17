@@ -362,10 +362,15 @@
 //    [[[RACSignal just:@""] takeUntil:self.untilUniqueSignalWithIdentifier(@"xxxx")] subscribeNext:^(id  _Nullable x) {
 //        
 //    }];
+    [self testSwitch];
 }
 
 -(void)testSwitch{
-
+    NSArray<NSNumber *> *arr=@[[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3]];
+    NSString *str= [arr componentsJoinedByString:@"_" objectMapBlock:^NSString * _Nonnull(NSNumber * _Nonnull value) {
+        return value.stringValue;
+    }];
+    NSLog(@"=========>componentsJoinedByString:%@",str);
 }
 
 -(void)testBind{

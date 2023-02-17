@@ -6,6 +6,7 @@
 //
 
 #import "NSArray+AppArch.h"
+#import <next_space_ios_arch/NSObject+NXTools.h>
 
 @implementation NSArray(AppArch)
 
@@ -152,7 +153,17 @@
 }
 
 - (NSString *)componentsJoinedByString:(NSString *)separator objectMapBlock:(NSString * _Nonnull (^)(id _Nonnull))block{
-    //TODO 一个循环 提高效率
-    return [[self mapObjectWithBlock:block] componentsJoinedByString:separator];
+    __block NSString *componentsStr=@"";
+    __block NSUInteger arrayCount=self.count;
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *result= [NSString toKindOfClassObjectOrNilFrom: block(obj)];
+        if(result){
+            componentsStr=[componentsStr stringByAppendingString:result];
+            if(idx<arrayCount-1){
+                componentsStr=[componentsStr stringByAppendingString:separator];
+            }
+        }
+    }];
+    return componentsStr;
 }
 @end
