@@ -35,6 +35,15 @@
     return find;
 }
 
+- (id)firstKeyWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
+    return [self firstObjectWithBlock:block].first;
+}
+
+- (id)firstValueWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
+    return [self firstObjectWithBlock:block].second;
+}
+
+
 - (NSMutableDictionary *)mutableCopyOrCast{
     if([self isKindOfClass:NSMutableDictionary.class]){
         return (NSMutableDictionary *)self;

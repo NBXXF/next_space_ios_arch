@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
  查找满足条件的第一个
  */
 -(RACTwoTuple<KeyType, ObjectType> *)firstObjectWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
+-(KeyType)firstKeyWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
+-(ObjectType)firstValueWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
 
 
 /**
