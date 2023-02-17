@@ -373,6 +373,8 @@
 		7CA64F9F953D3291EFEA135847207F18 /* UITableViewCell+NXRACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 466F88C7E93F48AFA598EF7BB4B12AD0 /* UITableViewCell+NXRACSignalSupport.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C23740D6727948AF527D5B66A2B472 /* RACSerialDisposable.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = DA94C7440FE63F2F9918ABEE28D16993 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CACB012299F33A600F8F4BA /* NSSet+NXTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CACB010299F33A600F8F4BA /* NSSet+NXTools.h */; };
+		7CACB013299F33A600F8F4BA /* NSSet+NXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CACB011299F33A600F8F4BA /* NSSet+NXTools.m */; };
 		7CAF8103299E3066001C1B8A /* XXFHelperViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CAF8101299E3066001C1B8A /* XXFHelperViewController.h */; };
 		7CAF8104299E3066001C1B8A /* XXFHelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF8102299E3066001C1B8A /* XXFHelperViewController.m */; };
 		7EE6C492AE0E485B8FACB352821E0542 /* RACReturnSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 558D47EA0B7FFF5F15D1ADF9E4E3DC1A /* RACReturnSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1250,6 +1252,8 @@
 		7C42107A393991F8A70AE65E27BBFCCC /* RACBehaviorSubject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACBehaviorSubject.h; path = ReactiveObjC/RACBehaviorSubject.h; sourceTree = "<group>"; };
 		7C5C8509B459585C56C60FF1EDF7592D /* NSMutableArray+NXTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NXTools.m"; sourceTree = "<group>"; };
 		7C9C3CB2C41C085EAE6BAC9DE409CDF0 /* JLRRouteResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JLRRouteResponse.h; path = JLRoutes/Classes/JLRRouteResponse.h; sourceTree = "<group>"; };
+		7CACB010299F33A600F8F4BA /* NSSet+NXTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSet+NXTools.h"; sourceTree = "<group>"; };
+		7CACB011299F33A600F8F4BA /* NSSet+NXTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSet+NXTools.m"; sourceTree = "<group>"; };
 		7CAF8101299E3066001C1B8A /* XXFHelperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXFHelperViewController.h; sourceTree = "<group>"; };
 		7CAF8102299E3066001C1B8A /* XXFHelperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXFHelperViewController.m; sourceTree = "<group>"; };
 		7CEA5280786A0554ADCBC70529EE2A12 /* RACUnit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACUnit.h; path = ReactiveObjC/RACUnit.h; sourceTree = "<group>"; };
@@ -2022,6 +2026,7 @@
 		34E8D49FEAF05CD342DA1CCE36BB16C8 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				7CACB00F299F338A00F8F4BA /* NSSet */,
 				A418B725F6E6FE9ADFC2E5680242173C /* NSArray */,
 				60F4349661C612623135103A0267FF60 /* NSDictionary */,
 				51DDCDF8BD5B16EA0B55F5ACA50DA43C /* NSError */,
@@ -2509,6 +2514,15 @@
 			);
 			name = Utils;
 			path = next_space_ios_arch/Classes/Utils;
+			sourceTree = "<group>";
+		};
+		7CACB00F299F338A00F8F4BA /* NSSet */ = {
+			isa = PBXGroup;
+			children = (
+				7CACB010299F33A600F8F4BA /* NSSet+NXTools.h */,
+				7CACB011299F33A600F8F4BA /* NSSet+NXTools.m */,
+			);
+			path = NSSet;
 			sourceTree = "<group>";
 		};
 		7CAF8100299E3032001C1B8A /* Developer */ = {
@@ -3560,6 +3574,7 @@
 				6DB244706298D81730C5537279B7B635 /* AFNetworking-umbrella.h in Headers */,
 				27AB52C7962046BC8963B2CD626F22BD /* AFNetworkReachabilityManager.h in Headers */,
 				0FC2C7300D3DE350BD73741888D9A1A8 /* AFSecurityPolicy.h in Headers */,
+				7CACB012299F33A600F8F4BA /* NSSet+NXTools.h in Headers */,
 				918AD88A49B79CD1B13BAD5415FE5621 /* AFURLRequestSerialization.h in Headers */,
 				81C76941D750B3F226E07AE600A67FC6 /* AFURLResponseSerialization.h in Headers */,
 				22AD28E260EF21FECAAEF40B04E8E020 /* AFURLSessionManager.h in Headers */,
@@ -4326,6 +4341,7 @@
 				637243EE5807271030AE4D9741392852 /* AFURLSessionManager.m in Sources */,
 				AD6158AF5746E99C7136F3ECA9423C63 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B7DA5AE2EE8808176A31F845A204C190 /* UIButton+AFNetworking.m in Sources */,
+				7CACB013299F33A600F8F4BA /* NSSet+NXTools.m in Sources */,
 				18AEFCE986FB74A0B6B092B3BA2267C6 /* UIImageView+AFNetworking.m in Sources */,
 				6C239323DE74D9551EB571A31A24EC1E /* UIProgressView+AFNetworking.m in Sources */,
 				AC29EE5318026D0BAF479C904536378F /* UIRefreshControl+AFNetworking.m in Sources */,
