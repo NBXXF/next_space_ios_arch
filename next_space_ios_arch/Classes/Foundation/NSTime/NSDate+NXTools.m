@@ -14,6 +14,10 @@
     return NSDate.now.milliseconds;
 }
 
++ (NSString *)currentTimeMillisString{
+    return [NSString stringWithFormat:@"%lld",self.currentTimeMillis];
+}
+
 - (NSInteger)dayOfYear{
     NSCalendar *cal = NSCalendar.currentCalendar;
     NSInteger dayInYear=[cal ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitYear forDate:self];
