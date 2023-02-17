@@ -18,9 +18,17 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype)applyWithBlock:(void (^)(NSDictionary<KeyType,ObjectType> *it))block;
 
 /**
+ 变换每一个item类型
+ */
+- (NSMutableDictionary *)mapEachWithBlock:(RACTwoTuple * (^)(KeyType key,ObjectType value))block;
+
+
+/**
  筛选出满足条件的对象集合
  */
 - (NSMutableDictionary<KeyType,ObjectType> *)filterObjectWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
+- (NSMutableArray<KeyType> *)filterKeyWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
+- (NSMutableArray<ObjectType> *)filterValueWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
 
 
 /**

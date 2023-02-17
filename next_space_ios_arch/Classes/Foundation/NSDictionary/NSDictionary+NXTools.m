@@ -14,6 +14,19 @@
     return self;
 }
 
+- (NSMutableDictionary *)mapEachWithBlock:(RACTwoTuple * _Nonnull (^)(id _Nonnull, id _Nonnull))block{
+    NSMutableDictionary *result=[NSMutableDictionary dictionary];
+    [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        RACTwoTuple *convert= block(key,obj);
+        if(convert){
+            [result setObject:convert.second forKey:convert.first];
+        }
+    }];
+    return result;
+}
+
+
+
 - (NSMutableDictionary *)filterObjectWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
     NSMutableDictionary *result=[NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
@@ -23,6 +36,27 @@
     }];
     return result;
 }
+
+- (NSMutableArray *)filterKeyWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
+    NSMutableArray *result=[NSMutableArray array];
+    [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if(block(key,obj)){
+            [result addObject:key];
+        }
+    }];
+    return result;
+}
+
+- (NSMutableArray *)filterValueWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
+    NSMutableArray *result=[NSMutableArray array];
+    [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if(block(key,obj)){
+            [result addObject:obj];
+        }
+    }];
+    return result;
+}
+
 
 - (RACTwoTuple *)firstObjectWithBlock:(BOOL (^)(id _Nonnull, id _Nonnull))block{
     __block RACTwoTuple *find=nil;
