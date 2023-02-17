@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveObjC/RACTuple.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  筛选出满足条件的对象集合
  */
-- (NSMutableDictionary<KeyType,ObjectType> *)filterObjectWithBlock:(BOOL (^)(KeyType key,ObjectType obj))block;
+- (NSMutableDictionary<KeyType,ObjectType> *)filterObjectWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
+
+
+/**
+ 查找满足条件的第一个
+ */
+-(RACTwoTuple<KeyType, ObjectType> *)firstObjectWithBlock:(BOOL (^)(KeyType key,ObjectType value))block;
+
 
 /**
  先判读类型 如果类型符合就转换,否则重新生成新的类型
