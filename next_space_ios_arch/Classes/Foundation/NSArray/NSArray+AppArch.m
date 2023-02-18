@@ -56,7 +56,7 @@
 
 - (NSUInteger)indexOfObjectWithBlock:(BOOL (^)(id _Nonnull))block{
     __block NSUInteger find=NSNotFound;
-    [self enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(block(obj)){
             find=idx;
             *stop=YES;

@@ -35,7 +35,12 @@
         
 #if DEBUG
         [self ____checkDebugSignalWithIdentifier:identifier];
-        NSAssert(uniqueSubjectDict.count<=10, @"违规监听了,一个类哪有这么多监听");
+        
+        //检查最大唯一标识过的订阅数目
+        NSInteger maxBindIdentifierSubjectCount=XXF.shared.config.maxBindIdentifierSubjectCount;
+        if(maxBindIdentifierSubjectCount>0){
+            NSAssert(uniqueSubjectDict.count<maxBindIdentifierSubjectCount, @"违规监听了,一个类哪有这么多监听");
+        }
 #endif
         return subject;
     };

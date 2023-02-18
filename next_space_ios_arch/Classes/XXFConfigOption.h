@@ -16,6 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic,assign) BOOL allowCallStackSymbols;
 
+/**
+ 一个类最大绑定唯一标识的RAC数量 (仅debug生效)
+ */
+@property(nonatomic,assign) NSInteger maxBindIdentifierSubjectCount;
+
 @end
 
 NS_ASSUME_NONNULL_END
