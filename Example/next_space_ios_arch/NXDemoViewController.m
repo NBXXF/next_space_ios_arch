@@ -364,6 +364,7 @@
 //        
 //    }];
     [self testSwitch];
+    [self testEnumrator];
 }
 
 -(void)testSwitch{
@@ -405,46 +406,77 @@
     NSLog(@"=========>componentsJoinedByString:%@",str);
 }
 
+-(void)testEnumrator{
+    [RACScheduler.scheduler schedule:^{
+        NSMutableArray<NSString *> *arry=[NSMutableArray array];
+        for(int i=0;i<10000;i++){
+            [arry addObject:[NSNumber numberWithInt:i].stringValue];
+        }
+        
+        double start=NSDate.now.timeIntervalSince1970*1000;
+        __block int i=0;
+        [arry enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            i=30/5;
+            i=i*i/2+i*8/6+4;
+            [NSThread sleepForTimeInterval:0.001];
+        }];
+        double end=NSDate.now.timeIntervalSince1970*1000;
+        NSLog(@"==========>enumerate normal take:%f",(end-start));
+
+        
+        start=NSDate.now.timeIntervalSince1970*1000;
+   
+        [arry enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+             i=30/5;
+             i=i*i/2+i*8/6+4;
+            [NSThread sleepForTimeInterval:0.001];
+        }];
+        end=NSDate.now.timeIntervalSince1970*1000;
+        NSLog(@"==========>enumerate by NSEnumerationConcurrent:%f",(end-start));
+    }];
+   
+}
+
 -(void)testBind{
     
-    NSString *testStr=@",校长,43,5,6,学生,";
-    double start=NSDate.now.timeIntervalSince1970*1000;
-    for(int i=0;i<10000;i++){
-        [testStr componentsSeparatedByString:@","].firstObject;
-    }
-    double end=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"==========>component take1:%f",(end-start));
-    
-    
-    start=NSDate.now.timeIntervalSince1970*1000;
-    for(int i=0;i<10000;i++){
-        [testStr componentsSeparatedByString:@","].lastObject;
-    }
-    end=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"==========>component take2:%f",(end-start));
-    
-    
-    start=NSDate.now.timeIntervalSince1970*1000;
-    for(int i=0;i<10000;i++){
-        [testStr firstComponentSeparatedByString:@","];
-    }
-    end=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"==========>component take3:%f",(end-start));
-    
-    
-    start=NSDate.now.timeIntervalSince1970*1000;
-    for(int i=0;i<10000;i++){
-        [testStr lastComponentSeparatedByString:@","];
-    }
-    end=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"==========>component take4:%f",(end-start));
-    
-    
-    testStr=@",校长,43,5,6,学生,";
-    NSLog(@"==========>componentSeparatedByString:%@",[testStr componentsSeparatedByString:@"."].firstObject);
-    NSLog(@"==========>componentSeparatedByString:%@",[testStr componentsSeparatedByString:@"."].lastObject);
-    NSLog(@"==========>componentSeparatedByString:%@",[testStr firstComponentSeparatedByString:@"."]);
-    NSLog(@"==========>componentSeparatedByString:%@",[testStr lastComponentSeparatedByString:@"."]);
+//    NSString *testStr=@",校长,43,5,6,学生,";
+//    double start=NSDate.now.timeIntervalSince1970*1000;
+//    for(int i=0;i<10000;i++){
+//        [testStr componentsSeparatedByString:@","].firstObject;
+//    }
+//    double end=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"==========>component take1:%f",(end-start));
+//
+//
+//    start=NSDate.now.timeIntervalSince1970*1000;
+//    for(int i=0;i<10000;i++){
+//        [testStr componentsSeparatedByString:@","].lastObject;
+//    }
+//    end=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"==========>component take2:%f",(end-start));
+//
+//
+//    start=NSDate.now.timeIntervalSince1970*1000;
+//    for(int i=0;i<10000;i++){
+//        [testStr firstComponentSeparatedByString:@","];
+//    }
+//    end=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"==========>component take3:%f",(end-start));
+//
+//
+//    start=NSDate.now.timeIntervalSince1970*1000;
+//    for(int i=0;i<10000;i++){
+//        [testStr lastComponentSeparatedByString:@","];
+//    }
+//    end=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"==========>component take4:%f",(end-start));
+//
+//
+//    testStr=@",校长,43,5,6,学生,";
+//    NSLog(@"==========>componentSeparatedByString:%@",[testStr componentsSeparatedByString:@"."].firstObject);
+//    NSLog(@"==========>componentSeparatedByString:%@",[testStr componentsSeparatedByString:@"."].lastObject);
+//    NSLog(@"==========>componentSeparatedByString:%@",[testStr firstComponentSeparatedByString:@"."]);
+//    NSLog(@"==========>componentSeparatedByString:%@",[testStr lastComponentSeparatedByString:@"."]);
 
     
     NSString *identifier= [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__];
