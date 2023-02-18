@@ -54,13 +54,21 @@ static BlockWatcher *__watchdog;
 +(void)_initMMKV{
     NSString *myGroupID = self.getAppGroupName;
     if(!myGroupID || myGroupID.length==0){
+#if DEBUG
         [MMKV initializeMMKV:nil logLevel:MMKVLogDebug];
+#else
+        [MMKV initializeMMKV:nil logLevel: MMKVLogNone];
+#endif
     }else{
         NSString *groupDir = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:myGroupID].path;
         if(!groupDir){
             @throw [NSException exceptionWithName:@"初始化失败" reason:@"groupName 错误" userInfo:nil];
         }
+#if DEBUG
         [MMKV initializeMMKV:nil groupDir:groupDir logLevel:MMKVLogDebug];
+#else
+        [MMKV initializeMMKV:nil groupDir:groupDir logLevel:MMKVLogNone];
+#endif
     }
 }
 

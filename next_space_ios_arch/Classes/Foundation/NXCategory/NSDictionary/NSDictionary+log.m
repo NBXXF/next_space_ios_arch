@@ -7,10 +7,11 @@
 //
 
 #import "NSDictionary+log.h"
+#import <next_space_ios_arch/NSObject+NXTools.h>
 
 @implementation NSDictionary (log)
-- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
-{
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level{
+#if DEBUG
     NSMutableString *mStr = [NSMutableString string];
     NSMutableString *tab = [NSMutableString stringWithString:@""];
     for (int i = 0; i < level; i++) {
@@ -39,7 +40,11 @@
     }
     [mStr appendFormat:@"%@}",tab];
     return mStr;
+#endif
+    return self.simpleDescription;
 }
+
+
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString
 {
     if (jsonString == nil) {
