@@ -10,22 +10,3 @@
 #endif
 #endif
 
-//
-//  XXFPrefixHeader.pch
-//  Pods
-//
-//  Created by 1234 on 2023/2/18.
-//
-
-#ifndef XXFPrefixHeader_pch
-#define XXFPrefixHeader_pch
-
-#ifdef DEBUG
-#define NSLog(s, ... ) NSLog(@"*****************<%@:(%d)> %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
-
-#else
-#define NSLog(...)
-#endif
-
-
-#endif /* XXFPrefixHeader_pch */

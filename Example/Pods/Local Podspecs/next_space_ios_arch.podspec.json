@@ -19,7 +19,6 @@
     "ios": "10.0"
   },
   "source_files": "next_space_ios_arch/Classes/**/*",
-  "prefix_header_file": "XXFPrefixHeader.pch",
   "public_header_files": "Pod/Classes/**/*",
   "dependencies": {
     "JLRoutes": [
