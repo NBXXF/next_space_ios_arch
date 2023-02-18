@@ -31,7 +31,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'next_space_ios_arch/Classes/**/*'
-  
+  s.prefix_header_file = false
+  s.prefix_header_file = 'XXFPrefixHeader.pch'
   # s.resource_bundles = {
   #   'next_space_ios_arch' => ['next_space_ios_arch/Assets/*.png']
   # }
