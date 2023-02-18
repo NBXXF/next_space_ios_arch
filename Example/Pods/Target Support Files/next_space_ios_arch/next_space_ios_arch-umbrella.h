@@ -28,6 +28,7 @@
 #import "PHPhotoLibrary+NXTools.h"
 #import "NSSet+NXTools.h"
 #import "NSMutableAttributedString+AppArch.h"
+#import "NSString+NXTools.h"
 #import "NXTimeUnit_DAYS.h"
 #import "NXTimeUnit_HOURS.h"
 #import "NXTimeUnit_MICROSECONDS.h"

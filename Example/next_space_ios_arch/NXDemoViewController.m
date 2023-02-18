@@ -406,6 +406,47 @@
 }
 
 -(void)testBind{
+    
+    NSString *testStr=@",校长,43,5,6,学生,";
+    double start=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [testStr componentsSeparatedByString:@","].firstObject;
+    }
+    double end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"==========>component take1:%f",(end-start));
+    
+    
+    start=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [testStr componentsSeparatedByString:@","].lastObject;
+    }
+    end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"==========>component take2:%f",(end-start));
+    
+    
+    start=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [testStr firstComponentSeparatedByString:@","];
+    }
+    end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"==========>component take3:%f",(end-start));
+    
+    
+    start=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [testStr lastComponentSeparatedByString:@","];
+    }
+    end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"==========>component take4:%f",(end-start));
+    
+    
+    testStr=@",校长,43,5,6,学生,";
+    NSLog(@"==========>componentSeparatedByString:%@",[testStr componentsSeparatedByString:@"."].firstObject);
+    NSLog(@"==========>componentSeparatedByString:%@",[testStr componentsSeparatedByString:@"."].lastObject);
+    NSLog(@"==========>componentSeparatedByString:%@",[testStr firstComponentSeparatedByString:@"."]);
+    NSLog(@"==========>componentSeparatedByString:%@",[testStr lastComponentSeparatedByString:@"."]);
+
+    
     NSString *identifier= [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__];
     [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
         return [RACSignal just:@"xx"];
