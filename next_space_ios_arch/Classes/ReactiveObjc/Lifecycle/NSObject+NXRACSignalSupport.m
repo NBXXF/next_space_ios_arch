@@ -26,12 +26,17 @@
             //就是要主动取消上次的 避免重复绑定
             [signal sendCompleted];
         }
-      
+        
         RACReplaySubject *subject = [RACReplaySubject subject];
         [uniqueSubjectDict setObject:subject forKey:identifier];
         
         objc_setAssociatedObject(self, _cmd, uniqueSubjectDict, OBJC_ASSOCIATION_RETAIN);
+        
+        
+#if DEBUG
         [self ____checkDebugSignalWithIdentifier:identifier];
+        NSAssert(uniqueSubjectDict.count<=10, @"违规监听了,一个类哪有这么多监听");
+#endif
         return subject;
     };
 }
@@ -41,7 +46,7 @@
     if(XXF.shared.config.allowCallStackSymbols){
         NSMutableDictionary *callStackDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
         NSString *lastUserCallLine=[callStackDict objectForKey:identifier];
-        
+
         NSArray<NSString *> *callStack = [NSThread callStackSymbols];
         //ios内核得不到+[ 或者-[
         NSString *prefixCallInstanceMethod=@"-[";
@@ -53,7 +58,7 @@
                ||[obj containsString:@"untilUniqueOrDeallocSignalWithIdentifier"]){
                 return NO;
             }
-            
+
             if([obj containsString:prefixCallInstanceMethod]||[obj containsString:prefixCallStaticMethod]){
                 return YES;
             }
@@ -66,8 +71,8 @@
         if(range.length!=0){
             userCallLine=[userCallLine substringFromIndex:range.location];
         }
-        
-        
+
+
         if(lastUserCallLine&&![lastUserCallLine isEqual:userCallLine]){
             NSString *errorDesc = [NSString stringWithFormat:@"绑定生命周期在同不同位置添加了一样的唯一标识%@",identifier];
             NSAssert(NO, errorDesc);
@@ -76,7 +81,7 @@
             [callStackDict setObject:userCallLine forKey:identifier];
             objc_setAssociatedObject(self, _cmd, callStackDict, OBJC_ASSOCIATION_RETAIN);
         }
-        
+
         NSString *callStackString = [NSString stringWithFormat:@"%@",callStackDict];
         NSLog(@"======>untilUniqueIdentifier_%@_adding(%@)  all:%@",self.simpleDescription,identifier,callStackString);
     }
