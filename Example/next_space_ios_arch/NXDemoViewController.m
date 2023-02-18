@@ -429,7 +429,7 @@
    
     [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
         return [RACSignal just:@"xx"];
-    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(identifier)] initially:^{
+    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)] initially:^{
         NSLog(@"==========>testBind start binding");
     }] doCompleted:^{
         NSLog(@"==========>testBind completed");
