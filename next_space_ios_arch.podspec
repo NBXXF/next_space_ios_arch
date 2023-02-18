@@ -31,14 +31,10 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'next_space_ios_arch/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'next_space_ios_arch' => ['next_space_ios_arch/Assets/*.png']
-  # }
+  s.prefix_header_file = false
+  s.prefix_header_file = 'XXFPrefixHeader.pch'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+
  s.public_header_files = 'Pod/Classes/**/*'
  s.dependency 'JLRoutes'
  s.dependency 'ReactiveObjC', '~> 3.1.1'

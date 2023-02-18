@@ -68,6 +68,7 @@
 #import "SwizzleMethod.h"
 #import "FileUtils.h"
 #import "HashUtils.h"
+#import "LogUtils.h"
 #import "NXHttpInterceptor.h"
 #import "NXHTTPSessionManager.h"
 #import "NXItemMenu.h"
