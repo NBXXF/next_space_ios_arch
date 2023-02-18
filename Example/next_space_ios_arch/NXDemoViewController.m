@@ -352,11 +352,12 @@
     
     
     [self testBind];
+    [self testBind2];
     @weakify(self)
-    [RACScheduler.mainThreadScheduler afterDelay:5 schedule:^{
-        @strongify(self)
-        [self testBind];
-    }];
+//    [RACScheduler.mainThreadScheduler afterDelay:5 schedule:^{
+//        @strongify(self)
+//        [self testBind];
+//    }];
     
 //    
 //    [[[RACSignal just:@""] takeUntil:self.untilUniqueSignalWithIdentifier(@"xxxx")] subscribeNext:^(id  _Nullable x) {
@@ -405,9 +406,30 @@
 }
 
 -(void)testBind{
+    NSString *identifier= [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__];
     [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
         return [RACSignal just:@"xx"];
-    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(@"xxxx")] initially:^{
+    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(identifier)] initially:^{
+        NSLog(@"==========>testBind start binding");
+    }] doCompleted:^{
+        NSLog(@"==========>testBind completed");
+    }] subscribeNext:^(id  _Nullable x) {
+       // NSLog(@"==========>testBind next");
+    }];
+}
+
+-(void)testBind2{
+    NSString *identifier=__FILE_LINE__;     NSString *identifier2=__FILE_LINE__;
+    double start=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        NSString *identifier= [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__];
+    }
+    double end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"===========>file:%f",(end-start));
+   
+    [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+        return [RACSignal just:@"xx"];
+    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(identifier)] initially:^{
         NSLog(@"==========>testBind start binding");
     }] doCompleted:^{
         NSLog(@"==========>testBind completed");
