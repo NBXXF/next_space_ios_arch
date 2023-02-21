@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import <next_space_ios_arch/NSDate+NXTools.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
+#import <next_space_ios_arch/NSDate+Utilities.h>
 
 
 @implementation NSDate (Format)
@@ -68,7 +69,7 @@
     NSString *displayStr = @"";
     NSDate *today = [NSDate date];
     if ([self year] != [today year]) {
-        displayStr = [self stringWithFormat:@"yyyy年M月d日"];
+        displayStr = [self fastStringWithFormat:@"yyyy年M月d日"];
         return displayStr;
     }else{
 //        NSCalendar *calendar = [[self class] sharedCalendar];
@@ -101,15 +102,15 @@
                     displayStr = @"前天";
                 }
             }
-            NSString * timeStr = [self stringWithFormat:@"HH:mm"];
+            NSString * timeStr = [self fastStringWithFormat:@"HH:mm"];
             if(displayStr){
                 return [NSString stringWithFormat:@"%@ %@",displayStr,timeStr];
             }else{
                 return timeStr;
             }
         }else{
-            displayStr = [self stringWithFormat:@"M月d日"];
-            NSString * timeStr = [self stringWithFormat:@"HH:mm"];
+            displayStr = [self fastStringWithFormat:@"M月d日"];
+            NSString * timeStr = [self fastStringWithFormat:@"HH:mm"];
             return [NSString stringWithFormat:@"%@ %@",displayStr,timeStr];
         }
     }

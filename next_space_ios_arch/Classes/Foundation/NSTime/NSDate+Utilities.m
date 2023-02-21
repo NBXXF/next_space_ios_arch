@@ -81,14 +81,6 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
 	return newDate;		
 }
 
-#pragma mark - String Properties
-- (NSString *) stringWithFormat: (NSString *) format
-{
-    NSDateFormatter *formatter = [NSDateFormatter new];
-//    formatter.locale = [NSLocale currentLocale]; // Necessary?
-    formatter.dateFormat = format;
-    return [formatter stringFromDate:self];
-}
 
 - (NSString *) stringWithDateStyle: (NSDateFormatterStyle) dateStyle timeStyle: (NSDateFormatterStyle) timeStyle
 {

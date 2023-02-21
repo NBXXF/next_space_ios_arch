@@ -400,23 +400,23 @@
 
 
 -(void)testFormat{
-    NSDate *date=NSDate.now;
-    double start=NSDate.now.timeIntervalSince1970*1000;
-    NSString *str1=@"";
-    for(int i=0;i<10000;i++){
-        str1= [date stringWithFormat:@"YYYY-MM-dd HH:mm"];
-    }
-    double end=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"=========>stringWithFormat normal take:%f %@",(end-start),str1);
-    
-    
-    start=NSDate.now.timeIntervalSince1970*1000;
-    NSString *str2=@"";
-    for(int i=0;i<10000;i++){
-        str2=[date fastStringWithFormat:@"YYYY-MM-dd HH:mm"];
-    }
-    end=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"=========>stringWithFormat cache take:%f %@",(end-start),str2);
+//    NSDate *date=NSDate.now;
+//    double start=NSDate.now.timeIntervalSince1970*1000;
+//    NSString *str1=@"";
+//    for(int i=0;i<10000;i++){
+//        str1= [date stringWithFormat:@"YYYY-MM-dd HH:mm"];
+//    }
+//    double end=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"=========>stringWithFormat normal take:%f %@",(end-start),str1);
+//    
+//    
+//    start=NSDate.now.timeIntervalSince1970*1000;
+//    NSString *str2=@"";
+//    for(int i=0;i<10000;i++){
+//        str2=[date fastStringWithFormat:@"YYYY-MM-dd HH:mm"];
+//    }
+//    end=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"=========>stringWithFormat cache take:%f %@",(end-start),str2);
     
 }
 
