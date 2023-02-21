@@ -65,5 +65,10 @@
 /**
 这个用于替换NSDate (YYAdd) 中的dateWithString 方法
 */
-+ (nullable NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format DEPRECATED_MSG_ATTRIBUTE("请用fastStringFormatWithTimeStamp");
++ (nullable NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format DEPRECATED_MSG_ATTRIBUTE("请用fastDateWithString or fastDateFromString");
+
+/**
+这个用于替换NSDate (YYAdd) 中的dateWithString 方法
+*/
++ (nullable NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format DEPRECATED_MSG_ATTRIBUTE("请用fastDateWithString or fastDateFromString");
 @end

@@ -160,5 +160,11 @@
 + (nullable NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format DEPRECATED_MSG_ATTRIBUTE("请用fastDateWithString or fastDateFromString"){
     return [self fastDateWithString:dateString withFormat:format];
 }
+/**
+这个用于替换NSDate (YYAdd) 中的dateWithString 方法
+*/
++ (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)format DEPRECATED_MSG_ATTRIBUTE("请用fastDateWithString or fastDateFromString"){
+    return [self fastDateWithString:dateString withFormat:format];
+}
 
 @end
