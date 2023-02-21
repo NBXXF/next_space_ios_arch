@@ -38,6 +38,8 @@
 #import "NXTimeUnit_MINUTES.h"
 #import "NXTimeUnit_NANOSECONDS.h"
 #import "NXTimeUnit_SECONDS.h"
+#import "NSDate+Format.h"
+#import "NSDate+Helper.h"
 #import "NSDate+NXTools.h"
 #import "NSDate+Utilities.h"
 #import "NXTimeUnit.h"
