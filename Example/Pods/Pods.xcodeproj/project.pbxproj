@@ -163,7 +163,6 @@
 		324C624983C99EF540C00EAB65FF0B0A /* YYTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BC899EE6577BA570A72DEBF2BA378F /* YYTransaction.m */; };
 		32AE37792DDBF215C91F161A8C00B8F7 /* UIImagePickerController+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = A4324CE0111E47CF6FCF622534668355 /* UIImagePickerController+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33B9A195FDB315F18465CB1BA24D74A9 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B762EA02FE486B7872D705D11EE73D85 /* AFHTTPSessionManager.m */; };
-		33DF30C607E6405838A72DFDDD8CB876 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDAD7287E7188F0C48A5E005E8D46A6 /* NSDate+Helper.m */; };
 		33F61B2EEEF8F39D1B7DD58563A3AD3B /* UISwitch+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C21C3CE40430E53CEA21F8B67E659D4 /* UISwitch+RACSignalSupport.m */; };
 		3417E38E54333D122FDB6EB907C290FA /* NXMutableOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 41994B090719A53341DE125DDA8CDC23 /* NXMutableOrderedDictionary.m */; };
 		34501A522C290C3AAC0A4ECB86F0851A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19CD3AF8C429688E872E06683D18613 /* CoreFoundation.framework */; };
@@ -743,7 +742,6 @@
 		E59DC8CBF22C829462159F4466E3129C /* NXRouterOpenType.h in Headers */ = {isa = PBXBuildFile; fileRef = 81A65AC077D0ADC209EE22E0A79FB0F1 /* NXRouterOpenType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E65A27F911FDF90D65E0C7B1423D3D60 /* NXAutoHeightCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C45B506CF560BFFAD0A425BEF64A7EA /* NXAutoHeightCollectionView.m */; };
 		E682255C59F9854CCB219E4019BA4005 /* HashUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A63088B295B931DC13BBFF2928F45511 /* HashUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E694A5BA9FDF04E7CA4B82CBACB3198D /* NSDate+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 39A7154D105157AA8078FAD6BAD0B730 /* NSDate+Helper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6A0CD19BE8D605D699FC680E2F5FF4B /* NSMutableDictionary+NXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F7C5B8ED15FFCFD68F92FCE1D82FE9 /* NSMutableDictionary+NXTools.m */; };
 		E6A13FBCFAF202914860992C73E58280 /* MMKV.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BBC523D30CA3724DA43B5150AB608C4 /* MMKV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6FB269534400D40C1CE67D18EDD8A9A /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF34815B9332A1C8D53027F2B0847B3 /* MASViewConstraint.m */; };
@@ -1134,7 +1132,6 @@
 		383BB20920EEA9DBE20FA6BD93DE5BF0 /* UIScrollView+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+YYAdd.h"; path = "YYKit/Base/UIKit/UIScrollView+YYAdd.h"; sourceTree = "<group>"; };
 		383DAFFF5B76D65DE2BCA2BD62DCB0B9 /* YYKVStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKVStorage.h; path = YYKit/Cache/YYKVStorage.h; sourceTree = "<group>"; };
 		3897C77B138CBF23CCB6DE4A3DF78FAC /* MASConstraint+NXPT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+NXPT.h"; sourceTree = "<group>"; };
-		39A7154D105157AA8078FAD6BAD0B730 /* NSDate+Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		39CAEDCF75EE6DFD12A5765C8C9CF081 /* NXRouterKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NXRouterKeys.swift; sourceTree = "<group>"; };
 		3AE01C61278D5C7A87B7363174949E6C /* UITextField+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+YYAdd.h"; path = "YYKit/Base/UIKit/UITextField+YYAdd.h"; sourceTree = "<group>"; };
 		3BE9000A663384B95BF14E3D71F3DDA6 /* YYDiskCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYDiskCache.h; path = YYKit/Cache/YYDiskCache.h; sourceTree = "<group>"; };
@@ -1415,7 +1412,6 @@
 		8CF7B13BAC4BE93059F1BBA7AA3F60C6 /* YYKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYKeychain.m; path = YYKit/Utility/YYKeychain.m; sourceTree = "<group>"; };
 		8D526251A4A07668927E8DDA9F0E2172 /* NSNumber+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNumber+YYAdd.h"; path = "YYKit/Base/Foundation/NSNumber+YYAdd.h"; sourceTree = "<group>"; };
 		8D7F1BF7B5E7DD2A5E72354A195EB52D /* NXLifecycleEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NXLifecycleEvent.m; sourceTree = "<group>"; };
-		8DDAD7287E7188F0C48A5E005E8D46A6 /* NSDate+Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		8E01A5D94B640DD988598E84147393DF /* NSObject+NXTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NXTools.m"; sourceTree = "<group>"; };
 		8E4EB0FACE54D5740B594C36AE6F1DA4 /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
 		8E61A46C2F2A162441139A088D49ACD2 /* MMKV_IO.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = MMKV_IO.cpp; path = Core/MMKV_IO.cpp; sourceTree = "<group>"; };
@@ -2489,8 +2485,6 @@
 		6712AB4A2B27E8B66764CE8120972F3D /* NSTime */ = {
 			isa = PBXGroup;
 			children = (
-				39A7154D105157AA8078FAD6BAD0B730 /* NSDate+Helper.h */,
-				8DDAD7287E7188F0C48A5E005E8D46A6 /* NSDate+Helper.m */,
 				8FE208DA24727A9DFDFC6FDA0E9D6D1C /* NSDate+Format.h */,
 				120737E796453F65B2E8DA387DA1E0C1 /* NSDate+Format.m */,
 				B55BD29BD2583BD2D1DF5D47E7746517 /* NSDate+NXTools.h */,
@@ -3894,7 +3888,6 @@
 				A12B135D37BABB63AF8F29D38B926F33 /* NSArray+RACSequenceAdditionsDeprecated.h in Headers */,
 				2685CA0B0ACA032437755842DA42E1DE /* NSAttributedString+NXUtil.h in Headers */,
 				B50C81659773B72FDC2BF95A847B2316 /* NSDate+Format.h in Headers */,
-				E694A5BA9FDF04E7CA4B82CBACB3198D /* NSDate+Helper.h in Headers */,
 				FD6BBBBF1AB50BA9A8372C7EECE70888 /* NSDate+NXTools.h in Headers */,
 				EC75E28E780FE3C4C6DF493B42EC1815 /* NSDate+Utilities.h in Headers */,
 				578EE2BE4BE6CC103F9BF23F21C6032F /* NSDictionary+Hash.h in Headers */,
@@ -4516,7 +4509,6 @@
 				36724F5823C0FA3A8C9ABE406ED5F0C3 /* NSArray+RACSequenceAdditionsDeprecated.m in Sources */,
 				1A83D5978E3BF5DCEAAB42E5E421C4EA /* NSAttributedString+NXUtil.m in Sources */,
 				F3DE884E5ADF6C97DFD762030AC51B14 /* NSDate+Format.m in Sources */,
-				33DF30C607E6405838A72DFDDD8CB876 /* NSDate+Helper.m in Sources */,
 				F207C112CAB94034C92C1B0BABB1747C /* NSDate+NXTools.m in Sources */,
 				8BBED09E6A5F0A5B060AD303F7C7A207 /* NSDate+Utilities.m in Sources */,
 				D75F5DE28CAC4AE00D5BDFAFC3F59142 /* NSDictionary+Hash.m in Sources */,
