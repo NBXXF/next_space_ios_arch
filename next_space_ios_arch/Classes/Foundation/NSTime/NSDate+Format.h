@@ -56,7 +56,7 @@
 /**
  反格式化时间  增加fast开头 易于提醒开发者
  */
-+ (nullable NSDate *)fastDateWithString:(NSString *)dateString format:(NSString *)format;
++ (nullable NSDate *)fastDateWithString:(NSString *)dateString withFormat:(NSString *)format;
 
 
 
