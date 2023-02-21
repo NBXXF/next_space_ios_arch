@@ -97,7 +97,7 @@ static BlockWatcher *__watchdog;
 + (void)_initPerformanceMonitor{
 #if DEBUG
     //业务可以选择unlock方式修改 短暂解决临时不变
-    CGFloat threshold=0.6;
+    CGFloat threshold=1000.6;
     if(!__watchdog){
         //单位是s 秒
         __watchdog=[[BlockWatcher alloc] initWithThreshold:threshold strictMode:YES];

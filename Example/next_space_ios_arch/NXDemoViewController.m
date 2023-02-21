@@ -25,7 +25,7 @@
 
 
 @interface NXDemoViewController ()<UIKeyCommanderProtocol,YYTextViewDelegate, UITextViewDelegate>
-
+@property(nonatomic,strong) RACSubject *changeSubject;
 @end
 
 @implementation NXDemoViewController
@@ -349,7 +349,7 @@
     }];
     
     
-    
+   // [self testFormat];
     
     [self testBind];
     [self testBind2];
@@ -365,6 +365,59 @@
 //    }];
     [self testSwitch];
     [self testEnumrator];
+    
+    if(!_changeSubject){
+        _changeSubject=[RACSubject subject];
+    }
+    [[_changeSubject bindLifecycle:self.untilUniqueOrDeallocSignalWithIdentifier(__FILE_LINE__)] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"============>changeSubject:%@",x);
+    }];
+    
+    [[_changeSubject bindLifecycle:self.untilUniqueOrDeallocSignalWithIdentifier(__FILE_LINE__)] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"============>changeSubject2:%@",x);
+    }];
+    
+    [_changeSubject  sendNext:@"xx"];
+    [RACScheduler.mainThreadScheduler afterDelay:2 schedule:^{
+        [_changeSubject  sendNext:@"222"];
+    }];
+    double start=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(testSwitch) name:@"xxxx" object:nil];
+    }
+    double end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"=========>NSNotificationCenter take1:%f",(end-start));
+    
+    NSNotificationCenter *defaultCenter=   NSNotificationCenter.defaultCenter;
+    start=NSDate.now.timeIntervalSince1970*1000;
+    for(int i=0;i<10000;i++){
+        [NSNotificationCenter.defaultCenter removeObserver:self];
+    }
+    end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"=========>NSNotificationCenter take2:%f",(end-start));
+    
+}
+
+
+-(void)testFormat{
+    NSDate *date=NSDate.now;
+    double start=NSDate.now.timeIntervalSince1970*1000;
+    NSString *str1=@"";
+    for(int i=0;i<10000;i++){
+        str1= [date stringWithFormat:@"YYYY-MM-dd HH:mm"];
+    }
+    double end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"=========>stringWithFormat normal take:%f %@",(end-start),str1);
+    
+    
+    start=NSDate.now.timeIntervalSince1970*1000;
+    NSString *str2=@"";
+    for(int i=0;i<10000;i++){
+        str2=[date fastStringWithFormat:@"YYYY-MM-dd HH:mm"];
+    }
+    end=NSDate.now.timeIntervalSince1970*1000;
+    NSLog(@"=========>stringWithFormat cache take:%f %@",(end-start),str2);
+    
 }
 
 -(void)testSwitch{

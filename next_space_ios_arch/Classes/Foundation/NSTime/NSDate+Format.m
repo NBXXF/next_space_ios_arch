@@ -8,7 +8,9 @@
 
 #import "NSDate+Format.h"
 #import "NSDate+Helper.h"
-#import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
+#import <objc/runtime.h>
+#import <next_space_ios_arch/NSDate+NXTools.h>
+#import <next_space_ios_arch/NSObject+NXTools.h>
 
 
 @implementation NSDate (Format)
@@ -49,18 +51,16 @@
 
 
 - (NSString *)stringyyyyMMdd{
-    return [self stringWithFormat:@"yyyy年MM月dd日"];
+    return [self fastStringWithFormat:@"yyyy年MM月dd日"];
 }
 
 
 - (NSString *)string_yyyy_MM{
-    return [self stringWithFormat:@"yyyy-MM-dd"];
+    return [self fastStringWithFormat:@"yyyy-MM-dd"];
 }
 
 
-- (NSString *)timeToFormat:(NSString *)format{
-    return [self stringWithFormat:format];
-}
+
 
 
 
@@ -115,12 +115,53 @@
     }
 }
 
+- (NSString *)fastStringWithFormat:(NSString *)format{
+    return [[NSDate ______getCacheDateFormatterWithFormat:format] stringFromDate:self];
+}
 
++ (NSString *)fastStringFormatWithTimeStamp:(long long)milliseconds withFormat:(NSString *)format{
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:milliseconds / 1000];
+    return [[NSDate ______getCacheDateFormatterWithFormat:format] stringFromDate:date];
+}
 
+/**
+ 内部缓存的时间格式类
+ */
++(NSDateFormatter *)______getCacheDateFormatterWithFormat:(NSString *)format{
+    NSMutableDictionary *cacheDateFormatterDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
+    NSDateFormatter *cacheFormatter=[NSDateFormatter toKindOfClassObjectOrNilFrom:[cacheDateFormatterDict objectForKey:format]];
+    if(!cacheFormatter){
+        cacheFormatter=[[NSDateFormatter alloc] init];
+        [cacheFormatter setDateFormat:format];
+        [cacheFormatter setLocale:[NSLocale currentLocale]];
+        [cacheDateFormatterDict setObject:cacheFormatter forKey:format];
+        objc_setAssociatedObject(self, _cmd, cacheDateFormatterDict, OBJC_ASSOCIATION_RETAIN);
+    }
+#if DEBUG
+    NSAssert(cacheDateFormatterDict.count<=500, @"业务乱传format,为了保证缓存 请传有效的时间格式,避免过多缓存");
+#endif
+    return cacheFormatter;
+}
 
-+ (NSString *)formatTimeStamp:(long long)timeStamp withFormat:(NSString *)format {
-    NSDate * date = [NSDate dateWithTimeIntervalSince1970:timeStamp / 1000];
-    return [date stringWithFormat:format];
+/**
+这个用于替换NSDate (YYAdd) 中的stringWithFormat 方法
+*/
+- (NSString *)stringWithFormat:(NSString *)format  DEPRECATED_MSG_ATTRIBUTE("请用fastStringWithFormat"){
+    return [self fastStringWithFormat:format];
+}
+
+/**
+ 这是迁移来的老方法
+ */
+- (NSString *)timeToFormat:(NSString *)format DEPRECATED_MSG_ATTRIBUTE("请用fastStringWithFormat"){
+    return [self fastStringWithFormat:format];
+}
+
+/**
+ 这是迁移来的老方法
+ */
++ (NSString *)formatTimeStamp:(long long)timeStamp withFormat:(NSString *)format DEPRECATED_MSG_ATTRIBUTE ("请用fastStringFormatWithTimeStamp") {
+    return [self fastStringFormatWithTimeStamp:timeStamp withFormat:format];
 }
 
 
