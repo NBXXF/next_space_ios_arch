@@ -62,4 +62,8 @@
 + (nullable NSDate *)fastDateFromString:(NSString *)dateString withFormat:(NSString *)format;
 
 
+/**
+这个用于替换NSDate (YYAdd) 中的dateWithString 方法
+*/
++ (nullable NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format DEPRECATED_MSG_ATTRIBUTE("请用fastStringFormatWithTimeStamp");
 @end
