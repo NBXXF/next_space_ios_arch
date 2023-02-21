@@ -22,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign,readonly) NSInteger dayOfYear; ///< Day component (1~365或者366)
 @property(nonatomic,assign,readonly)  long long milliseconds;/// 时间戳 毫秒
 
-@property (nonatomic,assign,readonly) long long startMillisOfDay; /// 这天的开始时间毫秒
-@property (nonatomic,assign,readonly) long long endMillisOfDay; /// 这天的结束时间毫秒
-///
+/**
+ 开始结束时间区域
+ */
 @property (nonatomic,strong,readonly)  NSDate *beginningOfWeek;
 @property (nonatomic,strong,readonly)  NSDate *beginningOfDay;
 @property (nonatomic,strong,readonly)  NSDate *endOfWeek;

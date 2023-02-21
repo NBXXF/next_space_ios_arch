@@ -15,13 +15,6 @@
 
 @implementation NSDate (Format)
 
-- (BOOL)isSameDay:(NSDate*)anotherDate{
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components1 = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self];
-    NSDateComponents* components2 = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:anotherDate];
-    return ([components1 year] == [components2 year] && [components1 month] == [components2 month] && [components1 day] == [components2 day]);
-}
-
 
 - (NSInteger)hoursAgo{
     NSCalendar *calendar = [[self class] sharedCalendar];
@@ -31,9 +24,6 @@
                                                 options:0];
     return [components hour];
 }
-
-
-
 
 
 
@@ -61,9 +51,6 @@
 
 
 
-
-
-
 - (NSString *)getLatestDayStr{
     NSString *displayStr = @"";
     NSDate *today = [NSDate date];
@@ -71,16 +58,10 @@
         displayStr = [self fastStringWithFormat:@"yyyy年M月d日"];
         return displayStr;
     }else{
-//        NSCalendar *calendar = [[self class] sharedCalendar];
-//        NSDateComponents *components = [calendar components:(NSDayCalendarUnit)
-//                                                   fromDate:today
-//                                                     toDate:self
-//                                                    options:0];
-//        NSInteger leftDayCount = [components day];
         ///当前时间戳
         long long caculateTime = [self timeIntervalSince1970];
         ///现在时间的0点时间戳
-        long long todayZeroTime = today.startMillisOfDay/1000;
+        long long todayZeroTime = today.beginningOfDay.timeIntervalSince1970;
 
         long long perDaySecond = 60*60*24;
         

@@ -10,8 +10,6 @@
 
 @interface NSDate (Format)
 
-- (BOOL)isSameDay:(NSDate*)anotherDate;
-
 
 - (NSInteger)hoursAgo;
 - (NSInteger)daysAgo;

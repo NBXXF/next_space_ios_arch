@@ -40,6 +40,7 @@
 // Comparing dates
 - (BOOL) isEqualToDateIgnoringTime: (NSDate *) aDate;
 
+- (BOOL) isSameDayAsDate: (NSDate *) aDate;
 - (BOOL) isToday;
 - (BOOL) isTomorrow;
 - (BOOL) isYesterday;
