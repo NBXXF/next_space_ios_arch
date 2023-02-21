@@ -51,6 +51,13 @@
     return nil;
 }
 
+- (instancetype)initByBlock:(void (^)(id _Nonnull))block{
+    self=[self init];
+    if(self){
+        block(self);
+    }
+    return self;
+}
 
 - (instancetype)applyWithBlock:(void (^)(id _Nonnull))block{
     block(self);

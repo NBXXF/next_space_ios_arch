@@ -34,7 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 常用于初始化对象或更改对象属性 返回值自己
+ 替代init【万能初始化方法 】与#applyWithBlock的区别 【是会执行init方法】
+ 第三方框架已经有很多initWithBlock了 避免冲突取名为 initByBlock 直译 通过(by ) Block 来初始化
+ */
+- (instancetype)initByBlock:(void (^)(id it))block;
+
+/**
+ 常用于初始化对象或更改对象属性 返回值自己,【注意 不会执行init方法,理解为装饰自己(可以n次),首先得有自己】
  it为当前对象
  */
 - (instancetype)applyWithBlock:(void (^)(id it))block;

@@ -22,6 +22,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		7C9B5DBE29A4F9EE005A69D6 /* NXParent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B5DBD29A4F9EE005A69D6 /* NXParent.m */; };
 		7C9DFDB02942E59200D1D728 /* NXTestFlowLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DFDAF2942E59200D1D728 /* NXTestFlowLayoutViewController.m */; };
 		7C9DFDB32942E5C000D1D728 /* MyCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DFDB22942E5C000D1D728 /* MyCellCollectionViewCell.m */; };
 		7CA425322934F274006EA927 /* NXBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA425312934F274006EA927 /* NXBean.m */; };
@@ -74,6 +75,8 @@
 		680A172176E9D52618D23413 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6C789331131B52AF5BBCB2A0 /* Pods_next_space_ios_arch_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_next_space_ios_arch_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C9B5DBC29A4F9EE005A69D6 /* NXParent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXParent.h; sourceTree = "<group>"; };
+		7C9B5DBD29A4F9EE005A69D6 /* NXParent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXParent.m; sourceTree = "<group>"; };
 		7C9DFDAE2942E59200D1D728 /* NXTestFlowLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXTestFlowLayoutViewController.h; sourceTree = "<group>"; };
 		7C9DFDAF2942E59200D1D728 /* NXTestFlowLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXTestFlowLayoutViewController.m; sourceTree = "<group>"; };
 		7C9DFDB12942E5C000D1D728 /* MyCellCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCellCollectionViewCell.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				E1CB5446290AB91C004DA7A4 /* NXViewController+Test.m */,
 				7CA4D20B299B86E6006FCE58 /* NXTestRAC.h */,
 				7CA4D20C299B86E6006FCE58 /* NXTestRAC.m */,
+				7C9B5DBC29A4F9EE005A69D6 /* NXParent.h */,
+				7C9B5DBD29A4F9EE005A69D6 /* NXParent.m */,
 			);
 			name = "Example for next_space_ios_arch";
 			path = next_space_ios_arch;
@@ -449,6 +454,7 @@
 				7C9DFDB32942E5C000D1D728 /* MyCellCollectionViewCell.m in Sources */,
 				6003F59E195388D20070C39A /* NXAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* NXDemoViewController.m in Sources */,
+				7C9B5DBE29A4F9EE005A69D6 /* NXParent.m in Sources */,
 				E1CB5447290AB91C004DA7A4 /* NXViewController+Test.m in Sources */,
 				E18989C62913AE2E004AFFF5 /* NXTestModal2VC.m in Sources */,
 				E1B6CFD42901912100529B70 /* UITextField+KeyEvent.m in Sources */,

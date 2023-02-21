@@ -343,12 +343,23 @@
     
     [self showModal];
     
-    __block NXTestRAC *t=NXTestRAC.new;
-    [RACScheduler.scheduler afterDelay:5 schedule:^{
-        t=nil;
-    }];
+    //__block NXTestRAC *t=NXTestRAC.new;
+//    [RACScheduler.scheduler afterDelay:5 schedule:^{
+//        t=nil;
+//    }];
     
+//
+//    NSObject *obj=  [NSObject.alloc initByBlock:^(NSObject  *_Nonnull it) {
+//        NSLog(@"=========>initByBlock:%@",it.simpleDescription);
+//    }];
+//    NSLog(@"=========>initByBlock2:%@",obj.simpleDescription);
+//
     
+//    NXTestRAC *robj=  [NXTestRAC.alloc initByBlock:^(NSObject  *_Nonnull it) {
+//        NSLog(@"=========>initByBlock:%@",it.simpleDescription);
+//    }];
+    NXTestRAC *robj=  [NXTestRAC.alloc initX2];
+    NSLog(@"=========>initByBlock2:%@",robj.simpleDescription);
    // [self testFormat];
     
     [self testBind];
@@ -400,6 +411,7 @@
 
 
 -(void)testFormat{
+ 
     NSDate *date=NSDate.now;
     double start=NSDate.now.timeIntervalSince1970*1000;
     NSString *str1=@"";
