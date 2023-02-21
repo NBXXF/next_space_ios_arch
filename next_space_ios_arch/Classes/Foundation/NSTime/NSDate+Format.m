@@ -165,4 +165,8 @@
 }
 
 
++ (NSDate *)fastDateWithString:(NSString *)dateString format:(NSString *)format{
+    return [[self ______getCacheDateFormatterWithFormat:format] dateFromString:format];
+}
+
 @end
