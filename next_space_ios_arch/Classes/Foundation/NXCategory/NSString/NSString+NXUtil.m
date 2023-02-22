@@ -134,7 +134,7 @@ return strtowhat([self UTF8String], NULL, 10);
     NSMutableString *strippedString= @"".mutableCopy;
     for (int i=0; i<[self length]; i++) {
         unichar ch = [self characterAtIndex:i];
-        if (isdigit(ch) || ch == '.') {
+        if (isdigit(ch) || ch == '.' || ch == '-') {
             [strippedString appendFormat:@"%c",[self characterAtIndex:i]];
         } else if (strippedString.length > 0) {
             break;
