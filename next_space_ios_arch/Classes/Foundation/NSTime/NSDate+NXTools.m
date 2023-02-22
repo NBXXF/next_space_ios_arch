@@ -25,7 +25,7 @@
 }
 
 - (long long)milliseconds{
-    return (long long)self.timeIntervalSince1970 * 1000;
+    return (long long)(self.timeIntervalSince1970 * 1000);
 }
 
 - (long long)startMillisOfDay{
