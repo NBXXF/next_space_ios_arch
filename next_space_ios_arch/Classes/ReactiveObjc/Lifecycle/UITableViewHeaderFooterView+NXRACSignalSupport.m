@@ -13,10 +13,10 @@
 }
 
 - (RACSignal<RACUnit *> *)untilDeallocOrReuseSignal{
-    return [self.rac_willDeallocSignal merge:self.rac_prepareForReuseSignal];
+    return [self.rac_prepareForReuseSignal takeUntil:self.rac_willDeallocSignal];
 }
 
 - (RACSignal<RACUnit *> *)untilReuseOrDeallocSignal{
-    return [self.rac_prepareForReuseSignal merge:self.rac_willDeallocSignal];
+    return [self untilDeallocOrReuseSignal];
 }
 @end

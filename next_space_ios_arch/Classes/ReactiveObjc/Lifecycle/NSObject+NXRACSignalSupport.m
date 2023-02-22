@@ -95,7 +95,7 @@
 
 - (RACSignal<RACUnit *> * _Nonnull (^)(NSString * _Nonnull))untilUniqueOrDeallocSignalWithIdentifier{
     return ^RACSignal<RACUnit *> *(NSString * _Nonnull identifier){
-        return [self.untilDeallocSignal merge:self.untilUniqueSignalWithIdentifier(identifier)];
+        return [self.untilUniqueSignalWithIdentifier(identifier) takeUntil:self.untilDeallocSignal];
     };
 }
 

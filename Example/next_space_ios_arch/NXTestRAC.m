@@ -11,36 +11,25 @@
 
 @implementation NXTestRAC
 
-//- (instancetype)init{
-//    self=[super init];
-//    if(self){
-//        NSLog(@"===========>init NXTestRAC");
-////        [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler] bindLifecycle:self.untilDeallocSignal] doCompleted:^{
-////            NSLog(@"===========>rac next:%@",@"Completed");
-////        }] subscribeNext:^(NSDate * _Nullable x) {
-////            NSLog(@"===========>rac next:%@",x);
-////        }];
-//    }
-//    return self;
-//}
-
-+ (void)initialize{
-    NSLog(@"===========>initialize NXTestRAC");
-}
-
-
 - (instancetype)init{
     self=[super init];
-    NSLog(@"===========>init NXTestRAC");
-   return self;
-}
-
-- (instancetype)initX2{
-    self=[self init];
     if(self){
-        NSLog(@"===========>initX2 NXTestRAC");
-
+        NSLog(@"===========>init NXTestRAC");
+        [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler]
+           bindLifecycle:self.untilUniqueOrDeallocSignalWithIdentifier(__FILE_LINE__)]
+         //  bindLifecycle:[self.untilDeallocSignal takeUntil:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)]]
+          doCompleted:^{
+            NSLog(@"===========>rac next:%@",@"Completed");
+        }] subscribeNext:^(NSDate * _Nullable x) {
+            NSLog(@"===========>rac next:%@",x);
+        }];
     }
     return self;
 }
+//
+//+ (void)initialize{
+//    NSLog(@"===========>initialize NXTestRAC");
+//}
+
+
 @end

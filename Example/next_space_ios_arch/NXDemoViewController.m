@@ -26,6 +26,8 @@
 
 @interface NXDemoViewController ()<UIKeyCommanderProtocol,YYTextViewDelegate, UITextViewDelegate>
 @property(nonatomic,strong) RACSubject *changeSubject;
+@property(nonatomic,strong) NXTestRAC *robj;
+
 @end
 
 @implementation NXDemoViewController
@@ -358,8 +360,7 @@
 //    NXTestRAC *robj=  [NXTestRAC.alloc initByBlock:^(NSObject  *_Nonnull it) {
 //        NSLog(@"=========>initByBlock:%@",it.simpleDescription);
 //    }];
-    NXTestRAC *robj=  [NXTestRAC.alloc initX2];
-    NSLog(@"=========>initByBlock2:%@",robj.simpleDescription);
+   
    // [self testFormat];
     
     [self testBind];
@@ -407,6 +408,30 @@
     end=NSDate.now.timeIntervalSince1970*1000;
     NSLog(@"=========>NSNotificationCenter take2:%f",(end-start));
     
+    [self test2];
+    //[self test2];
+}
+
+-(void)test2{
+    
+//    NSLog(@"===========>init NXTestRAC");
+//    [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler]
+//       bindLifecycle:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)]
+//     //  bindLifecycle:[self.untilDeallocSignal takeUntil:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)]]
+//      doCompleted:^{
+//        NSLog(@"===========>rac next:%@",@"Completed");
+//    }] subscribeNext:^(NSDate * _Nullable x) {
+//        NSLog(@"===========>rac next:%@",x);
+//    }];
+    
+    self.robj=  [NXTestRAC.alloc init];
+    NSLog(@"=========>initByBlock2:%@",self.robj.simpleDescription);
+    @weakify(self)
+    [RACScheduler.scheduler afterDelay:2 schedule:^{
+        @strongify(self)
+        self.robj=nil;
+    }];
+
 }
 
 
