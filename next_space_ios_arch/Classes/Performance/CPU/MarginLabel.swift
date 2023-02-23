@@ -45,7 +45,7 @@ internal class MarginLabel: UILabel {
     // MARK: Init Methods & Superclass Overriders
     
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, edgeInsets))
+        super.drawText(in: rect.inset(by: self.edgeInsets))
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {

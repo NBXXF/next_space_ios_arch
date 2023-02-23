@@ -202,11 +202,11 @@ private extension PerformanceMonitor {
 
 private extension PerformanceMonitor {
     func subscribeToNotifications() {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillEnterForeground, object: nil, queue: .main) { [weak self] (notification) in
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [weak self] (notification) in
             self?.applicationWillEnterForegroundNotification(notification: notification)
         }
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidEnterBackground, object: nil, queue: .main) { [weak self] (notification) in
+        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] (notification) in
             self?.applicationDidEnterBackgroundNotification(notification: notification)
         }
     }
