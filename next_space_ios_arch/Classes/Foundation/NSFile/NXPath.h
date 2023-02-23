@@ -27,10 +27,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 + (NSString * )tmpPath;
+
+
 /// 缓存图片的位置
 + (NSString *)cacheImageDir;
+
+
 /// 暂存文件夹地址
 + (NSString *)cachePath;
+
+
 /// 下载文件管理文件夹
 + (NSString *)cacheDownloadFilePath;
 
@@ -68,11 +74,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)unimportPath;
 
-//数据库路径 - 不存在 -> 创建
-+ (NSString * )getUserDBWithUserId:(NSString *)userid;
 
 // 崩溃信息文件
-+ (NSString * )getCrashPaht:(NSString * )time;
++ (NSString * )getCrashPath:(NSString * )time;
 
 /**
  *  网络缓存路径   都是不重要可清理的 都是区分用户de
