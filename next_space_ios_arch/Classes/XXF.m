@@ -109,7 +109,7 @@ static PerformanceWatcher *__performanceWatcher;
     if(!__performanceWatcher){
         //CpuMax  0-100 这里是单核
         //memoryMax 单位M
-        __performanceWatcher= [[PerformanceWatcher alloc] initWithCpuMax:80 memoryMax:500];
+        __performanceWatcher= [[PerformanceWatcher alloc] initWithCpuMax:150 memoryMax:500];
     }
 
 #endif

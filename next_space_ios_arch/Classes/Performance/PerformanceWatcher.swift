@@ -39,10 +39,11 @@ final public class PerformanceWatcher: NSObject{
         let message = "👮 Performance was blocked for " + performanceStr + memoryStr+" 👮"
         //print(message);
         
-        if(self.memoryMax>0&&self.cpuMax>0){
-            if(report.cpuUsage>self.cpuMax||usedMemory>self.memoryMax){
-                fatalError(message);
-            }
+        if(self.cpuMax>0&&report.cpuUsage>self.cpuMax){
+            fatalError(message);
+        }
+        if(self.memoryMax>0&&usedMemory>self.memoryMax){
+            fatalError(message);
         }
     }
     
