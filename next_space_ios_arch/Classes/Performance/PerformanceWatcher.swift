@@ -34,7 +34,7 @@ final public class PerformanceWatcher: NSObject{
 
         let usedMemory = Double(report.memoryUsage.used) / bytesInMegabyte
         let totalMemory = Double(report.memoryUsage.total) / bytesInMegabyte
-        let memoryStr = String(format: " MEM %.1f of %.0f MB used", usedMemory, totalMemory)
+        let memoryStr = String(format: " MEM %.1fMB(%.0fMB) used", usedMemory, totalMemory)
         
         let message = "👮 Performance was blocked for " + performanceStr + memoryStr+" 👮"
         //print(message);
