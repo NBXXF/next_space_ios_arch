@@ -22,6 +22,8 @@
 static NXUserIdProvider __userIdProvider;
 static NXAppGroupNameProvider __appGroupNameProvider;
 static BlockWatcher *__watchdog;
+static PerformanceWatcher *__performanceWatcher;
+
 
 
 + (XXF *)shared{
@@ -102,6 +104,14 @@ static BlockWatcher *__watchdog;
         //单位是s 秒
         __watchdog=[[BlockWatcher alloc] initWithThreshold:threshold strictMode:YES];
     }
+    
+    
+    if(!__performanceWatcher){
+        //CpuMax  0-100 这里是单核
+        //memoryMax 单位M
+        __performanceWatcher= [[PerformanceWatcher alloc] initWithCpuMax:80 memoryMax:500];
+    }
+
 #endif
 }
 
