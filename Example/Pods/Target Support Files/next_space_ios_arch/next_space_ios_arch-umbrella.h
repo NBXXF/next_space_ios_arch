@@ -71,6 +71,8 @@
 #import "LogUtils.h"
 #import "NXHttpInterceptor.h"
 #import "NXHTTPSessionManager.h"
+#import "NXHTTPSessionManager+RACSingal.h"
+#import "NXSessionDataTaskResult.h"
 #import "NXItemMenu.h"
 #import "NXItemMenuImpl.h"
 #import "NXSelectableObject.h"
