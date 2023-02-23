@@ -179,7 +179,11 @@
 /**
  *  网络缓存路径   都是不重要可清理的 都是区分用户de
  */
-+ (NSString *)netWordCachePathWithName:(NSString *)name userId:(NSString *)userid{
++ (NSString *)netWordCachePathWithName:(NSString *)name userId:(NSString *)userid DEPRECATED_MSG_ATTRIBUTE("这个api单词写错了 请用networkCachePathWithName"){
+    return [self networkCachePathWithName:name userId:userid];
+}
+
++ (NSString *)networkCachePathWithName:(NSString *)name userId:(NSString *)userid{
     assertAtSubThread();
     NSString * path = [self unimportPath];
     NSString *realPath = [path stringByAppendingString:@"/netWorkCache1"];

@@ -78,10 +78,13 @@ NS_ASSUME_NONNULL_BEGIN
 // 崩溃信息文件
 + (NSString * )getCrashPath:(NSString * )time;
 
+
++ (NSString *)netWordCachePathWithName:(NSString *)name userId:(NSString *)userid DEPRECATED_MSG_ATTRIBUTE("这个api单词写错了 请用networkCachePathWithName");
+
 /**
- *  网络缓存路径   都是不重要可清理的 都是区分用户de
+ * 网络缓存路径   都是不重要可清理的 都是区分用户de
  */
-+ (NSString *)netWordCachePathWithName:(NSString *)name userId:(NSString *)userid;
++ (NSString *)networkCachePathWithName:(NSString *)name userId:(NSString *)userid;
 @end
 
 NS_ASSUME_NONNULL_END
