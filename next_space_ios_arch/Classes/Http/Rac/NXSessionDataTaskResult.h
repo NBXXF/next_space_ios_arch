@@ -10,7 +10,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXSessionDataTaskResult : NSObject
-@property(nonatomic,strong) NSURLSessionDataTask *task;
+
+/**
+ 参考
+ NXNetworkingTaskDidFailUrlKey;
+ NXNetworkingTaskDidFailMethodKey;
+ NXNetworkingTaskDidFailParametersKey;
+ NXNetworkingTaskDidFailHeadersKey;
+ */
+@property(nonatomic,strong)NSDictionary *userInfo;
 @property(nonatomic,assign,nullable) id responseObject;
 @end
 

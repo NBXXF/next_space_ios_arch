@@ -16,11 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  增加异常的时候 返回对应的请求 给下游处理
  */
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailUrlKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailMethodKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailParametersKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailHeadersKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailDataTaskKey;//可能是没有的 序列化异常就没有
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskUrlKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskMethodKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskParametersKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskHeadersKey;
+//FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailDataTaskKey;//可能是没有的 序列化异常就没有
 
 
 
@@ -76,6 +76,10 @@ FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailDataTaskKey;//可能�
                                            uploadProgress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
                                          downloadProgress:(nullable void (^)(NSProgress *downloadProgress))downloadProgress;
 
+-(NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NSString *)method
+                   URLString:(NSString *)URLString
+                  parameters:(nullable id)parameters
+                               headers:(nullable NSDictionary <NSString *, NSString *> *)headers;
 /**
  包装网络异常
  */

@@ -35,12 +35,13 @@
      */
     RACSignal<NXSessionDataTaskResult *> *request;
     __block NSString *key=[self _cacheKeyWithURL:URLString parameters:parameters];
+    __block NSString *userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
     switch (cacheType) {
         case NXNetCacheTypeFirstRemote:{
             request= [[[self GETSignal:URLString parameters:parameters headers:headers progress:downloadProgress] doNext:^(NXSessionDataTaskResult * _Nullable x) {
                 [self _cacheDataWithKey:key taskData:x];
             }] onErrorResumeNext:^RACSignal<NXSessionDataTaskResult *> * _Nonnull(NSError * _Nonnull error) {
-                return [[self _getCacheDataWithKey:key cacheTime:cacheTime] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                return [[self _getCacheDataWithKey:key cacheTime:cacheTime userInfo:userInfo] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
                     if(value){
                         return [RACSignal just:value];
                     }else{
@@ -52,7 +53,7 @@
             break;
         case NXNetCacheTypeFirstCache:{
             request = [
-                [[[self _getCacheDataWithKey:key cacheTime:cacheTime] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                [[[self _getCacheDataWithKey:key cacheTime:cacheTime userInfo:userInfo] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
                     if(value){
                         return [RACSignal just:value];
                     }else{
@@ -72,7 +73,7 @@
         }
             break;
         case NXNetCacheTypeIfCache:{
-            request = [[[self _getCacheDataWithKey:key cacheTime:cacheTime] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+            request = [[[self _getCacheDataWithKey:key cacheTime:cacheTime userInfo:userInfo] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
                 if(value){
                     return [RACSignal just:value];
                 }else{
@@ -89,7 +90,7 @@
         }
             break;
         case NXNetCacheTypeOnlyCache:{
-            request = [self _getCacheDataWithKey:key cacheTime:cacheTime];
+            request = [self _getCacheDataWithKey:key cacheTime:cacheTime userInfo:userInfo];
         }
             break;
         case NXNetCacheTypeOnlyRemote:{
@@ -112,7 +113,9 @@
 /**
  获取网络缓存
  */
-- (RACSignal<NXSessionDataTaskResult *> *)_getCacheDataWithKey:(NSString *)key cacheTime:(long long)cacheTime{
+- (RACSignal<NXSessionDataTaskResult *> *)_getCacheDataWithKey:(NSString *)key
+                                                     cacheTime:(long long)cacheTime
+                                                      userInfo:(NSDictionary *)userInfo{
     return [[RACSignal fromCallbck:^NXSessionDataTaskResult *_Nullable{
         YYDiskCache *diskCache=[NXNetCacheFactory.shared getCache:self.cacheConfigProvider];
         long long rawCacheTime=cacheTime;
@@ -125,7 +128,7 @@
             id responseObject=[diskCache objectForKey:key];
             if(responseObject){
                 NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-                result.task=nil;
+                result.userInfo=userInfo;
                 result.responseObject=responseObject;
                 return result;
             }

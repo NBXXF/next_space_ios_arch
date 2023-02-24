@@ -6,11 +6,11 @@
 //
 
 #import "NXHTTPSessionManager+RACSingal.h"
-NSString * const NXNetworkingTaskDidFailUrlKey = @"com.xxf.http.url";
-NSString * const NXNetworkingTaskDidFailMethodKey = @"com.xxf.http.method";
-NSString * const NXNetworkingTaskDidFailParametersKey = @"com.xxf.http.parameters";
-NSString * const NXNetworkingTaskDidFailHeadersKey = @"com.xxf.http.headers";
-NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";//可能是没有的 序列化异常就没有
+NSString * const NXNetworkingTaskUrlKey = @"com.xxf.http.url";
+NSString * const NXNetworkingTaskMethodKey = @"com.xxf.http.method";
+NSString * const NXNetworkingTaskParametersKey = @"com.xxf.http.parameters";
+NSString * const NXNetworkingTaskHeadersKey = @"com.xxf.http.headers";
+//NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";//可能是没有的 序列化异常就没有
 
 @implementation NXHTTPSessionManager(RACSingal)
 
@@ -21,7 +21,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self GET:URLString parameters:parameters headers:headers progress:downloadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -43,7 +43,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self  HEAD:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=nil;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -66,7 +66,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self POST:URLString parameters:parameters headers:headers progress:uploadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -91,7 +91,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self POST:URLString parameters:parameters headers:headers constructingBodyWithBlock:block progress:uploadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -114,7 +114,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self PUT:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -137,7 +137,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self PATCH:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -160,7 +160,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self DELETE:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -185,7 +185,7 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self dataTaskWithHTTPMethod:method URLString:URLString parameters:parameters headers:headers uploadProgress:uploadProgress downloadProgress:downloadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.task=task;
+            result.userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -200,6 +200,22 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
      }];
 }
 
+- (NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NSString *)method URLString:(NSString *)URLString parameters:(id)parameters headers:(NSDictionary<NSString *,NSString *> *)headers{
+    NSMutableDictionary *newUserInfo=[NSMutableDictionary dictionary];
+    if(method){
+        [newUserInfo setObject:method forKey:NXNetworkingTaskMethodKey];
+    }
+    if(URLString){
+        [newUserInfo setObject:URLString forKey:NXNetworkingTaskUrlKey];
+    }
+    if(parameters){
+        [newUserInfo setObject:parameters forKey:NXNetworkingTaskParametersKey];
+    }
+    if(headers){
+        [newUserInfo setObject:headers forKey:NXNetworkingTaskHeadersKey];
+    }
+    return newUserInfo;
+}
 
 /**
  包装异常
@@ -214,25 +230,13 @@ NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";/
     /**
      序列化失败  task=nil 请参考源码 AFHTTPSessionManager#dataTaskWithHTTPMethod
      */
-    NSMutableDictionary *newUserInfo=[NSMutableDictionary dictionary];
+    NSMutableDictionary *newUserInfo=[self wrapHttpUserInfoWithMethod:method URLString:URLString parameters:parameters headers:headers];
     if(error.userInfo){
         [newUserInfo addEntriesFromDictionary:error.userInfo];
     }
-    if(method){
-        [newUserInfo setObject:method forKey:NXNetworkingTaskDidFailMethodKey];
-    }
-    if(URLString){
-        [newUserInfo setObject:URLString forKey:NXNetworkingTaskDidFailUrlKey];
-    }
-    if(parameters){
-        [newUserInfo setObject:parameters forKey:NXNetworkingTaskDidFailParametersKey];
-    }
-    if(headers){
-        [newUserInfo setObject:headers forKey:NXNetworkingTaskDidFailHeadersKey];
-    }
-    if(task){
-        [newUserInfo setObject:task forKey:NXNetworkingTaskDidFailDataTaskKey];
-    }
+//    if(task){
+//        [newUserInfo setObject:task forKey:NXNetworkingTaskDidFailDataTaskKey];
+//    }
     return [NSError errorWithDomain:error.domain code:error.code userInfo:newUserInfo];
 }
 
