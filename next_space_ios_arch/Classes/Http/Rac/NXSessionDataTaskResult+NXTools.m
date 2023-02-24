@@ -6,6 +6,7 @@
 //
 
 #import "NXSessionDataTaskResult+NXTools.h"
+#import <next_space_ios_arch/NXHTTPSessionManager+RACSingal.h>
 
 @implementation NXSessionDataTaskResult(NXTools)
 - (BOOL)isJSON{
@@ -14,5 +15,9 @@
 
 - (BOOL)isBinary{
     return [self isKindOfClass:NSData.class];
+}
+
+- (BOOL)isCache{
+    return [[self.userInfo objectForKey:NXNetworkingTaskIsCacheKey] boolValue];
 }
 @end

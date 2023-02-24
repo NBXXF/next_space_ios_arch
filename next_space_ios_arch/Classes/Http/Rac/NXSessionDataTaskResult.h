@@ -17,6 +17,7 @@ NXNetworkingTaskUrlKey;
 NXNetworkingTaskMethodKey;
 NXNetworkingTaskParametersKey;
 NXNetworkingTaskHeadersKey;
+NXNetworkingTaskIsCacheKey;
  */
 @property(nonatomic,strong)NSDictionary *userInfo;
 @property(nonatomic,assign,nullable) id responseObject;

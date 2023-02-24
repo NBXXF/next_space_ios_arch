@@ -20,6 +20,7 @@ FOUNDATION_EXPORT NSString * const NXNetworkingTaskUrlKey;
 FOUNDATION_EXPORT NSString * const NXNetworkingTaskMethodKey;
 FOUNDATION_EXPORT NSString * const NXNetworkingTaskParametersKey;
 FOUNDATION_EXPORT NSString * const NXNetworkingTaskHeadersKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskIsCacheKey;
 //FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailDataTaskKey;//可能是没有的 序列化异常就没有
 
 

@@ -23,6 +23,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSURL *appendUrl=[NSURL URLWithString:@"/user/xxxx"];
+    NSURL *baseURL=[NSURL URLWithString:@"https://www.baidu.com/"];
+    NSString *FULL= [NSURL URLWithString:appendUrl.absoluteString relativeToURL:baseURL].absoluteString;
+    
     NSDate *date=NSDate.now;
     [date dayOfYear];
     

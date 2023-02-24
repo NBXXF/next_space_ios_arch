@@ -20,6 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
  对应NSData
  */
 @property(nonatomic,assign,readonly) BOOL isBinary;
+
+/**
+ 是否是来自缓存的
+ */
+@property(nonatomic,assign,readonly) BOOL isCache;
 @end
 
 NS_ASSUME_NONNULL_END

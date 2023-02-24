@@ -13,6 +13,7 @@
 #import <next_space_ios_arch/NXNetCacheFactory.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
 #import <next_space_ios_arch/NSDate+NXTools.h>
+#import <next_space_ios_arch/NSDictionary+NXTools.h>
 
 @implementation NXHTTPSessionManager(Cache)
 - (RACSignal<NXSessionDataTaskResult *> *)GETSignal:(NSString *)URLString
@@ -35,7 +36,7 @@
      */
     RACSignal<NXSessionDataTaskResult *> *request;
     __block NSString *key=[self _cacheKeyWithURL:URLString parameters:parameters];
-    __block NSString *userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
+    __block NSDictionary *userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
     switch (cacheType) {
         case NXNetCacheTypeFirstRemote:{
             request= [[[self GETSignal:URLString parameters:parameters headers:headers progress:downloadProgress] doNext:^(NXSessionDataTaskResult * _Nullable x) {
@@ -128,7 +129,9 @@
             id responseObject=[diskCache objectForKey:key];
             if(responseObject){
                 NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-                result.userInfo=userInfo;
+                NSMutableDictionary *mergeDict=userInfo.mutableCopyOrCast;
+                [mergeDict setObject:@YES forKey:NXNetworkingTaskIsCacheKey];
+                result.userInfo=mergeDict;
                 result.responseObject=responseObject;
                 return result;
             }

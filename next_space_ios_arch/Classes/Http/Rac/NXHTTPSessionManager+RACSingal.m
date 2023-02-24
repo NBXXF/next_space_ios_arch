@@ -10,6 +10,7 @@ NSString * const NXNetworkingTaskUrlKey = @"com.xxf.http.url";
 NSString * const NXNetworkingTaskMethodKey = @"com.xxf.http.method";
 NSString * const NXNetworkingTaskParametersKey = @"com.xxf.http.parameters";
 NSString * const NXNetworkingTaskHeadersKey = @"com.xxf.http.headers";
+NSString * const NXNetworkingTaskIsCacheKey=@"com.xxf.http.isCache";
 //NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";//可能是没有的 序列化异常就没有
 
 @implementation NXHTTPSessionManager(RACSingal)
