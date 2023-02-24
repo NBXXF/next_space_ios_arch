@@ -458,6 +458,13 @@
 }
 
 -(void)testSwitch{
+    
+    NSString *startStr=@"2023/02/04";
+        
+    NSDate *startDate = [NSDate fastDateFromString:startStr withFormat:startStr.length > 10 ? @"yyyy/MM/dd HH:mm" : @"yyyy/MM/dd"];
+    NSString *startDateFormat = [startDate fastStringWithFormat:@"yyyy/MM/dd"];
+    NSString *nowStr = [NSDate.now fastStringWithFormat:@"yyyy/MM/dd"];
+    
     NSString *constStr=@"4776467457667546754`";
     double start=NSDate.now.timeIntervalSince1970*1000;
     NSString *str1=@"";
