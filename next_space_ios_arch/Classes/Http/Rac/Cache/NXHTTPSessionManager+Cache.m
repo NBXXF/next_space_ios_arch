@@ -148,6 +148,8 @@
     if(!self.cacheConfigProvider){
         return;
     }
+    
+    __block NXSessionDataTaskResult *rawTaskData=taskData;
     /**
      新开一个线程 避免阻塞真实http数据响应
      */
@@ -155,10 +157,12 @@
     [RACScheduler.scheduler schedule:^{
         @strongify(self)
         YYDiskCache *diskCache=[NXNetCacheFactory.shared getCache:self.cacheConfigProvider];
-        //记录缓存内容
-        [diskCache setObject:taskData.responseObject forKey:key];
-        //记录缓存时间
-        [diskCache setObject:@(NSDate.now.milliseconds) forKey:[self _cacheTimeKeyWithKey:key]];
+        if(key&&rawTaskData.responseObject){
+            //记录缓存内容
+            [diskCache setObject:rawTaskData.responseObject forKey:key];
+            //记录缓存时间
+            [diskCache setObject:@(NSDate.now.milliseconds) forKey:[self _cacheTimeKeyWithKey:key]];
+        }
     }];
 }
 

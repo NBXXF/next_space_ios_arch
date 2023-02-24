@@ -7,6 +7,7 @@
 
 #import "NXNetCacheFactory.h"
 #import <next_space_ios_arch/NXHttpCacheConfigProvider.h>
+#import <next_space_ios_arch/ThreadUtils.h>
 @interface NXNetCacheFactory()
 @property(nonatomic,strong)NSMutableDictionary *cacheDict;
 @end
@@ -21,12 +22,15 @@ singleton_implementation(NXNetCacheFactory)
 }
 
 - (YYDiskCache *)getCache:(NXHttpCacheConfigProvider *)provider{
+    assertAtSubThread();
     NSString *directory=provider.getDirectory;
-    YYDiskCache *diskCache = [self.cacheDict objectForKey:directory];
-    if(!diskCache){
-        diskCache=[[YYDiskCache alloc] initWithPath:directory inlineThreshold:provider.maxSize];
-        [self.cacheDict setObject:diskCache forKey:directory];
+    @synchronized (self) {
+        YYDiskCache *diskCache = [self.cacheDict objectForKey:directory];
+        if(!diskCache){
+            diskCache=[[YYDiskCache alloc] initWithPath:directory inlineThreshold:provider.maxSize];
+            [self.cacheDict setObject:diskCache forKey:directory];
+        }
+        return diskCache;
     }
-    return diskCache;
 }
 @end
