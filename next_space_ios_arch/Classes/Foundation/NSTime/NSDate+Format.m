@@ -147,7 +147,16 @@
 
 
 + (NSDate *)fastDateWithString:(NSString *)dateString withFormat:(NSString *)format{
-    return [[self ______getCacheDateFormatterWithFormat:format] dateFromString:format];
+    NSDateFormatter *formatter = [self sharedDateFormatter];
+    [formatter setDateFormat:format];
+    NSDate *date = [formatter dateFromString:dateString];
+    return date;
+  
+    /**
+     这里有问题
+    NSDate *startDate = [NSDate fastDateFromString:startStr withFormat:startStr.length > 10 ? @"yyyy/MM/dd HH:mm" : @"yyyy/MM/dd"];
+     */
+  //  return [[self ______getCacheDateFormatterWithFormat:format] dateFromString:format];
 }
 
 + (NSDate *)fastDateFromString:(NSString *)dateString withFormat:(NSString *)format{
