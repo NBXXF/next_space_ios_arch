@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXHTTPSessionManager(Cache)
+
+/**
+ @param cacheTime 毫秒 建议用这种写法 清晰-----> NXTimeUnit.DAYS.toMillis(3)
+ */
 - (RACSignal<NXSessionDataTaskResult *> *)GETSignal:(NSString *)URLString
                    parameters:(nullable id)parameters
                       headers:(nullable NSDictionary <NSString *, NSString *> *)headers

@@ -1162,7 +1162,7 @@
 		2A0BDE83FF3E56DE0EDBB2EDB69CBC36 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		2A6EBE75CECE92A4FE827520D9C6304F /* UIViewController+Lifecycle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Lifecycle.h"; sourceTree = "<group>"; };
 		2A7EAEAF2CC9875BF143EC44F9A7CCB6 /* NXRouterKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NXRouterKeys.swift; sourceTree = "<group>"; };
-		2A9AA0F2F1548208DB2B0A4589E016B6 /* openssl_aesv8-armx.S */ = {isa = PBXFileReference; includeInIndex = 1; name = "openssl_aesv8-armx.S"; path = "Core/aes/openssl/openssl_aesv8-armx.S"; sourceTree = "<group>"; };
+		2A9AA0F2F1548208DB2B0A4589E016B6 /* openssl_aesv8-armx.S */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.asm; name = "openssl_aesv8-armx.S"; path = "Core/aes/openssl/openssl_aesv8-armx.S"; sourceTree = "<group>"; };
 		2AC47F5C038CEDAE9394EF1DE712F311 /* ThreadLock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ThreadLock.h; path = Core/ThreadLock.h; sourceTree = "<group>"; };
 		2AF7B838CD29EEC59BEA6649C890BD0B /* NXHTTPSessionManager+Cache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NXHTTPSessionManager+Cache.m"; sourceTree = "<group>"; };
 		2B1373EB7D5D7FEEFF78281C097D478A /* RACUnit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACUnit.m; path = ReactiveObjC/RACUnit.m; sourceTree = "<group>"; };
@@ -1188,7 +1188,7 @@
 		3059466985622E5DF49595FF2EB22E54 /* next_space_ios_arch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = next_space_ios_arch.release.xcconfig; sourceTree = "<group>"; };
 		31B3CE8D8F6CC123F26CFE5D5FD6AC64 /* YYKVStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKVStorage.h; path = YYKit/Cache/YYKVStorage.h; sourceTree = "<group>"; };
 		3251B01509263762899AE6507B0FE656 /* ReactiveObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReactiveObjC.debug.xcconfig; sourceTree = "<group>"; };
-		3289E1FFA53652BA47BE151128D77DE5 /* libMMKV.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = libMMKV.mm; path = iOS/MMKV/MMKV/libMMKV.mm; sourceTree = "<group>"; };
+		3289E1FFA53652BA47BE151128D77DE5 /* libMMKV.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = libMMKV.mm; path = iOS/MMKV/MMKV/libMMKV.mm; sourceTree = "<group>"; };
 		32C07F58B38201724F454644671B341F /* NSEnumerator+RACSequenceAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSEnumerator+RACSequenceAdditions.m"; path = "ReactiveObjC/NSEnumerator+RACSequenceAdditions.m"; sourceTree = "<group>"; };
 		33156292C04D53EA2128D2048E2B458E /* CodedOutputData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CodedOutputData.h; path = Core/CodedOutputData.h; sourceTree = "<group>"; };
 		334363F71613FC6D38FF64A222EAF1CA /* NSBundle+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+YYAdd.h"; path = "YYKit/Base/Foundation/NSBundle+YYAdd.h"; sourceTree = "<group>"; };
@@ -1283,7 +1283,7 @@
 		4C928ACD7AA29F8266A09F654084E499 /* UIResponder+DispatchKeyCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIResponder+DispatchKeyCommand.h"; sourceTree = "<group>"; };
 		4CA60919A42F15DB24F4A601ABB82AF1 /* RACStringSequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACStringSequence.m; path = ReactiveObjC/RACStringSequence.m; sourceTree = "<group>"; };
 		4CE9AA4D6C4D3D4AB125C1BD8CAA69D6 /* NSString+Decimal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Decimal.h"; sourceTree = "<group>"; };
-		4D2301D63F2219CA78538DDBB4269722 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4D2301D63F2219CA78538DDBB4269722 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4D25026B5DC647AEEC16553838FFC47F /* NSKeyedUnarchiver+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSKeyedUnarchiver+YYAdd.h"; path = "YYKit/Base/Foundation/NSKeyedUnarchiver+YYAdd.h"; sourceTree = "<group>"; };
 		4D9A7EE634FBA60EE36FAF007FBBC37D /* UITableView+NXRegister.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NXRegister.m"; sourceTree = "<group>"; };
 		4DDD27366C829A282BBA3A37920464F3 /* NSArray+RACSequenceAdditionsDeprecated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RACSequenceAdditionsDeprecated.m"; sourceTree = "<group>"; };
@@ -1425,7 +1425,7 @@
 		7866BBEDEF6070D102E605BD7254E2BE /* Pods-next_space_ios_arch_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-next_space_ios_arch_Example.modulemap"; sourceTree = "<group>"; };
 		7885D02D5900663E6F713C55AE15017E /* Array+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		789995EC2BFE676A6EF4CCDE839ED641 /* MMKVCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMKVCore-prefix.pch"; sourceTree = "<group>"; };
-		79B9E1CBDF9FE8095A4BFBFD966BBDDF /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = next_space_ios_arch.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		79B9E1CBDF9FE8095A4BFBFD966BBDDF /* next_space_ios_arch.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = next_space_ios_arch.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		79F521848A7DB2F620C50E7D3FEEDC1A /* NSDictionary+RACSequenceAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+RACSequenceAdditions.h"; path = "ReactiveObjC/NSDictionary+RACSequenceAdditions.h"; sourceTree = "<group>"; };
 		7A18ABADBED8609C716EC18FF28BF7F5 /* RACIndexSetSequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACIndexSetSequence.m; path = ReactiveObjC/RACIndexSetSequence.m; sourceTree = "<group>"; };
 		7A1F9B10F227A1C3692209DC550595DF /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
@@ -1572,7 +1572,7 @@
 		9CF4557946B198B88CD73334120CE5AB /* NSString+RACKeyPathUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+RACKeyPathUtilities.m"; path = "ReactiveObjC/NSString+RACKeyPathUtilities.m"; sourceTree = "<group>"; };
 		9CF7C0FD55F97585C39AA4C84F7176E2 /* RACSequence.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACSequence.h; path = ReactiveObjC/RACSequence.h; sourceTree = "<group>"; };
 		9D1140A58269CA7CF43362FFC9B831D9 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EF1189BF6AF2964FBB6866287A7D77C /* NXCollectionViewHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NXCollectionViewHeaderView.m; sourceTree = "<group>"; };
 		9F1F8614F2E7761328B403B07BDD8D34 /* NSArray+AppArch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+AppArch.h"; sourceTree = "<group>"; };
 		9F380F80D52FCD766409908717FAE52C /* UITableViewCell+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+RACSignalSupport.m"; path = "ReactiveObjC/UITableViewCell+RACSignalSupport.m"; sourceTree = "<group>"; };
@@ -1661,13 +1661,13 @@
 		B9E9BF6061872A44E9575D185E742842 /* InterProcessLock.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = InterProcessLock.cpp; path = Core/InterProcessLock.cpp; sourceTree = "<group>"; };
 		B9F9D47D5E3B2FC11D5D3003EC87FB89 /* UIApplication+NXTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NXTools.m"; sourceTree = "<group>"; };
 		BA8B02680E17731A12B9701FDDFDD5BC /* UITextField+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+YYAdd.m"; path = "YYKit/Base/UIKit/UITextField+YYAdd.m"; sourceTree = "<group>"; };
-		BACF2A1E5D80E842E15496B75B2A9B01 /* openssl_aes-armv4.S */ = {isa = PBXFileReference; includeInIndex = 1; name = "openssl_aes-armv4.S"; path = "Core/aes/openssl/openssl_aes-armv4.S"; sourceTree = "<group>"; };
+		BACF2A1E5D80E842E15496B75B2A9B01 /* openssl_aes-armv4.S */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.asm; name = "openssl_aes-armv4.S"; path = "Core/aes/openssl/openssl_aes-armv4.S"; sourceTree = "<group>"; };
 		BB0C02831BEF2ED8D48308AC8F9296C2 /* RACKVOTrampoline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACKVOTrampoline.m; path = ReactiveObjC/RACKVOTrampoline.m; sourceTree = "<group>"; };
 		BB4EC466B6F0CC1D1B78DDBE13ACBEA3 /* NSObject+RateLimiting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+RateLimiting.h"; sourceTree = "<group>"; };
 		BB884789C6CF8AB696F76F6BCD70F0EA /* UIScreen+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScreen+YYAdd.h"; path = "YYKit/Base/UIKit/UIScreen+YYAdd.h"; sourceTree = "<group>"; };
 		BB9F81173330C21BA11521F91AF3ABFA /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		BBADFB8E2DD5A02D89423D2807F0D6D9 /* YYTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextView.h; path = YYKit/Text/YYTextView.h; sourceTree = "<group>"; };
-		BBF9FA7B2B14BFEAA4177EECF823F0EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BBF9FA7B2B14BFEAA4177EECF823F0EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC13526D9A77145E51F34D7DFE5E2241 /* PHPhotoLibrary+NXTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PHPhotoLibrary+NXTools.h"; sourceTree = "<group>"; };
 		BCD9534FA894AB4964D9F8FBD9959678 /* MASConstraint+NXPT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+NXPT.h"; sourceTree = "<group>"; };
 		BDCB3EB4FB049DC8722E0B5FE9BD639D /* CALayer+YYWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+YYWebImage.h"; path = "YYKit/Image/Categories/CALayer+YYWebImage.h"; sourceTree = "<group>"; };
@@ -1715,7 +1715,7 @@
 		CB8E64621A8D399A56679F3D41733585 /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYKit/Model/YYClassInfo.h; sourceTree = "<group>"; };
 		CBF5FFE0A4350CA1B1B95E2C9DAB6F53 /* YYTextRubyAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextRubyAnnotation.h; path = YYKit/Text/String/YYTextRubyAnnotation.h; sourceTree = "<group>"; };
 		CC05E8491F7D3DF74EBF1F293D7FE4FA /* NSNumber+Decimal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Decimal.m"; sourceTree = "<group>"; };
-		CC89655A49A2F3216BFCFBA072A9BCD9 /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
+		CC89655A49A2F3216BFCFBA072A9BCD9 /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
 		CCBE16B2751C152541634EF1A3F24F6A /* JLRoutes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JLRoutes.m; path = JLRoutes/JLRoutes.m; sourceTree = "<group>"; };
 		CD0B65DAAD6A1B0B79A01F352786332E /* YYDiskCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYDiskCache.h; path = YYKit/Cache/YYDiskCache.h; sourceTree = "<group>"; };
 		CD27A278BB3E94C5BA44940A0F02EA7D /* UIImage+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+YYAdd.m"; path = "YYKit/Base/UIKit/UIImage+YYAdd.m"; sourceTree = "<group>"; };
@@ -1859,7 +1859,7 @@
 		F1A56BE026638BE8C0E5531675A13983 /* DSCallInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DSCallInfo.h; sourceTree = "<group>"; };
 		F1BE56C33E522D7D150EE581D2881FF2 /* YYModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.debug.xcconfig; sourceTree = "<group>"; };
 		F1CC8A6DE89FCCA1AABBE0079F04288B /* UIScrollView+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+YYAdd.h"; path = "YYKit/Base/UIKit/UIScrollView+YYAdd.h"; sourceTree = "<group>"; };
-		F20F8E9C4B031849748B3AA38B9F8F50 /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
+		F20F8E9C4B031849748B3AA38B9F8F50 /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
 		F29663362B78C22DBAD74AB358B661A5 /* NXRouterFlags.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NXRouterFlags.h; sourceTree = "<group>"; };
 		F2A6C9D6C1474D7C0CF753DF0DECC8FC /* NSNumber+Decimal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Decimal.h"; sourceTree = "<group>"; };
 		F2BF436E3CE884DB684FF3828A9B7884 /* MMKVLog_Android.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = MMKVLog_Android.cpp; path = Core/MMKVLog_Android.cpp; sourceTree = "<group>"; };
@@ -2029,7 +2029,6 @@
 				7CE4EF6613DD5DF17C8B38E3F6463AFE /* NXMutableOrderedDictionary.h */,
 				7B1F488BF1FEDB63E0E8340054B8DFF8 /* NXMutableOrderedDictionary.m */,
 			);
-			name = OrderedDictionary;
 			path = OrderedDictionary;
 			sourceTree = "<group>";
 		};
@@ -2045,7 +2044,6 @@
 				EC0BFE625BED7E2560E62F12569B8A75 /* UIView+NXVisibility.h */,
 				C95A23141D4A757617F7ECEDF51E57C6 /* UIView+NXVisibility.m */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -2057,7 +2055,6 @@
 				726B5AC3B1DEB372A14865EBF138217A /* NSString+NXTools.h */,
 				0F6A1F920183949F3FCA57F725F84C34 /* NSString+NXTools.m */,
 			);
-			name = NSString;
 			path = NSString;
 			sourceTree = "<group>";
 		};
@@ -2074,7 +2071,6 @@
 				A8D7A677CA5D4FBB624ACDB5CBF114DD /* NXTimeUnit.m */,
 				1AAD4A8900680496DA7F4C6EE536D50E /* Impl */,
 			);
-			name = NSTime;
 			path = NSTime;
 			sourceTree = "<group>";
 		};
@@ -2091,7 +2087,6 @@
 				B7100FFBE8789C0A6795401678532404 /* NSTimer */,
 				478A26B3FAAE35C87D975EA6484DF6CE /* NSURL */,
 			);
-			name = NXCategory;
 			path = NXCategory;
 			sourceTree = "<group>";
 		};
@@ -2103,7 +2098,6 @@
 				D1BF00775C00EA6776380A06ABEB6A39 /* NSObject+Swizzling.h */,
 				5D278A74390C5BC3EFD7B03E3DFEB89B /* NSObject+Swizzling.m */,
 			);
-			name = SafeObject;
 			path = SafeObject;
 			sourceTree = "<group>";
 		};
@@ -2121,7 +2115,6 @@
 				350D500598E5084F542ACAEF7274FFD7 /* UITableViewHeaderFooterView+NXRACSignalSupport.h */,
 				925749642D9AD7AF55D889978660F72D /* UITableViewHeaderFooterView+NXRACSignalSupport.m */,
 			);
-			name = Lifecycle;
 			path = Lifecycle;
 			sourceTree = "<group>";
 		};
@@ -2158,7 +2151,6 @@
 				DA07C9B1A1D1687036FBBE9362D2A18A /* NXTimeUnit_SECONDS.h */,
 				469731E1F6636214447230817A884F5A /* NXTimeUnit_SECONDS.m */,
 			);
-			name = Impl;
 			path = Impl;
 			sourceTree = "<group>";
 		};
@@ -2208,7 +2200,6 @@
 				59B0CAC5BF5D2772361F1BF73FBEB8B7 /* HashUtils.m */,
 				66916692C18B5D0608E9DB013A9044BE /* LogUtils.h */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -2228,7 +2219,6 @@
 				A0917EE2E16B9A3DF6CF31A48F4474D1 /* UIViewController+PopDissmiss.h */,
 				7B489F0B72131FC9BC4C95B9DD5BA550 /* UIViewController+PopDissmiss.m */,
 			);
-			name = UIViewController;
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
@@ -2258,7 +2248,6 @@
 				4EC89F289FB99BA3FF0AF70D20A17DF5 /* AutoHeight */,
 				55317AC602AAED9AC8A3CA208E336FF5 /* Headers */,
 			);
-			name = UICollectionView;
 			path = UICollectionView;
 			sourceTree = "<group>";
 		};
@@ -2278,7 +2267,6 @@
 				AD2ED94555C35651027474F6DB47FCEF /* UIView+NXStatus.h */,
 				8CBCD373BCB148B6FA0D97D93D30DA57 /* UIView+NXStatus.m */,
 			);
-			name = UIView;
 			path = UIView;
 			sourceTree = "<group>";
 		};
@@ -2476,7 +2464,6 @@
 				E9CCFBA0E9FFBB50DC314C85D328D9AB /* UITextView+RACSignalSupport.m */,
 				CB1253B72A4B98749CA33AEAB633E6D9 /* Support Files */,
 			);
-			name = ReactiveObjC;
 			path = ReactiveObjC;
 			sourceTree = "<group>";
 		};
@@ -2487,7 +2474,6 @@
 				F8C5C112451D36BB043B335F2F9797A5 /* NSError+NXTools.m */,
 				3D4C2DF73F091CAE559809CC33DDC304 /* NXError.swift */,
 			);
-			name = NSError;
 			path = NSError;
 			sourceTree = "<group>";
 		};
@@ -2528,7 +2514,6 @@
 				E6EE34E2D243CB0C57AE606FF62B7417 /* UIView+NXDrop.h */,
 				8D921114B7824B0C8F23DB6B8DF666DA /* UIView+NXDrop.m */,
 			);
-			name = DragAndDrop;
 			path = DragAndDrop;
 			sourceTree = "<group>";
 		};
@@ -2544,7 +2529,6 @@
 				BC13526D9A77145E51F34D7DFE5E2241 /* PHPhotoLibrary+NXTools.h */,
 				5CEA88B0ADB24062A04D25F3B93A92B5 /* PHPhotoLibrary+NXTools.m */,
 			);
-			name = NSFile;
 			path = NSFile;
 			sourceTree = "<group>";
 		};
@@ -2554,7 +2538,6 @@
 				B280CDA2F064DF78601D435DA81BF6D2 /* NSSet+NXTools.h */,
 				58A215EF9DEA15D2121FE3CF6AB19BDD /* NSSet+NXTools.m */,
 			);
-			name = NSSet;
 			path = NSSet;
 			sourceTree = "<group>";
 		};
@@ -2565,7 +2548,6 @@
 				545B56AD852BEAF76083BE891277C264 /* NSURL+NXUtil.m */,
 				9BF0D85C18D25FEB1B523D8214BD2F73 /* URL+Extensions.swift */,
 			);
-			name = NSURL;
 			path = NSURL;
 			sourceTree = "<group>";
 		};
@@ -2575,7 +2557,6 @@
 				7A6CE26873A1BDD58891955A7ACF5F3D /* NSSet+NXUtil.h */,
 				AEBF6493C1EA4F25282F804E836FCD31 /* NSSet+NXUtil.m */,
 			);
-			name = NSSet;
 			path = NSSet;
 			sourceTree = "<group>";
 		};
@@ -2589,7 +2570,6 @@
 				D7E5F4B3DE609EAC0F06EF5679A6BAAD /* UICollectionView+NXAutoHeightLayoutCellByClass.h */,
 				1FD14DAAAD5D8A84448784D7EDB67594 /* UICollectionView+NXAutoHeightLayoutCellByClass.m */,
 			);
-			name = AutoHeight;
 			path = AutoHeight;
 			sourceTree = "<group>";
 		};
@@ -2601,7 +2581,6 @@
 				C18F71A9F38834046C21F77210B9B50F /* UICollectionView+NXHeader.h */,
 				303800740D6F4714F51489AAAADC9F59 /* UICollectionView+NXHeader.m */,
 			);
-			name = Headers;
 			path = Headers;
 			sourceTree = "<group>";
 		};
@@ -2619,7 +2598,6 @@
 				35435EE6BEBCCF76D87DE52FF21DA2C2 /* UIColor+NXGradient.h */,
 				8EB4887C06BB7A5D4419D6B0EE3E17D7 /* UIColor+NXGradient.m */,
 			);
-			name = UIColor;
 			path = UIColor;
 			sourceTree = "<group>";
 		};
@@ -2634,7 +2612,6 @@
 				EEB209EB1117A24E4BAB83752D263B35 /* NXSessionDataTaskResult+NXTools.m */,
 				5FFF0231B7F6D4B751A457636DFA2D37 /* Cache */,
 			);
-			name = Rac;
 			path = Rac;
 			sourceTree = "<group>";
 		};
@@ -2660,7 +2637,6 @@
 				A95D7AF03B908A5543D8F6E97620DA5D /* NXRequestType.h */,
 				D2CF8397D80762EB37669EDEB828B510 /* NXRequestType.m */,
 			);
-			name = Cache;
 			path = Cache;
 			sourceTree = "<group>";
 		};
@@ -2687,7 +2663,6 @@
 				B45C7E85B661B8B7637E21F8A9EAAEF6 /* NSMutableDictionary+NXTools.h */,
 				C1BADAC8B430AD6DB7EE1ABFFFF15CB4 /* NSMutableDictionary+NXTools.m */,
 			);
-			name = NSDictionary;
 			path = NSDictionary;
 			sourceTree = "<group>";
 		};
@@ -2702,7 +2677,6 @@
 				4C928ACD7AA29F8266A09F654084E499 /* UIResponder+DispatchKeyCommand.h */,
 				A26F6E586A9815EAB89FD9776EC5B82F /* UIResponder+DispatchKeyCommand.m */,
 			);
-			name = UIKeyCommand;
 			path = UIKeyCommand;
 			sourceTree = "<group>";
 		};
@@ -2765,7 +2739,6 @@
 				7B943228C14207C551FBED289162107D /* NSMutableArray+NXTools.h */,
 				09F58DE87A1BE9D4410794B2DACACB74 /* NSMutableArray+NXTools.m */,
 			);
-			name = NSArray;
 			path = NSArray;
 			sourceTree = "<group>";
 		};
@@ -2789,7 +2762,6 @@
 				3998DCF18B5A4EBCE829A5D87D45CC1E /* MMKVHandler.h */,
 				69D34427CA9C6C3520BF6DD3FA221CB6 /* Support Files */,
 			);
-			name = MMKV;
 			path = MMKV;
 			sourceTree = "<group>";
 		};
@@ -2801,7 +2773,6 @@
 				AB86A690922351984A96397CBAED18A9 /* NSDictionary+Hash.h */,
 				ACBEDDFBFA424CD0B07D696F11DBAF1D /* NSDictionary+Hash.m */,
 			);
-			name = Hash;
 			path = Hash;
 			sourceTree = "<group>";
 		};
@@ -2813,7 +2784,6 @@
 				0170A28844FDB1FE98383D3B436CE072 /* NXServiceLoader.h */,
 				81F72964CFDD436B15C02BCF330E417A /* NXServiceLoader.m */,
 			);
-			name = SPI;
 			path = SPI;
 			sourceTree = "<group>";
 		};
@@ -2862,7 +2832,6 @@
 				2B662E7ACD9A1735DE090179709A8BBA /* NSDictionary+RACSequenceAdditionsDeprecated.h */,
 				2CA063EE48DBA611A9A895E66BE0ED11 /* NSDictionary+RACSequenceAdditionsDeprecated.m */,
 			);
-			name = Deprecated;
 			path = Deprecated;
 			sourceTree = "<group>";
 		};
@@ -2919,7 +2888,6 @@
 				C40D06A296173728300B1AE37998A400 /* TKRoundedView.h */,
 				8BF78E4DF15F683EAEE1D1036C04E87E /* TKRoundedView.m */,
 			);
-			name = Round;
 			path = Round;
 			sourceTree = "<group>";
 		};
@@ -2932,7 +2900,6 @@
 				3360132725B5B12A6D367FA6C156448F /* NXKeyValueService.m */,
 				06510F71306E7387787695D574E49009 /* NXKeyValueServiceProtocal.h */,
 			);
-			name = NSUserDefaults;
 			path = NSUserDefaults;
 			sourceTree = "<group>";
 		};
@@ -3103,7 +3070,6 @@
 				EEF65E7BFDC62CA91E1EE615945013D1 /* no-arc */,
 				9F66BFED3D8C468B3F30BBBF02C3C5A0 /* Support Files */,
 			);
-			name = YYKit;
 			path = YYKit;
 			sourceTree = "<group>";
 		};
@@ -3164,7 +3130,6 @@
 				103B6470B06C630574A6A0FC0354A2D5 /* NSDictionary+NXUtil.h */,
 				4C0EB9218B5DB04B24924A772291EA7B /* NSDictionary+NXUtil.m */,
 			);
-			name = NSDictionary;
 			path = NSDictionary;
 			sourceTree = "<group>";
 		};
@@ -3174,7 +3139,6 @@
 				F88FE313BEBCD9C5F617763F0A6816BA /* NSAttributedString+NXUtil.h */,
 				54189B2FEC272129F7FD54D6B44C04CE /* NSAttributedString+NXUtil.m */,
 			);
-			name = NSAttributeString;
 			path = NSAttributeString;
 			sourceTree = "<group>";
 		};
@@ -3187,7 +3151,6 @@
 				920B92C16D968471559342A100A5413B /* NSArray+NXUtil.h */,
 				FAC86B091CE13F261B11E0409C2E9521 /* NSArray+NXUtil.m */,
 			);
-			name = NSArray;
 			path = NSArray;
 			sourceTree = "<group>";
 		};
@@ -3204,7 +3167,6 @@
 				5E29224327584CAAA064072C6104D963 /* NSString+Tool.m */,
 				7FE245C7B7F05A5E7ADB8D8A2B737904 /* String+Extension.swift */,
 			);
-			name = NSString;
 			path = NSString;
 			sourceTree = "<group>";
 		};
@@ -3233,7 +3195,6 @@
 				B90A67AC1C81472D3F2D703D881CA515 /* UICollectionView+NXAdapter.h */,
 				CDA043052A0D595F100DCBF431873889 /* UICollectionView+NXAdapter.m */,
 			);
-			name = Adapter;
 			path = Adapter;
 			sourceTree = "<group>";
 		};
@@ -3243,7 +3204,6 @@
 				15FDAE7D0C8910AE14C284AD4001B7EF /* NSTimer+NXUtil.h */,
 				CFB6E07781F43554E5350852936C3E32 /* NSTimer+NXUtil.m */,
 			);
-			name = NSTimer;
 			path = NSTimer;
 			sourceTree = "<group>";
 		};
@@ -3299,7 +3259,6 @@
 				8A57674BBAF4228C3D027C48E0705118 /* Support Files */,
 				ADE92943FD5877E99096E38F00184E5C /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -3325,7 +3284,6 @@
 				E6528C39B1937AF44F2D1EB0AECE40F9 /* YYModel.h */,
 				98676C4AEE284DAA950F14BD59634A0F /* Support Files */,
 			);
-			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -3356,7 +3314,6 @@
 				7A552EB53B28CD311B0A539D89DBA807 /* NSObject+NXUtil.h */,
 				6A945ED3BF7308BB5ED73690C624B232 /* NSObject+NXUtil.m */,
 			);
-			name = NSObject;
 			path = NSObject;
 			sourceTree = "<group>";
 		};
@@ -3405,7 +3362,6 @@
 				A1ECFFED66DD0B54FE6781477FD5AF1B /* ViewController+MASAdditions.m */,
 				B917E282136D93F5A3286A57443FB393 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -3430,7 +3386,6 @@
 				4D9A7EE634FBA60EE36FAF007FBBC37D /* UITableView+NXRegister.m */,
 				DF8E15F45DF7A669B7B33FADAF751207 /* Adapter */,
 			);
-			name = UITableview;
 			path = UITableview;
 			sourceTree = "<group>";
 		};
@@ -3467,7 +3422,6 @@
 				EC38B9063194D1292463115AEDF27968 /* JLRRouteDefinition+NXHook.h */,
 				7F6D5AA30EC59D48EF12D4CE0DFAC336 /* JLRRouteDefinition+NXHook.m */,
 			);
-			name = JLRoute;
 			path = JLRoute;
 			sourceTree = "<group>";
 		};
@@ -3502,7 +3456,6 @@
 				8CD9D9256CD65515730CA8D5B410A61D /* JLRRouteResponse.m */,
 				182D8F1656F0C012E351FD6B3855968B /* Support Files */,
 			);
-			name = JLRoutes;
 			path = JLRoutes;
 			sourceTree = "<group>";
 		};
@@ -3516,7 +3469,6 @@
 				B6D73FF56FD7F03714949764E8FBB5A7 /* NSNumber+isEqual.h */,
 				E995BC12F802CEE16D793EBFE8096430 /* NSNumber+isEqual.m */,
 			);
-			name = NSNumber;
 			path = NSNumber;
 			sourceTree = "<group>";
 		};
@@ -3525,7 +3477,6 @@
 			children = (
 				42CD468AA9646D651A7FF40B70FF4313 /* NXRouterResultCallback.h */,
 			);
-			name = Results;
 			path = Results;
 			sourceTree = "<group>";
 		};
@@ -3537,7 +3488,6 @@
 				FEA0F2A957F6A2B448F8C4673245E4F2 /* UITableView+NXAdapter.h */,
 				D21C7C9A662597E10BF45BFC0B169CBD /* UITableView+NXAdapter.m */,
 			);
-			name = Adapter;
 			path = Adapter;
 			sourceTree = "<group>";
 		};
@@ -3571,7 +3521,6 @@
 				F329596BDED1A3F35619191D60F5616C /* YYMemoryCache.m */,
 				A6504B40B649BE4C87BE699A30E8396D /* Support Files */,
 			);
-			name = YYCache;
 			path = YYCache;
 			sourceTree = "<group>";
 		};
@@ -3595,7 +3544,6 @@
 				F6CE018A599C67E77BFA54D20621F177 /* UIImage+NXGradient.h */,
 				B87F3DBBA15774C5874E657CB607DD5E /* UIImage+NXGradient.m */,
 			);
-			name = UIImage;
 			path = UIImage;
 			sourceTree = "<group>";
 		};
@@ -3655,7 +3603,6 @@
 				19E65900DE1C0A4BC3FC0345D4AAFFD5 /* NXHttpInterceptor.h */,
 				DECC08F08AEC43CF4F0E927985164D12 /* NXHttpInterceptor.m */,
 			);
-			name = Interceptor;
 			path = Interceptor;
 			sourceTree = "<group>";
 		};
@@ -3724,7 +3671,6 @@
 				6771D75BD910B54EDE0D51620979E2C8 /* ThreadLock_Win32.cpp */,
 				E8A03A79ABB337FADCDA2C489663AD18 /* Support Files */,
 			);
-			name = MMKVCore;
 			path = MMKVCore;
 			sourceTree = "<group>";
 		};
@@ -3766,7 +3712,6 @@
 				52E662B0172D1CD042E214C4FB2581C6 /* Protocols.swift */,
 				8B0A3305B6E0DF0A366E3A7D685E0971 /* WindowViewController.swift */,
 			);
-			name = CPU;
 			path = CPU;
 			sourceTree = "<group>";
 		};
@@ -5752,8 +5697,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
