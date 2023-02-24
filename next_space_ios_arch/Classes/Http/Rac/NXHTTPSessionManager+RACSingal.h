@@ -9,6 +9,7 @@
 #import <ReactiveObjC/ReactiveObjC-umbrella.h>
 #import <next_space_ios_arch/NXHTTPSessionManager.h>
 #import <next_space_ios_arch/NXSessionDataTaskResult.h>
+#import <next_space_ios_arch/NXRequestType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -70,21 +71,21 @@ FOUNDATION_EXPORT NSString * const NXNetworkingTaskIsCacheKey;
                                   headers:(nullable NSDictionary <NSString *, NSString *> *)headers;
 
 
-- (RACSignal<NXSessionDataTaskResult *> *)dataTaskWithHTTPMethodSignal:(NSString *)method
+- (RACSignal<NXSessionDataTaskResult *> *)dataTaskWithHTTPMethodSignal:(NXRequestType)method
                                                 URLString:(NSString *)URLString
                                                parameters:(nullable id)parameters
                                                   headers:(nullable NSDictionary <NSString *, NSString *> *)headers
                                            uploadProgress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
                                          downloadProgress:(nullable void (^)(NSProgress *downloadProgress))downloadProgress;
 
--(NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NSString *)method
+-(NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NXRequestType)method
                    URLString:(NSString *)URLString
                   parameters:(nullable id)parameters
                                headers:(nullable NSDictionary <NSString *, NSString *> *)headers;
 /**
  包装网络异常
  */
--(NSError *)wrapHttpErrorWithMethod:(NSString *)method
+-(NSError *)wrapHttpErrorWithMethod:(NXRequestType)method
                    URLString:(NSString *)URLString
                   parameters:(nullable id)parameters
                      headers:(nullable NSDictionary <NSString *, NSString *> *)headers

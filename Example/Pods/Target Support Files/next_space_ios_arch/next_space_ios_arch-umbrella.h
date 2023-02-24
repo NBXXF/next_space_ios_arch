@@ -75,6 +75,7 @@
 #import "NXHTTPSessionManager+Cache.h"
 #import "NXNetCacheFactory.h"
 #import "NXNetCacheType.h"
+#import "NXRequestType.h"
 #import "NXHTTPSessionManager+RACSingal.h"
 #import "NXSessionDataTaskResult+NXTools.h"
 #import "NXSessionDataTaskResult.h"
