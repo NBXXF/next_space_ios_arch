@@ -2,7 +2,7 @@
 //  NXHttpCacheConfigProvider.m
 //  next_space_ios_arch
 //
-//  Created by 1234 on 2023/2/24.
+//  Created by XXF on 2023/2/24.
 //
 
 #import "NXHttpCacheConfigProvider.h"

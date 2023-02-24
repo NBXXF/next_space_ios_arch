@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  参考
- NXNetworkingTaskDidFailUrlKey;
- NXNetworkingTaskDidFailMethodKey;
- NXNetworkingTaskDidFailParametersKey;
- NXNetworkingTaskDidFailHeadersKey;
+NXNetworkingTaskUrlKey;
+NXNetworkingTaskMethodKey;
+NXNetworkingTaskParametersKey;
+NXNetworkingTaskHeadersKey;
  */
 @property(nonatomic,strong)NSDictionary *userInfo;
 @property(nonatomic,assign,nullable) id responseObject;
