@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXParent : NSObject
-
+@property(nonatomic,strong) NSString *name;
 @end
 
 NS_ASSUME_NONNULL_END

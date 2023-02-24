@@ -20,7 +20,7 @@ NXNetworkingTaskHeadersKey;
 NXNetworkingTaskIsCacheKey;
  */
 @property(nonatomic,strong)NSDictionary *userInfo;
-@property(nonatomic,assign,nullable) id responseObject;
+@property(nonatomic,strong,nullable) id responseObject;
 @end
 
 NS_ASSUME_NONNULL_END

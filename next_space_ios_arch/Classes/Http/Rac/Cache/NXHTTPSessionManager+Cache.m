@@ -156,9 +156,7 @@
     /**
      新开一个线程 避免阻塞真实http数据响应
      */
-    @weakify(self)
     [RACScheduler.scheduler schedule:^{
-        @strongify(self)
         YYDiskCache *diskCache=[NXNetCacheFactory.shared getCache:self.cacheConfigProvider];
         if(key&&rawTaskData.responseObject){
             //记录缓存内容
