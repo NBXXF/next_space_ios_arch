@@ -148,6 +148,9 @@
     if(!self.cacheConfigProvider){
         return;
     }
+    if(![self.cacheConfigProvider isCache:taskData]){
+        return;
+    }
     
     __block NXSessionDataTaskResult *rawTaskData=taskData;
     /**
