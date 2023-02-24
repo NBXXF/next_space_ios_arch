@@ -10,6 +10,7 @@
 #import <next_space_ios_arch/NSString+NXUtil.h>
 #import <next_space_ios_arch/StringUtils.h>
 #import <next_space_ios_arch/RACSignal+AppArch.h>
+#import <next_space_ios_arch/NXNetCacheFactory.h>
 
 @implementation NXHTTPSessionManager(Cache)
 - (RACSignal<NXSessionDataTaskResult *> *)GETSignal:(NSString *)URLString
@@ -34,7 +35,7 @@
     switch (cacheType) {
         case NXNetCacheTypeFirstRemote:{
             request= [[self GETSignal:URLString parameters:parameters headers:headers progress:downloadProgress] onErrorResumeNext:^RACSignal<NXSessionDataTaskResult *> * _Nonnull(NSError * _Nonnull error) {
-                return [[self getCacheByKey:[self cacheKeyWithURL:URLString parameters:parameters]] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                return [[self _getCacheWithKey:[self _cacheKeyWithURL:URLString parameters:parameters]] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
                     if(value){
                         return [RACSignal just:value];
                     }else{
@@ -45,7 +46,7 @@
         }
             break;
         case NXNetCacheTypeFirstCache:{
-            request = [[[self getCacheByKey:[self cacheKeyWithURL:URLString parameters:parameters]] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+            request = [[[self _getCacheWithKey:[self _cacheKeyWithURL:URLString parameters:parameters]] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
                 if(value){
                     return [RACSignal just:value];
                 }else{
@@ -55,7 +56,7 @@
         }
             break;
         case NXNetCacheTypeIfCache:{
-            request = [[[self getCacheByKey:[self cacheKeyWithURL:URLString parameters:parameters]] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+            request = [[[self _getCacheWithKey:[self _cacheKeyWithURL:URLString parameters:parameters]] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
                 if(value){
                     return [RACSignal just:value];
                 }else{
@@ -68,7 +69,7 @@
         }
             break;
         case NXNetCacheTypeOnlyCache:{
-            request = [self getCacheByKey:[self cacheKeyWithURL:URLString parameters:parameters]];
+            request = [self _getCacheWithKey:[self _cacheKeyWithURL:URLString parameters:parameters]];
         }
             break;
         case NXNetCacheTypeOnlyRemote:{
@@ -83,14 +84,38 @@
     return request;
 }
 
-- (RACSignal<NXSessionDataTaskResult *> *)getCacheByKey:(NSString *)key{
+- (RACSignal<NXSessionDataTaskResult *> *)_getCacheWithKey:(NSString *)key{
     return [RACSignal fromCallbck:^NXSessionDataTaskResult *_Nullable{
+        YYDiskCache *diskCache=[NXNetCacheFactory.shared getCache:self.cacheConfigProvider];
+        id responseObject=[diskCache objectForKey:key];
+        if(responseObject){
+            NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
+            result.task=nil;
+            result.responseObject=responseObject;
+            return result;
+        }
+        //需要返回nil 不能返回[RACSignal empty]l
         return nil;
     }];
 }
 
+-(void)_cacheDataWithKey:(NSString *)key data:(NXSessionDataTaskResult *)data{
+    if(!self.cacheConfigProvider){
+        return;
+    }
+    /**
+     新开一个线程 避免阻塞真实http数据响应
+     */
+    @weakify(self)
+    [RACScheduler.scheduler schedule:^{
+        @strongify(self)
+        YYDiskCache *diskCache=[NXNetCacheFactory.shared getCache:self.cacheConfigProvider];
+        [diskCache setObject:data.responseObject forKey:key];
+    }];
+}
 
--(NSString *)cacheKeyWithURL:(NSString *)URLString
+
+-(NSString *)_cacheKeyWithURL:(NSString *)URLString
              parameters:(nullable id)parameters{
     NSAssert([parameters isKindOfClass:NSObject.class], @"http param 参数不正确");
     NSString *combinedStr=[URLString stringByAppendingString:safeStr(((NSObject *)parameters).yy_modelToJSONString)];

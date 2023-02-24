@@ -8,10 +8,16 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 #import "NXHttpInterceptor.h"
+#import <next_space_ios_arch/NXHttpCacheConfigProvider.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXHTTPSessionManager : AFHTTPSessionManager
+
+/*
+ 网络缓存配置的提供类
+ */
+@property(nonatomic,strong)NXHttpCacheConfigProvider *cacheConfigProvider;
 
 /**
  添加拦截器
