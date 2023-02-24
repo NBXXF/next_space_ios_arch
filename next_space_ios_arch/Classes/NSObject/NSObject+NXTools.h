@@ -15,22 +15,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  转换成当前类的类型 本质 isKindOfClass,转换不成功会报错
  */
-+ (instancetype)toKindOfClassObjectFrom:(NSObject *)fromObject;
++ (instancetype)toKindOfClassObjectFrom:(NSObject *_Nullable)fromObject;
 
 /**
  转换成当前类的类型 本质 isKindOfClass,转换不成功返回nil
  */
-+ (nullable instancetype)toKindOfClassObjectOrNilFrom:(NSObject *)fromObject;
++ (nullable instancetype)toKindOfClassObjectOrNilFrom:(NSObject *_Nullable)fromObject;
 
 /**
  转换成当前类的类型 本质 isMemberOfClass,转换不成功会报错
  */
-+ (instancetype)toMemberOfClassObjectFrom:(NSObject *)fromObject;
++ (instancetype)toMemberOfClassObjectFrom:(NSObject *_Nullable)fromObject;
 
 /**
  转换成当前类的类型 本质 isMemberOfClass,转换不成功返回nil
  */
-+ (nullable instancetype)toMemberOfClassObjectOrNilFrom:(NSObject *)fromObject;
++ (nullable instancetype)toMemberOfClassObjectOrNilFrom:(NSObject *_Nullable)fromObject;
 
 
 /**

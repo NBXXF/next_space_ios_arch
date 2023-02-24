@@ -362,7 +362,7 @@
 //    }];
    
    // [self testFormat];
-    
+    [self testHttp];
     [self testBind];
     [self testBind2];
     @weakify(self)
@@ -455,6 +455,15 @@
 //    end=NSDate.now.timeIntervalSince1970*1000;
 //    NSLog(@"=========>stringWithFormat cache take:%f %@",(end-start),str2);
     
+}
+
+-(void)testHttp{
+    NXHTTPSessionManager *manager=[NXHTTPSessionManager new];
+    [[[manager GETSignal:@"http://api.map.baidu.com/telematics/v3/weather?location=%E5%98%89%E5%85%B4&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ" parameters:nil headers:nil progress:nil cacheType:NXNetCacheTypeFirstCache cacheTime:NXTimeUnit.DAYS.toMillis(1)] doError:^(NSError * _Nonnull error) {
+        NSLog(@"============>x error:%@",error);
+    }] subscribeNext:^(NXSessionDataTaskResult * _Nullable x) {
+        NSLog(@"============>x:%@",x.responseObject);
+    }];
 }
 
 -(void)testSwitch{

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
                    parameters:(nullable id)parameters
                       headers:(nullable NSDictionary <NSString *, NSString *> *)headers
                          progress:(nullable void (^)(NSProgress * _Nonnull))downloadProgress cacheType:(NXNetCacheType)cacheType
-                             cacheTime:(NSTimeInterval)cacheTime;
+                             cacheTime:(long long)cacheTime;
 
 
 @end

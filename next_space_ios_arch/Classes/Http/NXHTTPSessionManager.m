@@ -14,6 +14,17 @@
 @implementation NXHTTPSessionManager
 
 
+/**
+ 默认给一个缓存配置
+ */
+- (NXHttpCacheConfigProvider *)cacheConfigProvider{
+    if(!_cacheConfigProvider){
+        _cacheConfigProvider=[[NXHttpCacheConfigProvider alloc] init];
+    }
+    return _cacheConfigProvider;
+}
+
+
 - (NSMutableArray *)interceptorArray{
     if(!_interceptorArray){
         _interceptorArray=[NSMutableArray array];

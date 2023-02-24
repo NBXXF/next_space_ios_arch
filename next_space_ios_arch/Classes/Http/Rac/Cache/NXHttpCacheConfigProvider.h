@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  全局默认缓存时间 NSTimeInterval== s
 */
--(NSTimeInterval)cacheTime;
+-(long long)cacheTime;
 
 @end
 
