@@ -26,12 +26,25 @@ FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseIsCacheKey;
 
 
 
+
+ /**
+  下游请仔细阅读框架设计的精髓
+   错误信号里面的error.userInfo 已经组装了相关信息到字典里面
+  NXNetworkingTaskRequestUrlKey
+  NXNetworkingTaskRequestMethodKey
+  NXNetworkingTaskRequestParametersKey
+  NXNetworkingTaskRequestHeadersKe
+  NXNetworkingTaskResponseHeadersKey
+  NXNetworkingTaskResponseIsCacheKey
+  */
 @interface NXHTTPSessionManager(RACSingal)
+
 
 - (RACSignal<NXSessionDataTaskResult *> *)GETSignal:(NSString *)URLString
                    parameters:(nullable id)parameters
                       headers:(nullable NSDictionary <NSString *, NSString *> *)headers
                          progress:(nullable void (^)(NSProgress * _Nonnull))downloadProgress;
+
 
 
 - (RACSignal<NXSessionDataTaskResult *> *)HEADSignal:(NSString *)URLString
