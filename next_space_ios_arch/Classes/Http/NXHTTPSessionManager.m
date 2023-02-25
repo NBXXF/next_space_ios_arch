@@ -80,7 +80,23 @@ didCompleteWithError:(NSError *)error{
 
 //========================【下面是拦击afn本身方法】=====================
 
+- (NSURLSessionDataTask *)POST:(NSString *)URLString
+                    parameters:(nullable id)parameters
+                       headers:(nullable NSDictionary<NSString *,NSString *> *)headers
+     constructingBodyWithBlock:(nullable void (^)(id<AFMultipartFormData> _Nonnull))block
+                      progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
+                       success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+    //格式化一下 避免出现拼接少路径的情况
+    URLString=[NSURL formatURLPathWithPath:URLString];
+    
+    
+    return [super POST:URLString parameters:parameters headers:headers constructingBodyWithBlock:block progress:uploadProgress success:success failure:failure];
+}
+
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method URLString:(NSString *)URLString parameters:(id)parameters headers:(NSDictionary<NSString *,NSString *> *)headers uploadProgress:(void (^)(NSProgress * _Nonnull))uploadProgress downloadProgress:(void (^)(NSProgress * _Nonnull))downloadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+    
+    //格式化一下 避免出现拼接少路径的情况
+    URLString=[NSURL formatURLPathWithPath:URLString];
     
     
     NSMutableURLRequest *request= [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URLString]];

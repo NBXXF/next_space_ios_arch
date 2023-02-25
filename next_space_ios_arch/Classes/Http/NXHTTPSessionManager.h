@@ -9,6 +9,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "NXHttpInterceptor.h"
 #import <next_space_ios_arch/NXHttpCacheConfigProvider.h>
+#import <next_space_ios_arch/NSURL+NXHttp.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
