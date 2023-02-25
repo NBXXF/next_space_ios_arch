@@ -130,7 +130,7 @@
             if(responseObject){
                 NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
                 NSMutableDictionary *mergeDict=userInfo.mutableCopyOrCast;
-                [mergeDict setObject:@YES forKey:NXNetworkingTaskIsCacheKey];
+                [mergeDict setObject:@YES forKey:NXNetworkingTaskResponseIsCacheKey];
                 result.userInfo=mergeDict;
                 result.responseObject=responseObject;
                 return result;

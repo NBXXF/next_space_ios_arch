@@ -6,12 +6,12 @@
 //
 
 #import "NXHTTPSessionManager+RACSingal.h"
-NSString * const NXNetworkingTaskUrlKey = @"com.xxf.http.url";
-NSString * const NXNetworkingTaskMethodKey = @"com.xxf.http.method";
-NSString * const NXNetworkingTaskParametersKey = @"com.xxf.http.parameters";
-NSString * const NXNetworkingTaskHeadersKey = @"com.xxf.http.headers";
-NSString * const NXNetworkingTaskIsCacheKey=@"com.xxf.http.isCache";
-//NSString * const NXNetworkingTaskDidFailDataTaskKey = @"com.xxf.http.dataTask";//可能是没有的 序列化异常就没有
+NSString * const NXNetworkingTaskRequestUrlKey = @"com.xxf.http.request.url";
+NSString * const NXNetworkingTaskRequestMethodKey = @"com.xxf.http.request.method";
+NSString * const NXNetworkingTaskRequestParametersKey = @"com.xxf.http.request.parameters";
+NSString * const NXNetworkingTaskRequestHeadersKey = @"com.xxf.http.request.headers";
+NSString * const NXNetworkingTaskResponseHeadersKey = @"com.xxf.http.response.headers";
+NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCache";
 
 @implementation NXHTTPSessionManager(RACSingal)
 
@@ -204,16 +204,16 @@ NSString * const NXNetworkingTaskIsCacheKey=@"com.xxf.http.isCache";
 - (NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NXRequestType)method URLString:(NSString *)URLString parameters:(id)parameters headers:(NSDictionary<NSString *,NSString *> *)headers{
     NSMutableDictionary *newUserInfo=[NSMutableDictionary dictionary];
     if(method){
-        [newUserInfo setObject:method forKey:NXNetworkingTaskMethodKey];
+        [newUserInfo setObject:method forKey:NXNetworkingTaskRequestMethodKey];
     }
     if(URLString){
-        [newUserInfo setObject:URLString forKey:NXNetworkingTaskUrlKey];
+        [newUserInfo setObject:URLString forKey:NXNetworkingTaskRequestUrlKey];
     }
     if(parameters){
-        [newUserInfo setObject:parameters forKey:NXNetworkingTaskParametersKey];
+        [newUserInfo setObject:parameters forKey:NXNetworkingTaskRequestParametersKey];
     }
     if(headers){
-        [newUserInfo setObject:headers forKey:NXNetworkingTaskHeadersKey];
+        [newUserInfo setObject:headers forKey:NXNetworkingTaskRequestHeadersKey];
     }
     return newUserInfo;
 }

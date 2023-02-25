@@ -17,12 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  增加异常的时候 返回对应的请求 给下游处理
  */
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskUrlKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskMethodKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskParametersKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskHeadersKey;
-FOUNDATION_EXPORT NSString * const NXNetworkingTaskIsCacheKey;
-//FOUNDATION_EXPORT NSString * const NXNetworkingTaskDidFailDataTaskKey;//可能是没有的 序列化异常就没有
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskRequestUrlKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskRequestMethodKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskRequestParametersKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskRequestHeadersKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseHeadersKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseIsCacheKey;
 
 
 

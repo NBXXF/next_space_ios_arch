@@ -18,6 +18,6 @@
 }
 
 - (BOOL)isCache{
-    return [[self.userInfo objectForKey:NXNetworkingTaskIsCacheKey] boolValue];
+    return [[self.userInfo objectForKey:NXNetworkingTaskResponseIsCacheKey] boolValue];
 }
 @end

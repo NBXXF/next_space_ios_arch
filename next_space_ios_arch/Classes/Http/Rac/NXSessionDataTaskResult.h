@@ -12,12 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NXSessionDataTaskResult : NSObject
 
 /**
- 参考
-NXNetworkingTaskUrlKey;
-NXNetworkingTaskMethodKey;
-NXNetworkingTaskParametersKey;
-NXNetworkingTaskHeadersKey;
-NXNetworkingTaskIsCacheKey;
+ 参考NXHTTPSessionManager+RACSingal 中定义
+ NXNetworkingTaskRequestUrlKey;
+ NXNetworkingTaskRequestMethodKey;
+ NXNetworkingTaskRequestParametersKey;
+ NXNetworkingTaskRequestHeadersKey;
+ NXNetworkingTaskResponseHeadersKey;
+ NXNetworkingTaskResponseIsCacheKey;
  */
 @property(nonatomic,strong)NSDictionary *userInfo;
 @property(nonatomic,strong,nullable) id responseObject;
