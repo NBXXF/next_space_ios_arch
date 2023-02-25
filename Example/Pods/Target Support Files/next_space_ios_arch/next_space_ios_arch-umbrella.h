@@ -68,6 +68,7 @@
 #import "HashUtils.h"
 #import "LogUtils.h"
 #import "NXHttpInterceptor.h"
+#import "NXTypeToken.h"
 #import "NSURL+NXHttp.h"
 #import "NXHTTPSessionManager.h"
 #import "NXHttpCacheConfigProvider.h"
