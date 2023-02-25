@@ -435,6 +435,8 @@
 		7BE5B80005FC6ECDE043D771CE23AFE1 /* NXSessionDataTaskResult+NXTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B842E9ED125440DC2DC2AB34E13370CB /* NXSessionDataTaskResult+NXTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BEAFADAFA6A9D1D3929076C3C36F085 /* RACEmptySignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EE5714C2C62771C93AC633DB29E8E0 /* RACEmptySignal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		7C8CEBE7BA533C5B30BA7304960C4EB2 /* UIDevice+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD9052E5490E76ABD6DBA8E8CFEC38 /* UIDevice+YYAdd.m */; };
+		7CA57E5829A9BC760033FDB8 /* NSURL+NXHttpHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA57E5629A9BC760033FDB8 /* NSURL+NXHttpHook.h */; };
+		7CA57E5929A9BC760033FDB8 /* NSURL+NXHttpHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA57E5729A9BC760033FDB8 /* NSURL+NXHttpHook.m */; };
 		7CA6C65D2C497A948BEA7F98E4F7710F /* RACSerialDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A5FC5A9F8ACF0148B2DEFBB38A363 /* RACSerialDisposable.m */; };
 		7CA84D5796C932CC9F09B38CB0871723 /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = D4BD157E97D46F633BCAF9D22AE042AC /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CAD28FE461F35F3C581FABE897CD1C1 /* NSObject+ExchangeMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2F28343A94ED77B8CCC0FCFE168F19 /* NSObject+ExchangeMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1440,6 +1442,8 @@
 		7B8D3847DA9466D8E1AE51B221CCCC6E /* MMKVMetaInfo.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = MMKVMetaInfo.hpp; path = Core/MMKVMetaInfo.hpp; sourceTree = "<group>"; };
 		7B943228C14207C551FBED289162107D /* NSMutableArray+NXTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NXTools.h"; sourceTree = "<group>"; };
 		7C5F8B81E1D1E64E3F3E531E565BCCCB /* DSCallInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DSCallInfo.m; sourceTree = "<group>"; };
+		7CA57E5629A9BC760033FDB8 /* NSURL+NXHttpHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+NXHttpHook.h"; sourceTree = "<group>"; };
+		7CA57E5729A9BC760033FDB8 /* NSURL+NXHttpHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+NXHttpHook.m"; sourceTree = "<group>"; };
 		7CD03D944857650F8A1C7FD145BFBE39 /* next_space_ios_arch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = next_space_ios_arch.modulemap; sourceTree = "<group>"; };
 		7CD94D685241093985DC20A605C88BF8 /* RACScopedDisposable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACScopedDisposable.h; path = ReactiveObjC/RACScopedDisposable.h; sourceTree = "<group>"; };
 		7CE4EF6613DD5DF17C8B38E3F6463AFE /* NXMutableOrderedDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NXMutableOrderedDictionary.h; sourceTree = "<group>"; };
@@ -2503,6 +2507,8 @@
 				548FA5A178FEAE3E49CF4C9193E5457B /* NXHTTPSessionManager.m */,
 				F2FB1876D79D72EDDDBD41D3FEA4607E /* Interceptor */,
 				5B89823CD1D03ED67A078A70DA6FC783 /* Rac */,
+				7CA57E5629A9BC760033FDB8 /* NSURL+NXHttpHook.h */,
+				7CA57E5729A9BC760033FDB8 /* NSURL+NXHttpHook.m */,
 			);
 			name = Http;
 			path = next_space_ios_arch/Classes/Http;
@@ -4047,6 +4053,7 @@
 				1960C21DEC93FCC5EF20579E5DA2272E /* NSNumber+Format.h in Headers */,
 				D0D6D21A503A6CBF7FE7DEEB0F1A60EB /* NSNumber+isEqual.h in Headers */,
 				7CAD28FE461F35F3C581FABE897CD1C1 /* NSObject+ExchangeMethod.h in Headers */,
+				7CA57E5829A9BC760033FDB8 /* NSURL+NXHttpHook.h in Headers */,
 				88D72AACB65DC6A4E41E692FAFD6AD85 /* NSObject+ImpChangeTool.h in Headers */,
 				4C1C0C30E8E6C33CA543F9ACC0F37A21 /* NSObject+NXRACSignalSupport.h in Headers */,
 				71E9B878F5D1CA7F4CA36AC0C6DC7247 /* NSObject+NXTools.h in Headers */,
@@ -4881,6 +4888,7 @@
 				50F87294DEA0956464CD6D53064DD452 /* PerformanceWatcher.swift in Sources */,
 				DB5A5D10B6DCC4C86634E29A825585D7 /* PerformanceСalculator.swift in Sources */,
 				64F28E8791E45F2CB5A983AC3335AC89 /* PHPhotoLibrary+NXTools.m in Sources */,
+				7CA57E5929A9BC760033FDB8 /* NSURL+NXHttpHook.m in Sources */,
 				2A58B7318712222E47C6096F6D7128B0 /* Protocols.swift in Sources */,
 				32D7BA96FE0100F3289E04B909F882AA /* RACDisposable+AppArch.m in Sources */,
 				6A612036E6A760146424155618F480FF /* RACScheduler+AppArch.m in Sources */,
