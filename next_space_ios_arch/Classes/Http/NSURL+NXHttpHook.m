@@ -17,19 +17,19 @@
     });
 }
 
-- (nullable instancetype)_hook_initWithString:(NSString *)URLString relativeToURL:(nullable NSURL *)baseURL{
+- (nullable instancetype)_hook_initWithString:(NSString *)urlString relativeToURL:(nullable NSURL *)baseURL{
     
     /**
-     这种情况会有问题 会导致/api 路径不见了
+     这种情况会有问题 会导致/api 路径不见了  拼接的路径是以斜杠开始的情况
      NSURL *appendUrl=[NSURL URLWithString:@"/user/xxxx"];
      NSURL *baseURL=[NSURL URLWithString:@"https://www.baidu.com/api/"];
      NSString *FULL= [NSURL URLWithString:appendUrl.absoluteString relativeToURL:baseURL].absoluteString;
      */
     NSString *prefix=@"/";
-    if([URLString hasPrefix:prefix]&&![URLString isEqual:prefix]){
-        return [self initWithString:[URLString substringFromIndex:prefix.length] relativeToURL:baseURL];
+    if([urlString hasPrefix:prefix]&&![urlString isEqual:prefix]){
+        return [self initWithString:[urlString substringFromIndex:prefix.length] relativeToURL:baseURL];
     }else{
-        return [self initWithString:URLString relativeToURL:baseURL];
+        return [self _hook_initWithString:urlString relativeToURL:baseURL];
     }
 }
 @end

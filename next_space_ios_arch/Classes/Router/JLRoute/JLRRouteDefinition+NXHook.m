@@ -7,7 +7,7 @@
 
 #import "JLRRouteDefinition+NXHook.h"
 #import <next_space_ios_arch/NXRouter.h>
-#import <next_space_ios_arch/NSObject+ExchangeMethod.h>
+#import <next_space_ios_arch/NSObject+Swizzling.h>
 
 
 @implementation JLRRouteDefinition(NXHook)

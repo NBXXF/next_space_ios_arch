@@ -7,7 +7,7 @@
 
 #import "UIResponder+DispatchKeyCommand.h"
 #import "UIKeyCommandConstant.h"
-#import "NSObject+ExchangeMethod.h"
+#import "NSObject+Swizzling.h"
 #import "NSObject+RateLimiting.h"
 #import "UIKeyCommanderProtocol.h"
 #import "RACScheduler+AppArch.h"
