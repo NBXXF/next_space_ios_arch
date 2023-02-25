@@ -27,7 +27,7 @@
      */
     NSString *prefix=@"/";
     if([urlString hasPrefix:prefix]&&![urlString isEqual:prefix]){
-        return [self initWithString:[urlString substringFromIndex:prefix.length] relativeToURL:baseURL];
+        return [self _hook_initWithString:[urlString substringFromIndex:prefix.length] relativeToURL:baseURL];
     }else{
         return [self _hook_initWithString:urlString relativeToURL:baseURL];
     }

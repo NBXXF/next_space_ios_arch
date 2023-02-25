@@ -63,7 +63,6 @@
 #import "NSTimer+NXUtil.h"
 #import "NSURL+NXUtil.h"
 #import "NXMutableOrderedDictionary.h"
-#import "NSObject+ImpChangeTool.h"
 #import "SwizzleMethod.h"
 #import "FileUtils.h"
 #import "HashUtils.h"
