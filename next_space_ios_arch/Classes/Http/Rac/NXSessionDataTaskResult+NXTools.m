@@ -14,7 +14,7 @@
 }
 
 - (BOOL)isBinary{
-    return [self isKindOfClass:NSData.class];
+    return [self.responseObject isKindOfClass:NSData.class];
 }
 
 - (BOOL)isCache{
