@@ -19,18 +19,32 @@
   [NSURL URLWithString:@"foo/" relativeToURL:baseURL];                 // http://example.com/v1/foo
   [NSURL URLWithString:@"/foo/" relativeToURL:baseURL];                // http://example.com/foo/  解决这个问题
   [NSURL URLWithString:@"http://example2.com/" relativeToURL:baseURL]; // http://example2.com/
+ 
+ @param encoded 是否已经处理了编码,如果NO 将处理特殊符号编码
  */
-+ (instancetype)URLWithURLPath:(NSString *)path relativeToURL:(NSURL *)baseURL{
-    return [self URLWithString:[self formatURLPathWithPath:path] relativeToURL:baseURL];
++ (instancetype)URLWithURLPath:(NSString *)path relativeToURL:(NSURL *)baseURL encoded:(BOOL)encoded{
+    return [self URLWithString:[self formatURLPathWithPath:path encoded:encoded] relativeToURL:baseURL];
 }
 
 
-+ (NSString *)formatURLPathWithPath:(NSString *)path{
+/**
+  处理拼接问题
+ @param encoded 是否已经处理了编码,如果NO 将处理特殊符号编码
+ */
++ (NSString *)formatURLPathWithPath:(NSString *)path  encoded:(BOOL)encoded{
     NSString *prefix=@"/";
+    NSString *formated=path;
     if([path hasPrefix:prefix]&&![path isEqual:prefix]){
-        return [path substringFromIndex:prefix.length];
+        formated=[path substringFromIndex:prefix.length];
+    }else{
+        formated=path;
     }
-    return path;
+    
+    if(!encoded){
+        formated=[formated stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    }
+    return formated;
 }
+
 
 @end
