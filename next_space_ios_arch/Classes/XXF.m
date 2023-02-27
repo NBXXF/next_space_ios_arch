@@ -99,7 +99,7 @@ static PerformanceWatcher *__performanceWatcher;
 + (void)_initPerformanceMonitor{
 #if DEBUG
     //业务可以选择unlock方式修改 短暂解决临时不变
-    CGFloat threshold=0.4;
+    CGFloat threshold=0.6;
     if(!__watchdog){
         //单位是s 秒
         __watchdog=[[BlockWatcher alloc] initWithThreshold:threshold strictMode:YES];
@@ -109,7 +109,7 @@ static PerformanceWatcher *__performanceWatcher;
     if(!__performanceWatcher){
         //CpuMax  0-100 这里是单核
         //memoryMax 单位M
-        __performanceWatcher= [[PerformanceWatcher alloc] initWithCpuMax:200 memoryMax:500];
+        __performanceWatcher= [[PerformanceWatcher alloc] initWithCpuMax:400 memoryMax:500];
     }
 
 #endif
