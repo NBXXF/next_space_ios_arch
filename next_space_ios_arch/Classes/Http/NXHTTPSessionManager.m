@@ -5,6 +5,12 @@
 //  Created by XXF on 2022/11/9.
 //
 
+/**
+ 特性1: 支持全局拦截器
+ 特性2: 和缓存控制器
+ 特性3: URLString 对于GET POST PUT DELETE PATCH HEAD  自动 处理路径特殊符号  download和upload 不进行自动处理特殊符号 业务自己处理
+ */
+
 #import "NXHTTPSessionManager.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 
@@ -87,7 +93,7 @@ didCompleteWithError:(NSError *)error{
                       progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
                        success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
     //格式化一下 避免出现拼接少路径的情况
-    URLString=[NSURL formatURLPathWithPath:URLString];
+    URLString=[NSURL formatURLPathWithPath:URLString encoded:NO];
     
     
     return [super POST:URLString parameters:parameters headers:headers constructingBodyWithBlock:block progress:uploadProgress success:success failure:failure];
@@ -96,7 +102,7 @@ didCompleteWithError:(NSError *)error{
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method URLString:(NSString *)URLString parameters:(id)parameters headers:(NSDictionary<NSString *,NSString *> *)headers uploadProgress:(void (^)(NSProgress * _Nonnull))uploadProgress downloadProgress:(void (^)(NSProgress * _Nonnull))downloadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
     
     //格式化一下 避免出现拼接少路径的情况
-    URLString=[NSURL formatURLPathWithPath:URLString];
+    URLString=[NSURL formatURLPathWithPath:URLString encoded:NO];
     
     
     NSMutableURLRequest *request= [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URLString]];

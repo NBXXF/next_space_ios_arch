@@ -23,6 +23,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+   NSString *tstr0= @"http://www.baidu.com/import-dev/0cc22faf-5dbb-45f1-acd7-2f6dd481ab8a/%E5%AF%BC%E5%87%BAword+9ef316bb-f433-427d-adf9-d4e7c25f439a.docx";
+   NSString *tstr1= [NSURL formatURLPathWithPath:tstr0 encoded:NO];
+   NSString *tstr2=  [NSURL formatURLPathWithPath:tstr1 encoded:NO];
+    
+    
     NSURL *appendUrl=[NSURL URLWithString:@"user/xxxx"];
     NSURL *baseURL=[NSURL URLWithString:@"https://www.baidu.com/api/"];
     NSString *FULL= [NSURL URLWithString:appendUrl.absoluteString relativeToURL:baseURL].absoluteString;
