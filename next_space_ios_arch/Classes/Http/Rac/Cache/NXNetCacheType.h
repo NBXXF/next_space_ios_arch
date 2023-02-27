@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, NXNetCacheType) {///网络缓存
     /// 只走网络
     NXNetCacheTypeOnlyRemote = 0,
     /// 先网络,没有网络 就走本地
-    NXNetCacheTypeFirstRemote = 1,
+    NXNetCacheTypeIfRemote = 1,
     /// 先本地  后网络  如果本地没有就回调一次  否则回调两次
     NXNetCacheTypeFirstCache = 2,
     /// 如果本地有就走本地  没有就走网络 只走一次 有没有 都会继续请求接口 覆盖新数据

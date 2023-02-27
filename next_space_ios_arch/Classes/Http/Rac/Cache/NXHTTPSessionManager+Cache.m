@@ -38,17 +38,21 @@
     __block NSString *key=[self _cacheKeyWithURL:URLString parameters:parameters];
     __block NSDictionary *userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
     switch (cacheType) {
-        case NXNetCacheTypeFirstRemote:{
+        case NXNetCacheTypeIfRemote:{
             request= [[[self GETSignal:URLString parameters:parameters headers:headers progress:downloadProgress] doNext:^(NXSessionDataTaskResult * _Nullable x) {
                 [self _cacheDataWithKey:key taskData:x];
             }] onErrorResumeNext:^RACSignal<NXSessionDataTaskResult *> * _Nonnull(NSError * _Nonnull error) {
-                return [[self _getCacheDataWithKey:key cacheTime:cacheTime userInfo:userInfo] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
-                    if(value){
-                        return [RACSignal just:value];
-                    }else{
-                        return [RACSignal empty];
-                    }
-                }];
+                if([self _isNetConnectError:error]){
+                    return [[self _getCacheDataWithKey:key cacheTime:cacheTime userInfo:userInfo] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                        if(value){
+                            return [RACSignal just:value];
+                        }else{
+                            return [RACSignal empty];
+                        }
+                    }];
+                }else{
+                    return [RACSignal error:error];
+                }
             }];
         }
             break;
@@ -110,6 +114,41 @@
     return request;
 }
 
+
+
+/**
+ 参考
+ NSURLErrorDomain
+ */
+-(BOOL)_isNetConnectError:(NSError *)error{
+    switch (error.code) {
+        case NSURLErrorTimedOut:
+            return YES;
+            break;
+        case NSURLErrorCannotFindHost:
+            return YES;
+            break;
+        case NSURLErrorCannotConnectToHost:
+            return YES;
+            break;
+        case NSURLErrorNetworkConnectionLost:
+            return YES;
+            break;
+            
+        case NSURLErrorDNSLookupFailed:
+            return YES;
+            break;
+            
+        case NSURLErrorNotConnectedToInternet:
+            return YES;
+            break;
+            
+        case NSURLErrorBadServerResponse:
+            return YES;
+            break;
+    }
+    return NO;
+}
 
 /**
  获取网络缓存
