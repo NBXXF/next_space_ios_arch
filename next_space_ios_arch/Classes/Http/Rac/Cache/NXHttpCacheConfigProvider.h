@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)isCache:(id)body;
 
 /**
- 全局默认缓存时间 NSTimeInterval== s
+ 全局默认缓存时间 毫秒
 */
 -(long long)cacheTime;
 

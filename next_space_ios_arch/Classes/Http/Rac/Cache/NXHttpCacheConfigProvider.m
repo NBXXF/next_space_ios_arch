@@ -34,7 +34,7 @@
 }
 
 /**
-全局默认缓存时间 NSTimeInterval== s
+全局默认缓存时间 毫秒
 */
 -(long long)cacheTime{
     return NXTimeUnit.DAYS.toMillis(1);
