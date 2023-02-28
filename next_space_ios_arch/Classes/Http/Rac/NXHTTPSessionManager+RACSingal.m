@@ -29,7 +29,6 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
             [subscriber sendNext:result];
             [subscriber sendCompleted];
        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-           [self wrapHttpErrorWithMethod:NXRequestTypeGET URLString:URLString parameters:parameters headers:headers task:task error:error];
            [subscriber sendError:[self wrapHttpErrorWithMethod:NXRequestTypeGET URLString:URLString parameters:parameters headers:headers task:task error:error]];
        }];
        return [RACDisposable disposableWithBlock:^{
