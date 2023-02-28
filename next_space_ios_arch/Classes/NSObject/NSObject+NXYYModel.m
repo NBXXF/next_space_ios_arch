@@ -18,4 +18,12 @@
     id copyModel= [self yy_modelWithJSON:json];
     return copyModel;
 }
+
+- (id)copyTo:(Class)toClass{
+    return [self yy_copyTo:toClass];
+}
+
+- (id)yy_copyTo:(Class)toClass{
+    return [toClass yy_modelCopyFrom:self];
+}
 @end
