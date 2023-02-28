@@ -36,7 +36,7 @@
      */
     RACSignal<NXSessionDataTaskResult *> *request;
     __block NSString *key=[self _cacheKeyWithURL:URLString parameters:parameters];
-    __block NSDictionary *userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers];
+    __block NSDictionary *userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers task:nil];
     switch (cacheType) {
         case NXNetCacheTypeIfRemote:{
             request= [[[self GETSignal:URLString parameters:parameters headers:headers progress:downloadProgress] doNext:^(NXSessionDataTaskResult * _Nullable x) {

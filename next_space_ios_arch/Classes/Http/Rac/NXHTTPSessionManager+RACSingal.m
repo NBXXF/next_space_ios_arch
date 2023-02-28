@@ -11,6 +11,8 @@ NSString * const NXNetworkingTaskRequestMethodKey = @"com.xxf.http.request.metho
 NSString * const NXNetworkingTaskRequestParametersKey = @"com.xxf.http.request.parameters";
 NSString * const NXNetworkingTaskRequestHeadersKey = @"com.xxf.http.request.headers";
 NSString * const NXNetworkingTaskResponseHeadersKey = @"com.xxf.http.response.headers";
+NSString * const NXNetworkingTaskResponseCodeKey= @"com.xxf.http.response.code";
+NSString * const NXNetworkingTaskResponseMimeTypeKey= @"com.xxf.http.response.mime";
 NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCache";
 
 @implementation NXHTTPSessionManager(RACSingal)
@@ -22,11 +24,12 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self GET:URLString parameters:parameters headers:headers progress:downloadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypeGET URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypeGET URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+           [self wrapHttpErrorWithMethod:NXRequestTypeGET URLString:URLString parameters:parameters headers:headers task:task error:error];
            [subscriber sendError:[self wrapHttpErrorWithMethod:NXRequestTypeGET URLString:URLString parameters:parameters headers:headers task:task error:error]];
        }];
        return [RACDisposable disposableWithBlock:^{
@@ -44,7 +47,7 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self  HEAD:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypeHEAD URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypeHEAD URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=nil;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -67,7 +70,7 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self POST:URLString parameters:parameters headers:headers progress:uploadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePOST URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePOST URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -92,7 +95,7 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self POST:URLString parameters:parameters headers:headers constructingBodyWithBlock:block progress:uploadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePOST URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePOST URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -115,7 +118,7 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self PUT:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePUT URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePUT URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -138,7 +141,7 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self PATCH:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePATCH URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypePATCH URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -161,7 +164,7 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self DELETE:URLString parameters:parameters headers:headers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypeDELETE URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:NXRequestTypeDELETE URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -186,7 +189,7 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         __block NSURLSessionDataTask *task= [self dataTaskWithHTTPMethod:method URLString:URLString parameters:parameters headers:headers uploadProgress:uploadProgress downloadProgress:downloadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NXSessionDataTaskResult *result=NXSessionDataTaskResult.new;
-            result.userInfo=[self wrapHttpUserInfoWithMethod:method URLString:URLString parameters:parameters headers:headers];
+            result.userInfo=[self wrapHttpUserInfoWithMethod:method URLString:URLString parameters:parameters headers:headers task:nil];
             result.responseObject=responseObject;
             [subscriber sendNext:result];
             [subscriber sendCompleted];
@@ -201,7 +204,13 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
      }];
 }
 
-- (NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NXRequestType)method URLString:(NSString *)URLString parameters:(id)parameters headers:(NSDictionary<NSString *,NSString *> *)headers{
+
+- (NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NXRequestType)method
+                                          URLString:(NSString *)URLString
+                                         parameters:(id)parameters
+                                            headers:(NSDictionary<NSString *,NSString *> *)headers
+                                               task:(NSURLSessionDataTask * _Nullable)task
+{
     NSMutableDictionary *newUserInfo=[NSMutableDictionary dictionary];
     if(method){
         [newUserInfo setObject:method forKey:NXNetworkingTaskRequestMethodKey];
@@ -214,6 +223,20 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     }
     if(headers){
         [newUserInfo setObject:headers forKey:NXNetworkingTaskRequestHeadersKey];
+    }
+    if(task){
+        if([task.response isKindOfClass:NSHTTPURLResponse.class]){
+            NSHTTPURLResponse * response = (NSHTTPURLResponse *)task.response;
+            NSDictionary *headerFields = response.allHeaderFields;
+            NSString *mimeType=response.MIMEType;
+            [newUserInfo setObject:@(response.statusCode) forKey:NXNetworkingTaskResponseCodeKey];
+            if(headerFields){
+                [newUserInfo setObject:headerFields forKey:NXNetworkingTaskResponseHeadersKey];
+            }
+            if(mimeType){
+                [newUserInfo setObject:mimeType forKey:NXNetworkingTaskResponseMimeTypeKey];
+            }
+        }
     }
     return newUserInfo;
 }
@@ -231,13 +254,13 @@ NSString * const NXNetworkingTaskResponseIsCacheKey=@"com.xxf.http.response.isCa
     /**
      序列化失败  task=nil 请参考源码 AFHTTPSessionManager#dataTaskWithHTTPMethod
      */
-    NSMutableDictionary *newUserInfo=[self wrapHttpUserInfoWithMethod:method URLString:URLString parameters:parameters headers:headers];
+    NSMutableDictionary *newUserInfo=[self wrapHttpUserInfoWithMethod:method
+                                                            URLString:URLString
+                                                           parameters:parameters
+                                                              headers:headers task:task];
     if(error.userInfo){
         [newUserInfo addEntriesFromDictionary:error.userInfo];
     }
-//    if(task){
-//        [newUserInfo setObject:task forKey:NXNetworkingTaskDidFailDataTaskKey];
-//    }
     return [NSError errorWithDomain:error.domain code:error.code userInfo:newUserInfo];
 }
 

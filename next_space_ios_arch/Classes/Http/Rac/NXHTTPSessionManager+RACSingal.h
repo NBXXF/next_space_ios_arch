@@ -22,6 +22,8 @@ FOUNDATION_EXPORT NSString * const NXNetworkingTaskRequestMethodKey;
 FOUNDATION_EXPORT NSString * const NXNetworkingTaskRequestParametersKey;
 FOUNDATION_EXPORT NSString * const NXNetworkingTaskRequestHeadersKey;
 FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseHeadersKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseCodeKey;
+FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseMimeTypeKey;
 FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseIsCacheKey;
 
 
@@ -91,10 +93,15 @@ FOUNDATION_EXPORT NSString * const NXNetworkingTaskResponseIsCacheKey;
                                            uploadProgress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
                                          downloadProgress:(nullable void (^)(NSProgress *downloadProgress))downloadProgress;
 
+
+/**
+ 包装请求信息到字典
+ */
 -(NSMutableDictionary *)wrapHttpUserInfoWithMethod:(NXRequestType)method
                    URLString:(NSString *)URLString
                   parameters:(nullable id)parameters
-                               headers:(nullable NSDictionary <NSString *, NSString *> *)headers;
+                               headers:(nullable NSDictionary <NSString *, NSString *> *)headers
+                                              task:(NSURLSessionDataTask * _Nullable)task;
 /**
  包装网络异常
  */
