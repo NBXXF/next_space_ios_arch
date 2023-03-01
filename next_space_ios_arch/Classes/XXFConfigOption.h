@@ -26,6 +26,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic,assign) BOOL disableThreadCheck;
 
+/**
+ 是否禁止CPU检查
+ */
+@property(nonatomic,assign) BOOL disableCpuCheck;
+
+/**
+ 是否禁止内存检查
+ */
+@property(nonatomic,assign) BOOL disableMemoryCheck;
+
 @end
 
 NS_ASSUME_NONNULL_END

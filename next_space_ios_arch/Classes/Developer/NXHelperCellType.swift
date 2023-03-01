@@ -2,7 +2,7 @@
 //  NXHelperCellType.swift
 //  next_space_ios_arch
 //
-//  Created by 1234 on 2023/3/1.
+//  Created by XXF on 2023/3/1.
 //
 
 import Foundation
@@ -17,4 +17,14 @@ import Foundation
      线程
      */
     @objc  public static let typeThread = 2;
+    
+    /**
+     cpu
+     */
+    @objc  public static let typeCpu = 3;
+    
+    /**
+    内存
+     */
+    @objc  public static let typeMemory = 4;
 }

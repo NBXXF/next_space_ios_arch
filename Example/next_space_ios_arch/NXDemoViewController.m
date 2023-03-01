@@ -132,7 +132,7 @@
 
     NSLog(@"=========>margin:%f",[UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom);
     
-    [self.contentView setBackgroundColor:UIColor.grayColor];
+   // [self.contentView setBackgroundColor:UIColor.grayColor];
     self.additionalSafeAreaInsets=[UIApplication sharedApplication].keyWindow.safeAreaInsets;
     NSLog(@"=========>margin2:%f",self.view.safeAreaInsets.bottom);
     
@@ -151,47 +151,44 @@
         NSLog(@"=======>输入法监听 app:%@  %lld", [[self textInputMode] primaryLanguage],(long long)[self isThirdPartyKeyboard]);
     }];
   
-    UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(0, 40, 300, 100)];
-    btn.titleLabel.text=@"xxxx";
-    btn.titleLabel.textColor=UIColor.blackColor;
-    btn.backgroundColor=UIColor.yellowColor;
-    [btn setEnabled:YES];
-    [btn addTarget:self
-       action:@selector(showModal)
-  forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-    [btn  mas_makeConstraintsWithSelf:^(MASConstraintMaker * _Nonnull make, __kindof UIView * _Nonnull it, UIView * _Nonnull superview) {
-        
-    }];
 
     
     
     
     NSLog(@"======>super:%@",self.view.superview);
     [self testvc];
+//
+//    UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 101, 300, 100)];
+//    text.placeholder=@"请输入";
+//    text.text=@"1";
+//    text.tag=1;
+//    [self.view addSubview:text];
+//
+//    text.disabled=YES;
+//
+//    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 201, 300, 100)];
+//    text2.placeholder=@"请输入2";
+//    text2.text=@"2";
+//    text2.tag=2;
+//    [self.view addSubview:text2];
+//    text2.disabled=NO;
+//
+//    YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 302, 300, 100)];
+//    text3.placeholderText=@"请输入3";
+//    text3.text=@"3";
+//    text3.tag=3;
+//    text3.delegate=self;
+//    [self.view addSubview:text3];
     
-    UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(0, 101, 300, 100)];
-    text.placeholder=@"请输入";
-    text.text=@"1";
-    text.tag=1;
-    [self.view addSubview:text];
-    
-    text.disabled=YES;
-
-    UITextField *text2=[[UITextField alloc] initWithFrame:CGRectMake(0, 201, 300, 100)];
-    text2.placeholder=@"请输入2";
-    text2.text=@"2";
-    text2.tag=2;
-    [self.view addSubview:text2];
-    text2.disabled=NO;
-
-    YYTextView *text3=[[YYTextView alloc] initWithFrame:CGRectMake(0, 302, 300, 100)];
-    text3.placeholderText=@"请输入3";
-    text3.text=@"3";
-    text3.tag=3;
-    text3.delegate=self;
-    [text3 becomeFirstResponder];
-    [self.view addSubview:text3];
+    UIButton *oepnbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 101, 300, 100)];
+    [oepnbtn setTitle:@"打开设置" forState:UIControlStateNormal];
+    [oepnbtn setTitleColor:UIColor.systemBlueColor forState:UIControlStateNormal];
+    oepnbtn.backgroundColor=UIColor.yellowColor;
+    [self.view addSubview:oepnbtn];
+    [oepnbtn whenTapped:^{
+        [self showModal];
+    }];
+    [self showModal];
     
     
     NXItemMenuImpl *item=[[NXItemMenuImpl alloc] initWithBlock:^(__kindof NXItemMenuImpl * _Nonnull it) {
@@ -216,29 +213,10 @@
     NSLog(@"=========>find:%@",filter.lastObject);
     
     
-    __block UITextView *text4=[[UITextView alloc] initWithFrame:CGRectZero];
-    text4.text=@"4";
-    text4.tag=4;
-    text4.delegate=self;
-    [self.contentView addSubview:text4];
-    //[self.view addSubview:text4];
-    [text4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(800);
-        make.height.mas_equalTo(100);
-        make.top.equalTo(self.contentView).offset(410);
-        make.left.equalTo(self.contentView);
-    }];
+
     
     
-    //[NSThread sleepForTimeInterval:2.0];
-    
-    [RACScheduler.mainThreadScheduler afterDelay:1.0 schedule:^{
-        
-        CGRect rect1=[NXDemoViewController getFrameRelateWindowWithView:text4];
-        CGRect rect2=[text4 convertRectToWindow];
-   
-        NSLog(@"=========>rect:%@  rect1:%@       rect2:%@",NSStringFromCGRect(text4.frame),NSStringFromCGRect(rect1),NSStringFromCGRect(rect2));
-    }];
+
 
     
     NSNumber *first=@1;
@@ -343,7 +321,6 @@
     [self testArraySpeed:100000];
     [self testArraySpeed:1000000];
     
-    [self showModal];
     
     //__block NXTestRAC *t=NXTestRAC.new;
 //    [RACScheduler.scheduler afterDelay:5 schedule:^{
@@ -597,16 +574,16 @@
 //    NSLog(@"==========>componentSeparatedByString:%@",[testStr lastComponentSeparatedByString:@"."]);
 
     
-    NSString *identifier= [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__];
-    [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
-        return [RACSignal just:@"xx"];
-    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(identifier)] initially:^{
-        NSLog(@"==========>testBind start binding");
-    }] doCompleted:^{
-        NSLog(@"==========>testBind completed");
-    }] subscribeNext:^(id  _Nullable x) {
-       // NSLog(@"==========>testBind next");
-    }];
+//    NSString *identifier= [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__];
+//    [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+//        return [RACSignal just:@"xx"];
+//    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(identifier)] initially:^{
+//        NSLog(@"==========>testBind start binding");
+//    }] doCompleted:^{
+//        NSLog(@"==========>testBind completed");
+//    }] subscribeNext:^(id  _Nullable x) {
+//       // NSLog(@"==========>testBind next");
+//    }];
 }
 
 -(void)testBind2{
@@ -618,15 +595,15 @@
     double end=NSDate.now.timeIntervalSince1970*1000;
     NSLog(@"===========>file:%f",(end-start));
    
-    [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
-        return [RACSignal just:@"xx"];
-    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)] initially:^{
-        NSLog(@"==========>testBind start binding");
-    }] doCompleted:^{
-        NSLog(@"==========>testBind completed");
-    }] subscribeNext:^(id  _Nullable x) {
-       // NSLog(@"==========>testBind next");
-    }];
+//    [[[[[RACObserve(self.view, frame)  flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+//        return [RACSignal just:@"xx"];
+//    }].subscribeOnSubThread.deliverOnMainThread takeUntil:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)] initially:^{
+//        NSLog(@"==========>testBind start binding");
+//    }] doCompleted:^{
+//        NSLog(@"==========>testBind completed");
+//    }] subscribeNext:^(id  _Nullable x) {
+//       // NSLog(@"==========>testBind next");
+//    }];
 }
 
 + (CGRect)getFrameRelateWindowWithView:(UIView *)view {

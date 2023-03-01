@@ -64,8 +64,22 @@
         
         [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
             it.title=@"是否禁止线程检查";
-            it.subTitle=@"禁止线程检查可能会导致最终卡顿";
+            it.subTitle=@"禁止线程检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
             [it setItemSelected:XXF.shared.config.disableThreadCheck];
+            it.flag=NXHelperCellType.typeThread;
+        }]];
+        
+        [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
+            it.title=@"是否禁止CPU检查";
+            it.subTitle=@"禁止CPU检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
+            [it setItemSelected:XXF.shared.config.disableCpuCheck];
+            it.flag=NXHelperCellType.typeThread;
+        }]];
+        
+        [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
+            it.title=@"是否禁止Memory检查";
+            it.subTitle=@"禁止Memory检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
+            [it setItemSelected:XXF.shared.config.disableMemoryCheck];
             it.flag=NXHelperCellType.typeThread;
         }]];
     }];
@@ -88,9 +102,12 @@
     [item setItemSelected:!item.isItemSelected];
     if(item.flag==NXHelperCellType.typeStack){
         XXF.shared.config.allowCallStackSymbols=item.isItemSelected;
-      
-    }else if(item.flag==NXHelperCellType.typeStack){
+    }else if(item.flag==NXHelperCellType.typeThread){
         XXF.shared.config.disableThreadCheck=item.isItemSelected;
+    }else if(item.flag==NXHelperCellType.typeCpu){
+        XXF.shared.config.disableCpuCheck=item.isItemSelected;
+    }else if(item.flag==NXHelperCellType.typeMemory){
+        XXF.shared.config.disableMemoryCheck=item.isItemSelected;
     }
     [tableView reloadData];
 }

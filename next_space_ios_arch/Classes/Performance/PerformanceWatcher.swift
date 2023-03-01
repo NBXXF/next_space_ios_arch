@@ -40,10 +40,14 @@ final public class PerformanceWatcher: NSObject{
         //print(message);
         
         if(self.cpuMax>0&&report.cpuUsage>self.cpuMax){
-            fatalError(message);
+            if(!XXF.shared.config.disableCpuCheck){
+                fatalError(message);
+            }
         }
         if(self.memoryMax>0&&usedMemory>self.memoryMax){
-            fatalError(message);
+            if(!XXF.shared.config.disableMemoryCheck){
+                fatalError(message);
+            }
         }
     }
     
