@@ -84,6 +84,7 @@
 #import "NXSelectableObject.h"
 #import "NXSelectableProtocol.h"
 #import "NSObject+NXTools.h"
+#import "NSObject+NXYYModel.h"
 #import "NSObject+RateLimiting.h"
 #import "NSObject+Swizzling.h"
 #import "NSArray+RACSequenceAdditionsDeprecated.h"
