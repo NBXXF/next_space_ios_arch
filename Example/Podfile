@@ -6,7 +6,7 @@ target 'next_space_ios_arch_Example' do
   pod 'next_space_ios_arch', :path => '../'
   
   pod 'next_space_ios_arch', :path => '../'
-  pod 'YYKit'
+  pod 'YYText'
   pod 'YYModel'
   
   target 'next_space_ios_arch_Tests' do

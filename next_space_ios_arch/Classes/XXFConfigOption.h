@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic,assign) NSInteger maxBindIdentifierSubjectCount;
 
+/**
+ 是否禁止线程检查
+ */
+@property(nonatomic,assign) BOOL disableThreadCheck;
+
 @end
 
 NS_ASSUME_NONNULL_END

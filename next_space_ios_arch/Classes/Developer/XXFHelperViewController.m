@@ -13,6 +13,7 @@
 #import <next_space_ios_arch/RACSignal+AppArch.h>
 #import <next_space_ios_arch/NSObject+NXRACSignalSupport.h>
 #import <next_space_ios_arch/NXRouter.h>
+#import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 
 @interface XXFHelperViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -58,6 +59,14 @@
             it.title=@"是否允许获取堆栈";
             it.subTitle=@"获取堆栈将会十分卡顿,(设置仅限于内存生效,app重启将会重置)";
             [it setItemSelected:XXF.shared.config.allowCallStackSymbols];
+            it.flag=NXHelperCellType.typeStack;
+        }]];
+        
+        [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
+            it.title=@"是否禁止线程检查";
+            it.subTitle=@"禁止线程检查可能会导致最终卡顿";
+            [it setItemSelected:XXF.shared.config.disableThreadCheck];
+            it.flag=NXHelperCellType.typeThread;
         }]];
     }];
 }
@@ -77,12 +86,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     id<NXItemMenu> item=self.dataArray[indexPath.row];
     [item setItemSelected:!item.isItemSelected];
-    XXF.shared.config.allowCallStackSymbols=item.isItemSelected;
+    if(item.flag==NXHelperCellType.typeStack){
+        XXF.shared.config.allowCallStackSymbols=item.isItemSelected;
+      
+    }else if(item.flag==NXHelperCellType.typeStack){
+        XXF.shared.config.disableThreadCheck=item.isItemSelected;
+    }
     [tableView reloadData];
-    
-//    [[[RACSignal just:@""] bindLifecycle:self.untilUniqueOrDeallocSignalWithIdentifier(@"xxxx")] subscribeNext:^(id  _Nullable x) {
-//
-//    }];
 }
 
 

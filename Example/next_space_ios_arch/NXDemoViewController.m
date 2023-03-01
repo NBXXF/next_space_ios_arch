@@ -8,7 +8,7 @@
 
 #import "NXDemoViewController.h"
 #import <JLRoutes/JLRoutes.h>
-#import  <YYKit/YYTextView.h>
+#import  <YYText/YYText.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 #import <next_space_ios_arch/UIKeyCommand+Responsible.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>

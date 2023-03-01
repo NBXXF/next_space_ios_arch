@@ -12,7 +12,7 @@
 #import <next_space_ios_arch/UIScreen+NXTools.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
 #import <malloc/malloc.h>
-#import <YYKit/YYKit.h>
+#import  <YYText/YYText.h>
 
 @implementation NXAppDelegate
 
@@ -46,24 +46,24 @@
     long long year=(desiredExpireTime-NSDate.now.timeIntervalSince1970*1000)/yearMillis;
     long long day=NXTimeUnit.MILLISECONDS.toDays((desiredExpireTime-NSDate.now.timeIntervalSince1970*1000)-year*yearMillis);
     
-    NSString *str1=@"xxx";
-    YYThreadSafeArray *safeArray=[YYThreadSafeArray array];
-    double start1=NSDate.now.timeIntervalSince1970*1000;
-    for(int i=0;i<10000;i++){
-        [safeArray addObject:str1];
-    }
-    double end1=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"==========>array take1:%f",(end1-start1));
-    
-    NSMutableArray *array1=[NSMutableArray array];
-    start1=NSDate.now.timeIntervalSince1970*1000;
-    for(int i=0;i<10000;i++){
-        [array1 addObject:str1];
-    }
-    end1=NSDate.now.timeIntervalSince1970*1000;
-    NSLog(@"==========>array take2:%f",(end1-start1));
-    
-    
+//    NSString *str1=@"xxx";
+//    YYThreadSafeArray *safeArray=[YYThreadSafeArray array];
+//    double start1=NSDate.now.timeIntervalSince1970*1000;
+//    for(int i=0;i<10000;i++){
+//        [safeArray addObject:str1];
+//    }
+//    double end1=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"==========>array take1:%f",(end1-start1));
+//    
+//    NSMutableArray *array1=[NSMutableArray array];
+//    start1=NSDate.now.timeIntervalSince1970*1000;
+//    for(int i=0;i<10000;i++){
+//        [array1 addObject:str1];
+//    }
+//    end1=NSDate.now.timeIntervalSince1970*1000;
+//    NSLog(@"==========>array take2:%f",(end1-start1));
+//    
+//    
     
     
     

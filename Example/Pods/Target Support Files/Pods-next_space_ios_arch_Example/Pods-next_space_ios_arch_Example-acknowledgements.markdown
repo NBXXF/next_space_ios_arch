@@ -501,7 +501,7 @@ SOFTWARE.
 
 
 
-## YYKit
+## YYModel
 
 The MIT License (MIT)
 
@@ -527,7 +527,7 @@ SOFTWARE.
 
 
 
-## YYModel
+## YYText
 
 The MIT License (MIT)
 

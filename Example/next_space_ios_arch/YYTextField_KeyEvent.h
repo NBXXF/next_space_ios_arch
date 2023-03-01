@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import  <YYKit/YYTextView.h>
+#import  <YYText/YYText.h>
 #import <next_space_ios_arch/next_space_ios_arch-umbrella.h>
 NS_ASSUME_NONNULL_BEGIN
 

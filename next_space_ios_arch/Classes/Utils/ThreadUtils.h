@@ -5,5 +5,11 @@
 //  Created by XXF on 2022/9/8.
 //
 #define isMainThread() [[NSThread currentThread] isMainThread];
-#define assertAtMainThread()  NSAssert([[NSThread currentThread] isMainThread],@"只能在主线程访问");
-#define assertAtSubThread()  NSAssert(![[NSThread currentThread] isMainThread],@"只能在子线程访问");
+#define assertAtMainThread() [ThreadUtils assertAtMainThread]
+#define assertAtSubThread()  [ThreadUtils assertAtSubThread]
+@interface ThreadUtils : NSObject
+
++(void)assertAtMainThread;
+
++(void)assertAtSubThread;
+@end
