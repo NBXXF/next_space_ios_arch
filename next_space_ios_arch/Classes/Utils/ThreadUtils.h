@@ -5,8 +5,8 @@
 //  Created by XXF on 2022/9/8.
 //
 #define isMainThread() [[NSThread currentThread] isMainThread];
-#define assertAtMainThread() [ThreadUtils assertAtMainThread]
-#define assertAtSubThread()  [ThreadUtils assertAtSubThread]
+#define assertAtMainThread() [ThreadUtils assertAtMainThread];
+#define assertAtSubThread()  [ThreadUtils assertAtSubThread];
 @interface ThreadUtils : NSObject
 
 +(void)assertAtMainThread;
