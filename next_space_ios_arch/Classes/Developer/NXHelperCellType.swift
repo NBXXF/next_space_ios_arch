@@ -14,17 +14,27 @@ import Foundation
     @objc  public static let typeStack = 1;
     
     /**
+     anr
+     */
+    @objc  public static let typeAnr = 2;
+    
+    /**
      线程
      */
-    @objc  public static let typeThread = 2;
+    @objc  public static let typeThread = 3;
     
     /**
      cpu
      */
-    @objc  public static let typeCpu = 3;
+    @objc  public static let typeCpu = 4;
     
     /**
     内存
      */
-    @objc  public static let typeMemory = 4;
+    @objc  public static let typeMemory = 5;
+    
+    /**
+    内存
+     */
+    @objc  public static let typeProtocal = 6;
 }
