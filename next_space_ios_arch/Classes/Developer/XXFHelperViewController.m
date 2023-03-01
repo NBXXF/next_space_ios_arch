@@ -73,14 +73,14 @@
             it.title=@"是否禁止CPU检查";
             it.subTitle=@"禁止CPU检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
             [it setItemSelected:XXF.shared.config.disableCpuCheck];
-            it.flag=NXHelperCellType.typeThread;
+            it.flag=NXHelperCellType.typeCpu;
         }]];
         
         [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
             it.title=@"是否禁止Memory检查";
             it.subTitle=@"禁止Memory检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
             [it setItemSelected:XXF.shared.config.disableMemoryCheck];
-            it.flag=NXHelperCellType.typeThread;
+            it.flag=NXHelperCellType.typeMemory;
         }]];
     }];
 }
