@@ -63,6 +63,13 @@
         }]];
         
         [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
+            it.title=@"是否禁ANR检查";
+            it.subTitle=@"禁止ANR检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
+            [it setItemSelected:XXF.shared.config.disableAnrCheck];
+            it.flag=NXHelperCellType.typeAnr;
+        }]];
+        
+        [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
             it.title=@"是否禁止线程检查";
             it.subTitle=@"禁止线程检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
             [it setItemSelected:XXF.shared.config.disableThreadCheck];
@@ -81,6 +88,13 @@
             it.subTitle=@"禁止Memory检查可能会导致最终卡顿,(设置仅限于内存生效,app重启将会重置)";
             [it setItemSelected:XXF.shared.config.disableMemoryCheck];
             it.flag=NXHelperCellType.typeMemory;
+        }]];
+        
+        [it addObject:[NXItemMenuImpl.new applyWithBlock:^(NXItemMenuImpl *_Nonnull it) {
+            it.title=@"是否禁止保护机制检查";
+            it.subTitle=@"禁止保护机制检查可能会导致最终逻辑错误,(设置仅限于内存生效,app重启将会重置)";
+            [it setItemSelected:XXF.shared.config.disableProtocalCheck];
+            it.flag=NXHelperCellType.typeProtocal;
         }]];
     }];
 }
@@ -102,12 +116,16 @@
     [item setItemSelected:!item.isItemSelected];
     if(item.flag==NXHelperCellType.typeStack){
         XXF.shared.config.allowCallStackSymbols=item.isItemSelected;
+    }else if(item.flag==NXHelperCellType.typeAnr){
+        XXF.shared.config.disableAnrCheck=item.isItemSelected;
     }else if(item.flag==NXHelperCellType.typeThread){
         XXF.shared.config.disableThreadCheck=item.isItemSelected;
     }else if(item.flag==NXHelperCellType.typeCpu){
         XXF.shared.config.disableCpuCheck=item.isItemSelected;
     }else if(item.flag==NXHelperCellType.typeMemory){
         XXF.shared.config.disableMemoryCheck=item.isItemSelected;
+    }else if(item.flag==NXHelperCellType.typeProtocal){
+        XXF.shared.config.disableProtocalCheck=item.isItemSelected;
     }
     [tableView reloadData];
 }

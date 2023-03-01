@@ -22,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) NSInteger maxBindIdentifierSubjectCount;
 
 /**
+ 是否禁止UI anr检查
+ */
+@property(nonatomic,assign) BOOL disableAnrCheck;
+
+/**
  是否禁止线程检查
  */
 @property(nonatomic,assign) BOOL disableThreadCheck;
@@ -35,6 +40,11 @@ NS_ASSUME_NONNULL_BEGIN
  是否禁止内存检查
  */
 @property(nonatomic,assign) BOOL disableMemoryCheck;
+
+/**
+ 是否禁止保护检查机制
+ */
+@property(nonatomic,assign) BOOL disableProtocalCheck;
 
 @end
 
