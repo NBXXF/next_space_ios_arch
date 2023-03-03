@@ -5,7 +5,7 @@
 //  Created by XXF on 2023/3/1.
 //
 
-#import "UIImage+NXFile.h"
+#import "UIImage+NXTools.h"
 
 @implementation UIImage(NXFile)
 
@@ -17,4 +17,5 @@
     BOOL result = [UIImagePNGRepresentation(self) writeToFile:path options:writeOptionsMask error:errorPtr];
     return result;
 }
+
 @end
