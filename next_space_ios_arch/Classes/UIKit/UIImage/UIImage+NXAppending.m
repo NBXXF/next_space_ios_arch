@@ -19,7 +19,10 @@
  @param appendingAlignment 拼接时的对齐方式
  @return 拼接后的图片
  */
-- (UIImage * _Nullable)appendingWithImage:(UIImage * _Nonnull)img imageGap:(CGFloat)gap appendingDirection:(NXImageAppendingDirection)appendingDirection appendingAlignment:(NXImageAppendingAlignment)appendingAlignment {
+- (UIImage * _Nullable)appendingWithImage:(UIImage * _Nonnull)img
+                                 imageGap:(CGFloat)gap
+                       appendingDirection:(NXImageAppendingDirection)appendingDirection
+                       appendingAlignment:(NXImageAppendingAlignment)appendingAlignment {
     
     UIImage *retImg = self;
     

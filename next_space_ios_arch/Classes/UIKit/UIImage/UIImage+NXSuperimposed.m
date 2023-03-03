@@ -30,7 +30,11 @@
  @param alpha 透明度
  @return 叠加后的图片
  */
-- (UIImage *)gl_superimpositionImage:(UIImage * _Nonnull)image superpositionRect:(CGRect)rect imageInsets:(UIEdgeInsets)insets blendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha {
+- (UIImage *)superimpositionWithImage:(UIImage * _Nonnull)image
+                   superpositionRect:(CGRect)rect
+                         imageInsets:(UIEdgeInsets)insets
+                           blendMode:(CGBlendMode)blendMode
+                               alpha:(CGFloat)alpha {
     
     UIImage *resultImage = self;
     
