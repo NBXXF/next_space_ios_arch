@@ -8,6 +8,7 @@
 #import "PHPhotoLibrary+NXTools.h"
 #import "NXPermissionResult.h"
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
+#import <ReactiveObjC/ReactiveObjC-umbrella.h>
 typedef enum : NSUInteger {
     ImageTpye = 1,
     ImageUrlTpye,
@@ -44,7 +45,10 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)saveImageWithURL:(NSURL *)url ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
+- (void)saveImageWithURL:(NSURL *)url
+                 ToAlbum:(NSString *)albumName
+              completion:(PHAssetLibraryWriteImageCompletionBlock)completion
+                 failure:(PHAssetLibraryAccessFailureBlock)failure
 {
     NSData *data=[NSData dataWithContentsOfURL:url];
     if(data){
@@ -60,8 +64,26 @@ typedef enum : NSUInteger {
     }
 }
 
+- (RACSignal<PHAsset *> *)writeImageWithURL:(NSURL *)url
+                                    toAlbum:(NSString *)albumName{
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        [self saveImageWithURL:url ToAlbum:albumName completion:^(PHAsset *imageAsset) {
+            [subscriber sendNext:imageAsset];
+            [subscriber sendCompleted];
+        } failure:^(NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+        }];
+    }];
+}
 
-- (void)saveImageWithData:(NSData *)imageData ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteImageCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure
+
+
+
+- (void)saveImageWithData:(NSData *)imageData ToAlbum:(NSString *)albumName
+               completion:(PHAssetLibraryWriteImageCompletionBlock)completion
+                  failure:(PHAssetLibraryAccessFailureBlock)failure
 {
     [self saveObject:imageData WithType:ImageDataTpye ToAlbum:albumName completion:^(id callbackObject) {
         completion((PHAsset *)callbackObject);
@@ -70,8 +92,24 @@ typedef enum : NSUInteger {
     }];
 }
 
+- (RACSignal<PHAsset *> *)writeImageWithData:(NSData *)imageData
+                                     toAlbum:(NSString *)albumName{
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        [self saveImageWithData:imageData ToAlbum:albumName completion:^(PHAsset *imageAsset) {
+            [subscriber sendNext:imageAsset];
+            [subscriber sendCompleted];
+        } failure:^(NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+        }];
+    }];
+}
 
-- (void)saveVideoWithURL:(NSURL *)url ToAlbum:(NSString *)albumName completion:(PHAssetLibraryWriteVideoCompletionBlock)completion failure:(PHAssetLibraryAccessFailureBlock)failure{
+
+- (void)saveVideoWithURL:(NSURL *)url ToAlbum:(NSString *)albumName
+              completion:(PHAssetLibraryWriteVideoCompletionBlock)completion
+                 failure:(PHAssetLibraryAccessFailureBlock)failure{
     [self saveObject:url WithType:videoType ToAlbum:albumName completion:^(id callbackObject) {
         completion((NSURL *)callbackObject);
     } failure:^(NSError *error) {
@@ -79,6 +117,19 @@ typedef enum : NSUInteger {
     }];
 }
 
+- (RACSignal<NSURL *> *)writeVideoWithURL:(NSURL *)url
+                                  toAlbum:(NSString *)albumName{
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        [self saveVideoWithURL:url ToAlbum:albumName completion:^(NSURL *videoUrl) {
+            [subscriber sendNext:videoUrl];
+            [subscriber sendCompleted];
+        } failure:^(NSError *error) {
+            [subscriber sendError:error];
+        }];
+        return [RACDisposable disposableWithBlock:^{
+        }];
+    }];
+}
 
 
 - (void)saveObject:(id)object WithType:(SaveTypes)savetype ToAlbum:(NSString *)albumName completion:(void(^)(id callbackObject))completion failure:(void(^)(NSError *error))failure
