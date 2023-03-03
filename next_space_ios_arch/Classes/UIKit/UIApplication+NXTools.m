@@ -9,6 +9,11 @@
 
 @implementation UIApplication(NXTools)
 
+- (NSString *)appDisplayName{
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+}
+
+
 - (UIWindow *)topWindow {
     UIWindow * window;
     for (UIWindow * value in [[UIApplication sharedApplication].windows reverseObjectEnumerator]) {

@@ -10,6 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIApplication(NXTools)
+/**
+ app的名称
+ */
+@property (nullable, nonatomic, readonly) NSString *appDisplayName;
+
 
 /**
  获取最顶层Window
