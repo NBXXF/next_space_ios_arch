@@ -28,6 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(id)yy_copyTo:(Class)toClass;
 
+
+/**
+  增强功能 能解析基本类型 支持数字和字符串
+ + (nullable instancetype)yy_modelWithJSON:(id)json;
+ */
++ (nullable instancetype)nx_fromJSON:(id)json;
+
 @end
 
 NS_ASSUME_NONNULL_END

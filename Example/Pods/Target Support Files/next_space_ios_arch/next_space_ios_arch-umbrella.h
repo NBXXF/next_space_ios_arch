@@ -131,6 +131,7 @@
 #import "UICollectionView+NXAdaptation.h"
 #import "UICollectionView+NXRegister.h"
 #import "UIColor+NXGradient.h"
+#import "UIImage+NXFile.h"
 #import "UIImage+NXGradient.h"
 #import "UIKeyCommand+Responsible.h"
 #import "UIKeyCommandConstant.h"
