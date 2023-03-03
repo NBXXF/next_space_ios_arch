@@ -7,8 +7,7 @@
 
 #import "PHPhotoLibrary+NXTools.h"
 #import "NXPermissionResult.h"
-#import <next_space_ios_arch/next_space_ios_arch-Swift.h>
-#import <ReactiveObjC/ReactiveObjC-umbrella.h>
+#import <next_space_ios_arch/NSError+NXTools.h>
 typedef enum : NSUInteger {
     ImageTpye = 1,
     ImageUrlTpye,
@@ -66,7 +65,7 @@ typedef enum : NSUInteger {
 
 - (RACSignal<PHAsset *> *)writeImageWithURL:(NSURL *)url
                                     toAlbum:(NSString *)albumName{
-    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+    return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         [self saveImageWithURL:url ToAlbum:albumName completion:^(PHAsset *imageAsset) {
             [subscriber sendNext:imageAsset];
             [subscriber sendCompleted];
@@ -75,7 +74,7 @@ typedef enum : NSUInteger {
         }];
         return [RACDisposable disposableWithBlock:^{
         }];
-    }];
+    }] subscribeOnSubThread:YES];
 }
 
 
@@ -94,7 +93,7 @@ typedef enum : NSUInteger {
 
 - (RACSignal<PHAsset *> *)writeImageWithData:(NSData *)imageData
                                      toAlbum:(NSString *)albumName{
-    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+    return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         [self saveImageWithData:imageData ToAlbum:albumName completion:^(PHAsset *imageAsset) {
             [subscriber sendNext:imageAsset];
             [subscriber sendCompleted];
@@ -103,7 +102,7 @@ typedef enum : NSUInteger {
         }];
         return [RACDisposable disposableWithBlock:^{
         }];
-    }];
+    }] subscribeOnSubThread:YES];
 }
 
 
@@ -119,7 +118,7 @@ typedef enum : NSUInteger {
 
 - (RACSignal<NSURL *> *)writeVideoWithURL:(NSURL *)url
                                   toAlbum:(NSString *)albumName{
-    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+    return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         [self saveVideoWithURL:url ToAlbum:albumName completion:^(NSURL *videoUrl) {
             [subscriber sendNext:videoUrl];
             [subscriber sendCompleted];
@@ -128,7 +127,7 @@ typedef enum : NSUInteger {
         }];
         return [RACDisposable disposableWithBlock:^{
         }];
-    }];
+    }] subscribeOnSubThread:YES];
 }
 
 
@@ -137,7 +136,7 @@ typedef enum : NSUInteger {
    NXPermissionResult *permissionResult= [self canAccessPhotoAlbum];
     if (!permissionResult.enable) {
         // 提示用户开启允许访问相册的权限
-        failure([[NXError alloc] initWithCode:PHPhotoLibrary.noPermissionCode msg:permissionResult.msg]);
+        failure([NSError nx_ErrorWithCode:PHPhotoLibrary.noPermissionCode text:permissionResult.msg]);
     }else{
         __block NSString *assetId = nil;
         [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
@@ -206,7 +205,7 @@ typedef enum : NSUInteger {
     NXPermissionResult *permissionResult= [self canAccessPhotoAlbum];
      if (!permissionResult.enable) {
          // 提示用户开启允许访问相册的权限
-         completion([NSMutableArray array],[[NXError alloc] initWithCode:PHPhotoLibrary.noPermissionCode msg:permissionResult.msg]);
+         completion([NSMutableArray array],[NSError nx_ErrorWithCode:PHPhotoLibrary.noPermissionCode text:permissionResult.msg]);
      }else{
         PHFetchResult<PHAssetCollection *> *collectionResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
         PHFetchOptions *fetchOptions = [PHFetchOptions new];

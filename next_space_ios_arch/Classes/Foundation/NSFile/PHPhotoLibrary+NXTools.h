@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
-#import <ReactiveObjC/ReactiveObjC-umbrella.h>
+#import <next_space_ios_arch/RACSignal+AppArch.h>
 
 typedef void(^PHAssetLibraryWriteImageCompletionBlock)(PHAsset *imageAsset);
 
