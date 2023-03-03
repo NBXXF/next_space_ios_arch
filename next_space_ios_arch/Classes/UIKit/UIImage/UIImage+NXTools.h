@@ -18,7 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)writePNGToFile:(NSString *)path atomically:(BOOL)useAuxiliaryFile;
 - (BOOL)writePNGToFile:(NSString *)path options:(NSDataWritingOptions)writeOptionsMask error:(NSError **)errorPtr;
 
-
+/**
+ 转data
+ */
+-(NSData *)PNGData;
 @end
 
 NS_ASSUME_NONNULL_END

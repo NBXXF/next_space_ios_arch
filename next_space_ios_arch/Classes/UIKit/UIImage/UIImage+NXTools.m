@@ -17,5 +17,7 @@
     BOOL result = [UIImagePNGRepresentation(self) writeToFile:path options:writeOptionsMask error:errorPtr];
     return result;
 }
-
+- (NSData *)PNGData{
+    return UIImagePNGRepresentation(self);
+}
 @end
