@@ -46,4 +46,18 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
+- (UIImage *)imageWithBackgroundColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, self.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self drawInRect:rect];
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGContextFillRect(context, rect);
+    
+    UIImage*newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 @end

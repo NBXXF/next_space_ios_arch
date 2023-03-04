@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
                            startColor:(UIColor *)startcolor
                              endColor:(UIColor *)endColor;
 
+/**
+ 增加背景色
+  @param color 背景色
+ */
+- (UIImage *)imageWithBackgroundColor:(UIColor *)color;
 @end
 
 NS_ASSUME_NONNULL_END
