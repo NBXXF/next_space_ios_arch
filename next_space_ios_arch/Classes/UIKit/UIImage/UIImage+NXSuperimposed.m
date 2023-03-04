@@ -42,7 +42,7 @@
         
         CGRect needDrawRect = [self p_getResultRectWithSuperpositionRect:rect insets:insets];
         
-        UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+        UIGraphicsBeginImageContextWithOptions(self.size, NO,0);
         
         [self drawInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
         

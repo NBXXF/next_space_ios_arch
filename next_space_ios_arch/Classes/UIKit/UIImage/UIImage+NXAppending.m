@@ -154,7 +154,7 @@
             break;
     }
     
-    UIGraphicsBeginImageContextWithOptions(totalSize, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(totalSize, NO, 0);
 
     [self drawInRect:originImgFrame];
     [img drawInRect:appendingImgFrame];
