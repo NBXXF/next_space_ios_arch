@@ -37,10 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  转data
  */
--(NSData *)PNGData;
+-(NSData *)toPNGData;
 
--(NSData *)JPEGData;
--(NSData *)JPEGDataWithQuality:(CGFloat)compressionQuality;
+-(NSData *)toJPEGData;
+-(NSData *)toJPEGDataWithQuality:(CGFloat)compressionQuality;
 @end
 
 NS_ASSUME_NONNULL_END
