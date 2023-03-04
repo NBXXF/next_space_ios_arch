@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
                             direction:(GradientColorDirection)direction
                            startColor:(UIColor *)startcolor
                              endColor:(UIColor *)endColor;
-
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 /**
  增加背景色
   @param color 背景色

@@ -47,17 +47,30 @@
     return image;
 }
 
-- (UIImage *)imageWithBackgroundColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, self.scale);
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
+    if (!color || size.width <= 0 || size.height <= 0) return nil;
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    [self drawInRect:rect];
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGContextSetFillColorWithColor(context, color.CGColor);
     CGContextFillRect(context, rect);
-    
-    UIImage*newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return newImage;
+    return image;
+}
+
+- (UIImage *)imageWithBackgroundColor:(UIColor *)theColor {
+    UIImage *background= [UIImage imageWithColor:theColor size:self.size];
+    UIGraphicsBeginImageContextWithOptions(self.size,NO,0);
+    [background drawInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
+    
+    [self drawInRect:CGRectMake(0, 0, self.size.width,self.size.height)];
+    
+    
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resultingImage;
 }
 @end
