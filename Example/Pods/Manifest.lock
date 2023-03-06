@@ -25,6 +25,7 @@ PODS:
     - Masonry
     - MMKV
     - NXFoundation
+    - NXUIKit
     - ReactiveObjC (~> 3.1.1)
     - YYCache
     - YYModel
@@ -68,7 +69,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
-  next_space_ios_arch: 3b1a937f32083169203eacafb45a7b317d95261c
+  next_space_ios_arch: 00b8ac3dcc5224b6c2bdd2c365868292a23937c9
   NXFoundation: 999e7688e28358fe2b524538ca194d1cbbc83c9a
   NXUIKit: 99dbf7bfbb5a56da0760ebf370b23ec41c64ad9a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
