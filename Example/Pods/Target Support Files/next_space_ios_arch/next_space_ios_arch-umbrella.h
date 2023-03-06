@@ -64,6 +64,8 @@
 #import "NSURL+NXUtil.h"
 #import "NXMutableOrderedDictionary.h"
 #import "SwizzleMethod.h"
+#import "NXThreadSafeArray.h"
+#import "NXThreadSafeDictionary.h"
 #import "FileUtils.h"
 #import "HashUtils.h"
 #import "LogUtils.h"

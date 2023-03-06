@@ -35,7 +35,7 @@ TODO: Add long description of the pod here.
   s.prefix_header_file = 'XXFPrefixHeader.pch'
 
 
- s.public_header_files = 'Pod/Classes/**/*','../NXFoundation/Classes/**/*','../NXUIKit/Classes/**/*'
+ s.public_header_files = 'Pod/Classes/**/*'
  s.dependency 'JLRoutes'
  s.dependency 'ReactiveObjC', '~> 3.1.1'
  s.dependency 'Masonry'
@@ -43,6 +43,4 @@ TODO: Add long description of the pod here.
  s.dependency 'MMKV'
  s.dependency 'YYModel'
  s.dependency 'YYCache'
- s.dependency 'NXFoundation'
- s.dependency 'NXUIKit'
 end

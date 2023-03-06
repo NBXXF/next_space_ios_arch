@@ -6,8 +6,6 @@ target 'next_space_ios_arch_Example' do
   pod 'next_space_ios_arch', :path => '../'
   
   pod 'next_space_ios_arch', :path => '../'
-  pod 'NXFoundation', :path => '../'
-  pod 'NXUIKit', :path => '../'
   pod 'YYText'
   pod 'YYModel'
   
