@@ -43,4 +43,6 @@ TODO: Add long description of the pod here.
  s.dependency 'MMKV'
  s.dependency 'YYModel'
  s.dependency 'YYCache'
+ s.dependency 'NXFoundation'
+ s.dependency 'NXUIKit'
 end

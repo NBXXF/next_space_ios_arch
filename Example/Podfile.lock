@@ -24,9 +24,12 @@ PODS:
     - JLRoutes
     - Masonry
     - MMKV
+    - NXFoundation
     - ReactiveObjC (~> 3.1.1)
     - YYCache
     - YYModel
+  - NXFoundation (0.1.0)
+  - NXUIKit (0.1.0)
   - ReactiveObjC (3.1.1)
   - YYCache (1.0.4)
   - YYModel (1.0.4)
@@ -34,6 +37,8 @@ PODS:
 
 DEPENDENCIES:
   - next_space_ios_arch (from `../`)
+  - NXFoundation (from `../`)
+  - NXUIKit (from `../`)
   - YYModel
   - YYText
 
@@ -52,6 +57,10 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   next_space_ios_arch:
     :path: "../"
+  NXFoundation:
+    :path: "../"
+  NXUIKit:
+    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
@@ -59,12 +68,14 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
-  next_space_ios_arch: 5ab637319af15329be2c2c9f3930dd1ceb4d75d3
+  next_space_ios_arch: 3b1a937f32083169203eacafb45a7b317d95261c
+  NXFoundation: 999e7688e28358fe2b524538ca194d1cbbc83c9a
+  NXUIKit: 99dbf7bfbb5a56da0760ebf370b23ec41c64ad9a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 80f2e4f22e03c74e82cfbe7be75ebb8f1ebbb0dd
+PODFILE CHECKSUM: 53b05ee324a92c16b05df2ef0cf071e5804f36d1
 
 COCOAPODS: 1.11.3
