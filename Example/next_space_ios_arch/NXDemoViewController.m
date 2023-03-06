@@ -439,6 +439,32 @@
 
 -(void)testHttp{
      NXParent *test=NXParent.new;
+    test.success=YES;
+    NSString *jsonStr=[test yy_modelToJSONString];
+    NSLog(@"===============>testJson %@",jsonStr);
+    NSDictionary *json=[test yy_modelToJSONObject];
+    
+    id successField=[json objectForKey:@"success"];
+    NSNumber *number=[NSNumber nx_fromJSON:successField];
+    NSLog(@"===============>testJson deser1== %@",number);
+    
+    NSNumber *number2=[NSNumber nx_fromJSON:@"true"];
+    NSLog(@"===============>testJson deser2== %@",number2);
+    
+    NSNumber *number3=[NSNumber nx_fromJSON:@"false"];
+    NSLog(@"===============>testJson deser3== %@",number3);
+    
+    NSNumber *number4=[NSNumber nx_fromJSON:@"YES"];
+    NSLog(@"===============>testJson deser4== %@",number4);
+    
+    NSNumber *number5=[NSNumber nx_fromJSON:@"NO"];
+    NSLog(@"===============>testJson deser5== %@",number5);
+    
+    NSNumber *number6=[NSNumber nx_fromJSON:@"1787643"];
+    NSLog(@"===============>testJson deser6== %@",number6);
+    
+    
+    
     NSLog(@"===============>test1111 %@",test.simpleDescription);
     [[RACSignal interval:1 onScheduler:RACScheduler.scheduler] subscribeNext:^(NSDate * _Nullable x) {
         test.name=@"xxx";
