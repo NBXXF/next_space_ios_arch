@@ -19,22 +19,22 @@
 
 
 + (void)startURL:(NSString *)url{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [NXRouter openURL:url];
-    });
+    [self startURL:url parameters:[NSMutableDictionary dictionary]];
 }
 
 
 + (void)startURL:(NSString *)url parameters:(NSDictionary *)parameters{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [NXRouter openURL:url parameters:parameters];
-    });
+    [self startURL:url parameters:parameters resultCallback:nil];
 }
 
 
 + (void)startURL:(NSString *)url parameters:(NSDictionary *)parameters resultCallback:(NXRouterResultCallback)callback{
-    dispatch_async(dispatch_get_main_queue(), ^{
+    if(NSThread.isMainThread){
         [NXRouter openURL:url parameters:parameters resultCallback:callback];
-    });
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NXRouter openURL:url parameters:parameters resultCallback:callback];
+        });
+    }
 }
 @end
