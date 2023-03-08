@@ -20,4 +20,13 @@
 - (BOOL)isCache{
     return [[self.userInfo objectForKey:NXNetworkingTaskResponseIsCacheKey] boolValue];
 }
+
+- (NSMutableDictionary *)mergeUserInfoWithInfo:(NSDictionary *)from{
+    NSMutableDictionary *newResult=[NSMutableDictionary dictionary];
+    [newResult addEntriesFromDictionary:self.userInfo];
+    if(from){
+        [newResult addEntriesFromDictionary:from];
+    }
+    return newResult;
+}
 @end

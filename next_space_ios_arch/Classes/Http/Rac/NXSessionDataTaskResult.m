@@ -9,4 +9,10 @@
 
 @implementation NXSessionDataTaskResult
 
+- (NSDictionary *)userInfo{
+    if(!_userInfo){
+        return [NSMutableDictionary dictionary];
+    }
+    return _userInfo;
+}
 @end

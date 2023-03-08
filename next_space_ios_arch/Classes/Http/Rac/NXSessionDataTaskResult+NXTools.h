@@ -25,6 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
  是否是来自缓存的
  */
 @property(nonatomic,assign,readonly) BOOL isCache;
+
+
+/**
+ 进行将自己的合并 生产一个新的userInfo
+ */
+-(NSMutableDictionary *)mergeUserInfoWithInfo:(NSDictionary *)from;
 @end
 
 NS_ASSUME_NONNULL_END
