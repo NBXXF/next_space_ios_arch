@@ -24,7 +24,9 @@
 - (NSMutableDictionary *)mergeUserInfoWithInfo:(NSDictionary *)from{
     NSMutableDictionary *newResult=[NSMutableDictionary dictionary];
     [newResult addEntriesFromDictionary:self.userInfo];
-    [newResult addEntriesFromDictionary:from];
+    if(from){
+        [newResult addEntriesFromDictionary:from];
+    }
     return newResult;
 }
 @end
