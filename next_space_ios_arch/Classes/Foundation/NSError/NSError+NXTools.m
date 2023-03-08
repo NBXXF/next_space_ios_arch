@@ -13,6 +13,17 @@
     return [NSError errorWithDomain:@"com.next.space.cflow" code:code userInfo:@{NSLocalizedDescriptionKey:text ?: @""}];
 }
 
++ (NSError *)nx_ErrorWithError:(NSError *)error userInfo:(NSDictionary *)userInfo{
+    NSMutableDictionary *merge=[NSMutableDictionary dictionary];
+    if(userInfo){
+        [merge addEntriesFromDictionary:userInfo];
+    }
+    if(error.userInfo){
+        [merge addEntriesFromDictionary:error.userInfo];
+    }
+    return [NSError errorWithDomain:error.domain code:error.code userInfo:merge];
+}
+
 + (NSError *)nx_convertException:(NSException *)exception {
     NSMutableDictionary * info = [exception.userInfo mutableCopy];
     if(!info){
