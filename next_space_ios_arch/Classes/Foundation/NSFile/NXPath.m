@@ -42,6 +42,12 @@
     return [[self externalDocumentPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",fileName]];
 }
 
++ (NSString *)externalDocumentWithDir:(NSString *)dir{
+    NSString *path = [[self externalDocumentPath] stringByAppendingPathComponent:dir];
+    [self createFolderAtPath:path];
+    return path;
+}
+
 // 不是很重要的缓存 可以清除的
 + (NSString *)unimportantFilePath:(NSString * )fileName
 {

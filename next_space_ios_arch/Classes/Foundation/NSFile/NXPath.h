@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 //外部路径
 + (NSString *)externalDocumentPath:(NSString *)fileName;
 
+//外部路径
++ (NSString *)externalDocumentWithDir:(NSString *)dir;
+
 
 + (NSString * )tmpPath;
 
