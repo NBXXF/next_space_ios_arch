@@ -6,7 +6,9 @@
 //
 
 #import "NXHttpCacheConfigProvider.h"
-
+#import <next_space_ios_arch/NXSessionDataTaskResult.h>
+#import <next_space_ios_arch/NXSessionDataTaskResult+NXTools.h>
+#import <next_space_ios_arch/NSObject+NXTools.h>
 @implementation NXHttpCacheConfigProvider
 
 /**
@@ -30,7 +32,15 @@
   * 是否缓存 场用于 用于下游判断code是否应该缓存
   */
 -(BOOL)isCache:(id)body{
-    return YES;
+    NXSessionDataTaskResult *result=[NXSessionDataTaskResult toMemberOfClassObjectOrNilFrom:body];
+    if(result){
+        if(result.isJSON||result.isBinary){
+            return YES;
+        }else{
+            return NO;
+        }
+    }
+    return NO;
 }
 
 /**

@@ -21,6 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
                          progress:(nullable void (^)(NSProgress * _Nonnull))downloadProgress cacheType:(NXNetCacheType)cacheType
                              cacheTime:(long long)cacheTime;
 
+/**
+ @param cacheTime 毫秒 建议用这种写法 清晰-----> NXTimeUnit.DAYS.toMillis(3)
+ */
+- (RACSignal<NXSessionDataTaskResult *> *)POSTSignal:(NSString *)URLString
+                             parameters:(nullable id)parameters
+                                headers:(nullable NSDictionary <NSString *, NSString *> *)headers
+                               progress:(nullable void (^)(NSProgress *uploadProgress))uploadProgress
+                                           cacheType:(NXNetCacheType)cacheType
+                                           cacheTime:(long long)cacheTime;
 
 @end
 

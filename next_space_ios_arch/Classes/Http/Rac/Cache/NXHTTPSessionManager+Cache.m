@@ -115,6 +115,131 @@
 }
 
 
+- (RACSignal<NXSessionDataTaskResult *> *)POSTSignal:(NSString *)URLString
+                                          parameters:(id)parameters
+                                             headers:(NSDictionary<NSString *,NSString *> *)headers
+                                            progress:(void (^)(NSProgress * _Nonnull))uploadProgress
+                                           cacheType:(NXNetCacheType)cacheType
+                                           cacheTime:(long long)cacheTime{
+    RACSignal<NXSessionDataTaskResult *> *request;
+    __block NSString *key=[self _cacheKeyWithURL:URLString parameters:parameters];
+    __block NSDictionary *userInfo=[self wrapHttpUserInfoWithMethod:@"GET" URLString:URLString parameters:parameters headers:headers task:nil];
+    switch (cacheType) {
+        case NXNetCacheTypeIfRemote:{
+            request= [[[self POSTSignal:URLString
+                             parameters:parameters
+                                headers:headers
+                               progress:uploadProgress]
+                       doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                [self _cacheDataWithKey:key taskData:x];
+            }] onErrorResumeNext:^RACSignal<NXSessionDataTaskResult *> * _Nonnull(NSError * _Nonnull error) {
+                if([self _isNetConnectError:error]){
+                    return [[self _getCacheDataWithKey:key
+                                             cacheTime:cacheTime
+                                              userInfo:userInfo]
+                            flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                        if(value){
+                            return [RACSignal just:value];
+                        }else{
+                            return [RACSignal empty];
+                        }
+                    }];
+                }else{
+                    return [RACSignal error:error];
+                }
+            }];
+        }
+            break;
+        case NXNetCacheTypeFirstCache:{
+            request = [
+                [[[self _getCacheDataWithKey:key
+                                   cacheTime:cacheTime
+                                    userInfo:userInfo]
+                  flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                    if(value){
+                        return [RACSignal just:value];
+                    }else{
+                        return [RACSignal empty];
+                    }
+                }] onErrorResumeNext:^RACSignal * _Nonnull(NSError * _Nonnull error) {
+                    return [[self POSTSignal:URLString
+                                  parameters:parameters
+                                     headers:headers
+                                    progress:uploadProgress]
+                            doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                        [self _cacheDataWithKey:key taskData:x];
+                    }];
+                }]
+                concat:
+                [[self POSTSignal:URLString parameters:parameters
+                          headers:headers
+                         progress:uploadProgress]
+                 doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                     [self _cacheDataWithKey:key taskData:x];
+                 }]
+            ];
+        }
+            break;
+        case NXNetCacheTypeIfCache:{
+            request = [[[self _getCacheDataWithKey:key
+                                         cacheTime:cacheTime
+                                          userInfo:userInfo]
+                        flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                if(value){
+                    return [RACSignal just:value];
+                }else{
+                    //去获取网络
+                    return [[self POSTSignal:URLString
+                                  parameters:parameters
+                                     headers:headers
+                                    progress:uploadProgress]
+                            doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                        [self _cacheDataWithKey:key taskData:x];
+                    }];
+                }
+            }] onErrorResumeNext:^RACSignal * _Nonnull(NSError * _Nonnull error) {
+                return [[self POSTSignal:URLString
+                              parameters:parameters
+                                 headers:headers
+                                progress:uploadProgress]
+                        doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                    [self _cacheDataWithKey:key taskData:x];
+                }];
+            }];
+        }
+            break;
+        case NXNetCacheTypeOnlyCache:{
+            request = [self _getCacheDataWithKey:key
+                                       cacheTime:cacheTime
+                                        userInfo:userInfo];
+        }
+            break;
+        case NXNetCacheTypeOnlyRemote:{
+            request= [[self POSTSignal:URLString
+                            parameters:parameters
+                               headers:headers
+                              progress:uploadProgress]
+                      doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                [self _cacheDataWithKey:key taskData:x];
+            }];
+        }
+            break;
+        default:{
+            request= [[self POSTSignal:URLString
+                            parameters:parameters
+                               headers:headers
+                              progress:uploadProgress]
+                      doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                [self _cacheDataWithKey:key taskData:x];
+            }];
+        }
+            break;
+    }
+    return request;
+  
+}
+
+
 
 /**
  参考
