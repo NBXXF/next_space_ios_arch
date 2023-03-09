@@ -25,7 +25,9 @@ static NXRouterInstanceFactory globalInstanceFactory;
     globalStaticConfig=[NSMutableDictionary dictionary];
 }
 
-+ (void)initRouter:(UIApplication *)application routerHandler:(NXRouterHandlerBlock)handler andInstanceFactory:(NXRouterInstanceFactory)instanceFactory
++ (void)initRouter:(UIApplication *)application
+     routerHandler:(NXRouterHandlerBlock)handler
+andInstanceFactory:(NXRouterInstanceFactory)instanceFactory
 {
     globalHandlerBlock=handler;
     globalInstanceFactory=instanceFactory;
@@ -41,16 +43,22 @@ static NXRouterInstanceFactory globalInstanceFactory;
 
 
 + (BOOL)openURL:(NSString *)url{
-    return [self openURL:url parameters:[NSDictionary dictionary]];
+    return [self openURL:url
+              parameters:[NSDictionary dictionary]];
 }
 
 
-+ (BOOL)openURL:(NSString *)url parameters:(NSDictionary *)parameters{
-    return [self openURL:url parameters:parameters resultCallback:nil];
++ (BOOL)openURL:(NSString *)url
+     parameters:(NSDictionary *)parameters{
+    return [self openURL:url
+              parameters:parameters
+          resultCallback:nil];
 }
 
 
-+ (BOOL)openURL:(NSString *)url parameters:(NSDictionary *)parameters resultCallback:(NXRouterResultCallback)callback{
++ (BOOL)openURL:(NSString *)url
+     parameters:(NSDictionary *)parameters
+ resultCallback:(NXRouterResultCallback)callback{
     if([[NSThread currentThread] isMainThread]){
         return [JLRoutes routeURL:[NSURL URLWithString:url] withParameters:[self wrapperCallBack:url parameters:parameters resultCallback:callback]];
     }else{
@@ -62,7 +70,9 @@ static NXRouterInstanceFactory globalInstanceFactory;
  将callback 包装成参数
  注意优先级 应该先全局 再合并动态传递的
  */
-+(NSDictionary *)wrapperCallBack:(NSString *)url parameters:(NSDictionary *__nullable)parameters resultCallback:(NXRouterResultCallback)callback{
++(NSDictionary *)wrapperCallBack:(NSString *)url
+                      parameters:(NSDictionary *__nullable)parameters
+                  resultCallback:(NXRouterResultCallback)callback{
     NSMutableDictionary *mergeDic= [NSMutableDictionary dictionary];
     //第一步 将静态配置的参数解析出来
     NSDictionary *deviceStaticConfigByUrl=[self getAdjustURLConfig:url];
@@ -82,12 +92,16 @@ static NXRouterInstanceFactory globalInstanceFactory;
 
 
 
-+ (void)registerURL:(NSString *)url targetClass:(Class)target{
++ (void)registerURL:(NSString *)url
+        targetClass:(Class)target{
     [self registerURL:url targetClass:target deviceType:UIUserInterfaceIdiomPhone config:[NSDictionary dictionary]];
 }
 
 
-+ (void)registerURL:(NSString *)url targetClass:(Class)target deviceType:(UIUserInterfaceIdiom)device config:(NSDictionary *)config{
++ (void)registerURL:(NSString *)url
+        targetClass:(Class)target
+         deviceType:(UIUserInterfaceIdiom)device
+             config:(NSDictionary *)config{
     if(!config){
         config=[NSDictionary dictionary];
     }
@@ -118,11 +132,14 @@ static NXRouterInstanceFactory globalInstanceFactory;
     }];
 }
 
-+ (void)addInterceptor:(NSString *)url priority:(NSUInteger)priority interceptor:(NXRouterHandlerBlock)interceptor{
++ (void)addInterceptor:(NSString *)url
+              priority:(NSUInteger)priority
+           interceptor:(NXRouterHandlerBlock)interceptor{
     [JLRoutes.globalRoutes addRoute:url priority:priority handler:interceptor];
 }
 
-+ (void)removeInterceptor:(NSString *)url priority:(NSUInteger)priority{
++ (void)removeInterceptor:(NSString *)url
+                 priority:(NSUInteger)priority{
     if(priority<=0){
         //0 本身是默认注册的路由处理
         @throw [NSException exceptionWithName:@"priority 错误" reason:@"priority 必须大于0" userInfo:nil];
@@ -189,7 +206,8 @@ static NXRouterInstanceFactory globalInstanceFactory;
 
 
 
-+ (void)replaceToURL:(NSString *)toURL toURLConfig:(NSMutableDictionary *)urlConfig{
++ (void)replaceToURL:(NSString *)toURL
+         toURLConfig:(NSMutableDictionary *)urlConfig{
     [urlConfig setObject:[NSURL URLWithString:toURL] forKey:JLRouteURLKey];
     NSString *tagetClass=[self getAdjustURLConfig:toURL][NXRouterClassNameKey];
     [urlConfig setObject:tagetClass forKey:NXRouterClassNameKey];
@@ -200,7 +218,8 @@ static NXRouterInstanceFactory globalInstanceFactory;
     return globalInstanceFactory;
 }
 
-+ (void)autoInjectParams:(id)instance parameters:(NSDictionary *)parameters{
++ (void)autoInjectParams:(id)instance
+              parameters:(NSDictionary *)parameters{
     if(instance&&parameters){
         for (NSString *key in parameters.allKeys) {
             //值为nil 要崩

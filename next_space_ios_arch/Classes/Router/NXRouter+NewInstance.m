@@ -9,8 +9,19 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 
 @implementation NXRouter(NewInstance)
-+ (UIViewController *)viewControllerWithRouteURL:(NSString *)routeURL parameters:(NSDictionary * _Nullable )parameters{
++ (UIViewController *)viewControllerWithRouteURL:(NSString *)routeURL
+                                      parameters:(NSDictionary * _Nullable )parameters{
     id instance=NXRouter.getInstanceFactory(routeURL,parameters);
+    if([instance isKindOfClass:UIViewController.class]){
+        return (UIViewController *)instance;
+    }
+    return nil;
+}
+
++ (UIViewController *)viewControllerWithRouteURL:(NSString *)routeURL
+                                      parameters:(NSDictionary *)parameters
+                                  resultCallback:(NXRouterResultCallback)callback{
+    id instance=NXRouter.getInstanceFactory(routeURL,[self wrapperCallBack:routeURL parameters:parameters resultCallback:callback]);
     if([instance isKindOfClass:UIViewController.class]){
         return (UIViewController *)instance;
     }
@@ -19,16 +30,22 @@
 
 
 + (void)startURL:(NSString *)url{
-    [self startURL:url parameters:[NSMutableDictionary dictionary]];
+    [self startURL:url
+        parameters:[NSMutableDictionary dictionary]];
 }
 
 
-+ (void)startURL:(NSString *)url parameters:(NSDictionary *)parameters{
-    [self startURL:url parameters:parameters resultCallback:nil];
++ (void)startURL:(NSString *)url
+      parameters:(NSDictionary *)parameters{
+    [self startURL:url
+        parameters:parameters
+    resultCallback:nil];
 }
 
 
-+ (void)startURL:(NSString *)url parameters:(NSDictionary *)parameters resultCallback:(NXRouterResultCallback)callback{
++ (void)startURL:(NSString *)url
+      parameters:(NSDictionary *)parameters
+  resultCallback:(NXRouterResultCallback)callback{
     if(NSThread.isMainThread){
         [NXRouter openURL:url parameters:parameters resultCallback:callback];
     }else{

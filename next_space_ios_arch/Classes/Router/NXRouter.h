@@ -18,7 +18,9 @@ extern NSString *const NXRouterClassNameKey;
 
 @interface NXRouter : NSObject
 
-+ (void)initRouter:(UIApplication *)application routerHandler:(NXRouterHandlerBlock)handler andInstanceFactory:(NXRouterInstanceFactory)instanceFactory;
++ (void)initRouter:(UIApplication *)application
+     routerHandler:(NXRouterHandlerBlock)handler
+andInstanceFactory:(NXRouterInstanceFactory)instanceFactory;
 
 
 /**
@@ -33,7 +35,8 @@ extern NSString *const NXRouterClassNameKey;
  @param url 路由,暂时不支持本身携带的query参数自动解析
  @param parameters  路由携带的参数
  */
-+ (BOOL)openURL:(NSString *)url parameters:(NSDictionary * __nullable)parameters;
++ (BOOL)openURL:(NSString *)url
+     parameters:(NSDictionary * __nullable)parameters;
 
 
 /**
@@ -42,7 +45,9 @@ extern NSString *const NXRouterClassNameKey;
  @param parameters  路由携带的参数
  @param callback  回调响应参数
  */
-+ (BOOL)openURL:(NSString *)url parameters:(NSDictionary * __nullable)parameters resultCallback:(NXRouterResultCallback __nullable)callback;
++ (BOOL)openURL:(NSString *)url
+     parameters:(NSDictionary * __nullable)parameters
+ resultCallback:(NXRouterResultCallback __nullable)callback;
 
 
 /**
@@ -50,7 +55,8 @@ extern NSString *const NXRouterClassNameKey;
  @param url 路由,暂时不支持本身携带的query参数自动解析
  @param target 目的地的class  和url 一一映射
  */
-+ (void)registerURL:(NSString* )url targetClass:(Class)target;
++ (void)registerURL:(NSString* )url
+        targetClass:(Class)target;
 
 
 /**
@@ -60,19 +66,25 @@ extern NSString *const NXRouterClassNameKey;
  @param device  区分不同设备形态,默认手机  
  @param config  静态注册的参数配置,框架 会和openURL 携带的参数进行合并,携带的参数key 优先级最高,等价【getAdjustURLConfig】
  */
-+ (void)registerURL:(NSString* )url targetClass:(Class)target deviceType:(UIUserInterfaceIdiom)device config:(NSDictionary * __nullable)config;
++ (void)registerURL:(NSString* )url
+        targetClass:(Class)target
+         deviceType:(UIUserInterfaceIdiom)device
+             config:(NSDictionary * __nullable)config;
 
 
 /**
   为路由添加拦截器 优先级 越大越先执行
    请不要在拦截器里面在用路由跳转 否则就是循环
  */
-+(void)addInterceptor:(NSString* )url priority:(NSUInteger)priority interceptor:(NXRouterHandlerBlock __nullable) interceptor;
++(void)addInterceptor:(NSString* )url
+             priority:(NSUInteger)priority
+          interceptor:(NXRouterHandlerBlock __nullable) interceptor;
 
 /**
   移除拦截器
  */
-+(void)removeInterceptor:(NSString* )url priority:(NSUInteger)priority;
++(void)removeInterceptor:(NSString* )url
+                priority:(NSUInteger)priority;
 
 /**
  移除拦截器
@@ -85,7 +97,8 @@ extern NSString *const NXRouterClassNameKey;
  @param api 定义的暴露服务
  @param target 目标类
  */
-+(void)registerService:(Protocol *)api targetClass:(Class)target;
++(void)registerService:(Protocol *)api
+           targetClass:(Class)target;
 
 
 /**
@@ -117,7 +130,8 @@ extern NSString *const NXRouterClassNameKey;
 /**
  替换到目标路由
  */
-+(void)replaceToURL:(NSString* )toURL toURLConfig:(NSMutableDictionary *)urlConfig;
++(void)replaceToURL:(NSString* )toURL
+        toURLConfig:(NSMutableDictionary *)urlConfig;
 
 /**
  获取构建实例的工厂
@@ -128,7 +142,13 @@ extern NSString *const NXRouterClassNameKey;
 /**
  注入实例对应的参数
  */
-+(void)autoInjectParams:(id)instance parameters:(NSDictionary * __nullable)parameters;
++(void)autoInjectParams:(id)instance
+             parameters:(NSDictionary * __nullable)parameters;
+
+
++(NSDictionary *)wrapperCallBack:(NSString *)url
+                      parameters:(NSDictionary *__nullable)parameters
+                  resultCallback:(NXRouterResultCallback)callback;
 
 @end
 

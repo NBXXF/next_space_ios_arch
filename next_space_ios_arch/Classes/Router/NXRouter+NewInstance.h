@@ -11,7 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NXRouter(NewInstance)
-+ (UIViewController * __nullable)viewControllerWithRouteURL:(NSString *)routeURL parameters:(NSDictionary * _Nullable )parameters DEPRECATED_MSG_ATTRIBUTE("过时,避免业务乱用,请优先用路由,要相信SPI的设计");
++ (UIViewController * __nullable)viewControllerWithRouteURL:(NSString *)routeURL
+                                                 parameters:(NSDictionary * _Nullable )parameters DEPRECATED_MSG_ATTRIBUTE("过时,避免业务乱用,请优先用路由,要相信SPI的设计");
+
++ (UIViewController * __nullable)viewControllerWithRouteURL:(NSString *)routeURL
+                                                 parameters:(NSDictionary * _Nullable )parameters
+                                             resultCallback:(NXRouterResultCallback __nullable)callback
+DEPRECATED_MSG_ATTRIBUTE("过时,避免业务乱用,请优先用路由,要相信SPI的设计");
 
 
 /**
@@ -27,7 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
  内部自动会处理是否是主线程跳转
  缺点没有返回值
  */
-+ (void)startURL:(NSString *)url parameters:(NSDictionary * __nullable)parameters;
++ (void)startURL:(NSString *)url
+      parameters:(NSDictionary * __nullable)parameters;
 
 
 /**
@@ -35,7 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
  内部自动会处理是否是主线程跳转
  缺点没有返回值
  */
-+ (void)startURL:(NSString *)url parameters:(NSDictionary * __nullable)parameters resultCallback:(NXRouterResultCallback __nullable)callback;
++ (void)startURL:(NSString *)url
+      parameters:(NSDictionary * __nullable)parameters
+  resultCallback:(NXRouterResultCallback __nullable)callback;
 
 @end
 
