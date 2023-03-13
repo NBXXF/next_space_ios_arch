@@ -116,6 +116,7 @@
 #import "MAS_VIEW+NXExtend.h"
 #import "NSLayoutConstraint+NXVisibiltiy.h"
 #import "UIView+NXVisibility.h"
+#import "NSBundle+NXTools.h"
 #import "NXPasteboard.h"
 #import "TKGradient.h"
 #import "TKRoundedView.h"
