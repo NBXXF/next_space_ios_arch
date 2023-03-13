@@ -50,6 +50,8 @@
         
         resultImage = UIGraphicsGetImageFromCurrentImageContext();
 
+        //增加释放 by xxf 否则内存飙升
+        UIGraphicsEndImageContext();
     }
 
     return resultImage;
