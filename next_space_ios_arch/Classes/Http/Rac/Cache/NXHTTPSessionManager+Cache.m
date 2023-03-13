@@ -70,9 +70,20 @@
                     }];
                 }]
                 concat:
-                [[self GETSignal:URLString parameters:parameters headers:headers progress:downloadProgress]
-                 doNext:^(NXSessionDataTaskResult * _Nullable x) {
+                 [[[self GETSignal:URLString
+                        parameters:parameters
+                           headers:headers
+                          progress:downloadProgress] doNext:^(NXSessionDataTaskResult * _Nullable x) {
                      [self _cacheDataWithKey:key taskData:x];
+                   }] onErrorResumeNext:^RACSignal<NXSessionDataTaskResult *> * _Nonnull(NSError * _Nonnull error) {
+                       //这里 没有java 的concatDeleayError  错误的时候先返回缓存,下游有延迟,或者没有网的情况会立即断整个流
+                     return [[self _getCacheDataWithKey:key cacheTime:cacheTime userInfo:userInfo] flattenMap:^__kindof RACSignal * _Nullable(NXSessionDataTaskResult * _Nullable value) {
+                         if(value){
+                             return [RACSignal just:value];
+                         }else{
+                             return [RACSignal empty];
+                         }
+                     }];
                  }]
             ];
         }
