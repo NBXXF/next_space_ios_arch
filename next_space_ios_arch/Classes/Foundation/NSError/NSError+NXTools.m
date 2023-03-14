@@ -9,6 +9,15 @@
 
 @implementation NSError(NXTools)
 
++ (NSError *)nx_ErrorWithErrorOrException:(NSObject *)errorOrException{
+    if([errorOrException isKindOfClass:NSError.class]){
+        return (NSError *)errorOrException;
+    }else if([errorOrException isKindOfClass:NSException.class]){
+        return [self nx_convertException:(NSException *)errorOrException];
+    }
+    return nil;
+}
+
 + (NSError *)nx_ErrorWithCode:(NSInteger)code text:(NSString *)text {
     return [NSError errorWithDomain:@"com.next.space.cflow" code:code userInfo:@{NSLocalizedDescriptionKey:text ?: @""}];
 }

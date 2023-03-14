@@ -393,6 +393,24 @@
 }
 
 -(void)test2{
+    @try {
+        //@throw [[NSException  alloc] initWithName:@"xx" reason:@"xx" userInfo:@{}];
+        @throw [NSError errorWithDomain:@"XXX" code:@"XX" userInfo:nil];
+    } @catch (NSObject *exception) {
+        NSError *error=[NSError nx_ErrorWithErrorOrException:exception];
+        NSLog(@"============>catch了:%@",error);
+    } @finally {
+        NSLog(@"============>catch final了");
+    }
+    
+    @try {
+        @throw [[NSException  alloc] initWithName:@"xx" reason:@"xx" userInfo:@{}];
+    } @catch (NSObject *exception) {
+        NSError *error=[NSError nx_ErrorWithErrorOrException:exception];
+        NSLog(@"============>catch2了:%@",error);
+    } @finally {
+        NSLog(@"============>catch2 final了");
+    }
     
 //    NSLog(@"===========>init NXTestRAC");
 //    [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler]
