@@ -6,6 +6,7 @@
 //
 
 #import "NSError+NXTools.h"
+#import <next_space_ios_arch/NSMutableDictionary+NXTools.h>
 
 @implementation NSError(NXTools)
 
@@ -38,14 +39,17 @@
     if(!info){
         info=[NSMutableDictionary dictionary];
     }
-   [info setValue:exception.name forKey:@"ExceptionName"];
-   [info setValue:exception.reason forKey:@"ExceptionReason"];
-   [info setValue:exception.callStackReturnAddresses forKey:@"ExceptionCallStackReturnAddresses"];
-   [info setValue:exception.callStackSymbols forKey:@"ExceptionCallStackSymbols"];
-   [info setValue:exception.userInfo forKey:@"ExceptionUserInfo"];
-    
+    [info putCheck:@"ExceptionName" forObject:exception.name];
+    [info putCheck:@"ExceptionReason" forObject:exception.reason];
+    /**
+     这两个耗时严重 注释掉
+     */
+//    [info putCheck:@"ExceptionCallStackReturnAddresses" forObject:exception.callStackReturnAddresses];
+//    [info putCheck:@"ExceptionCallStackSymbols" forObject:exception.callStackSymbols];
+    [info putCheck:@"ExceptionUserInfo" forObject:exception.userInfo];
     //增加兼容
-   [info setValue:exception.reason?:exception.name forKey:NSLocalizedDescriptionKey];
+    [info putCheck:NSLocalizedDescriptionKey forObject:exception.reason?:exception.name];
+    
    return [[NSError alloc] initWithDomain:@"com.next.space.cflow" code:-1 userInfo:info];
 }
 @end
