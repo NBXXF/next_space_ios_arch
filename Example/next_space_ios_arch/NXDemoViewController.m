@@ -393,6 +393,10 @@
 }
 
 -(void)test2{
+   id s= [NXError noPermissionError];
+    if(s){
+        
+    }
     @try {
         //@throw [[NSException  alloc] initWithName:@"xx" reason:@"xx" userInfo:@{}];
         @throw [NSError errorWithDomain:@"XXX" code:@"XX" userInfo:nil];
