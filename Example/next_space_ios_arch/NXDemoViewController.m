@@ -406,6 +406,16 @@
     @try {
         @throw [[NSException  alloc] initWithName:@"xx" reason:@"xx" userInfo:@{}];
     } @catch (NSObject *exception) {
+        NSException *ex=(NSException *)exception;
+        
+        double start=NSDate.now.timeIntervalSince1970*1000;
+        for(int i=0;i<1000;i++){
+            id a=ex.callStackSymbols;
+            id b=ex.callStackReturnAddresses;
+        }
+        double end=NSDate.now.timeIntervalSince1970*1000;
+        NSLog(@"============>callStack 耗时:%f",(end-start));
+        
         NSError *error=[NSError nx_ErrorWithErrorOrException:exception];
         NSLog(@"============>catch2了:%@",error);
     } @finally {
