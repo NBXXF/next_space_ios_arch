@@ -134,6 +134,7 @@
 #import "UICollectionView+NXAdaptation.h"
 #import "UICollectionView+NXRegister.h"
 #import "UIColor+NXGradient.h"
+#import "UIColor+Parser.h"
 #import "UIImage+NXAppending.h"
 #import "UIImage+NXGradient.h"
 #import "UIImage+NXSuperimposed.h"
