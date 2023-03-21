@@ -37,23 +37,12 @@
 
 -(void)setupUI{
     self.view.backgroundColor=UIColor.whiteColor;
-    
-    UITextField *f=UITextField.new;
-    f.backgroundColor=UIColor.grayColor;
-    [self.contentView addSubview:f];
-    [f mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(300);
-        make.height.mas_equalTo(40);
-        make.top.left.equalTo(self.contentView);
-    }];
-    
-    
     UILabel *titleLabel=UILabel.new;
     titleLabel.textColor=UIColor.redColor;
     titleLabel.text=@"XXF Developer help";
     [self.contentView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(f.mas_bottom).offset(40);
+        make.top.equalTo(self.contentView.mas_top).offset(40);
         make.left.right.equalTo(self.view).inset(16);
     }];
     
@@ -63,10 +52,6 @@
         make.left.right.equalTo(self.view).inset(16);
         make.bottom.equalTo(self.view);
     }];
-    
-    self.contentView.allowGestureRecognizeForKeyboard=YES;
-    self.contentView.allowGestureRecognizeForKeyboard=YES;
-    self.contentView.allowGestureRecognizeForKeyboard=YES;
 }
 
 -(void)loadData{
