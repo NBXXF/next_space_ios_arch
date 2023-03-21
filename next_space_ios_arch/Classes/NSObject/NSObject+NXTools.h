@@ -14,6 +14,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly,nonatomic,strong) NSMutableDictionary *objcAssociatedTag;//方便业务存储,请不要随便清空,而是自己处理对应的key
 
 /**
+ 设置key tag
+ */
+-(void)setObjcAssociatedTag:(id)object
+                         forKey:(id)key;
+
+/**
+ 通过key 来获取tag
+ */
+-(id)getObjcAssociatedTag:(id)key;
+
+/**
  转换成当前类的类型 本质 isKindOfClass,转换不成功会报错
  */
 + (instancetype)toKindOfClassObjectFrom:(NSObject *_Nullable)fromObject;
