@@ -6,12 +6,24 @@
 //
 
 #import "NSObject+NXTools.h"
+#import <objc/runtime.h>
 
 @implementation NSObject(NXTools)
 
 - (NSString *)simpleDescription{
     return [NSString stringWithFormat:@"%@_%p",self.class,self];
 }
+
+
+- (NSDictionary *)objcAssociatedTag{
+    NSMutableDictionary *associatedTag = objc_getAssociatedObject(self, _cmd);
+    if(!associatedTag) {
+        associatedTag = [[NSMutableDictionary alloc] init];
+        objc_setAssociatedObject(self, _cmd, associatedTag, OBJC_ASSOCIATION_RETAIN);
+    }
+    return associatedTag;
+}
+
 
 
 + (instancetype)toKindOfClassObjectFrom:(NSObject *)fromObject{

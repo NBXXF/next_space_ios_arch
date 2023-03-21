@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject(NXTools)
 @property (readonly, copy) NSString *simpleDescription;
+@property (readonly,nonatomic,strong) NSMutableDictionary *objcAssociatedTag;//方便业务存储,请不要随便清空,而是自己处理对应的key
 
 /**
  转换成当前类的类型 本质 isKindOfClass,转换不成功会报错
