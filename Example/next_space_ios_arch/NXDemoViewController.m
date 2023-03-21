@@ -497,12 +497,12 @@
     
     
     
-    NSLog(@"===============>test1111 %@",test.simpleDescription);
-    [[RACSignal interval:1 onScheduler:RACScheduler.scheduler] subscribeNext:^(NSDate * _Nullable x) {
-        test.name=@"xxx";
-        NSLog(@"===============>test %@",test.simpleDescription);
-    }];
-    test=NXParent.new;
+//    NSLog(@"===============>test1111 %@",test.simpleDescription);
+//    [[RACSignal interval:1 onScheduler:RACScheduler.scheduler] subscribeNext:^(NSDate * _Nullable x) {
+//        test.name=@"xxx";
+//        NSLog(@"===============>test %@",test.simpleDescription);
+//    }];
+//    test=NXParent.new;
     
     
     NXHTTPSessionManager *manager=[NXHTTPSessionManager new];

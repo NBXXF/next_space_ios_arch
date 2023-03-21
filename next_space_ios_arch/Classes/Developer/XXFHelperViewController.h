@@ -7,10 +7,11 @@
 
 #import <UIKit/UIKit.h>
 #import <next_space_ios_arch/NXTableListAdapter.h>
+#import <next_space_ios_arch/NXViewController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XXFHelperViewController : UIViewController
+@interface XXFHelperViewController : NXViewController
 
 @end
 

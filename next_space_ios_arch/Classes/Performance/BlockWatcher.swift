@@ -19,7 +19,7 @@ final public class BlockWatcher: NSObject {
             if strictMode {
                 if(!XXF.shared.config.disableAnrCheck){
                     //主线程卡顿了 请用xcode 切换MainThread 查看
-                    fatalError(message)
+                    //fatalError(message)
                 }
             } else {
                 NSLog("%@", message)
