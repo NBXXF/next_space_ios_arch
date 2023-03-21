@@ -70,7 +70,8 @@
     CGFloat minColumn=columnRange.location;
     CGFloat maxColumn=NSMaxRange(columnRange);
     
-    NSAssert(minColumn<maxColumn&&minColumn>=1, @"columnRange参数不合法");
+    //支持最小值 和最大值相等
+    NSAssert(minColumn<=maxColumn&&minColumn>=1, @"columnRange参数不合法");
     
     if(column<minColumn){
         column=minColumn;
