@@ -674,7 +674,7 @@
     UIViewController *popoverContent=[XXFHelperViewController new];
 //    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
 //    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:popoverContent animated:NO completion:nil];
+    [self presentViewController:popoverContent animated:YES completion:nil];
 }
 
 -(void)testArraySpeed:(NSInteger)size{
