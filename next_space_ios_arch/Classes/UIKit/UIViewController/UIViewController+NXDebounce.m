@@ -28,6 +28,7 @@
         //注意多方冲突 类+类+行 唯一性较高。屏蔽同一个类型 多种实例类型弹窗
         NSString *key=[NSString stringWithFormat:@"%@_%@",NSStringFromClass(viewControllerToPresent.class),__FILE_LINE__];
         if([NSObject isRateLimitingWithId:key duration:0.5]){
+            NSLog(@"==========>rateLimiting for presentViewController");
             return;
         }
     }
