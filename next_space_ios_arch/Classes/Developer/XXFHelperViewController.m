@@ -15,6 +15,7 @@
 #import <next_space_ios_arch/NSObject+NXRACSignalSupport.h>
 #import <next_space_ios_arch/NXRouter.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
+#import <next_space_ios_arch/UIView+NXKeyboardSwitchControl.h>
 
 @interface XXFHelperViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -52,6 +53,9 @@
         make.left.right.equalTo(self.view).inset(16);
         make.bottom.equalTo(self.view);
     }];
+    self.view.allowSlideToCloseKeyboard=YES;
+    self.view.allowSlideToCloseKeyboard=YES;
+    self.view.allowSlideToCloseKeyboard=YES;
 }
 
 -(void)loadData{

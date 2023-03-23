@@ -104,6 +104,12 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self setObjcAssociatedObject:@YES forKey:@"test"];
+    id ab=[self getObjcAssociatedObject:@"test"];
+    
+    [self setObjcAssociatedObject:@"376643" forKey:@"test1"];
+    id ab2=[self getObjcAssociatedObject:@"test1"];
+    
     for (UIWindow * value in [[UIApplication sharedApplication].windows reverseObjectEnumerator]) {
         NSLog(@"========>view: window:%@",value);
         [value.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

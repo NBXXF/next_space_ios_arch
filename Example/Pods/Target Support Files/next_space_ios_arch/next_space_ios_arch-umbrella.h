@@ -85,6 +85,7 @@
 #import "NXItemMenuImpl.h"
 #import "NXSelectableObject.h"
 #import "NXSelectableProtocol.h"
+#import "NSObject+NXAssociation.h"
 #import "NSObject+NXTools.h"
 #import "NSObject+NXYYModel.h"
 #import "NSObject+RateLimiting.h"

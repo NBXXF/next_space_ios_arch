@@ -6,8 +6,8 @@
 //
 
 #import "NSObject+NXRACSignalSupport.h"
-#import <objc/runtime.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
 #import <next_space_ios_arch/NSArray+AppArch.h>
 #import <next_space_ios_arch/XXF.h>
 

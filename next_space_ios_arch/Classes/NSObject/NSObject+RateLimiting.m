@@ -6,22 +6,10 @@
 //
 
 #import "NSObject+RateLimiting.h"
-#import <objc/runtime.h>
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
+#import <next_space_ios_arch/NSObject+NXTools.h>
 
 @implementation NSObject (RateLimiting)
-
-const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
-
-- (NSMutableDictionary *)getThrottleData {
-    NSMutableDictionary *throttleData = objc_getAssociatedObject(self, THROTTLE_DATA_KEY);
-    
-    if(!throttleData) {
-        throttleData = [[NSMutableDictionary alloc] init];
-        objc_setAssociatedObject(self, THROTTLE_DATA_KEY, throttleData, OBJC_ASSOCIATION_RETAIN);
-    }
-    
-    return throttleData;
-}
 
 - (void)throttleWithBlock:(void (^)(void))block duration:(NSTimeInterval)duration{
     if(![self isRateLimitingWithDuration:duration]){
@@ -31,12 +19,11 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
 
 
 - (void)throttleWithSelector:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration {
-    NSMutableDictionary *throttleData = [self getThrottleData];
-
-    NSDate *lastCalled = [throttleData objectForKey:NSStringFromSelector(action)];
+    NSString *key=[NSString stringWithFormat:@"%@_%@",__FILE_LINE__,NSStringFromSelector(action)];
+    NSDate *lastCalled = [self getObjcAssociatedObject:key];
     
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [throttleData setObject:[NSDate date] forKey:NSStringFromSelector(action)];
+        [self setObjcAssociatedObject:[NSDate date] forKey:key];
         __weak typeof(self) weakSelf = self;
         [weakSelf performSelector:action withObject:object];
     }
@@ -44,12 +31,11 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
 
 
 - (void)throttleWithSelector:(SEL)action withObject:(id)object1 withObject:(id)object2 duration:(NSTimeInterval)duration{
-    NSMutableDictionary *throttleData = [self getThrottleData];
-
-    NSDate *lastCalled = [throttleData objectForKey:NSStringFromSelector(action)];
+    NSString *key=[NSString stringWithFormat:@"%@_%@",__FILE_LINE__,NSStringFromSelector(action)];
+    NSDate *lastCalled = [self getObjcAssociatedObject:key];
     
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [throttleData setObject:[NSDate date] forKey:NSStringFromSelector(action)];
+        [self setObjcAssociatedObject:[NSDate date] forKey:key];
         __weak typeof(self) weakSelf = self;
         [weakSelf performSelector:action withObject:object1 withObject:object2];
     }
@@ -77,21 +63,20 @@ const char *THROTTLE_DATA_KEY = "THROTTLE_DATA_KEY";
 
 
 - (BOOL)isRateLimitingWithDuration:(NSTimeInterval)duration{
-    NSMutableDictionary *throttleData = [self getThrottleData];
-    NSString *key=@"____lastRateLimitingTime";
-    NSDate *lastCalled = [throttleData objectForKey:key];
+    NSString *key=[NSString stringWithFormat:@"%@_%@",__FILE_LINE__,NSStringFromSelector(_cmd)];
+    NSDate *lastCalled = [self getObjcAssociatedObject:key];
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [throttleData setObject:[NSDate date] forKey:key];
+        [self setObjcAssociatedObject:[NSDate date] forKey:key];
         return NO;
     }
     return YES;
 }
 
 + (BOOL)isRateLimitingWithId:(NSString *)ids duration:(NSTimeInterval)duration{
-    NSMutableDictionary *throttleData = [UIApplication.sharedApplication getThrottleData];
-    NSDate *lastCalled = [throttleData objectForKey:ids];
+    NSString *key=ids;
+    NSDate *lastCalled = [UIApplication.sharedApplication getObjcAssociatedObject:key];
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [throttleData setObject:[NSDate date] forKey:ids];
+        [UIApplication.sharedApplication setObjcAssociatedObject:[NSDate date] forKey:key];
         return NO;
     }
     return YES;
