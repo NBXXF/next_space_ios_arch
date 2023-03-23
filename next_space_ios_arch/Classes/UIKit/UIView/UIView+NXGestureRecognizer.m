@@ -7,6 +7,7 @@
 
 #import "UIView+NXGestureRecognizer.h"
 #import <objc/runtime.h>
+#import <next_space_ios_arch/NSObject+RateLimiting.h>
 
 @implementation UIView(NXGestureRecognizer)
 
@@ -67,6 +68,11 @@ static char NXViewLongPressBlockKey;
 
 #pragma mark - CallBacks
 - (void)singleTap {
+    //增加限流 防暴力点击
+    if([NSObject isRateLimitingWithDuration:0.3]){
+        NSLog(@"==========>rateLimiting for singleTap");
+        return;
+    }
     [self makeBlockForkey:&NXViewSingleTapBlockKey];
 }
 
