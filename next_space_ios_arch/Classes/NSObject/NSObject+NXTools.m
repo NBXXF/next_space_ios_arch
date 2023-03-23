@@ -6,7 +6,6 @@
 //
 
 #import "NSObject+NXTools.h"
-#import <objc/runtime.h>
 #import <next_space_ios_arch/NSMutableDictionary+NXTools.h>
 
 @implementation NSObject(NXTools)
@@ -14,26 +13,6 @@
 - (NSString *)simpleDescription{
     return [NSString stringWithFormat:@"%@_%p",self.class,self];
 }
-
-
-- (NSMutableDictionary *)objcAssociatedTag{
-    NSMutableDictionary *associatedTag = objc_getAssociatedObject(self, _cmd);
-    if(!associatedTag) {
-        associatedTag = [[NSMutableDictionary alloc] init];
-        objc_setAssociatedObject(self, _cmd, associatedTag, OBJC_ASSOCIATION_RETAIN);
-    }
-    return associatedTag;
-}
-
-
-- (void)setObjcAssociatedTag:(id)object forKey:(id)key{
-    [self.objcAssociatedTag putCheck:key forObject:object];
-}
-
-- (id)getObjcAssociatedTag:(id)key{
-    return [self.objcAssociatedTag objectForKey:key];
-}
-
 
 
 + (instancetype)toKindOfClassObjectFrom:(NSObject *)fromObject{

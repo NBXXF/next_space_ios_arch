@@ -6,23 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+/**
+ 唯一标识 文件代码运行位置 没性能影响
+ */
+#define __FILE_LINE__ [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__]
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject(NXTools)
 @property (readonly, copy) NSString *simpleDescription;
-@property (readonly,nonatomic,strong) NSMutableDictionary *objcAssociatedTag;//方便业务存储,请不要随便清空,而是自己处理对应的key
-
-/**
- 设置key tag
- */
--(void)setObjcAssociatedTag:(id)object
-                         forKey:(id)key;
-
-/**
- 通过key 来获取tag
- */
--(id)getObjcAssociatedTag:(id)key;
 
 /**
  转换成当前类的类型 本质 isKindOfClass,转换不成功会报错

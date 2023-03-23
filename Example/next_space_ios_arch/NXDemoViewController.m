@@ -104,6 +104,12 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self nx_setAssociatedObject:@YES forKey:@"test"];
+    id ab=[self nx_getAssociatedObject:@"test"];
+    
+    [self nx_setAssociatedObject:@"376643" forKey:@"test1"];
+    id ab2=[self nx_getAssociatedObject:@"test1"];
+    
     for (UIWindow * value in [[UIApplication sharedApplication].windows reverseObjectEnumerator]) {
         NSLog(@"========>view: window:%@",value);
         [value.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -386,13 +392,22 @@
     NSLog(@"=========>NSNotificationCenter take2:%f",(end-start));
     
     [self test2];
-    //[self test2];
+    [self test2];
     
    
    
 }
 
 -(void)test2{
+//    [[[[[RACSignal just:@""] map:^id _Nullable(id  _Nullable value) {
+//        [NSThread sleepForTimeInterval:1];
+//        return value;
+//    }] timeoutOnlyDebug:0.5] doError:^(NSError * _Nonnull error) {
+//        NSLog(@"================>timeoutOnlyDebug:error:%@",error);
+//    }].subscribeOnSubThread subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"================>timeoutOnlyDebug:next:%@",x);
+//    }];
+    
    id s= [NXError noPermissionError];
     if(s){
         
@@ -426,15 +441,15 @@
         NSLog(@"============>catch2 final了");
     }
     
-//    NSLog(@"===========>init NXTestRAC");
-//    [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler]
-//       bindLifecycle:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)]
-//     //  bindLifecycle:[self.untilDeallocSignal takeUntil:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)]]
-//      doCompleted:^{
-//        NSLog(@"===========>rac next:%@",@"Completed");
-//    }] subscribeNext:^(NSDate * _Nullable x) {
-//        NSLog(@"===========>rac next:%@",x);
-//    }];
+    NSLog(@"===========>init NXTestRAC");
+    [[[[RACSignal interval:1 onScheduler:RACScheduler.scheduler]
+       bindLifecycle:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)]
+     //  bindLifecycle:[self.untilDeallocSignal takeUntil:self.untilUniqueSignalWithIdentifier(__FILE_LINE__)]]
+      doCompleted:^{
+        NSLog(@"===========>rac next:%@",@"Completed");
+    }] subscribeNext:^(NSDate * _Nullable x) {
+        NSLog(@"===========>rac next:%@",x);
+    }];
     
     self.robj=  [NXTestRAC.alloc init];
     NSLog(@"=========>initByBlock2:%@",self.robj.simpleDescription);

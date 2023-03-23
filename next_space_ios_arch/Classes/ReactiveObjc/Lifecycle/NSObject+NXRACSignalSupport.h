@@ -8,10 +8,6 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <ReactiveObjC/ReactiveObjC-umbrella.h>
 
-/**
- 唯一标识 文件代码运行位置 没性能影响
- */
-#define __FILE_LINE__ [NSString stringWithFormat:@"%s_%d",__FILE__, __LINE__]
 
 NS_ASSUME_NONNULL_BEGIN
 

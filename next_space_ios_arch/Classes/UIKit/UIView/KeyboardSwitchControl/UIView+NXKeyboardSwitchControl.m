@@ -8,19 +8,20 @@
 #import "UIView+NXKeyboardSwitchControl.h"
 #import <next_space_ios_arch/NXKeyboardGestureRecognizer.h>
 #import <next_space_ios_arch/NSArray+AppArch.h>
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
 
 @implementation UIView(NXKeyboardSwitchControl)
 
 - (BOOL)allowSlideToCloseKeyboard{
     return [self.gestureRecognizers containsObjectWithBlock:^BOOL(__kindof UIGestureRecognizer * _Nonnull value) {
-        BOOL tag=[[value.objcAssociatedTag objectForKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
+        BOOL tag=[[value nx_getAssociatedObject:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
         return tag;
     }];
 }
 - (void)setAllowSlideToCloseKeyboard:(BOOL)isManageKeyboardSwitch{
     NSArray<NXKeyboardGestureRecognizer *> *recognizerArray =[self.gestureRecognizers filterObjectWithBlock:^BOOL(__kindof UIGestureRecognizer * _Nonnull value) {
-        BOOL tag=[[value.objcAssociatedTag objectForKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
+        BOOL tag=[[value nx_getAssociatedObject:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
         return tag;
     }];
 
@@ -33,13 +34,17 @@
         [self addGestureRecognizer:[[[NXKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(__swipeToDissmissKeyboard:)] applyWithBlock:^(NXKeyboardGestureRecognizer  *_Nonnull it) {
             it.direction=UISwipeGestureRecognizerDirectionUp;
             it.delegate=it;
-            [it.objcAssociatedTag setObject:@YES forKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))];
+            [it nx_setAssociatedObject:@YES
+                                 forKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))
+            policy:NX_ASSOCIATION_ASSIGN];
         }]];
         
         [self addGestureRecognizer:[[[NXKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(__swipeToDissmissKeyboard:)] applyWithBlock:^(NXKeyboardGestureRecognizer  *_Nonnull it) {
             it.direction=UISwipeGestureRecognizerDirectionDown;
             it.delegate=it;
-            [it.objcAssociatedTag setObject:@YES forKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))];
+            [it nx_setAssociatedObject:@YES
+                                 forKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))
+            policy:NX_ASSOCIATION_ASSIGN];
         }]];
     }
 }

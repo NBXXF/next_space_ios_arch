@@ -7,7 +7,7 @@
 //
 
 #import "NSDate+Format.h"
-#import <objc/runtime.h>
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
 #import <next_space_ios_arch/NSDate+NXTools.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
 #import <next_space_ios_arch/NSDate+Utilities.h>
@@ -109,14 +109,14 @@
  内部缓存的时间格式类
  */
 +(NSDateFormatter *)______getCacheDateFormatterWithFormat:(NSString *)format{
-    NSMutableDictionary *cacheDateFormatterDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
+    NSMutableDictionary *cacheDateFormatterDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:[self nx_getAssociatedObject:NSStringFromSelector(_cmd)]]?:[NSMutableDictionary dictionary];
     NSDateFormatter *cacheFormatter=[NSDateFormatter toKindOfClassObjectOrNilFrom:[cacheDateFormatterDict objectForKey:format]];
     if(!cacheFormatter){
         cacheFormatter=[[NSDateFormatter alloc] init];
         [cacheFormatter setDateFormat:format];
         [cacheFormatter setLocale:[NSLocale currentLocale]];
         [cacheDateFormatterDict setObject:cacheFormatter forKey:format];
-        objc_setAssociatedObject(self, _cmd, cacheDateFormatterDict, OBJC_ASSOCIATION_RETAIN);
+        [self nx_setAssociatedObject:cacheDateFormatterDict forKey:NSStringFromSelector(_cmd)];
     }
 #if DEBUG
     NSAssert(cacheDateFormatterDict.count<=500, @"业务乱传format,为了保证缓存 请传有效的时间格式,避免过多缓存");

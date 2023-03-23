@@ -9,6 +9,7 @@
 #import "UIKeyCommandConstant.h"
 #import "NSObject+Swizzling.h"
 #import "NSObject+RateLimiting.h"
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
 #import "UIKeyCommanderProtocol.h"
 #import "RACScheduler+AppArch.h"
 
@@ -102,22 +103,20 @@
  添加全局任务
  */
 -(void)addCallKeyCommandMethodTask:(RACDisposable *)task{
-    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
     NSString *key=[NSString stringWithFormat:@"%@_task",NSStringFromSelector(@selector(_dispatchValidateCommand:))];
-    [throttleData setObject:task forKey:key];
+    [UIApplication.sharedApplication nx_setAssociatedObject:task forKey:key];
 }
 
 /**
  移除上次任务
  */
 -(void)removeLastCallKeyCommandMethodTask{
-    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
     NSString *key=[NSString stringWithFormat:@"%@_task",NSStringFromSelector(@selector(_dispatchValidateCommand:))];
-    RACDisposable *task= [throttleData objectForKey:key];
+    RACDisposable *task=  [UIApplication.sharedApplication nx_getAssociatedObject:key];
     if(task&&!task.isDisposed){
         [task dispose];
     }
-    [throttleData removeObjectForKey:key];
+    [UIApplication.sharedApplication nx_setAssociatedObject:nil forKey:key];
 }
 
 
@@ -125,9 +124,8 @@
  统计执行次数
  */
 -(NSInteger)getCallKeyCommandMethodCount{
-    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
     NSString *key=NSStringFromSelector(@selector(_dispatchValidateCommand:));
-    NSInteger lastCalled = [[throttleData objectForKey:key] integerValue];
+    NSInteger lastCalled = [[ UIApplication.sharedApplication nx_getAssociatedObject:key] integerValue];
     return lastCalled;
 }
 
@@ -135,9 +133,8 @@
  更新执行次数
  */
 -(void)setCallKeyCommandMethodCount:(NSInteger)count{
-    NSMutableDictionary *throttleData= UIApplication.sharedApplication.getThrottleData;
     NSString *key=NSStringFromSelector(@selector(_dispatchValidateCommand:));
-    [throttleData setObject:@(count) forKey:key];
+    [UIApplication.sharedApplication nx_setAssociatedObject:@(count) forKey:key];
 }
 
 
