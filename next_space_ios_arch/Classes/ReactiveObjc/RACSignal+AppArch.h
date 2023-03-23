@@ -83,6 +83,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (RACSignal<ValueType> *)bindLifecycleWithOwner:(NSObject *)lifecycleOwner DEPRECATED_MSG_ATTRIBUTE("过时了 请直接使用#bindLifecycle方法");
 
+
+/**
+ 检查每个流节点的耗时问题,仅仅在debug生效,不会影响线上
+ 场景 主线程也卡不住,cpu也有富裕,那么每个流节点耗时太长,转圈圈太多的情况,
+ 需要手动去排查,还要做时间剪法,比较糟糕,那么可以选择每个节点去去加一个timeoutOnlyDebug
+ */
+- (RACSignal<ValueType> *)timeoutOnlyDebug:(NSTimeInterval)interval;
+
 @end
 
 NS_ASSUME_NONNULL_END

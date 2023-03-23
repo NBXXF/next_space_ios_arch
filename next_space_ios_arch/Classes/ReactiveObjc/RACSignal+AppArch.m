@@ -143,4 +143,32 @@ typedef id __nullable (^ResultCallbck)(void);
     }
     return self;
 }
+
+
+/**
+ 检查每个流节点的耗时问题,仅仅在debug生效,不会影响线上
+ 场景 主线程也卡不住,cpu也有富裕,那么每个流节点耗时太长,转圈圈太多的情况,
+ 需要手动去排查,还要做时间剪法,比较糟糕,那么可以选择每个节点去去加一个timeoutOnlyDebug
+ */
+- (RACSignal *)timeoutOnlyDebug:(NSTimeInterval)interval{
+#if DEBUG
+    BOOL isSubThread=![NSThread isMainThread];
+    if(isSubThread){
+        return [[self timeout:interval onScheduler:RACScheduler.currentScheduler] doError:^(NSError * _Nonnull error) {
+            //timeout操作符号发送的[NSError errorWithDomain:RACSignalErrorDomain code:RACSignalErrorTimedOut userInfo:nil]
+            if(error.code==RACSignalErrorTimedOut&&[error.domain isEqual:RACSignalErrorDomain]){
+                NSAssert(NO, @"该流节点超时了,请查看xcode 侧边栏排查");
+            }
+        }];
+    }
+    return [[self timeout:interval onScheduler:RACScheduler.scheduler] doError:^(NSError * _Nonnull error) {
+        //timeout操作符号发送的[NSError errorWithDomain:RACSignalErrorDomain code:RACSignalErrorTimedOut userInfo:nil]
+        if(error.code==RACSignalErrorTimedOut&&[error.domain isEqual:RACSignalErrorDomain]){
+            NSAssert(NO, @"该流节点超时了,请查看xcode 侧边栏排查");
+        }
+    }];
+#else
+    return self;
+#endif
+}
 @end

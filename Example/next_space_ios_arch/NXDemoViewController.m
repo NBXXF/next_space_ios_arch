@@ -399,6 +399,15 @@
 }
 
 -(void)test2{
+    [[[[[RACSignal just:@""] map:^id _Nullable(id  _Nullable value) {
+        [NSThread sleepForTimeInterval:1];
+        return value;
+    }] timeoutOnlyDebug:0.5] doError:^(NSError * _Nonnull error) {
+        NSLog(@"================>timeoutOnlyDebug:error:%@",error);
+    }].subscribeOnSubThread subscribeNext:^(id  _Nullable x) {
+        NSLog(@"================>timeoutOnlyDebug:next:%@",x);
+    }];
+    
    id s= [NXError noPermissionError];
     if(s){
         
