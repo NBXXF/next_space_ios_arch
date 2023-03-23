@@ -6,10 +6,10 @@
 //
 
 #import "NSNumber+isEqual.h"
-#import "SwizzleMethod.h"
+#import <next_space_ios_arch/NSObject+Swizzling.h>
 @implementation NSNumber (isEqual)
 + (void)load{
-    [SwizzleMethod swizzleMethod:self originalSelector:@selector(isEqualToNumber:) swizzledSelector:@selector(nx_isEqualToNumber:)];
+    [NSObject nx_swizzleInstanceMethodWithClass:self originalSelector:@selector(isEqualToNumber:) swizzledSelector:@selector(nx_isEqualToNumber:)];
 }
 
 - (BOOL)nx_isEqualToNumber:(NSNumber *)number{

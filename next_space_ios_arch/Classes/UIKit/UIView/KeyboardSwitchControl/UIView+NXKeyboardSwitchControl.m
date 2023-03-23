@@ -15,13 +15,13 @@
 
 - (BOOL)allowSlideToCloseKeyboard{
     return [self.gestureRecognizers containsObjectWithBlock:^BOOL(__kindof UIGestureRecognizer * _Nonnull value) {
-        BOOL tag=[[value getObjcAssociatedObject:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
+        BOOL tag=[[value nx_getAssociatedObject:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
         return tag;
     }];
 }
 - (void)setAllowSlideToCloseKeyboard:(BOOL)isManageKeyboardSwitch{
     NSArray<NXKeyboardGestureRecognizer *> *recognizerArray =[self.gestureRecognizers filterObjectWithBlock:^BOOL(__kindof UIGestureRecognizer * _Nonnull value) {
-        BOOL tag=[[value getObjcAssociatedObject:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
+        BOOL tag=[[value nx_getAssociatedObject:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))] boolValue];
         return tag;
     }];
 
@@ -34,17 +34,17 @@
         [self addGestureRecognizer:[[[NXKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(__swipeToDissmissKeyboard:)] applyWithBlock:^(NXKeyboardGestureRecognizer  *_Nonnull it) {
             it.direction=UISwipeGestureRecognizerDirectionUp;
             it.delegate=it;
-            [it setObjcAssociatedObject:@YES
+            [it nx_setAssociatedObject:@YES
                                  forKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))
-            policy:OBJC_ASSOCIATION_ASSIGN];
+            policy:NX_ASSOCIATION_ASSIGN];
         }]];
         
         [self addGestureRecognizer:[[[NXKeyboardGestureRecognizer alloc] initWithTarget:self action:@selector(__swipeToDissmissKeyboard:)] applyWithBlock:^(NXKeyboardGestureRecognizer  *_Nonnull it) {
             it.direction=UISwipeGestureRecognizerDirectionDown;
             it.delegate=it;
-            [it setObjcAssociatedObject:@YES
+            [it nx_setAssociatedObject:@YES
                                  forKey:NSStringFromSelector(@selector(allowSlideToCloseKeyboard))
-            policy:OBJC_ASSOCIATION_ASSIGN];
+            policy:NX_ASSOCIATION_ASSIGN];
         }]];
     }
 }

@@ -19,7 +19,7 @@
 - (RACSignal<RACUnit *> * _Nonnull (^)(NSString * _Nonnull))untilUniqueSignalWithIdentifier{
     return ^RACSignal<RACUnit *> *(NSString * _Nonnull identifier){
         NSAssert(identifier, @"identifier 必须不为空");
-        NSMutableDictionary *uniqueSubjectDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
+        NSMutableDictionary *uniqueSubjectDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:[self nx_getAssociatedObject:NSStringFromSelector(_cmd)]]?:[NSMutableDictionary dictionary];
         
         RACReplaySubject *signal = [RACReplaySubject toKindOfClassObjectOrNilFrom:[uniqueSubjectDict objectForKey:identifier]];
         if (signal){
@@ -30,8 +30,7 @@
         RACReplaySubject *subject = [RACReplaySubject subject];
         [uniqueSubjectDict setObject:subject forKey:identifier];
         
-        objc_setAssociatedObject(self, _cmd, uniqueSubjectDict, OBJC_ASSOCIATION_RETAIN);
-        
+        [self nx_setAssociatedObject:uniqueSubjectDict forKey:NSStringFromSelector(_cmd)];
         
 #if DEBUG
         [self ____checkDebugSignalWithIdentifier:identifier];
@@ -49,7 +48,7 @@
 -(void)____checkDebugSignalWithIdentifier:(NSString *)identifier{
 #if DEBUG
     if(XXF.shared.config.allowCallStackSymbols){
-        NSMutableDictionary *callStackDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:objc_getAssociatedObject(self, _cmd)]?:[NSMutableDictionary dictionary];
+        NSMutableDictionary *callStackDict=[NSMutableDictionary toKindOfClassObjectOrNilFrom:[self nx_getAssociatedObject:NSStringFromSelector(_cmd)]]?:[NSMutableDictionary dictionary];
         NSString *lastUserCallLine=[callStackDict objectForKey:identifier];
 
         NSArray<NSString *> *callStack = [NSThread callStackSymbols];
@@ -84,7 +83,7 @@
         }
         if(userCallLine){
             [callStackDict setObject:userCallLine forKey:identifier];
-            objc_setAssociatedObject(self, _cmd, callStackDict, OBJC_ASSOCIATION_RETAIN);
+            [self nx_setAssociatedObject:callStackDict forKey:NSStringFromSelector(_cmd)];
         }
 
         NSString *callStackString = [NSString stringWithFormat:@"%@",callStackDict];

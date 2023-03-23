@@ -20,10 +20,10 @@
 
 - (void)throttleWithSelector:(nonnull SEL)action withObject:(nullable id)object duration:(NSTimeInterval)duration {
     NSString *key=[NSString stringWithFormat:@"%@_%@",__FILE_LINE__,NSStringFromSelector(action)];
-    NSDate *lastCalled = [self getObjcAssociatedObject:key];
+    NSDate *lastCalled = [self nx_getAssociatedObject:key];
     
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [self setObjcAssociatedObject:[NSDate date] forKey:key];
+        [self nx_setAssociatedObject:[NSDate date] forKey:key];
         __weak typeof(self) weakSelf = self;
         [weakSelf performSelector:action withObject:object];
     }
@@ -32,10 +32,10 @@
 
 - (void)throttleWithSelector:(SEL)action withObject:(id)object1 withObject:(id)object2 duration:(NSTimeInterval)duration{
     NSString *key=[NSString stringWithFormat:@"%@_%@",__FILE_LINE__,NSStringFromSelector(action)];
-    NSDate *lastCalled = [self getObjcAssociatedObject:key];
+    NSDate *lastCalled = [self nx_getAssociatedObject:key];
     
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [self setObjcAssociatedObject:[NSDate date] forKey:key];
+        [self nx_setAssociatedObject:[NSDate date] forKey:key];
         __weak typeof(self) weakSelf = self;
         [weakSelf performSelector:action withObject:object1 withObject:object2];
     }
@@ -64,9 +64,9 @@
 
 - (BOOL)isRateLimitingWithDuration:(NSTimeInterval)duration{
     NSString *key=[NSString stringWithFormat:@"%@_%@",__FILE_LINE__,NSStringFromSelector(_cmd)];
-    NSDate *lastCalled = [self getObjcAssociatedObject:key];
+    NSDate *lastCalled = [self nx_getAssociatedObject:key];
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [self setObjcAssociatedObject:[NSDate date] forKey:key];
+        [self nx_setAssociatedObject:[NSDate date] forKey:key];
         return NO;
     }
     return YES;
@@ -74,9 +74,9 @@
 
 + (BOOL)isRateLimitingWithId:(NSString *)ids duration:(NSTimeInterval)duration{
     NSString *key=ids;
-    NSDate *lastCalled = [UIApplication.sharedApplication getObjcAssociatedObject:key];
+    NSDate *lastCalled = [UIApplication.sharedApplication nx_getAssociatedObject:key];
     if(!lastCalled || ([[NSDate date] timeIntervalSinceDate:lastCalled]) >= duration) {
-        [UIApplication.sharedApplication setObjcAssociatedObject:[NSDate date] forKey:key];
+        [UIApplication.sharedApplication nx_setAssociatedObject:[NSDate date] forKey:key];
         return NO;
     }
     return YES;

@@ -6,7 +6,7 @@
 //
 
 #import "UIView+NXDrop.h"
-#import <objc/runtime.h>
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
 
 @interface UIView(NXDrop)
 @property(nonatomic,strong)NSMutableArray<CALayer *> *associatedDrapLocationLayers;
@@ -14,10 +14,13 @@
 
 
 @implementation UIView(NXDrop)
-const char *NXDROP_LAYERS_KEY = "NXDROP_LAYERS_KEY";
+
+-(NSString *)__keyDropedLayers{
+    return @"NXDROP_LAYERS_KEY";
+}
 
 - (NSMutableArray<CALayer *> *)associatedDrapLocationLayers{
-    NSMutableArray<CALayer *> *array=objc_getAssociatedObject(self, NXDROP_LAYERS_KEY);
+    NSMutableArray<CALayer *> *array=[self nx_getAssociatedObject:self.__keyDropedLayers];
     if(!array){
         array=[NSMutableArray array];
     }
@@ -25,7 +28,7 @@ const char *NXDROP_LAYERS_KEY = "NXDROP_LAYERS_KEY";
 }
 
 - (void)setAssociatedDrapLocationLayers:(NSMutableArray<CALayer *> *)associatedDrapLocationLayers{
-    objc_setAssociatedObject(self, NXDROP_LAYERS_KEY, associatedDrapLocationLayers, OBJC_ASSOCIATION_RETAIN);
+    [self nx_setAssociatedObject:associatedDrapLocationLayers forKey:self.__keyDropedLayers];
 }
 
 

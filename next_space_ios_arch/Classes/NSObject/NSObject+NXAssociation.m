@@ -6,30 +6,30 @@
 //
 
 #import "NSObject+NXAssociation.h"
-
+#import <objc/runtime.h>
 static NSMutableDictionary *objcAssociatedObjectKeyBuffer;
 @implementation NSObject(NXAssociation)
 + (void)load {
     objcAssociatedObjectKeyBuffer = [NSMutableDictionary dictionary];
 }
 
-- (void)setObjcAssociatedObject:(id)object
+- (void)nx_setAssociatedObject:(id)object
                          forKey:(NSString *)key
-                         policy:(objc_AssociationPolicy)policy{
+                         policy:(NX_AssociationPolicy)policy{
     const char *cKey = [objcAssociatedObjectKeyBuffer[key] pointerValue];
     if (cKey == NULL) {
         cKey = key.UTF8String;
         objcAssociatedObjectKeyBuffer[key] = [NSValue valueWithPointer:cKey];
     }
-    objc_setAssociatedObject(self, cKey, object, policy);
+    objc_setAssociatedObject(self, cKey, object, (objc_AssociationPolicy)policy);
 }
 
-- (void)setObjcAssociatedObject:(id)object forKey:(NSString *)key{
-    [self setObjcAssociatedObject:object forKey:key policy:OBJC_ASSOCIATION_RETAIN];
+- (void)nx_setAssociatedObject:(id)object forKey:(NSString *)key{
+    [self nx_setAssociatedObject:object forKey:key policy:NX_ASSOCIATION_RETAIN];
 }
 
 
-- (id)getObjcAssociatedObject:(NSString *)key{
+- (id)nx_getAssociatedObject:(NSString *)key{
     const char *cKey = [objcAssociatedObjectKeyBuffer[key] pointerValue];
     if (cKey == NULL) {
         return nil;

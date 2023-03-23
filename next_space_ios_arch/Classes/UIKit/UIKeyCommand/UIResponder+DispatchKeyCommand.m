@@ -104,7 +104,7 @@
  */
 -(void)addCallKeyCommandMethodTask:(RACDisposable *)task{
     NSString *key=[NSString stringWithFormat:@"%@_task",NSStringFromSelector(@selector(_dispatchValidateCommand:))];
-    [UIApplication.sharedApplication setObjcAssociatedObject:task forKey:key];
+    [UIApplication.sharedApplication nx_setAssociatedObject:task forKey:key];
 }
 
 /**
@@ -112,11 +112,11 @@
  */
 -(void)removeLastCallKeyCommandMethodTask{
     NSString *key=[NSString stringWithFormat:@"%@_task",NSStringFromSelector(@selector(_dispatchValidateCommand:))];
-    RACDisposable *task=  [UIApplication.sharedApplication getObjcAssociatedObject:key];
+    RACDisposable *task=  [UIApplication.sharedApplication nx_getAssociatedObject:key];
     if(task&&!task.isDisposed){
         [task dispose];
     }
-    [UIApplication.sharedApplication setObjcAssociatedObject:nil forKey:key];
+    [UIApplication.sharedApplication nx_setAssociatedObject:nil forKey:key];
 }
 
 
@@ -125,7 +125,7 @@
  */
 -(NSInteger)getCallKeyCommandMethodCount{
     NSString *key=NSStringFromSelector(@selector(_dispatchValidateCommand:));
-    NSInteger lastCalled = [[ UIApplication.sharedApplication getObjcAssociatedObject:key] integerValue];
+    NSInteger lastCalled = [[ UIApplication.sharedApplication nx_getAssociatedObject:key] integerValue];
     return lastCalled;
 }
 
@@ -134,7 +134,7 @@
  */
 -(void)setCallKeyCommandMethodCount:(NSInteger)count{
     NSString *key=NSStringFromSelector(@selector(_dispatchValidateCommand:));
-    [UIApplication.sharedApplication setObjcAssociatedObject:@(count) forKey:key];
+    [UIApplication.sharedApplication nx_setAssociatedObject:@(count) forKey:key];
 }
 
 

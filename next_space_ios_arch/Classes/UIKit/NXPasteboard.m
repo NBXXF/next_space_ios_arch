@@ -6,7 +6,7 @@
 //
 
 #import "NXPasteboard.h"
-#import <objc/runtime.h>
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
 
 @implementation NXPasteboard
 const char *PASTE_DATA_KEY = "NXPasteboard";
@@ -43,14 +43,14 @@ const char *PASTE_DATA_KEY = "NXPasteboard";
     if(!myPasteboard || myPasteboard.changeCount!=pasteboard.changeCount){
         NSLog(@"===========>v1:%ld v2:%d",myPasteboard.changeCount,pasteboard.changeCount);
         myPasteboard=[self copyFromPasteboard:pasteboard];
-        objc_setAssociatedObject(UIApplication.sharedApplication, PASTE_DATA_KEY, myPasteboard, OBJC_ASSOCIATION_RETAIN);
+        [UIApplication.sharedApplication nx_setAssociatedObject:myPasteboard forKey:@"NXPasteboard"];
         return YES;
     }
     return NO;
 }
 
 + (instancetype)getFromApplication{
-    NXPasteboard *myPasteboard= objc_getAssociatedObject(UIApplication.sharedApplication, PASTE_DATA_KEY);
+    NXPasteboard *myPasteboard= [UIApplication.sharedApplication nx_getAssociatedObject:@"NXPasteboard"];
     return myPasteboard;
 }
 @end
