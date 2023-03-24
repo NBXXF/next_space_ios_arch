@@ -16,6 +16,7 @@
 #import <next_space_ios_arch/NXRouter.h>
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 #import <next_space_ios_arch/UIView+NXKeyboardSwitchControl.h>
+#import <next_space_ios_arch/UILabel+NXCopy.h>
 
 @interface XXFHelperViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -39,6 +40,7 @@
 -(void)setupUI{
     self.view.backgroundColor=UIColor.whiteColor;
     UILabel *titleLabel=UILabel.new;
+    titleLabel.enableCopyText=YES;
     titleLabel.textColor=UIColor.redColor;
     titleLabel.text=@"XXF Developer help";
     [self.contentView addSubview:titleLabel];

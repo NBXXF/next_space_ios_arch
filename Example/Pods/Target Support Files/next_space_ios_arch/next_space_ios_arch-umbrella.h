@@ -142,6 +142,7 @@
 #import "UIKeyCommandConstant.h"
 #import "UIKeyCommanderProtocol.h"
 #import "UIResponder+DispatchKeyCommand.h"
+#import "UILabel+NXCopy.h"
 #import "UIScreen+NXTools.h"
 #import "NXTableListAdapter.h"
 #import "UITableView+NXAdapter.h"
