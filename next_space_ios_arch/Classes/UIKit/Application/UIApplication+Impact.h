@@ -1,7 +1,7 @@
 //
-//  UIView+Feedbackable.h
+//  UIApplication+Impact.h
 //  next_space_ios_arch
-//  震动反馈
+//
 //  Created by XXF on 2023/3/24.
 //
 
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView(Feedbackable)
+@interface UIApplication(Impact)
 
 @end
 
