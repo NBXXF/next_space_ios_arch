@@ -156,6 +156,7 @@
 #import "UIView+NXGestureRecognizer.h"
 #import "UIView+NXQuery.h"
 #import "UIView+NXStatus.h"
+#import "UIView+Shake.h"
 #import "NXCommonResultProtocol.h"
 #import "NXNavigationViewController.h"
 #import "NXUIComponentProtocol.h"
