@@ -1,7 +1,8 @@
 //
 //  UIView+Shake.h
 //  UIView+Shake
-//
+//    增加系统反馈
+// Created by XXF on 2023/3/25.
 //
 
 #import <UIKit/UIKit.h>

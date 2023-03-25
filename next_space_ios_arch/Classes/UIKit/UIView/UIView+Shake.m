@@ -1,9 +1,11 @@
 //
 //  UIView+Shake.m
 //  UIView+Shake
-//
+//    增加系统反馈
+// Created by XXF on 2023/3/25.
 
 #import "UIView+Shake.h"
+#import <next_space_ios_arch/UIView+Feedback.h>
 
 @implementation UIView (Shake)
 
@@ -58,6 +60,9 @@ shakeDirection:(ShakeDirection)shakeDirection
 shakeDirection:(ShakeDirection)shakeDirection
     completion:(void (^)(void))completionHandler {
     __weak UIView *weakSelf = self;
+    //增加触觉反馈
+    [weakSelf prepareFeedback];
+    [weakSelf performFeedback];
 	[UIView animateWithDuration:interval animations:^{
         switch (shakeDirection) {
             case ShakeDirectionVertical:
