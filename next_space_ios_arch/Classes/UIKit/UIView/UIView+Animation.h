@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <pop/pop.h>
+#import <pop/POP.h>
 #import <pop/pop-umbrella.h>
 
 NS_ASSUME_NONNULL_BEGIN

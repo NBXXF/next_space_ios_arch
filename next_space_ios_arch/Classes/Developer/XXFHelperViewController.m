@@ -45,7 +45,6 @@
     titleLabel.textColor=UIColor.redColor;
     titleLabel.text=@"XXF Developer help";
     [titleLabel whenTapped:^{
-        [titleLabel animateWithBounce];
     }];
     [self.contentView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
