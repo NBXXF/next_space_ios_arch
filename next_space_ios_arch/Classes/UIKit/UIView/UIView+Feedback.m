@@ -45,7 +45,9 @@ singleton_implementation(ImpactFeedbackGenerator)
 }
 
 - (UIImpactFeedbackStyle)feedbackStyle{
-    return [[self nx_getAssociatedObject:NSStringFromSelector(@selector(feedbackStyle))] integerValue];
+    //默认中等反馈震动
+    id style=[self nx_getAssociatedObject:NSStringFromSelector(@selector(feedbackStyle))]?:@(UIImpactFeedbackStyleMedium);
+    return [style integerValue];
 }
 - (void)setFeedbackStyle:(UIImpactFeedbackStyle)vibrateStyle{
     [self nx_setAssociatedObject:@(vibrateStyle) forKey:NSStringFromSelector(@selector(feedbackStyle))];
