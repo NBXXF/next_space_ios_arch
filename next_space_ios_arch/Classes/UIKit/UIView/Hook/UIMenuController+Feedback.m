@@ -32,7 +32,7 @@
     if(menuVisible){
         //为ACTION菜单显示增加反馈 震动反馈
         [FeedbackGenerator.shared performDefaultFeedback];
-        [self _hook_setMenuVisible:menuVisible animated:animated];
     }
+    [self _hook_setMenuVisible:menuVisible animated:animated];
 }
 @end
