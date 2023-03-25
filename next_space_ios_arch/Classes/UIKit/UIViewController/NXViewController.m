@@ -167,10 +167,7 @@
 - (void)setBaseResult:(id)result{
     if(self.kRouterResultCallback){
         //触觉震动反馈
-        [[ImpactFeedbackGenerator.shared.feedbackGenerators objectForKey:@(UIImpactFeedbackStyleMedium)] applyWithBlock:^(UIImpactFeedbackGenerator *_Nonnull it) {
-            [it prepare];
-            [it impactOccurredWithIntensity:1];
-        }];
+        [FeedbackGenerator.shared performDefaultFeedback];
         self.kRouterResultCallback(self,result);
     }
 }

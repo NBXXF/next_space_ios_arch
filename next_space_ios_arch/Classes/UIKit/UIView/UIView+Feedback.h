@@ -21,11 +21,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- 触觉反馈工厂
+ 触觉反馈工厂 共享能避免瞬间调用多次的问题
  */
-@interface ImpactFeedbackGenerator:NSObject
+@interface FeedbackGenerator:NSObject
 singleton_interface(ImpactFeedbackGenerator)
+
+@property(nonatomic,strong) UIImpactFeedbackGenerator *defaultFeedbackGenerator;
 @property(nonatomic,strong) NSDictionary<NSNumber *,UIImpactFeedbackGenerator *> *feedbackGenerators;
+
+/**
+ 默认触觉反馈
+ */
+-(void)performDefaultFeedback;
+
 @end
 
 

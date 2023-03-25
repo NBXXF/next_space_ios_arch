@@ -10,6 +10,7 @@
 #import <next_space_ios_arch/NSObject+Swizzling.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
 #import <next_space_ios_arch/NSObject+NXRACSignalSupport.h>
+#import <next_space_ios_arch/UIView+Feedback.h>
 
 @implementation UIViewController(NXDebounce)
 
@@ -23,6 +24,9 @@
 - (void)_hook_presentViewController:(UIViewController *)viewControllerToPresent
                            animated: (BOOL)flag
                          completion:(void (^ __nullable)(void))completion NS_SWIFT_DISABLE_ASYNC API_AVAILABLE(ios(5.0)){
+    //触觉震动反馈
+    [FeedbackGenerator.shared performDefaultFeedback];
+    
     //有动画的情况,拦截,没动画 不用管,系统阻塞快
     if(flag){
         //注意多方冲突 类+类+行 唯一性较高。屏蔽同一个类型 多种实例类型弹窗

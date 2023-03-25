@@ -10,8 +10,12 @@
 #import <next_space_ios_arch/NSDictionary+NXTools.h>
 #import <next_space_ios_arch/NSMutableArray+NXTools.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
-@implementation ImpactFeedbackGenerator
-singleton_implementation(ImpactFeedbackGenerator)
+@implementation FeedbackGenerator
+singleton_implementation(FeedbackGenerator)
+
+- (UIImpactFeedbackGenerator *)defaultFeedbackGenerator{
+    return [self.feedbackGenerators objectForKey:@(UIImpactFeedbackStyleMedium)];
+}
 
 - (NSDictionary<NSNumber *,UIImpactFeedbackGenerator *> *)feedbackGenerators{
     if(!_feedbackGenerators){
@@ -24,6 +28,13 @@ singleton_implementation(ImpactFeedbackGenerator)
         _feedbackGenerators=dict.copy;
     }
     return _feedbackGenerators;
+}
+
+- (void)performDefaultFeedback{
+    [self.defaultFeedbackGenerator applyWithBlock:^(UIImpactFeedbackGenerator *_Nonnull it) {
+        [it prepare];
+        [it impactOccurredWithIntensity:1];
+    }];
 }
 @end
 
@@ -54,11 +65,11 @@ singleton_implementation(ImpactFeedbackGenerator)
 }
 
 - (void)prepareFeedback{
-    [[ImpactFeedbackGenerator.shared.feedbackGenerators objectForKey:@(self.feedbackStyle)] prepare];
+    [[FeedbackGenerator.shared.feedbackGenerators objectForKey:@(self.feedbackStyle)] prepare];
 }
 
 
 - (void)performFeedback{
-    [[ImpactFeedbackGenerator.shared.feedbackGenerators objectForKey:@(self.feedbackStyle)] impactOccurredWithIntensity:1.0];
+    [[FeedbackGenerator.shared.feedbackGenerators objectForKey:@(self.feedbackStyle)] impactOccurredWithIntensity:1.0];
 }
 @end
