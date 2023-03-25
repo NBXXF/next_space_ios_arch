@@ -28,6 +28,7 @@
 //        scaleAnimation.duration = 0.1;
 //        scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.95, 0.95)];
 //        [self.contentView pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+//        
 //    } else {
 //        POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
 //        scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];

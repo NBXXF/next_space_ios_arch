@@ -8,6 +8,7 @@
 #import "UIView+NXGestureRecognizer.h"
 #import <objc/runtime.h>
 #import <next_space_ios_arch/NSObject+RateLimiting.h>
+#import <next_space_ios_arch/UIView+Animation.h>
 
 @implementation UIView(NXGestureRecognizer)
 
@@ -73,6 +74,7 @@ static char NXViewLongPressBlockKey;
         NSLog(@"==========>rateLimiting for singleTap");
         return;
     }
+    [self animateWithBounce];
     [self makeBlockForkey:&NXViewSingleTapBlockKey];
 }
 
