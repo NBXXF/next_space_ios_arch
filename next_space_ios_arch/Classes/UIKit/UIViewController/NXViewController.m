@@ -10,6 +10,9 @@
 #import "UIViewController+PopDissmiss.h"
 #import <Masonry/Masonry.h>
 #import "UIApplication+NXTools.h"
+#import <next_space_ios_arch/UIView+Feedback.h>
+#import <next_space_ios_arch/NSObject+NXTools.h>
+
 @interface NXViewController()
 @property (nonatomic, strong) UIView *contentView;
 //默认NO 等同于普通ViewController
@@ -163,6 +166,11 @@
 
 - (void)setBaseResult:(id)result{
     if(self.kRouterResultCallback){
+        //触觉震动反馈
+        [[ImpactFeedbackGenerator.shared.feedbackGenerators objectForKey:@(UIImpactFeedbackStyleMedium)] applyWithBlock:^(UIImpactFeedbackGenerator *_Nonnull it) {
+            [it prepare];
+            [it impactOccurredWithIntensity:1];
+        }];
         self.kRouterResultCallback(self,result);
     }
 }
