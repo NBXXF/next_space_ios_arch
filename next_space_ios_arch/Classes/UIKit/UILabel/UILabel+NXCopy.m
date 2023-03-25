@@ -64,6 +64,10 @@
         UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"拷贝" action:@selector(__customCopy:)];
         UIMenuController *menuController = [UIMenuController sharedMenuController];
         menuController.menuItems = [NSArray arrayWithObjects:copyItem, nil];
+ 
+//        [menuController setTargetRect:self.frame inView:self.superview];
+//        [menuController setMenuVisible:YES animated:YES];
+//        
         [menuController showMenuFromView:self.superview rect:self.frame];
     }
 }
