@@ -17,6 +17,7 @@
 #import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 #import <next_space_ios_arch/UIView+NXKeyboardSwitchControl.h>
 #import <next_space_ios_arch/UILabel+NXCopy.h>
+#import <pop/POP.h>
 
 @interface XXFHelperViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -43,6 +44,17 @@
     titleLabel.enableCopyText=YES;
     titleLabel.textColor=UIColor.redColor;
     titleLabel.text=@"XXF Developer help";
+    [titleLabel whenTapped:^{
+        POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleAnimation.duration = 0.1;
+        scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.95, 0.95)];
+        [titleLabel pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+        POPSpringAnimation *scaleAnimation2 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleAnimation2.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        scaleAnimation2.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
+        scaleAnimation2.springBounciness = 20.f;
+        [titleLabel pop_addAnimation:scaleAnimation2 forKey:@"scaleAnimation"];
+    }];
     [self.contentView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(40);
