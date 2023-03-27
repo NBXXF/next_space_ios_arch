@@ -32,7 +32,7 @@
 }
 
 -(void)_hook_animation_setHighlighted:(BOOL)highlighted{
-    if(highlighted){
+    if(highlighted&&self.allowAnimationForHighlight){
         [self animateWithBounce];
     }
     [self _hook_animation_setHighlighted:highlighted];

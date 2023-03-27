@@ -33,7 +33,7 @@
 }
 
 - (void)_hook_animation_setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
-    if(highlighted&&!animated){
+    if(highlighted&&!animated&&self.allowAnimationForHighlight){
         [self animateWithBounce];
     }
     [self _hook_animation_setHighlighted:highlighted animated:animated];
