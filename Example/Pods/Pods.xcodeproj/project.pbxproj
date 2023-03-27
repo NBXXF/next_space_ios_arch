@@ -39,7 +39,6 @@
 		07EF6BBCF36C2B118A17CC3566430D21 /* POPAnimationPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = B018009863CB169A20196D9F07EA1835 /* POPAnimationPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		08A738426EE874DDEC7302C4AE85EA19 /* UIKeyCommandConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 23062094B6DEB729F0F34EF22BF87DDC /* UIKeyCommandConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		094EE7C9F74C2337403C67DFDC1BD81E /* NSDictionary+log.m in Sources */ = {isa = PBXBuildFile; fileRef = C65401841FF0D1307F921D081799CA8A /* NSDictionary+log.m */; };
-		0A212C2ABA32964735645E8F750946E5 /* UITableViewCell+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3600A6008374A18A51EF2C5DEE493E /* UITableViewCell+Animation.m */; };
 		0A3B708E06FB259D11F696EEE4E7624A /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C2064D50F7C3B904B636F1B2748AF1 /* YYClassInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A53D09A1CF67073CE368BFF9F1F0FCE /* RACValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = A61B1AAE13A0CA49CFA5121279DC7E12 /* RACValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A7CEF5998BB19FB314EFDA8726CDE36 /* NXHTTPSessionManager+Cache.h in Headers */ = {isa = PBXBuildFile; fileRef = 917BF714B448073F41F8C851354E5158 /* NXHTTPSessionManager+Cache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -252,7 +251,6 @@
 		4C7873055BBE00D9BF4730DA4ECD6207 /* NXCommonResultProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BA875083150C948E014BF203019BF1A /* NXCommonResultProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CC9B43AD90714A316815FAA71DC89A2 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D799C0709AA69D22871B189B9F158B9 /* MASConstraintMaker.m */; };
 		4D1066A76521CF683C33B37F1D476A49 /* NSNotificationCenter+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A49631B6C2328A18840D3B123A11AC02 /* NSNotificationCenter+RACSupport.m */; };
-		4D13640CFE24645B8AE087595AC6ED68 /* UITableViewCell+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 398B1EB29D47EB7283E97ED70B840C8F /* UITableViewCell+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D7C517E2B5682648318A564CBCBACC0 /* NSArray+RACSequenceAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4004BF8F2CA9D0CBED13CE74CB6BA88D /* NSArray+RACSequenceAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DB95B5F52A46EBC785C62F172F21403 /* UIControl+RACSignalSupportPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 54B65E25CD4DC842DDA6CDCAAD1198BB /* UIControl+RACSignalSupportPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4DCB59DE84A69063E9485E4D8BF8C637 /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FC5FB85A79158FE49AA15AA9405B9F /* AFNetworking-dummy.m */; };
@@ -551,7 +549,6 @@
 		9F78B2A50B95FBDDB74166D088BF7D23 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 48989609A9620CCFC9A2E3B813B7B881 /* NSDate+Utilities.m */; };
 		9FB2EFF73B446C4C1BD39BF4C621734A /* MMKV_OSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5817AEACCF62813E469FAECE803344F4 /* MMKV_OSX.cpp */; settings = {COMPILER_FLAGS = "-x objective-c++ -fno-objc-arc"; }; };
 		9FC3BE1E9503791F7D78B7A6DCEEE5BB /* UITableView+NXRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B62AA5A53212C125CFFEF73FADD28F6 /* UITableView+NXRegister.m */; };
-		A02A7AB61B8EC067C59CD3C1C975E016 /* UICollectionViewCell+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C9EAA9D166F6EB62B5B1E406AB832 /* UICollectionViewCell+Animation.m */; };
 		A0B00DCF518FD522779C687055982D81 /* POPCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FE1731A13772F1D7980885B7DD3CFA0B /* POPCGUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A0DADC195D5BC77CBB76E7EA684DC69A /* NSNotificationCenter+RACSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = D933EBF10198D4A3C6F5EC2336070F70 /* NSNotificationCenter+RACSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1114116216C1ED11DF928003DB8F775 /* NSObject+Swizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = E137161CE37C87EB2940A6D56E37807B /* NSObject+Swizzling.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -727,7 +724,6 @@
 		D8252E8E6C1BF1E5717DF4654E0F7254 /* RACSignal+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = C084C24122D92BE155B5ABA98BA05593 /* RACSignal+Operations.m */; };
 		D923A906BE75B503BA938D2468C6CA00 /* NSArray+Hash.h in Headers */ = {isa = PBXBuildFile; fileRef = C37E66D9B5EE7ED5311DF43432A6FC97 /* NSArray+Hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D95CE55FFA199ADA1EBC7C0DCF1E665C /* UIView+NXKeyboardSwitchControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F604877A0D5E18ED74459AF0F146ECC /* UIView+NXKeyboardSwitchControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9E77A74C130F43F869B7D100554A831 /* UICollectionViewCell+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A8A3C81D69C197092596F7B567056D2 /* UICollectionViewCell+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9EB664DAFBB37163DD056FD224AEC2E /* NXCollectionSectionTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = CD11F16E243A722EE7CAE8655E951762 /* NXCollectionSectionTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9EEC96C5EC2C7E5FDCEF6B8C8A83296 /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D41243EDA350FEA6578906F4BF428DC /* YYTextWeakProxy.m */; };
 		D9FA55F1CAEDFE48760C6A8CFF963CB3 /* NXNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2FF0C48C0FFEDEF36EB01D662A0077 /* NXNavigationViewController.m */; };
@@ -1093,7 +1089,6 @@
 		1BDE03721C4CC842F51A67346E3FB11D /* UIView+Animation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		1BEC6CA3B7539CFD9476051E04BEDACC /* RACSubscriber+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RACSubscriber+Private.h"; path = "ReactiveObjC/RACSubscriber+Private.h"; sourceTree = "<group>"; };
 		1C347CF0E6A4124F3175903C5E5E0EEE /* PerformanceСalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PerformanceСalculator.swift"; sourceTree = "<group>"; };
-		1C3600A6008374A18A51EF2C5DEE493E /* UITableViewCell+Animation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Animation.m"; sourceTree = "<group>"; };
 		1C5FEC699E1F7B6F2B79BBFE29F1D4A0 /* AFNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-umbrella.h"; sourceTree = "<group>"; };
 		1C9792D8F9AAC9AE1458999DD056B03C /* UITableViewCell+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+RACSignalSupport.m"; path = "ReactiveObjC/UITableViewCell+RACSignalSupport.m"; sourceTree = "<group>"; };
 		1C9F7DEB9E5D40B104BD760F18943FBD /* NXAppSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NXAppSettings.m; sourceTree = "<group>"; };
@@ -1192,14 +1187,12 @@
 		39148EB7E9D7D8C67E8CBA4CB3C76BDB /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYModel/YYClassInfo.m; sourceTree = "<group>"; };
 		39583A3E9832EC4A448EF52EC1C0D908 /* NSObject+NXYYModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NXYYModel.m"; sourceTree = "<group>"; };
 		396F481704B468AB3D57446DFFDD5CE5 /* RACKVOTrampoline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACKVOTrampoline.m; path = ReactiveObjC/RACKVOTrampoline.m; sourceTree = "<group>"; };
-		398B1EB29D47EB7283E97ED70B840C8F /* UITableViewCell+Animation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Animation.h"; sourceTree = "<group>"; };
 		39CC6204E818D732375C810A07F71212 /* YYKVStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYKVStorage.h; path = YYCache/YYKVStorage.h; sourceTree = "<group>"; };
 		3A28FCB4857D0E911383BEED96B197D3 /* UIImage+NXTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+NXTools.h"; sourceTree = "<group>"; };
 		3A3D0F9FAB902662269ACC3EFDCABF99 /* UIView+NXDrop.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+NXDrop.h"; sourceTree = "<group>"; };
 		3A523A80481F97D9FEDBFC168BECA96B /* JLRoutes.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JLRoutes.modulemap; sourceTree = "<group>"; };
 		3A61C50B821385A548CC3A1B16C5E320 /* ThreadUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ThreadUtils.m; sourceTree = "<group>"; };
 		3A74639814AB61232CA4A2B5E541711F /* NXSessionDataTaskResult+NXTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NXSessionDataTaskResult+NXTools.m"; sourceTree = "<group>"; };
-		3A8A3C81D69C197092596F7B567056D2 /* UICollectionViewCell+Animation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+Animation.h"; sourceTree = "<group>"; };
 		3AB9734488E4131989B5A2D35366982A /* UIImage+NXAppending.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+NXAppending.h"; sourceTree = "<group>"; };
 		3B178C86B12480F6EB9CD72A52101F6B /* ReactiveObjC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ReactiveObjC.h; path = ReactiveObjC/ReactiveObjC.h; sourceTree = "<group>"; };
 		3B567C0A38D0AD0DCD25D6077B252521 /* MemoryFile_OSX.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryFile_OSX.cpp; path = Core/MemoryFile_OSX.cpp; sourceTree = "<group>"; };
@@ -1383,7 +1376,6 @@
 		6D5FF31F150DC9156D334AD9DB58E379 /* MiniPBCoder_OSX.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = MiniPBCoder_OSX.cpp; path = Core/MiniPBCoder_OSX.cpp; sourceTree = "<group>"; };
 		6D82CFF5B041FF3E5CFDC3E6EF76E4D5 /* CodedInputDataCrypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CodedInputDataCrypt.h; path = Core/CodedInputDataCrypt.h; sourceTree = "<group>"; };
 		6D9147BA7009A5FAD24FA3F155FE6723 /* Pods-next_space_ios_arch_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-next_space_ios_arch_Tests-dummy.m"; sourceTree = "<group>"; };
-		6E3C9EAA9D166F6EB62B5B1E406AB832 /* UICollectionViewCell+Animation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+Animation.m"; sourceTree = "<group>"; };
 		6E4B75F154C3E0B9D2E5781F34D529D9 /* WKWebView+NXSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "WKWebView+NXSnapshot.swift"; sourceTree = "<group>"; };
 		6E81C719DCCEE11E41BE124A3AD5B188 /* NXTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NXTableViewCell.h; sourceTree = "<group>"; };
 		6E82B9D14ABCDD526AD00C37C5B5492A /* NSDictionary+log.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+log.h"; sourceTree = "<group>"; };
@@ -2796,14 +2788,10 @@
 		7CE3D01329D1846400CE732B /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				3A8A3C81D69C197092596F7B567056D2 /* UICollectionViewCell+Animation.h */,
-				6E3C9EAA9D166F6EB62B5B1E406AB832 /* UICollectionViewCell+Animation.m */,
 				552017BE78B3660D56A8A3990831D1D7 /* UIView+Animation.h */,
 				1BDE03721C4CC842F51A67346E3FB11D /* UIView+Animation.m */,
 				7CE3D00F29D17F1100CE732B /* UIControl+Animation.h */,
 				7CE3D01029D17F1100CE732B /* UIControl+Animation.m */,
-				398B1EB29D47EB7283E97ED70B840C8F /* UITableViewCell+Animation.h */,
-				1C3600A6008374A18A51EF2C5DEE493E /* UITableViewCell+Animation.m */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -3898,7 +3886,6 @@
 				3C29641FC520C652547CCDF3E86CF3BD /* UICollectionView+NXAdapter.h in Headers */,
 				2E713FE39E755307A831187C56FF2B7B /* UICollectionView+NXHeader.h in Headers */,
 				4C3DF12C12E6AD0726B52416883B97D5 /* UICollectionView+NXRegister.h in Headers */,
-				D9E77A74C130F43F869B7D100554A831 /* UICollectionViewCell+Animation.h in Headers */,
 				E0495F9E27386C68F11020D6C985037A /* UIColor+NXGradient.h in Headers */,
 				AE96DFE3C3C9E04CB5007ED2D36E1ECD /* UIColor+Parser.h in Headers */,
 				58745CD9B512F67D230EFE5B05C9BCA5 /* UIImage+NXAppending.h in Headers */,
@@ -3915,7 +3902,6 @@
 				977E83DEC0830CD747E69C70856944B7 /* UIScreen+NXTools.h in Headers */,
 				CFF96FC79180FB601981379505E7AB64 /* UITableView+NXAdapter.h in Headers */,
 				A5BE58B75F87EA324C85536EEF75C685 /* UITableView+NXRegister.h in Headers */,
-				4D13640CFE24645B8AE087595AC6ED68 /* UITableViewCell+Animation.h in Headers */,
 				E2004DE17266D6A04516CB479AA5EEA0 /* UITableViewCell+NXRACSignalSupport.h in Headers */,
 				1361C39B03AC3D35142242735887F414 /* UITableViewHeaderFooterView+NXRACSignalSupport.h in Headers */,
 				29DA342B56F0AC27345DD3FCD6D5F46A /* UIView+Animation.h in Headers */,
@@ -4886,7 +4872,6 @@
 				A53F2F3D33B13FADE5578B95299140BF /* UICollectionView+NXHeader.m in Sources */,
 				0C9DE22478C9FA6203B131CDCA834032 /* UICollectionView+NXRegister.m in Sources */,
 				D7BC53EB7C9216F4D582245DCBFD0DC1 /* UICollectionView+NXSnapshot.swift in Sources */,
-				A02A7AB61B8EC067C59CD3C1C975E016 /* UICollectionViewCell+Animation.m in Sources */,
 				185B5AEDDD7553DAC350C6AEFEA98130 /* UIColor+NXGradient.m in Sources */,
 				8345DB373A5D97F80947C1AEB122AF99 /* UIColor+Parser.m in Sources */,
 				C021E7B8CF31A7334D904CE97D17B36D /* UIImage+NXAppending.m in Sources */,
@@ -4904,7 +4889,6 @@
 				46F37DB3FA088B273D3173FCC0DEA961 /* UITableView+NXAdapter.m in Sources */,
 				9FC3BE1E9503791F7D78B7A6DCEEE5BB /* UITableView+NXRegister.m in Sources */,
 				A1735075E090D09DCA661736EDEDCB59 /* UITableView+NXSnapshot.swift in Sources */,
-				0A212C2ABA32964735645E8F750946E5 /* UITableViewCell+Animation.m in Sources */,
 				EF201F2FF709D20B8F3A78888CBFA765 /* UITableViewCell+NXRACSignalSupport.m in Sources */,
 				79310364C71A54CB5A7947DDD3B20C7A /* UITableViewHeaderFooterView+NXRACSignalSupport.m in Sources */,
 				34C6AC39BF165C20D0CD528968F078AE /* UIView+Animation.m in Sources */,
