@@ -12,6 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView(Animation)
+/**
+ 是否允许高亮时候执行默认动画
+ */
+@property(nonatomic,assign)BOOL allowAnimationForHighlight;
+-(NSString *)_keyAllowAnimationForHighlight;
 
 -(void)animateWithBounce;
 @end

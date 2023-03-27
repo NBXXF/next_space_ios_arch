@@ -8,7 +8,6 @@
 #import "UITableViewCell+Animation.h"
 #import <next_space_ios_arch/UIView+Animation.h>
 #import <next_space_ios_arch/NSObject+Swizzling.h>
-#import <next_space_ios_arch/NSObject+NXAssociation.h>
 
 @implementation UITableViewCell(Animation)
 + (void)load{
@@ -39,20 +38,4 @@
     [self _hook_animation_setHighlighted:highlighted animated:animated];
 }
 
-
-
--(NSString *)_keyAllowAnimationForHighlight{
-    return NSStringFromSelector(@selector(allowAnimationForHighlight));
-}
-- (BOOL)allowAnimationForHighlight{
-    //默认NO
-    id result=[self nx_getAssociatedObject:self._keyAllowAnimationForHighlight]?:@(NO);
-    return [result boolValue];
-}
-
-- (void)setAllowAnimationForHighlight:(BOOL)allowAnimationForHighlight{
-    [self nx_setAssociatedObject:@(allowAnimationForHighlight)
-                          forKey:self._keyAllowAnimationForHighlight
-                          policy:NX_ASSOCIATION_ASSIGN];
-}
 @end

@@ -32,20 +32,9 @@
 }
 
 
-
-
--(NSString *)_keyAllowAnimationForHighlight{
-    return NSStringFromSelector(@selector(allowAnimationForHighlight));
-}
 - (BOOL)allowAnimationForHighlight{
     //默认YES
     id result=[self nx_getAssociatedObject:self._keyAllowAnimationForHighlight]?:@(YES);
     return [result boolValue];
-}
-
-- (void)setAllowAnimationForHighlight:(BOOL)allowAnimationForHighlight{
-    [self nx_setAssociatedObject:@(allowAnimationForHighlight)
-                          forKey:self._keyAllowAnimationForHighlight
-                          policy:NX_ASSOCIATION_ASSIGN];
 }
 @end

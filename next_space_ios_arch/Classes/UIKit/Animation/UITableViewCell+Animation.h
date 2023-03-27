@@ -6,14 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <POP/POP.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableViewCell(Animation)
-/**
- 是否允许高亮时候执行默认动画
- */
-@property(nonatomic,assign)BOOL allowAnimationForHighlight;
+
 @end
 
 NS_ASSUME_NONNULL_END
