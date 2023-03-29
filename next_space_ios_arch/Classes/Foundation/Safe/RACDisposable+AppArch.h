@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RACDisposable(AppArch)
 
-- (void)disposeSafe;
+- (void)disposeSafe DEPRECATED_MSG_ATTRIBUTE("过时了,已经在原始方法上hook了");
 
 @end
 
