@@ -74,7 +74,9 @@ static char NXViewLongPressBlockKey;
         NSLog(@"==========>rateLimiting for singleTap");
         return;
     }
-    [self animateWithBounce];
+    if(self.allowAnimationForHighlight){
+        [self animateWithBounce];
+    }
     [self makeBlockForkey:&NXViewSingleTapBlockKey];
 }
 
