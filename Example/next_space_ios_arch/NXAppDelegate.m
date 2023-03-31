@@ -24,6 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+  BOOL TT=  [NSURL isWEBURLWithString:@"ddd"];
+  BOOL TT2=  [NSURL isWEBURLWithString:@"https://www.cnblogs.com/diweinan/p/6214044.html"];
    NSString *tstr0= @"http://www.baidu.com/import-dev/0cc22faf-5dbb-45f1-acd7-2f6dd481ab8a/%E5%AF%BC%E5%87%BAword+9ef316bb-f433-427d-adf9-d4e7c25f439a.docx";
    NSString *tstr1= [NSURL formatURLPathWithPath:tstr0 encoded:NO];
    NSString *tstr2=  [NSURL formatURLPathWithPath:tstr1 encoded:NO];

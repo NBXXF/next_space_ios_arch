@@ -10,6 +10,15 @@
 
 @implementation NSURL(NXHttp)
 
++ (BOOL)isWEBURLWithString:(NSString *)str{
+    if(str){
+        NSString *webRegex = @"[a-zA-z]+://.*";
+        NSPredicate *webTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", webRegex];
+        return [webTest evaluateWithObject:str];
+    }
+    return NO;
+}
+
 /**
  HOOK 会导致路由框架有问题 JLRoute
   NSURL *baseURL = [NSURL URLWithString:@"http://example.com/v1/"];

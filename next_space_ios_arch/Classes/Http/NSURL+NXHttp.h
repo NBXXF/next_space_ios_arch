@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSURL(NXHttp)
 
 /**
+ 是否是API或者网页
+ */
++(BOOL)isWEBURLWithString:(NSString *)str;
+
+/**
  HOOK 会导致路由框架有问题 JLRoute
  
   NSURL *baseURL = [NSURL URLWithString:@"http://example.com/v1/"];
