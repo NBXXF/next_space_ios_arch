@@ -10,6 +10,17 @@
 
 @implementation NSURL(NXHttp)
 
++(instancetype)URLWithURL:(NSURL *)url replaceIP:(NSString *)ip{
+    NSString * host = url.host;
+    NSString * absoluteURLString = url.absoluteString;
+    NSRange range = [absoluteURLString rangeOfString: host];
+    if (range.location == NSNotFound) { return url; }
+    
+    absoluteURLString = [absoluteURLString stringByReplacingCharactersInRange: range withString: ip];
+    NSURL *newURL = [NSURL URLWithString: absoluteURLString];
+    return newURL;
+}
+
 /**
  HOOK 会导致路由框架有问题 JLRoute
   NSURL *baseURL = [NSURL URLWithString:@"http://example.com/v1/"];

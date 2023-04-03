@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSURL(NXHttp)
 
 /**
+ 替换成IP
+ */
++(instancetype)URLWithURL:(NSURL *)url replaceIP:(NSString *)ip;
+/**
  HOOK 会导致路由框架有问题 JLRoute
  
   NSURL *baseURL = [NSURL URLWithString:@"http://example.com/v1/"];
