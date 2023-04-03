@@ -13,12 +13,29 @@
 
 #import "NXHTTPSessionManager.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import <next_space_ios_arch/LXDDNSInterceptor.h>
 
 @interface NXHTTPSessionManager()
 @property(nonatomic,strong) NSMutableArray<NXHttpInterceptor *> *interceptorArray;
 @end
 @implementation NXHTTPSessionManager
 
+
+- (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)configuration{
+    self=[super initWithSessionConfiguration:configuration];
+    if(self){
+        configuration.protocolClasses = @[[LXDDNSInterceptor class]];
+    }
+    return self;
+}
+
+- (instancetype)initWithBaseURL:(NSURL *)url sessionConfiguration:(NSURLSessionConfiguration *)configuration{
+    self=[super initWithBaseURL:url sessionConfiguration:configuration];
+    if(self){
+        configuration.protocolClasses = @[[LXDDNSInterceptor class]];
+    }
+    return self;
+}
 
 /**
  默认给一个缓存配置
