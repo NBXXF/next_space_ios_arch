@@ -94,10 +94,10 @@ extension UIScrollView {
 
     func __cropImage(_ rect: CGRect,image:UIImage) -> UIImage? {
           var newRect = rect
-//        newRect.origin.x *= image.scale
-//        newRect.origin.y *= image.scale
-//        newRect.size.width *= image.scale
-//        newRect.size.height *= image.scale
+        newRect.origin.x *= image.scale
+        newRect.origin.y *= image.scale
+        newRect.size.width *= image.scale
+        newRect.size.height *= image.scale
         guard let imageRef = image.cgImage?.cropping(to: newRect) else { return nil }
         return UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
     }
