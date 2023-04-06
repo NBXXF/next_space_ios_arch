@@ -80,6 +80,11 @@ extension UIScrollView {
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             self.contentOffset = originalOffset
+            //这里从项目迁移而来
+            guard let image = image else {
+                completion(self.nx_takeSnapshotOfVisibleContent())
+                return
+            }
             completion(image)
         }
     }
