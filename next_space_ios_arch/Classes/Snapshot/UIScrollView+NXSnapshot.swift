@@ -59,7 +59,9 @@ extension UIScrollView {
 
         // 当contentSize.height<bounds.height时，保证至少有1页的内容绘制
         var pageNum = 1
-        if self.contentSize.height > self.bounds.height {
+        if self.bounds.height <= 0 {
+            pageNum = 1
+        }else if self.contentSize.height > self.bounds.height {
             pageNum = Int(floorf(Float(self.contentSize.height / self.bounds.height)))
         }
 
@@ -74,7 +76,7 @@ extension UIScrollView {
         context.setFillColor(backgroundColor.cgColor)
         context.setStrokeColor(backgroundColor.cgColor)
 
-        self.nx_drawScreenshotOfPageContent(0, maxIndex: min(pageNum,maxPage)) {
+        self.nx_drawScreenshotOfPageContent(0, maxIndex: max(1,min(pageNum,maxPage))) {
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             self.contentOffset = originalOffset
