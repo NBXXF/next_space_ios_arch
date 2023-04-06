@@ -36,7 +36,7 @@ extension WKWebView {
     }
 
     override
-    public func nx_asyncTakeSnapshotOfFullContent(_ completion: @escaping ((UIImage?) -> Void)) {
+    public func nx_asyncTakeSnapshotOfFullContent(_ maxPage:Int,completion: @escaping ((UIImage?) -> Void)) {
         let originalOffset = self.scrollView.contentOffset
 
         // 当contentSize.height<bounds.height时，保证至少有1页的内容绘制
@@ -45,7 +45,7 @@ extension WKWebView {
             pageNum = Int(floorf(Float(self.scrollView.contentSize.height / self.scrollView.bounds.height)))
         }
 
-        self.nx_loadPageContent(0, maxIndex: pageNum, completion: {
+        self.nx_loadPageContent(0, maxIndex: min(pageNum,maxPage), completion: {
             self.scrollView.contentOffset = CGPoint.zero
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 let renderer = NXWebViewPrintPageRenderer.init(formatter: self.viewPrintFormatter(), contentSize: self.scrollView.contentSize)

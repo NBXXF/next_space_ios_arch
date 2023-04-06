@@ -24,8 +24,9 @@ extension UIView: NXSnapshotKitProtocol {
         return self.nx_takeSnapshotOfFullContent(for: self.bounds)
     }
 
+ 
     @objc
-    public func nx_asyncTakeSnapshotOfFullContent(_ completion: @escaping ((UIImage?) -> Void)) {
+    public func nx_asyncTakeSnapshotOfFullContent(_ maxPage: Int, completion: @escaping ((UIImage?) -> Void)) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             let image = self.nx_takeSnapshotOfFullContent()
             completion(image)
@@ -74,7 +75,7 @@ extension UIView: NXSnapshotKitProtocol {
      */
     @objc
     public func nx_takeSnapshotOfFullContent(for croppingRect: CGRect,bgColor:UIColor) -> UIImage? {
-        var backgroundColor = bgColor;
+        let backgroundColor = bgColor;
         let contentSize = CGSize.init(width: floor(croppingRect.size.width), height: floor(croppingRect.size.height))
         //第二个参数需要传false by xxf
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)

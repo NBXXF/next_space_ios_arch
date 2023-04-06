@@ -140,7 +140,7 @@ extension UITableView {
     }
 
     override
-    public func nx_asyncTakeSnapshotOfFullContent(_ completion: @escaping ((UIImage?) -> Void)) {
+    public func nx_asyncTakeSnapshotOfFullContent(_ maxPage:Int,completion: @escaping ((UIImage?) -> Void)) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             let image = self.nx_takeSnapshotOfFullContent()
             completion(image)

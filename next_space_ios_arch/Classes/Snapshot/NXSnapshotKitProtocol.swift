@@ -31,6 +31,7 @@ public protocol NXSnapshotKitProtocol {
     /// Asynchronously take a snapshot of the view's full content
     ///
     /// - Important: when the size of the view's full content is large, use this method to take snapshot
+    /// - Parameter maxPage: 最大页数 只针对滚动控件有效
     /// - Parameter completion: <#completion description#>
-    func nx_asyncTakeSnapshotOfFullContent(_ completion: @escaping ((_ image: UIImage?) -> Void))
+    func nx_asyncTakeSnapshotOfFullContent(_ maxPage: Int, completion: @escaping ((_ image: UIImage?) -> Void))
 }

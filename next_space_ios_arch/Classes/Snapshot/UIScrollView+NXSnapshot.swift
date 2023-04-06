@@ -53,7 +53,7 @@ extension UIScrollView {
     }
 
     override
-    public func nx_asyncTakeSnapshotOfFullContent(_ completion: @escaping ((UIImage?) -> Void)) {
+    public func nx_asyncTakeSnapshotOfFullContent(_ maxPage: Int, completion: @escaping ((UIImage?) -> Void)) {
         // 分页绘制内容到ImageContext
         let originalOffset = self.contentOffset
 
@@ -74,7 +74,7 @@ extension UIScrollView {
         context.setFillColor(backgroundColor.cgColor)
         context.setStrokeColor(backgroundColor.cgColor)
 
-        self.nx_drawScreenshotOfPageContent(0, maxIndex: pageNum) {
+        self.nx_drawScreenshotOfPageContent(0, maxIndex: min(pageNum,maxPage)) {
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             self.contentOffset = originalOffset
