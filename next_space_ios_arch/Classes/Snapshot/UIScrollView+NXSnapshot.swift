@@ -77,9 +77,12 @@ extension UIScrollView {
         context.setStrokeColor(backgroundColor.cgColor)
 
         self.nx_drawScreenshotOfPageContent(0, maxIndex: max(1,min(pageNum,maxPage))) {
-            let image = UIGraphicsGetImageFromCurrentImageContext()
+            var image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             self.contentOffset = originalOffset
+            if((image != nil)&&image!.size.height>self.contentSize.height){
+                image=self.__cropImage(CGRect(x: 0, y: 0, width: image!.size.width, height: self.contentSize.height), image: image!);
+            }
             //这里从项目迁移而来
             guard let image = image else {
                 completion(self.nx_takeSnapshotOfVisibleContent())
@@ -89,6 +92,16 @@ extension UIScrollView {
         }
     }
 
+    func __cropImage(_ rect: CGRect,image:UIImage) -> UIImage? {
+          var newRect = rect
+//        newRect.origin.x *= image.scale
+//        newRect.origin.y *= image.scale
+//        newRect.size.width *= image.scale
+//        newRect.size.height *= image.scale
+        guard let imageRef = image.cgImage?.cropping(to: newRect) else { return nil }
+        return UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+    }
+    
     fileprivate func nx_drawScreenshotOfPageContent(_ index: Int, maxIndex: Int, completion: @escaping () -> Void) {
 
         self.setContentOffset(CGPoint(x: 0, y: CGFloat(index) * self.frame.size.height), animated: false)
