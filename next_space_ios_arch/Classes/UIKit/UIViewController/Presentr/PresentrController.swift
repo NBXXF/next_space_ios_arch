@@ -167,6 +167,7 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
         let shouldRoundCorners = roundCorners ?? presentationType.shouldRoundCorners
 
         if shouldRoundCorners {
+            presentedViewController.view.layer.masksToBounds = true;
             presentedViewController.view.layer.cornerRadius = cornerRadius
         } else {
             presentedViewController.view.layer.cornerRadius = 0

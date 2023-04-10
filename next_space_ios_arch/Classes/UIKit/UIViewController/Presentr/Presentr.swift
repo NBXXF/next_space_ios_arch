@@ -70,7 +70,7 @@ public enum PresentrConstants {
     public var dismissTransitionType: TransitionType?
 
     /// Should the presented controller have rounded corners. Each presentation type has its own default if nil.
-    public var roundCorners: Bool?
+    public var roundCorners: Bool=false
 
     /// Radius of rounded corners for presented controller if roundCorners is true. Default is 4.
     public var cornerRadius: CGFloat = 4

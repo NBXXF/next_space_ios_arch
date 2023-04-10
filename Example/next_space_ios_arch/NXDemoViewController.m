@@ -691,6 +691,8 @@
     UIViewController *popoverContent=[XXFHelperViewController new];
     Presentr *s=[[[Presentr alloc] initWithPresentationType:PresentationType.alert] applyWithBlock:^(Presentr  *_Nonnull it) {
         it.dismissOnSwipe=YES;
+        it.roundCorners=TRUE;
+        it.cornerRadius=KRealWidth(8);
     }];
     [self customPresentViewController:s viewController:popoverContent animated:YES completion:nil];
     
