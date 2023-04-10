@@ -72,8 +72,8 @@ public enum PresentrConstants {
     /// Should the presented controller have rounded corners. Each presentation type has its own default if nil.
     public var roundCorners: Bool=false
 
-    /// Radius of rounded corners for presented controller if roundCorners is true. Default is 4.
-    public var cornerRadius: CGFloat = 4
+    /// Radius of rounded corners for presented controller if roundCorners is true. Default is 10.
+    public var cornerRadius: CGFloat = 10
 
     /// Shadow settings for presented controller.
     public var dropShadow: PresentrShadow?
@@ -93,8 +93,8 @@ public enum PresentrConstants {
     /// Color of the background. Default is Black.
     public var backgroundColor = UIColor.black
 
-    /// Opacity of the background. Default is 0.7.
-    public var backgroundOpacity: Float = 0.7
+    /// Opacity of the background. Default is 0.2.
+    public var backgroundOpacity: Float = 0.2
 
     /// Should the presented controller blur the background. Default is false.
     public var blurBackground = false

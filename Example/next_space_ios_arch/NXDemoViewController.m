@@ -689,12 +689,13 @@
     
     [self.view endEditing:YES];
     UIViewController *popoverContent=[XXFHelperViewController new];
-    Presentr *s=[[[Presentr alloc] initWithPresentationType:PresentationType.alert] applyWithBlock:^(Presentr  *_Nonnull it) {
+    popoverContent.modalPresentationConfig=[[[Presentr alloc] initWithPresentationType:PresentationType.alert] applyWithBlock:^(Presentr  *_Nonnull it) {
         it.dismissOnSwipe=YES;
-        it.roundCorners=TRUE;
+        it.roundCorners=YES;
         it.cornerRadius=KRealWidth(8);
     }];
-    [self customPresentViewController:s viewController:popoverContent animated:YES completion:nil];
+    [self presentViewController:popoverContent animated:YES completion:nil];
+
     
     
 //    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;

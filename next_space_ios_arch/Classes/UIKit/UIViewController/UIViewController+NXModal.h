@@ -6,11 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Presentr;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIViewController(NXDebounce)
-
+@interface UIViewController(NXModal)
+/**
+ 增加modal相关的样式属性配置
+ */
+@property(nonatomic,strong,nullable) Presentr *modalPresentationConfig;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -20,33 +20,33 @@ typedef NS_ENUM(NSInteger, NXComponentGravity) {
 /**
  设置组件大小
  */
--(void)setComponentSize:(CGSize)size gravity:(NXComponentGravity)gravity;
+-(void)setComponentSize:(CGSize)size gravity:(NXComponentGravity)gravity DEPRECATED_MSG_ATTRIBUTE("过时了,用modalPresentationConfig字段");
 
 
 /**
  设置组件透明度
  */
--(void)setComponentAlpha:(CGFloat)alpha;
+-(void)setComponentAlpha:(CGFloat)alpha DEPRECATED_MSG_ATTRIBUTE("过时了,用modalPresentationConfig字段");
 
 /**
  设置组件背景色
  */
--(void)setComponentBackgroundColor:(UIColor *)color;
+-(void)setComponentBackgroundColor:(UIColor *)color DEPRECATED_MSG_ATTRIBUTE("过时了,用modalPresentationConfig字段");
 
 /**
  设置圆角
  */
--(void)setComponentCornerRadius:(CGFloat)radius;
+-(void)setComponentCornerRadius:(CGFloat)radius DEPRECATED_MSG_ATTRIBUTE("过时了,用modalPresentationConfig字段");
 
 /**
  设置阴影透明度
  */
--(void)setComponentShadowOpacity:(CGFloat)opacity;
+-(void)setComponentShadowOpacity:(CGFloat)opacity DEPRECATED_MSG_ATTRIBUTE("过时了,用modalPresentationConfig字段");
 
 /**
  点击外部是否可以取消
  */
--(void)setCanceledOnTouchOutside:(BOOL)cancel;
+-(void)setCanceledOnTouchOutside:(BOOL)cancel DEPRECATED_MSG_ATTRIBUTE("过时了,用modalPresentationConfig字段");
 
 
 /**

@@ -5,14 +5,15 @@
 //  Created by XXF on 2023/3/22.
 //
 
-#import "UIViewController+NXDebounce.h"
+#import "UIViewController+NXModal.h"
 #import <next_space_ios_arch/NSObject+RateLimiting.h>
 #import <next_space_ios_arch/NSObject+Swizzling.h>
 #import <next_space_ios_arch/NSObject+NXTools.h>
+#import <next_space_ios_arch/NSObject+NXAssociation.h>
 #import <next_space_ios_arch/NSObject+NXRACSignalSupport.h>
 #import <next_space_ios_arch/UIView+Feedback.h>
 
-@implementation UIViewController(NXDebounce)
+@implementation UIViewController(NXModal)
 
 + (void)load{
     static dispatch_once_t onceToken;
@@ -36,8 +37,28 @@
             return;
         }
     }
+    
+    //有配置参数的情况 走自定义弹窗
+    Presentr *presentr=viewControllerToPresent.modalPresentationConfig;
+    if(presentr){
+        viewControllerToPresent.transitioningDelegate = presentr;
+        viewControllerToPresent.modalPresentationStyle = UIModalPresentationCustom;
+    }
     [self _hook_presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
+
+
+
+
+
+- (Presentr *)modalPresentationConfig{
+    NSString *key=NSStringFromSelector(@selector(modalPresentationConfig));
+    return [self nx_getAssociatedObject:key];
+}
+- (void)setModalPresentationConfig:(Presentr *)modalPresentationConfig{
+    NSString *key=NSStringFromSelector(@selector(modalPresentationConfig));
+    [self nx_setAssociatedObject:modalPresentationConfig forKey:key];
+}
 
 @end

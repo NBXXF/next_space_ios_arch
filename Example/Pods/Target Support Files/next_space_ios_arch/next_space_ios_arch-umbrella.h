@@ -171,7 +171,7 @@
 #import "NXUIComponentProtocol.h"
 #import "NXViewController.h"
 #import "UIViewController+Lifecycle.h"
-#import "UIViewController+NXDebounce.h"
+#import "UIViewController+NXModal.h"
 #import "UIViewController+NXQuery.h"
 #import "UIViewController+PopDissmiss.h"
 #import "SingletonUtils.h"
