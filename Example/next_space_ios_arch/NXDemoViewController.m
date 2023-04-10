@@ -685,6 +685,8 @@
 
 
 -(void)showModal{
+    //Presentr *s=[[Presentr alloc] init];
+    
     [self.view endEditing:YES];
     UIViewController *popoverContent=[XXFHelperViewController new];
 //    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
