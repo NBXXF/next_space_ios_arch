@@ -22,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIWindow *)topWindow;
 
 /**
+ 获取最顶层弹出来的vc,否则返回rootVC
+ */
+-(UIViewController *)topPresentedViewController;
+
+
+/**
  顶部状态栏高度
  */
 - (CGFloat)topLayoutOffset;

@@ -8,6 +8,7 @@
 #import "PHPhotoLibrary+NXTools.h"
 #import "NXPermissionResult.h"
 #import <next_space_ios_arch/NSError+NXTools.h>
+#import <next_space_ios_arch/UIView+Feedback.h>
 typedef enum : NSUInteger {
     ImageTpye = 1,
     ImageUrlTpye,
@@ -131,7 +132,11 @@ typedef enum : NSUInteger {
 }
 
 
-- (void)saveObject:(id)object WithType:(SaveTypes)savetype ToAlbum:(NSString *)albumName completion:(void(^)(id callbackObject))completion failure:(void(^)(NSError *error))failure
+- (void)saveObject:(id)object
+          WithType:(SaveTypes)savetype
+           ToAlbum:(NSString *)albumName
+        completion:(void(^)(id callbackObject))completion
+           failure:(void(^)(NSError *error))failure
 {
    NXPermissionResult *permissionResult= [self canAccessPhotoAlbum];
     if (!permissionResult.enable) {
@@ -156,9 +161,15 @@ typedef enum : NSUInteger {
                 NSLog(@"Finished updating asset. %@", (success ? @"Success." : error));
                 if (success) {
                     if (savetype == ImageTpye || savetype == ImageUrlTpye || savetype == ImageDataTpye) {
+                        //触觉震动反馈
+                        [FeedbackGenerator.shared performDefaultFeedback];
+                        
                         completion([PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:nil].firstObject);
                     }else{
                         [[PHImageManager defaultManager] requestAVAssetForVideo:[PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:nil].firstObject options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                            //触觉震动反馈
+                            [FeedbackGenerator.shared performDefaultFeedback];
+                            
                             completion([(AVURLAsset *)asset URL]);
                         }];
                     }

@@ -26,6 +26,14 @@
 }
 
 
+- (UIViewController *)topPresentedViewController{
+    UIViewController *topViewController = self.topWindow.rootViewController;
+    while (topViewController.presentedViewController) {
+        topViewController = topViewController.presentedViewController;
+    }
+    return topViewController;
+}
+
 - (CGFloat)topLayoutOffset {
     if (@available(iOS 11, *)) {
         return [UIApplication sharedApplication].keyWindow.safeAreaInsets.top;
