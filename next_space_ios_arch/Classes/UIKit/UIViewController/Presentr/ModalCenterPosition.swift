@@ -17,7 +17,7 @@ import Foundation
  - Custom: A custom center position using a CGPoint which represents the center point of the presented view controller.
  - Custom: A custom center position to be calculated, using a CGPoint which represents the origin of the presented view controller.
  */
-@objcMembers open class ModalCenterPosition:Equatable {
+@objcMembers open class ModalCenterPosition:NSObject {
     public static let center=ModalCenterPosition(type: .center, point: CGPointZero);
     public static let topCenter=ModalCenterPosition(type: .topCenter, point: CGPointZero);
     public static let bottomCenter=ModalCenterPosition(type: .bottomCenter, point: CGPointZero);
@@ -39,10 +39,6 @@ import Foundation
     }
     
     
-    static public func == (lhs: ModalCenterPosition, rhs: ModalCenterPosition) -> Bool {
-        return lhs.type==rhs.type&&lhs.point==rhs.point;
-        }
-        
     /**
      Calculates the exact position for the presented view controller center.
 
