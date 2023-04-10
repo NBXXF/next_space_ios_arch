@@ -23,7 +23,6 @@
 
 //本pod 全部日志用自定义的
 #import <next_space_ios_arch/LogUtils.h>
-#import <next_space_ios_arch/next_space_ios_arch-Swift.h>
 
 #endif
 #endif /* XXFPrefixHeader_pch */

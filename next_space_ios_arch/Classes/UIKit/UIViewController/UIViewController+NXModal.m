@@ -39,7 +39,7 @@
     }
     
     //有配置参数的情况 走自定义弹窗
-    Presentr *presentr=viewControllerToPresent.modalPresentationConfig;
+    PresentationConfig *presentr=viewControllerToPresent.modalPresentationConfig;
     if(presentr){
         viewControllerToPresent.transitioningDelegate = presentr;
         viewControllerToPresent.modalPresentationStyle = UIModalPresentationCustom;
@@ -52,11 +52,11 @@
 
 
 
-- (Presentr *)modalPresentationConfig{
+- (PresentationConfig *)modalPresentationConfig{
     NSString *key=NSStringFromSelector(@selector(modalPresentationConfig));
     return [self nx_getAssociatedObject:key];
 }
-- (void)setModalPresentationConfig:(Presentr *)modalPresentationConfig{
+- (void)setModalPresentationConfig:(PresentationConfig *)modalPresentationConfig{
     NSString *key=NSStringFromSelector(@selector(modalPresentationConfig));
     [self nx_setAssociatedObject:modalPresentationConfig forKey:key];
 }

@@ -6,14 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Presentr;
+@class PresentationConfig;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController(NXModal)
 /**
  增加modal相关的样式属性配置
  */
-@property(nonatomic,strong,nullable) Presentr *modalPresentationConfig;
+@property(nonatomic,strong,nullable) PresentationConfig *modalPresentationConfig;
 @end
 
 NS_ASSUME_NONNULL_END
