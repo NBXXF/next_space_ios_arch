@@ -685,14 +685,20 @@
 
 
 -(void)showModal{
-    //Presentr *s=[[Presentr alloc] init];
+
     
     [self.view endEditing:YES];
     UIViewController *popoverContent=[XXFHelperViewController new];
+    Presentr *s=[[[Presentr alloc] initWithPresentationType:PresentationType.alert] applyWithBlock:^(Presentr  *_Nonnull it) {
+        it.dismissOnSwipe=YES;
+    }];
+    [self customPresentViewController:s viewController:popoverContent animated:YES completion:nil];
+    
+    
 //    popoverContent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
 //    popoverContent.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:popoverContent animated:YES completion:nil];
-    [self presentViewController:popoverContent animated:YES completion:nil];
+//    [self presentViewController:popoverContent animated:YES completion:nil];
+//    [self presentViewController:popoverContent animated:YES completion:nil];
 }
 
 -(void)testArraySpeed:(NSInteger)size{

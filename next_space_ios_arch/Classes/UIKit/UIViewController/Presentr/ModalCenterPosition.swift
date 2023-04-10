@@ -17,14 +17,32 @@ import Foundation
  - Custom: A custom center position using a CGPoint which represents the center point of the presented view controller.
  - Custom: A custom center position to be calculated, using a CGPoint which represents the origin of the presented view controller.
  */
-public enum ModalCenterPosition {
+@objcMembers open class ModalCenterPosition:Equatable {
+    public static let center=ModalCenterPosition(type: .center, point: CGPointZero);
+    public static let topCenter=ModalCenterPosition(type: .topCenter, point: CGPointZero);
+    public static let bottomCenter=ModalCenterPosition(type: .bottomCenter, point: CGPointZero);
+    
+    public static func custom(centerPoint: CGPoint)->ModalCenterPosition{
+        return ModalCenterPosition(type: .custom, point: centerPoint);
+    }
+    
+    public static func customOrigin(origin: CGPoint)->ModalCenterPosition{
+        return ModalCenterPosition(type: .customOrigin, point: origin);
+    }
 
-    case center
-    case topCenter
-    case bottomCenter
-    case custom(centerPoint: CGPoint)
-    case customOrigin(origin: CGPoint)
-
+    
+    let type:ModalCenterPositionType;
+    let point:CGPoint;
+    init(type: ModalCenterPositionType,point:CGPoint) {
+        self.type = type
+        self.point=point;
+    }
+    
+    
+    static public func == (lhs: ModalCenterPosition, rhs: ModalCenterPosition) -> Bool {
+        return lhs.type==rhs.type&&lhs.point==rhs.point;
+        }
+        
     /**
      Calculates the exact position for the presented view controller center.
 
@@ -33,7 +51,8 @@ public enum ModalCenterPosition {
      - returns: CGPoint representing the presented view controller's center point.
      */
     func calculateCenterPoint(_ containerFrame: CGRect) -> CGPoint? {
-        switch self {
+        
+        switch self.type {
         case .center:
             return CGPoint(x: containerFrame.origin.x + (containerFrame.width / 2),
                            y: containerFrame.origin.y + (containerFrame.height / 2))
@@ -43,20 +62,28 @@ public enum ModalCenterPosition {
         case .bottomCenter:
             return CGPoint(x: containerFrame.origin.x + (containerFrame.width / 2),
                            y: containerFrame.origin.y + (containerFrame.height * (3 / 4)))
-        case .custom(let point):
+        case .custom:
             return point
-        case .customOrigin(_):
+        case .customOrigin:
             return nil
         }
     }
 
     func calculateOrigin() -> CGPoint? {
-        switch self {
-        case .customOrigin(let origin):
-            return origin
+        switch self.type {
+        case .customOrigin:
+            return point
         default:
             return nil
         }
     }
 
+}
+
+@objc public enum ModalCenterPositionType:Int {
+    case center
+    case topCenter
+    case bottomCenter
+    case custom
+    case customOrigin
 }

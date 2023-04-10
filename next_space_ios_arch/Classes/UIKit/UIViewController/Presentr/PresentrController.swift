@@ -337,7 +337,7 @@ fileprivate extension PresentrController {
 
     func getWidthFromType(_ parentSize: CGSize) -> Float {
         guard let size = presentationType.size() else {
-            if case .dynamic = presentationType {
+            if case .dynamic = presentationType.type {
                 #if swift(>=4.2)
                 let sizeKey = UIView.layoutFittingCompressedSize
                 #else
@@ -354,7 +354,7 @@ fileprivate extension PresentrController {
 
     func getHeightFromType(_ parentSize: CGSize) -> Float {
         guard let size = presentationType.size() else {
-            if case .dynamic = presentationType {
+            if case .dynamic = presentationType.type {
                 #if swift(>=4.2)
                 let sizeKey = UIView.layoutFittingCompressedSize
                 #else

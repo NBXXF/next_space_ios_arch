@@ -200,7 +200,7 @@ extension Presentr: UIViewControllerTransitioningDelegate {
 
 // MARK: - UIViewController extension to provide customPresentViewController(_:viewController:animated:completion:) method
 
-public extension UIViewController {
+@objc public extension UIViewController {
 
     /// Present a view controller with a custom presentation provided by the Presentr object.
     ///

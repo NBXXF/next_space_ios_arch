@@ -17,21 +17,40 @@ import Foundation
 /// - fullScreen: This takes up the entire screen.
 /// - dynamic: Uses autolayout to calculate width & height. Have to provide center position.
 /// - custom: User provided custom width, height & center position.
-public enum PresentationType {
-
-    case alert
-    case popup
-    case topHalf
-    case bottomHalf
-    case fullScreen
-    case dynamic(center: ModalCenterPosition)
-    case custom(width: ModalSize, height: ModalSize, center: ModalCenterPosition)
+@objcMembers open class PresentationType:NSObject {
+    public static let alert = PresentationType(type: .alert, width: nil, height: nil, center: .center)
+    public static let popup = PresentationType(type: .popup, width: nil, height: nil, center: .center)
+    public static let topHalf =  PresentationType(type: .topHalf, width: nil, height: nil, center:.topCenter)
+    public static let bottomHalf =  PresentationType(type: .bottomHalf, width: nil, height: nil, center: .bottomCenter)
+    public static let fullScreen =  PresentationType(type: .fullScreen, width: nil, height: nil, center: .center)
+    public static func dynamic(center: ModalCenterPosition)->PresentationType{
+        return  PresentationType(type: .dynamic, width: nil, height: nil, center: center)
+    }
+    public static func custom(width: ModalSize, height: ModalSize, center: ModalCenterPosition)->PresentationType{
+        return  PresentationType(type: .custom, width: width, height: height, center: center)
+    }
+    
+  
+    
+    let type:PresentationTypeEnum
+    let width: ModalSize?
+    let height: ModalSize?
+    let center: ModalCenterPosition
+    init(type:PresentationTypeEnum,
+         width: ModalSize?,
+         height: ModalSize?,
+         center: ModalCenterPosition) {
+        self.type=type;
+        self.width = width
+        self.height = height
+        self.center = center
+    }
 
     /// Describes the sizing for each Presentr type. It is meant to be non device/width specific, except for the .custom case.
     ///
     /// - Returns: A tuple containing two 'ModalSize' enums, describing its width and height.
     func size() -> (width: ModalSize, height: ModalSize)? {
-        switch self {
+        switch self.type {
         case .alert:
             return (.custom(size: 270), .custom(size: 180))
         case .popup:
@@ -40,9 +59,9 @@ public enum PresentationType {
             return (.full, .half)
         case .fullScreen:
             return (.full, .full)
-        case .custom(let width, let height, _):
-            return (width, height)
-        case .dynamic(_):
+        case .custom:
+            return (self.width, self.height) as? (width: ModalSize, height: ModalSize)
+        case .dynamic:
             return nil
         }
     }
@@ -51,7 +70,7 @@ public enum PresentationType {
     ///
     /// - Returns: Returns a 'ModalCenterPosition' enum describing the center point for the presented modal.
     func position() -> ModalCenterPosition {
-        switch self {
+        switch self.type {
         case .alert, .popup:
             return .center
         case .topHalf:
@@ -60,9 +79,9 @@ public enum PresentationType {
             return .bottomCenter
         case .fullScreen:
             return .center
-        case .custom(_, _, let center):
+        case .custom:
             return center
-        case .dynamic(let center):
+        case .dynamic:
             return center
         }
     }
@@ -71,7 +90,7 @@ public enum PresentationType {
     ///
     /// - Returns: Return a 'TransitionType' which describes a transition animation.
     func defaultTransitionType() -> TransitionType {
-        switch self {
+        switch self.type {
         case .topHalf:
             return .coverVerticalFromTop
         default:
@@ -81,7 +100,7 @@ public enum PresentationType {
 
     /// Default round corners setting.
     var shouldRoundCorners: Bool {
-        switch self {
+        switch self.type {
         case .alert, .popup:
             return true
         default:
@@ -89,4 +108,14 @@ public enum PresentationType {
         }
     }
 
+}
+
+@objc public enum PresentationTypeEnum:Int {
+    case alert
+    case popup
+    case topHalf
+    case bottomHalf
+    case fullScreen
+    case dynamic
+    case custom
 }

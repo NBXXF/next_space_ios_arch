@@ -9,7 +9,7 @@
 import UIKit
 
 /// Helper struct that represents the shadow properties
-public struct PresentrShadow {
+@objcMembers open class PresentrShadow:NSObject {
 
     public let shadowColor: UIColor?
 

@@ -757,7 +757,6 @@
 		DBCDB38A1D5A4257ABFEC7BD1A67AD46 /* UITableViewHeaderFooterView+NXRACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = A64476EAFADDE1721A2B675595A112D9 /* UITableViewHeaderFooterView+NXRACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC0A239813750758DE5AE72593924663 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9479305BC6EE1F5E0884BF5CB82056 /* Foundation.framework */; };
 		DC6895B7C969323F8573A10CDD547208 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 39148EB7E9D7D8C67E8CBA4CB3C76BDB /* YYClassInfo.m */; };
-		DD0D8C547D13ED30CBF06BA5AFD1494A /* Presentr+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17878501F05F0CAE92805B72C3CF233C /* Presentr+Equatable.swift */; };
 		DD176B780AE6F244D9C84660B22D0F2F /* UIViewController+NXQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 73B8326609E6F1C99D6A94F904AF0051 /* UIViewController+NXQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD5999BE3383ACA773A50FA0218B5912 /* RACChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E915E772E30784FBC8FF1245E501A1A /* RACChannel.m */; };
 		DD9962147C85FEA360A2FE3B5CCF0DB3 /* RACReplaySubject.h in Headers */ = {isa = PBXBuildFile; fileRef = 2844CCDA63FFDF42C728A55C47D28FC4 /* RACReplaySubject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1101,7 +1100,6 @@
 		1671082779BD7415F5F09E8B1FBDC811 /* POP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POP.h; path = pop/POP.h; sourceTree = "<group>"; };
 		16BB15FEC2CF8082A8B8C12C35AACD97 /* MMKVCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMKVCore-prefix.pch"; sourceTree = "<group>"; };
 		16DCAC103EBED6E410BDD4419A69CCA2 /* UIImage+NXAppending.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NXAppending.m"; sourceTree = "<group>"; };
-		17878501F05F0CAE92805B72C3CF233C /* Presentr+Equatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Presentr+Equatable.swift"; sourceTree = "<group>"; };
 		17A34CCBFAA3BDE83647C70C4DBEBBA1 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
 		17AB76FC772CA1D7592AE5B65ABD7F93 /* RACTuple.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACTuple.h; path = ReactiveObjC/RACTuple.h; sourceTree = "<group>"; };
 		185B84354C7AE12A16CE0C90F5E6B21A /* XXF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XXF.m; path = next_space_ios_arch/Classes/XXF.m; sourceTree = "<group>"; };
@@ -3537,7 +3535,6 @@
 				C6418EA68270646C055E3B05ABA56387 /* ModalSize.swift */,
 				8A7C631EA8A61622EC6C7385CD214A04 /* PresentationType.swift */,
 				11DB23FFE5A4CDDDD74653E9722CD91C /* Presentr.swift */,
-				17878501F05F0CAE92805B72C3CF233C /* Presentr+Equatable.swift */,
 				2FB15EBCFCF81495EA9DFB72105E2A40 /* PresentrAnimation.swift */,
 				BDE356C61906141B91FBF708B4E0727C /* PresentrController.swift */,
 				4AAC17733386B2608E3328186B95377E /* PresentrShadow.swift */,
@@ -4969,7 +4966,6 @@
 				BDE7F8298D4A9F927552107A5D62D913 /* PodAsset.m in Sources */,
 				990DD160C0F56FAA421EDA0AFF11F5AE /* PresentationType.swift in Sources */,
 				644D07197A206D679F03B7E844224E3D /* Presentr.swift in Sources */,
-				DD0D8C547D13ED30CBF06BA5AFD1494A /* Presentr+Equatable.swift in Sources */,
 				52988A7BC0A1CBC40240B65AAC1D8183 /* PresentrAnimation.swift in Sources */,
 				EA5098EB50AE17E185C531B9938CDECC /* PresentrController.swift in Sources */,
 				D7BB4E37C8DAA2D5EF3E70F7F02F5CAD /* PresentrShadow.swift in Sources */,
