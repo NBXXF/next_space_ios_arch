@@ -2880,6 +2880,19 @@
 			path = Adapter;
 			sourceTree = "<group>";
 		};
+		7CAC247C29E3FDE800D540B3 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				2E9A0653B2E904E252443BAA7F555DC4 /* CoverFromCornerAnimation.swift */,
+				04F7E967AC22B62775E149028FC27A48 /* CoverHorizontalAnimation.swift */,
+				4EAF35F021AC3957A0E3FBDA9242C055 /* CoverVerticalAnimation.swift */,
+				1EB7078C694A1A84A14AAEDEDA9502BF /* CoverVerticalFromTopAnimation.swift */,
+				199C025F9CF02DA18B6A08EBCBF97D93 /* CrossDissolveAnimation.swift */,
+				4279D930B9C20CE4AB926FFC1F082142 /* FlipHorizontalAnimation.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		80E8E42253B89945EFBDC6D639D5D2EE /* MMKV */ = {
 			isa = PBXGroup;
 			children = (
@@ -3515,15 +3528,10 @@
 		D149E3440FFA5B24D07AFF96D840B35B /* Presentr */ = {
 			isa = PBXGroup;
 			children = (
+				7CAC247C29E3FDE800D540B3 /* Animations */,
 				E3C84BBDDB54B11DB6AC027E6ECE9F8A /* AlertViewController.swift */,
 				EB055A316CCF8F0B71838F28A722151C /* AlertViewController.xib */,
 				EBF16D709F9D4E8A0C72B9EBA0CB45C2 /* BackgroundView.swift */,
-				2E9A0653B2E904E252443BAA7F555DC4 /* CoverFromCornerAnimation.swift */,
-				04F7E967AC22B62775E149028FC27A48 /* CoverHorizontalAnimation.swift */,
-				4EAF35F021AC3957A0E3FBDA9242C055 /* CoverVerticalAnimation.swift */,
-				1EB7078C694A1A84A14AAEDEDA9502BF /* CoverVerticalFromTopAnimation.swift */,
-				199C025F9CF02DA18B6A08EBCBF97D93 /* CrossDissolveAnimation.swift */,
-				4279D930B9C20CE4AB926FFC1F082142 /* FlipHorizontalAnimation.swift */,
 				FB1C310C2FA70C2F1DF08412C5104D8B /* KeyboardTranslation.swift */,
 				98282A2DF6B00FDB4783AC70F778D686 /* ModalCenterPosition.swift */,
 				C6418EA68270646C055E3B05ABA56387 /* ModalSize.swift */,

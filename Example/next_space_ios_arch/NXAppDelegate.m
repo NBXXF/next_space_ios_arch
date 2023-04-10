@@ -23,6 +23,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSString *a=[NSString stringWithFormat:@"%@",@"x"];
+    NSString *b=@"x";
+    BOOL ab=a==b;
+    BOOL ab1=[a isEqual:b];
     
   BOOL TT=  [NSURL isWEBURLWithString:@"ddd"];
   BOOL TT2=  [NSURL isWEBURLWithString:@"https://www.cnblogs.com/diweinan/p/6214044.html"];
@@ -69,19 +73,7 @@
     
     
     
-    NSMutableArray<NSString *> *testArr= [NSMutableArray array];
-    NSString *a=@"a";
-    [testArr addObject:a];
-    
-   // NSLog(@"==========>ttt:%@",[testArr objectAtIndex:NSNotFound]);
-//    NSString *b=@"b";
-//    [testArr addObject:b];
-    a=NULL;
-    [RACScheduler.scheduler afterDelay:5 schedule:^{
-        NSString *c=[testArr objectAtIndex:0];
-        NSLog(@"==========>ttt:%@ _%@",a,a.simpleDescription);
-        NSLog(@"==========>ttt:%@ _%@",c,c.simpleDescription);
-    }];
+   
 
     
     
