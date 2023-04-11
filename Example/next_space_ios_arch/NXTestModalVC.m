@@ -24,11 +24,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self setComponentCornerRadius:10];
-    [self setComponentAlpha:0.2];
-    [self setComponentShadowOpacity:0.2];
-    [self setComponentSize:CGSizeMake(300, 300) gravity:NXComponentGravityCenter];
-    [self setCanceledOnTouchOutside:YES];
 
     
     self.iv=UIView.new;

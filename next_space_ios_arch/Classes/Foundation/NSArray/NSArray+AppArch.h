@@ -16,10 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(instancetype)applyWithBlock:(void(^)(NSArray<ObjectType> *it))block;
 
-/**
- 变换每一个item类型
- */
-- (NSMutableArray *)mapObjectWithBlock:(id (^)(ObjectType value))block  DEPRECATED_MSG_ATTRIBUTE("容易混淆,请使用mapReplaceEachWithBlock");
 
 /**
  变换每一个item类型

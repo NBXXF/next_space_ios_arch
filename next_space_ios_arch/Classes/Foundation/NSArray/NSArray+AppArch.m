@@ -17,10 +17,6 @@
 
 
 
-- (NSMutableArray *)mapObjectWithBlock:(id  _Nonnull (^)(id _Nonnull))block DEPRECATED_MSG_ATTRIBUTE("容易混淆,请使用mapReplaceEachWithBlock"){
-    return [self mapReplaceEachWithBlock:block];
-}
-
 - (NSMutableArray *)mapReplaceEachWithBlock:(id  _Nonnull (^)(id _Nonnull))block{
     NSMutableArray *find=[NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

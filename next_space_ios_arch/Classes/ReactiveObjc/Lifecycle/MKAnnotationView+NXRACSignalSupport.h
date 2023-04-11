@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  复用开始时会执行上次的completed
  */
-@property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilReuseSignal DEPRECATED_MSG_ATTRIBUTE("不好控制火候,尤其是在初始化的时候就绑定 就有问题,废弃");
+@property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilReuseSignal;
 /**
  (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)有 rac_prepareForReuseSignal
  rac_prepareForReuseSignal 是复用的时候 会让上次的completed 但是Dealloc不会执行completed
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  untilDeallocOrReuseSignal 【等价】 untilDeallocOrReuseSignal
  只是为了代码提示
  */
-@property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilReuseOrDeallocSignal DEPRECATED_MSG_ATTRIBUTE("不好控制火候,尤其是在初始化的时候就绑定 就有问题,废弃");
+@property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilReuseOrDeallocSignal;
 
 /**
  (UITableViewHeaderFooterView / UITableViewCell / UICollectionReusableView/ MKAnnotationView)有 rac_prepareForReuseSignal
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  untilDeallocOrReuseSignal 【等价】 untilDeallocOrReuseSignal
  只是为了代码提示
  */
-@property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilDeallocOrReuseSignal DEPRECATED_MSG_ATTRIBUTE("不好控制火候,尤其是在初始化的时候就绑定 就有问题,废弃");
+@property (nonatomic, strong, readonly) RACSignal<RACUnit *> *untilDeallocOrReuseSignal;
 
 /**
  重复添加的问题(批量场景)

@@ -15,8 +15,6 @@
 
 @interface NXViewController()
 @property (nonatomic, strong) UIView *contentView;
-//默认NO 等同于普通ViewController
-@property(nonatomic,assign) BOOL isCanceledOnTouchOutside;
 @end
 @implementation NXViewController
 /**
@@ -61,13 +59,6 @@
             make.height.equalTo(_backgroundView.superview);
             make.centerX.centerY.equalTo(_backgroundView.superview);
         }];
-        @weakify(self);
-        [_backgroundView whenTapped:^{
-            @strongify(self);
-            if(self.isCanceledOnTouchOutside){
-                [self popOrDismissViewControllerAnimated:YES completion:nil];
-            }
-        }];
     }
 }
 
@@ -82,68 +73,6 @@
 }
 
 
-- (void)setCanceledOnTouchOutside:(BOOL)cancel {
-    _isCanceledOnTouchOutside=cancel;
-}
-
-
-- (void)setComponentAlpha:(CGFloat)alpha{
-    self.backgroundView.backgroundColor=[UIColor colorWithWhite:0 alpha:alpha];
-    //清除底部的背景颜色
-    self.view.backgroundColor=UIColor.clearColor;
-}
-
-
-
-- (void)setComponentBackgroundColor:(UIColor *)color{
-    self.backgroundView.backgroundColor = color;
-    //清除底部的背景颜色
-    self.view.backgroundColor=UIColor.clearColor;
-}
-
-
-
-- (void)setComponentCornerRadius:(CGFloat)radius{
-    self.contentView.layer.masksToBounds = YES;
-    self.contentView.layer.cornerRadius = 8;
-}
-
-
--(void)setComponentShadowOpacity:(CGFloat)opacity{
-    self.contentView.layer.shadowColor = UIColor.blackColor.CGColor;
-    self.contentView.layer.shadowOffset = CGSizeMake(0, 4);
-    self.contentView.layer.shadowOpacity =opacity;
-    self.contentView.layer.shadowRadius = 20;
-}
-
-
-
-- (void)setComponentSize:(CGSize)size gravity:(NXComponentGravity)gravity{
-    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(size.width);
-        make.height.mas_equalTo(size.height);
-        switch (gravity) {
-            case NXComponentGravityTop:{
-                make.top.equalTo(self.contentView.superview);
-                make.centerX.equalTo(self.contentView.superview);
-            }
-                break;
-            case NXComponentGravityBottom:{
-                make.bottom.equalTo(self.contentView.superview);
-                make.centerX.equalTo(self.contentView.superview);
-            }
-                break;
-            case NXComponentGravityCenter:{
-                make.centerX.centerY.equalTo(self.contentView.superview);
-            }
-                break;
-            default:{
-                make.centerX.centerY.equalTo(self.contentView.superview);
-            }
-                break;
-        }
-    }];
-}
 
 - (void)enableSafeAreaBottomInsets{
     [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
