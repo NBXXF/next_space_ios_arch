@@ -6,6 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
+//将这个工具继承下去
+#import <DynamicColor/DynamicColor-Swift.h>
+#import <DynamicColor/DynamicColor-umbrella.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
