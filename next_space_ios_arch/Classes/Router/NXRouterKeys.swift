@@ -6,23 +6,26 @@
 //
 
 import Foundation
-@objc public class NXRouterKeys:NSObject{
+@objcMembers open class NXRouterKeys:NSObject{
     ///区分弹出方式 类型参考枚举NXRouterOpenType.h
-    @objc public static let NXRouterOpenTypeKey = "kRouterOpenType";
+    public static let NXRouterOpenTypeKey = "kRouterOpenType";
+    
+    //仅仅打开方式为modal的时候有效 注意 "modalPresentationConfig" 不能变,和分类的字段名字保持的一致
+    public static let NXRouterModalPresentationConfigKey="modalPresentationConfig";
     
     ///是否执行动画  类型是:BOOL
-    @objc public static let NXRouterAnimatedKey = "kRouterAnimated";
+    public static let NXRouterAnimatedKey = "kRouterAnimated";
     
     ///限制页面是否需要登录后才能访问 类型是:BOOL
-    @objc public static let NXRouterNeedLoginKey = "kRouterNeedLogin";
+    public static let NXRouterNeedLoginKey = "kRouterNeedLogin";
     
     ///是否需要导航控制器; 类型是:BOOL
-    @objc public static let NXRouterNeedNavigationKey = "kRouterNeedNavigation";
+    public static let NXRouterNeedNavigationKey = "kRouterNeedNavigation";
     
     ///限制窗体内容大小  类型是:NXPresentStyle
-    @objc public static let NXRouterContentStyleKey = "kRouterContentStyle";
+    public static let NXRouterContentStyleKey = "kRouterContentStyle";
     
     ///业务自定义的标记 类型是:NXRouterFlags  可以多位进行或 ,必须是按二进制移位
-    @objc public static let NXRouterFlagsKey = "kRouterFlags";
+    public static let NXRouterFlagsKey = "kRouterFlags";
     
 }
