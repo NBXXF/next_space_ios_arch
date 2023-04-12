@@ -76,7 +76,7 @@ private struct ColorPalette {
 
 }
 
-@objc protocol CornerRadiusSettable {
+@objc public protocol CornerRadiusSettable {
 
 	func customContainerViewSetCornerRadius(_ radius: CGFloat)
 
@@ -171,7 +171,7 @@ private struct ColorPalette {
 
     // MARK: Setup, CornerRadiusSettable
 
-	func customContainerViewSetCornerRadius(_ radius: CGFloat) {
+    public func customContainerViewSetCornerRadius(_ radius: CGFloat) {
 		containerView.layer.cornerRadius = radius
 	}
 
