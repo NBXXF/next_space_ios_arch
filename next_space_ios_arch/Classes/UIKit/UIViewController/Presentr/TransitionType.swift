@@ -17,22 +17,42 @@ import Foundation
 /// - coverHorizontalFromLeft: Slides in horizontally from left.
 /// - flipHorizontal: Flips new view horizontally.
 /// - custom: Custom transition animation provided by user.
-public enum TransitionType {
+@objcMembers open class TransitionType:NSObject {
+    public static let crossDissolve:TransitionType = TransitionType(type: .crossDissolve, anim: nil);
+    public static let coverVertical:TransitionType = TransitionType(type: .coverVertical, anim: nil);
+    public static let coverVerticalFromTop:TransitionType = TransitionType(type: .coverVerticalFromTop, anim: nil);
+    public static let coverHorizontalFromRight:TransitionType = TransitionType(type: .coverHorizontalFromRight, anim: nil);
+    public static let coverHorizontalFromLeft:TransitionType = TransitionType(type: .coverHorizontalFromLeft, anim: nil);
+    public static let flipHorizontal:TransitionType = TransitionType(type: .flipHorizontal, anim: nil);
+    
+    public static func coverFromCorner(corner:Corner)->TransitionType{
+        return TransitionType(corner: corner);
+    }
+    public static func custom(anim:PresentrAnimation)->TransitionType{
+        return TransitionType(type: .custom, anim: anim);
+    }
 
-    case crossDissolve
-    case coverVertical
-    case coverVerticalFromTop
-    case coverHorizontalFromRight
-    case coverHorizontalFromLeft
-    case flipHorizontal
-	case coverFromCorner(Corner)
-    case custom(PresentrAnimation)
 
+    let type:TransitionTypeEnum;
+    let anim:PresentrAnimation?;
+    let corner:Corner?;
+    
+    public init(type:TransitionTypeEnum,anim:PresentrAnimation?){
+        self.type = type;
+        self.anim = anim;
+        self.corner=nil;
+    }
+    
+    public init(corner:Corner){
+        self.type = .coverFromCorner;
+        self.anim = nil;
+        self.corner=corner;
+    }
     /// Associates a custom transition type to the class responsible for its animation.
     ///
     /// - Returns: PresentrAnimation subclass which conforms to 'UIViewControllerAnimatedTransitioning' to be used for the animation transition.
     func animation() -> PresentrAnimation {
-        switch self {
+        switch self.type {
         case .crossDissolve:
             return CrossDissolveAnimation()
         case .coverVertical:
@@ -43,13 +63,25 @@ public enum TransitionType {
             return CoverHorizontalAnimation(fromRight: true)
         case .coverHorizontalFromLeft:
             return CoverHorizontalAnimation(fromRight: false)
-		case .coverFromCorner(let corner):
-			return CoverFromCornerAnimation(corner: corner)
+		case .coverFromCorner:
+			return CoverFromCornerAnimation(corner: corner!)
         case .flipHorizontal:
             return FlipHorizontalAnimation()
-        case .custom(let animation):
-            return animation
+        case .custom:
+            return anim!
         }
     }
 
 }
+
+@objc public enum TransitionTypeEnum:Int {
+    case crossDissolve
+    case coverVertical
+    case coverVerticalFromTop
+    case coverHorizontalFromRight
+    case coverHorizontalFromLeft
+    case flipHorizontal
+    case coverFromCorner
+    case custom;
+}
+    
