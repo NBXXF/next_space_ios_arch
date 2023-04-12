@@ -179,35 +179,27 @@ class PresentrController: UIPresentationController, UIAdaptivePresentationContro
     }
     
     private func addDropShadow(shadow: PresentrShadow?) {
-        //解决阴影和圆角不能共存的问题
-            let shadowView:ShadowView=ShadowView();
-            //shadowView=presentedViewController.view;
-            guard let shadow = shadow else {
-                shadowView.layer.shadowOpacity = 0
-                return
-            }
+        guard let shadow = shadow else {
+            presentedViewController.view.layer.shadowOpacity = 0
+            return
+        }
 
-            if let shadowColor = shadow.shadowColor?.cgColor {
-                shadowView.layer.shadowColor = shadowColor
-            }
+        if let shadowColor = shadow.shadowColor?.cgColor {
+            presentedViewController.view.layer.shadowColor = shadowColor
+        }
 
-            if let shadowOpacity = shadow.shadowOpacity {
-                shadowView.layer.shadowOpacity = shadowOpacity
-            }
+        if let shadowOpacity = shadow.shadowOpacity {
+            presentedViewController.view.layer.shadowOpacity = shadowOpacity
+        }
 
-            if let shadowOffset = shadow.shadowOffset {
-                shadowView.layer.shadowOffset = shadowOffset
-            }
+        if let shadowOffset = shadow.shadowOffset {
+            presentedViewController.view.layer.shadowOffset = shadowOffset
+        }
 
-            if let shadowRadius = shadow.shadowRadius {
-                shadowView.layer.shadowRadius = shadowRadius
-            }
-            
-            if(shadowView != presentedViewController.view){
-                shadowView.clipsToBounds = false;
-                presentedViewController.view.insertSubview(shadowView, at: 0);
-            }
-     }
+        if let shadowRadius = shadow.shadowRadius {
+            presentedViewController.view.layer.shadowRadius = shadowRadius
+        }
+    }
     
     fileprivate func registerKeyboardObserver() {
         #if swift(>=4.2)
