@@ -26,4 +26,11 @@ import UIKit
         self.shadowRadius = shadowRadius
     }
 
+    public override init() {
+        //默认样子
+        self.shadowColor = UIColor.black;
+        self.shadowOpacity = 0.3
+        self.shadowOffset = CGSize(width: 0, height: 4)
+        self.shadowRadius = 10
+    }
 }
