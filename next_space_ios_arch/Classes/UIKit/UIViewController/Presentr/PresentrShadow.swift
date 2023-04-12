@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DynamicColor
 
 /// Helper struct that represents the shadow properties
 @objcMembers open class PresentrShadow:NSObject {
@@ -28,8 +27,9 @@ import DynamicColor
     }
 
     public override init() {
-        self.shadowColor = UIColor(hexString: "#000000").withAlphaComponent(0.3);
-        self.shadowOpacity = 1
+        //默认样子
+        self.shadowColor = UIColor.black;
+        self.shadowOpacity = 0.3
         self.shadowOffset = CGSize(width: 0, height: 4)
         self.shadowRadius = 10
     }

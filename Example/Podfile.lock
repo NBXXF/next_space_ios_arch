@@ -14,7 +14,6 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - DynamicColor (5.0.1)
   - JLRoutes (2.1)
   - Masonry (1.1.0)
   - MMKV (1.2.14):
@@ -22,7 +21,6 @@ PODS:
   - MMKVCore (1.2.14)
   - next_space_ios_arch (0.1.1):
     - AFNetworking
-    - DynamicColor
     - JLRoutes
     - Masonry
     - MMKV
@@ -44,7 +42,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
-    - DynamicColor
     - JLRoutes
     - Masonry
     - MMKV
@@ -61,12 +58,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
-  DynamicColor: d049834ef86d8ecf150b0ca1ebe54ee733a0ec22
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
-  next_space_ios_arch: 8841fc266172bab7b557e4ab55fc0ab6a44f43e8
+  next_space_ios_arch: d3e348590ed6f839e6441d09786e2ed29300ba82
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
