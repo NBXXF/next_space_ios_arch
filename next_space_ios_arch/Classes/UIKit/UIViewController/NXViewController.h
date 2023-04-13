@@ -26,6 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,copy) NXRouterResultCallback kRouterResultCallback;
 
+
+#if DEBUG
+@property(null_resettable, nonatomic,strong) UIView *view DEPRECATED_MSG_ATTRIBUTE("请使用contentView");
+#endif
+
+
 /**
  * 背景组件,一般弹窗用 或者业务 可以自定义背景 如 `UIImageView`, `UIVisualEffectView`
  * 内部处理insert at 0;
