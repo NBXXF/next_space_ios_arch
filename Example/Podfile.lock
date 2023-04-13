@@ -15,6 +15,10 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - JLRoutes (2.1)
+  - KVOMutableArray/Core (2.2.0)
+  - KVOMutableArray/ReactiveCocoaSupport (2.2.0):
+    - KVOMutableArray/Core
+    - ReactiveObjC
   - Masonry (1.1.0)
   - MMKV (1.2.14):
     - MMKVCore (~> 1.2.14)
@@ -22,6 +26,7 @@ PODS:
   - next_space_ios_arch (0.1.1):
     - AFNetworking
     - JLRoutes
+    - KVOMutableArray/ReactiveCocoaSupport
     - Masonry
     - MMKV
     - pop
@@ -43,6 +48,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - JLRoutes
+    - KVOMutableArray
     - Masonry
     - MMKV
     - MMKVCore
@@ -59,10 +65,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
+  KVOMutableArray: 53f2b2722c4c6dc370d3db016c1515cc2ff17738
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
-  next_space_ios_arch: d3e348590ed6f839e6441d09786e2ed29300ba82
+  next_space_ios_arch: 5457d092a0b66634e65960fab06f59ae96a10a88
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952

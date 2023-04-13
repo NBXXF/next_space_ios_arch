@@ -44,5 +44,5 @@ TODO: Add long description of the pod here.
  s.dependency 'YYModel'
  s.dependency 'YYCache'
  s.dependency 'pop'
- #s.dependency 'DynamicColor'
+ s.dependency "KVOMutableArray/ReactiveCocoaSupport" #可监听的数组
 end
