@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import <next_space_ios_arch/XXFConfigOption.h>
+//继承下去
+#import <KVOMutableArray/KVOMutableArray-umbrella.h>
 
 typedef NSString *_Nonnull(^NXUserIdProvider)(void);
 typedef NSString *_Nonnull(^NXAppGroupNameProvider)(void);
