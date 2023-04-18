@@ -682,7 +682,7 @@
 
 
 -(void)showModal{
-
+    UIPageViewController *s;
     
     [self.view endEditing:YES];
     UIViewController *popoverContent=[XXFHelperViewController new];

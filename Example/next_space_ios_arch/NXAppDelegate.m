@@ -102,6 +102,7 @@
     for(int i=0;i<100;i++){
         [arr addObject:[NSString stringWithFormat:@"%d",i]];
     }
+   NSError *se= [NSError errorWithDomain:@"x" code:1 userInfo:nil];
     
     CGFloat start=NSDate.date.timeIntervalSince1970*1000;
     for(int i=0;i<100;i++){
