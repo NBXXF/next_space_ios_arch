@@ -178,6 +178,8 @@
 #import "NXNavigationViewController.h"
 #import "NXUIComponentProtocol.h"
 #import "NXViewController.h"
+#import "NXPageViewControllerAdapter.h"
+#import "UIPageViewController+NXAdapter.h"
 #import "UIViewController+Lifecycle.h"
 #import "UIViewController+NXModal.h"
 #import "UIViewController+NXQuery.h"
