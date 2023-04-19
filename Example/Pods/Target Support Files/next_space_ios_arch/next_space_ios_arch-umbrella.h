@@ -159,6 +159,7 @@
 #import "UIScreen+NXTools.h"
 #import "NXTableListAdapter.h"
 #import "UITableView+NXAdapter.h"
+#import "NXAutoHeightTableView.h"
 #import "NXTableViewCell.h"
 #import "UITableView+NXRegister.h"
 #import "UIMenuController+Feedback.h"
