@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <MobileCoreServices/MobileCoreServices.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage(NXFile)
@@ -33,6 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
                 options:(NSDataWritingOptions)writeOptionsMask
                   error:(NSError **)errorPtr
      compressionQuality:(CGFloat)compressionQuality;
+
+/**
+ 最高效的一种方式,尤其是对大图片有好处
+ UIImagePNGRepresentation 会导致内存与CPU暴涨
+ @param fileType 参考系统api 有 kUTTypeJPEG, kUTTypePNG
+ */
+-(BOOL)writeToFile:(NSString *)path fileType:(CFStringRef)fileType;
+
 
 /**
  转data

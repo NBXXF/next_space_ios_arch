@@ -62,6 +62,26 @@ CGFloat radiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     return result;
 }
 
+/**
+ 最高效的一种方式,尤其是对大图片有好处
+ UIImagePNGRepresentation 会导致内存与CPU暴涨
+ @param fileType 参考系统api 有 kUTTypeJPEG, kUTTypePNG
+ */
+-(BOOL)writeToFile:(NSString *)path fileType:(CFStringRef)fileType{
+    @try {
+        NSURL *tmpURL = [NSURL fileURLWithPath:path];
+        CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef)tmpURL, fileType, 1, nil);
+        CGImageDestinationAddImage(destination, self.CGImage, nil);
+        CGImageDestinationFinalize(destination);
+        return YES;
+    } @catch (NSObject *exception) {
+        return NO;
+    }
+}
+
+
+
+
 - (NSData *)toPNGData{
     return UIImagePNGRepresentation(self);
 }
