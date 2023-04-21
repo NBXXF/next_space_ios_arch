@@ -73,6 +73,7 @@ CGFloat radiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef)tmpURL, fileType, 1, nil);
         CGImageDestinationAddImage(destination, self.CGImage, nil);
         CGImageDestinationFinalize(destination);
+        CFRelease(destination);
         return YES;
     } @catch (NSObject *exception) {
         return NO;
