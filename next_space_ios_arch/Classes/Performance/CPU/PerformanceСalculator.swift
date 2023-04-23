@@ -150,6 +150,7 @@ extension PerformanceCalculator {
         return total;
     }
     
+    
     @objc public static func memoryUsed() -> UInt64 {
         var taskInfo = task_vm_info_data_t()
         var count = mach_msg_type_number_t(MemoryLayout<task_vm_info>.size) / 4
@@ -165,6 +166,12 @@ extension PerformanceCalculator {
         }
         return used;
     }
+    
+    
+    @objc public static func memoryAvailable() -> UInt64 {
+        return max(self.memoryTotal()-self.memoryUsed(),0);
+    }
+   
 }
 
 // MARK: Configurations
