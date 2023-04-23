@@ -25,7 +25,7 @@ import QuartzCore
 // MARK: Class Definition
 
 /// Performance calculator. Uses CADisplayLink to count FPS. Also counts CPU and memory usage.
-internal class PerformanceCalculator {
+@objc public class PerformanceCalculator:NSObject {
     
     // MARK: Structs
     
@@ -46,7 +46,8 @@ internal class PerformanceCalculator {
     
     // MARK: Init Methods & Superclass Overriders
     
-    required internal init() {
+    public required override init() {
+        super.init()
         self.configureDisplayLink()
     }
 }
@@ -79,8 +80,8 @@ private extension PerformanceCalculator {
 
 // MARK: Monitoring
 
-private extension PerformanceCalculator {
-    func takePerformanceEvidence() {
+extension PerformanceCalculator {
+    internal func takePerformanceEvidence() {
         if self.accumulatedInformationIsEnough {
             let cpuUsage = self.cpuUsage()
             let fps = self.linkedFramesList.count
@@ -91,7 +92,7 @@ private extension PerformanceCalculator {
         }
     }
     
-    func cpuUsage() -> Double {
+   @objc public func cpuUsage() -> Double {
         var totalUsageOfCPU: Double = 0.0
         var threadsList: thread_act_array_t?
         var threadsCount = mach_msg_type_number_t(0)
@@ -142,6 +143,27 @@ private extension PerformanceCalculator {
         
         let total = ProcessInfo.processInfo.physicalMemory
         return (used, total)
+    }
+    
+    @objc public static func memoryTotal() -> UInt64 {
+        let total = ProcessInfo.processInfo.physicalMemory
+        return total;
+    }
+    
+    @objc public static func memoryUsed() -> UInt64 {
+        var taskInfo = task_vm_info_data_t()
+        var count = mach_msg_type_number_t(MemoryLayout<task_vm_info>.size) / 4
+        let result: kern_return_t = withUnsafeMutablePointer(to: &taskInfo) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
+                task_info(mach_task_self_, task_flavor_t(TASK_VM_INFO), $0, &count)
+            }
+        }
+        
+        var used: UInt64 = 0
+        if result == KERN_SUCCESS {
+            used = UInt64(taskInfo.phys_footprint)
+        }
+        return used;
     }
 }
 
