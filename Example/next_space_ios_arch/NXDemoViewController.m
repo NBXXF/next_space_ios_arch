@@ -104,6 +104,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+
+    
     NSLog(@"===========>used:%lld  total:%lld", [PerformanceCalculator  memoryUsed]/1024/1204,
           [PerformanceCalculator  memoryTotal]/1024/1024);
     

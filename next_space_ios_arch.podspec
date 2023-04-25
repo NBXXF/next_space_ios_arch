@@ -45,4 +45,5 @@ TODO: Add long description of the pod here.
  s.dependency 'YYCache'
  s.dependency 'pop'
  s.dependency "KVOMutableArray/ReactiveCocoaSupport" #可监听的数组
+ s.dependency 'Tiercel' #下载框架
 end

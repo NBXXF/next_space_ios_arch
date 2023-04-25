@@ -31,10 +31,12 @@ PODS:
     - MMKV
     - pop
     - ReactiveObjC (~> 3.1.1)
+    - Tiercel
     - YYCache
     - YYModel
   - pop (1.0.12)
   - ReactiveObjC (3.1.1)
+  - Tiercel (3.2.5)
   - YYCache (1.0.4)
   - YYModel (1.0.4)
   - YYText (1.0.7)
@@ -54,6 +56,7 @@ SPEC REPOS:
     - MMKVCore
     - pop
     - ReactiveObjC
+    - Tiercel
     - YYCache
     - YYModel
     - YYText
@@ -69,9 +72,10 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
-  next_space_ios_arch: 5457d092a0b66634e65960fab06f59ae96a10a88
+  next_space_ios_arch: 59ef5d38fab75d19753c5384ec7432a2db09492f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  Tiercel: c0a73f876a72800333b15f4e7e48791f4ad21e90
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
