@@ -29,7 +29,7 @@
 
 - (BOOL)createPathDirectoryAtPath:(NSString *)path withIntermediateDirectories:(BOOL)createIntermediates attributes:(NSDictionary<NSFileAttributeKey,id> *)attributes error:(NSError *__autoreleasing  _Nullable *)error{
     NSString *dir=[path pathDirectory];
-    if([self fileExistsAtPath:dir]){
+    if(![self fileExistsAtPath:dir]){
         return [self createDirectoryAtPath:dir withIntermediateDirectories:createIntermediates attributes:attributes error:error];
     }
     return YES;
