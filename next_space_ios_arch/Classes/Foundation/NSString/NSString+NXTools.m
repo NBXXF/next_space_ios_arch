@@ -6,6 +6,7 @@
 //
 
 #import "NSString+NXTools.h"
+#import <next_space_ios_arch/StringUtils.h>
 
 @implementation NSString(NXTools)
 
@@ -24,6 +25,13 @@
         return [self substringFromIndex:range.location+range.length];
     }
     //系统componentsSeparatedByString 如果查询不到 会返回原始字符串
+    return self;
+}
+
+- (NSString *)pathDirectory{
+    if(!IsStrEmpty(self.pathExtension)){
+        return [self stringByDeletingLastPathComponent];
+    }
     return self;
 }
 

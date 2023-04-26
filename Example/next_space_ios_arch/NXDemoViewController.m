@@ -104,10 +104,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSString *s=[NSFileManager externalDocDir];
-    BOOL c= [NSFileManager.defaultManager createFileAtPath:[s stringByAppendingPathComponent:@"asdt.txt"] contents:@"ss".nx_dataValue attributes:nil];
-    NSData *data= [NXParent.new yy_modelToJSONData];
-    c= [NSFileManager.defaultManager createFileAtPath:[s stringByAppendingPathComponent:@"xxx.doc"] contents:data attributes:nil];
+   NSString *a= [NSFileManager.externalDocDir stringByAppendingPathComponent:@"aaaa/a.txt"];
+    NSString *b= [NSFileManager.externalDocDir stringByAppendingPathComponent:@"sgsfg/dshghds/"];
+    BOOL as=  [NSFileManager.defaultManager createPathDirectoryAtPath:b withIntermediateDirectories:YES attributes:nil error:nil];
     NSLog(@"===========>dir:externalDocDir:%@",[NSFileManager externalDocDir]);
     NSLog(@"===========>dir:docDir:%@",[NSFileManager docDir]);
     NSLog(@"===========>dir:cachesDir:%@",[NSFileManager cachesDir]);

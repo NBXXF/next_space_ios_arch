@@ -26,6 +26,7 @@
 #import "NSMutableDictionary+NXTools.h"
 #import "NSError+NXTools.h"
 #import "NSFileManager+NXPath.h"
+#import "NSFileManager+NXTools.h"
 #import "NXArchive.h"
 #import "NXPath.h"
 #import "NXPermissionResult.h"

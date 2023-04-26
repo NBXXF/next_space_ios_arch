@@ -23,6 +23,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(NSString *__nullable)lastComponentSeparatedByString:(NSString *)separator;
 
+/**
+ 路径
+ "/xx/x/a.txt"-> "/xx/x/"
+ "/xx/x/"-> "/xx/x/"
+ */
+@property(nonatomic,copy,readonly)NSString *pathDirectory;
+
 @end
 
 NS_ASSUME_NONNULL_END
