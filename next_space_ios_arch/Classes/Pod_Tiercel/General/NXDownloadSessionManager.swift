@@ -65,7 +65,6 @@ import Tiercel
 
     public init(identifier: String,
                             configuration: NXDownloadSessionConfiguration,
-                downloadPath:String,
                             operationQueue: DispatchQueue) {
         self.identifier = identifier
         self.operationQueue = operationQueue
@@ -77,7 +76,6 @@ import Tiercel
         let bundleIdentifier = Bundle.main.bundleIdentifier ?? "com.Daniels.Tiercel"
         sessionManager = SessionManager(identifier, configuration: config,
 //                                        logger: Logger(identifier: "\(bundleIdentifier).\(identifier)", option: .none),
-                                        cache: Cache(identifier,downloadPath: downloadPath),
                                         operationQueue: operationQueue)
         self.configuration.sessionManager = sessionManager
         cache = NXDownloadCache(cache: sessionManager.cache)
@@ -87,13 +85,8 @@ import Tiercel
     }
 
     public convenience init(identifier: String,
-                            configuration: NXDownloadSessionConfiguration,
-                            downloadPath:String) {
-        self.init(identifier: identifier,
-                  configuration: configuration,
-                  downloadPath: downloadPath,
-                  operationQueue: DispatchQueue(label: "com.Tiercel.SessionManager.operationQueue")
-       )
+                            configuration: NXDownloadSessionConfiguration) {
+        self.init(identifier: identifier, configuration: configuration, operationQueue: DispatchQueue(label: "com.Tiercel.SessionManager.operationQueue"))
     }
     
     public func invalidate() {
