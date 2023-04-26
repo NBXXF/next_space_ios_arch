@@ -8,6 +8,7 @@
 #import "NSFileManager+NXPath.h"
 
 @implementation NSFileManager(NXPath)
+
 + (NSString *)externalDocDir{
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 }
