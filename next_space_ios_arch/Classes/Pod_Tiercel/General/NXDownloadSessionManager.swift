@@ -97,6 +97,11 @@ import Tiercel
     public func download(url: NXDownloadURLConvertible,
                          headers: [String: String]?,
                          fileName: String?) -> NXDownloadDownloadTask? {
+        //创建目录,支持fileName 支持子文件夹路径
+        if((fileName?.count)! > 0){
+            let fullPath = (cache.downloadFilePath as NSString).appendingPathComponent(fileName!)
+            try? FileManager.default.createPathDirectory(atPath: fullPath, withIntermediateDirectories: true);
+        }
         if let downloadTask = sessionManager.download(asURLConvertible(url), headers: headers, fileName: fileName) {
             let convertDownloadTask = NXDownloadDownloadTask(downloadTask)
             tasks.append(convertDownloadTask)
@@ -118,6 +123,14 @@ import Tiercel
     public func multiDownload(urls: [NXDownloadURLConvertible],
                               headers: [[String: String]]?,
                               fileNames: [String]?) -> [NXDownloadDownloadTask] {
+        //创建目录,支持fileName 支持子文件夹路径
+        if(fileNames != nil){
+            for fileName in fileNames!{
+                let fullPath = (cache.downloadFilePath as NSString).appendingPathComponent(fileName)
+                try? FileManager.default.createPathDirectory(atPath: fullPath, withIntermediateDirectories: true);
+            }
+        }
+
         let convertURLs = urls.map { asURLConvertible($0) }
         let downloadTasks = sessionManager.multiDownload(convertURLs,headersArray: headers,fileNames: fileNames)
         let convertDownloadTasks = downloadTasks.map { NXDownloadDownloadTask($0) }
