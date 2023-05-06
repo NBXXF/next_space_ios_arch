@@ -76,7 +76,17 @@ import UIKit
         } else if vX < 0.0 {
             targetIndex -= 1
         }else if vX == 0 {
-            return lastPoint
+            // 没有速度时根据当前中心点位置决定停在哪一页 5.6日修改
+            let currentPage = currentCenteredPage
+            if let target = layoutAttributes.firstIndex { attr in
+                attr.indexPath.row == currentPage
+            } {
+                targetIndex = target
+            } else {
+                return lastPoint
+            }
+            
+//            return lastPoint
         }
         
         if targetIndex >= layoutAttributes.count {
