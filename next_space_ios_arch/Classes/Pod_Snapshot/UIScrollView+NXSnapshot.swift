@@ -62,12 +62,15 @@ extension UIScrollView {
         if self.bounds.height <= 0 {
             pageNum = 1
         }else if self.contentSize.height > self.bounds.height {
-            pageNum = Int(floorf(Float(self.contentSize.height / self.bounds.height)))
+            pageNum = Int(ceilf(Float(self.contentSize.height / self.bounds.height)))
         }
 
+        let maxPage=min(pageNum,maxPage);
+        
         let backgroundColor = self.backgroundColor ?? UIColor.white
 
-        UIGraphicsBeginImageContextWithOptions(self.contentSize, true, 0)
+        let cropRect=CGSizeMake(self.contentSize.width, min(self.contentSize.height,CGFloat(maxPage) * self.bounds.height))
+        UIGraphicsBeginImageContextWithOptions(cropRect, true, 0)
 
         guard let context = UIGraphicsGetCurrentContext() else {
             completion(nil)
@@ -76,7 +79,7 @@ extension UIScrollView {
         context.setFillColor(backgroundColor.cgColor)
         context.setStrokeColor(backgroundColor.cgColor)
 
-        self.nx_drawScreenshotOfPageContent(0, maxIndex: max(1,min(pageNum,maxPage))) {
+        self.nx_drawScreenshotOfPageContent(0, maxIndex: maxPage-1) {
             var image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             self.contentOffset = originalOffset
