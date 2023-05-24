@@ -69,7 +69,8 @@ extension UIScrollView {
         
         let backgroundColor = self.backgroundColor ?? UIColor.white
 
-        let cropRect=CGSizeMake(self.contentSize.width, min(self.contentSize.height,CGFloat(maxPage) * self.bounds.height))
+        
+        let cropRect=CGSize(width: self.contentSize.width, height: min(self.contentSize.height,CGFloat(maxPage) * self.bounds.height));
         UIGraphicsBeginImageContextWithOptions(cropRect, true, 0)
 
         guard let context = UIGraphicsGetCurrentContext() else {
