@@ -23,6 +23,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [RACScheduler.scheduler schedule:^{
+        NSLog(@"===========>执行线程%@",NSThread.currentThread);
+        [[RACScheduler scheduler:YES] schedule:^{
+            NSLog(@"===========>执行线程复用%@",NSThread.currentThread);
+        }];
+    }];
+  
+    
     NSString *a=[NSString stringWithFormat:@"%@",@"x"];
     NSString *b=@"x";
     BOOL ab=a==b;

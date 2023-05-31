@@ -9,6 +9,15 @@
 
 @implementation RACScheduler(AppArch)
 
++ (RACScheduler *)scheduler:(BOOL)inheritContext{
+    if(inheritContext&&!NSThread.isMainThread){
+        return RACScheduler.currentScheduler;
+    }else{
+        return RACScheduler.scheduler;
+    }
+}
+
+
 + (RACDisposable *)afterInMainThreadScheduler:(NSDate *)date schedule:(void (^)(void))block{
     return  [[RACScheduler mainThreadScheduler] after:date schedule:block];
 }

@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RACScheduler(AppArch)
 
 /**
+ @param inheritContext 代表是否继承上文的子线程  如果上文是子线程 那么还是在那个子线程
+ */
++ (RACScheduler *)scheduler:(BOOL)inheritContext;
+
+/**
  延迟任务,支持取消
  其他线程 可以参考RACScheduler成员方法
  [[RACScheduler xxxScheduler] afterDelay:1 schedule:^{
